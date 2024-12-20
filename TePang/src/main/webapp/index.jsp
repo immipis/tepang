@@ -49,7 +49,7 @@
 						안녕하세요
 					</div>
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="../tepanglogin.do" class="flex-c-m trans-04 p-lr-25">
 							Sign In
 						</a>
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
