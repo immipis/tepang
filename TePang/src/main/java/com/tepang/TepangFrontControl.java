@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.tepang.common.Control;
+
+import com.tepang.control.MainControl;
+
 import com.tepang.control.ProductDetailControl;
 
 import com.tepang.control.CartListControl;
@@ -24,6 +27,7 @@ import com.tepang.control.TepangLogoutControl;
 
 public class TepangFrontControl extends HttpServlet {
 
+
 	Map<String, Control> map;
 
 	public TepangFrontControl() {
@@ -32,6 +36,9 @@ public class TepangFrontControl extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
+
+		map.put("/mainList.do",new MainControl()); //목록
+
 		map.put("/product-detail.do", new ProductDetailControl());
 		map.put("/cartList.do", new CartListControl());
 
@@ -42,6 +49,7 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/tepnagloginForm.do", new TepangLoginFormControl());
 		map.put("/tepanglogin.do", new TepangLoginControl());
 		map.put("/tepanglogout.do/", new TepangLogoutControl());
+
 
 	}
 
