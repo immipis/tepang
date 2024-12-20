@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.tepang.common.Control;
+import com.tepang.control.TepangLoginControl;
+import com.tepang.control.TepangLoginFormControl;
+import com.tepang.control.TepangLogoutControl;
 
 public class TepangFrontControl extends HttpServlet{
 	Map<String, Control> map;
@@ -21,7 +24,10 @@ public class TepangFrontControl extends HttpServlet{
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		
+		//로그인 및 로그아웃
+		map.put("/tepnagloginForm.do", new TepangLoginFormControl());
+		map.put("/tepanglogin.do", new TepangLoginControl());
+		map.put("/tepanglogout.do/", new TepangLogoutControl());
 		
 	}
 	
