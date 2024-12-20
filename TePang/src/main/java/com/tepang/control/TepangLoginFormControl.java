@@ -13,7 +13,7 @@ public class TepangLoginFormControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		req.getRequestDispatcher("WEB-INF/html/loginForm.jsp").forward(req, resp);
+		req.getRequestDispatcher("WEB-INF/html/tepanglogin.jsp").forward(req, resp);
 
 	}
 

@@ -23,7 +23,7 @@ public class TepangLoginControl implements Control {
 		
 		if (tdao.login(id, pw) != null) { 
 			HttpSession session = req.getSession();
-			session.setAttribute("logId", id); 
+			session.setAttribute("member_id", id); 
 			
 			
 			resp.sendRedirect("boardList.do");
