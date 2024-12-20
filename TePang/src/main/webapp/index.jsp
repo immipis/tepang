@@ -49,14 +49,14 @@
 						안녕하세요
 					</div>
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="../tepanglogin.do" class="flex-c-m trans-04 p-lr-25">
 							Sign In
 						</a>
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							Sign Up
 						</a>
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							Help & FAQs
+						<a href="../boardList.do" class="flex-c-m trans-04 p-lr-25">
+							Board
 						</a>
 					</div>
 				</div>
@@ -131,7 +131,7 @@
 					</div>
 
 					<div class="header-cart-buttons flex-w w-full">
-						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+						<a href="cartList.do" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
 							장바구니로
 						</a>
 						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
