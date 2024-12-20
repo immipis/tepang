@@ -7,19 +7,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.tepang.common.Control;
+import com.tepang.jdbc.MainDAO;
 
-public class BoardListControl implements Control {
+public class MainControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		String page = req.getParameter("page");
-		page = page == null ? "1" : page;
-		
-		
-		
-		//요청재지정.
-		req.getRequestDispatcher("WEB-INF/html/boardList.jsp").forward(req, resp);
+		// TODO Auto-generated method stub
+		MainDAO mdao = new MainDAO();
+		req.setAttribute("products", mdao.addpList("user01"));
+		req.getRequestDispatcher("WEB-INF/html/main.jsp").forward(req, resp);
+
 	}
 
 }
