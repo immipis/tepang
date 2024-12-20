@@ -14,18 +14,6 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file> 
   </welcome-file-list>
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
-  <display-name>TePang</display-name>
-  <servlet>
-    <servlet-name>front</servlet-name>
-    <servlet-class>com.tepang.TepangFrontControl</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>front</servlet-name>
-    <url-pattern>*.do</url-pattern>
-  </servlet-mapping>
   
   
 </web-app>
