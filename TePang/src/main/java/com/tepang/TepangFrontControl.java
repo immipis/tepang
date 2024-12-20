@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.tepang.common.Control;
+import com.tepang.control.BoardControl;
+import com.tepang.control.BoardListControl;
 
 public class TepangFrontControl extends HttpServlet{
 	Map<String, Control> map;
@@ -21,8 +23,8 @@ public class TepangFrontControl extends HttpServlet{
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		
-		
+		map.put("/boardList.do", new BoardListControl()); // 게시판목록
+		map.put("/board.do", new BoardControl()); //게시판목록 > 상세
 	}
 	
 	@Override

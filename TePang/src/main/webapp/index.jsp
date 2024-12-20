@@ -55,8 +55,8 @@
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							Sign Up
 						</a>
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							Help & FAQs
+						<a href="../boardList.do" class="flex-c-m trans-04 p-lr-25">
+							Board
 						</a>
 					</div>
 				</div>
