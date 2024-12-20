@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.tepang.common.Control;
+import com.tepang.control.CartFormControl;
+import com.tepang.control.CartListControl;
 
 public class TepangFrontControl extends HttpServlet{
 	Map<String, Control> map;
@@ -21,13 +23,13 @@ public class TepangFrontControl extends HttpServlet{
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		
-		
+		map.put("/cartList.do", new CartListControl());
 	}
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// http://localhost:80/BoardWeb/boardList.do
+		System.out.println("12351565");
 		String uri = req.getRequestURI();
 		System.out.println(uri);
 		String context = req.getContextPath();
