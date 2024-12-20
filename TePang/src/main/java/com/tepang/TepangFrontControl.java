@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.tepang.common.Control;
+import com.tepang.control.MainControl;
 
 public class TepangFrontControl extends HttpServlet{
 	Map<String, Control> map;
@@ -21,8 +22,7 @@ public class TepangFrontControl extends HttpServlet{
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		
-		
+		map.put("/mainList.do",new MainControl()); //목록
 	}
 	
 	@Override
