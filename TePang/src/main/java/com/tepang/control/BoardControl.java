@@ -13,7 +13,8 @@ public class BoardControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-
+		//요청재지정.
+		req.getRequestDispatcher("WEB-INF/html/boardList.jsp").forward(req, resp);
 	}
 
 }
