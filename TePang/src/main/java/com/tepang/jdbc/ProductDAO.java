@@ -26,12 +26,12 @@ public class ProductDAO extends DAO {
 				pvo.setProductImg(rs.getString("product_Img"));
 				pvo.setProductDetImg(rs.getString("product_DetImg"));
 				pvo.setProductStock(rs.getInt("product_Stock"));
-				
+
 				return pvo;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			disConnect();
 		}
 		return null;
@@ -43,7 +43,7 @@ public class ProductDAO extends DAO {
 		String sql = "insert into tbl_product"
 				+ "   (product_code, product_detail, product_name, product_price, product_Img, product_detimg, product_stock, category)"
 				+ "   values(product_seq.nextval,?,?,?,?,?,?,? )";
-		
+
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, product.getCategory());
@@ -54,16 +54,15 @@ public class ProductDAO extends DAO {
 			psmt.setString(6, product.getProductDetImg());
 			psmt.setInt(7, product.getProductStock());
 			int r = psmt.executeUpdate();
-			if(r > 0) {
+			if (r > 0) {
 				return true;
 			}
-		}catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			disConnect();
 		}
 		return false;
 	}
-	
-	
+
 }

@@ -22,9 +22,9 @@
 		</plugins>
 	</build>
 
-
 	<dependencies>
 		<!-- maven repository 정보 등록. -->
+
 		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc10 -->
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
@@ -38,7 +38,7 @@
 			<version>1.18.36</version>
 			<scope>provided</scope>
 		</dependency>
-		<!--http://java.sun.com/jsp/jstl/core-->
+
 		<dependency>
 			<groupId>org.apache.taglibs</groupId>
 			<artifactId>taglibs-standard-spec</artifactId>
@@ -61,6 +61,7 @@
 			<artifactId>gson</artifactId>
 			<version>2.11.0</version>
 		</dependency>
+
 	</dependencies>
 
 </project>
