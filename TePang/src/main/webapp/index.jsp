@@ -10,6 +10,5 @@
 
 <body>
 	<jsp:forward page="mainList.do"></jsp:forward>
-
 </body>
 </html>
