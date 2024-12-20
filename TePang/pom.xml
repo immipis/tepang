@@ -19,7 +19,6 @@
       </plugin>
     </plugins>
   </build>
-  
   <dependencies>
 		<!-- maven repository 정보 등록. -->
 		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc10 -->
@@ -35,6 +34,7 @@
 			<version>1.18.36</version>
 			<scope>provided</scope>
 		</dependency>
+    
 		<dependency>
 			<groupId>org.apache.taglibs</groupId>
 			<artifactId>taglibs-standard-spec</artifactId>

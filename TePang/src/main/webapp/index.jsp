@@ -49,7 +49,7 @@
 						안녕하세요
 					</div>
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="../tepanglogin.do" class="flex-c-m trans-04 p-lr-25">
 							Sign In
 						</a>
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
@@ -154,13 +154,13 @@
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
 								<span class="ltext-101 cl2 respon2">
-									음식
+									Chicken
 								</span>
 							</div>
 								
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
 								<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
-									새로운음식
+									The Best Food
 								</h2>
 							</div>
 								
