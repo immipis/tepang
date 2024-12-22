@@ -45,12 +45,9 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
 		map.put("/board.do", new BoardControl()); // 게시판목록 > 상세
 		// 로그인 및 로그아웃
-
 		map.put("/tepnagloginForm.do", new TepangLoginFormControl());
 		map.put("/tepanglogin.do", new TepangLoginControl());
 		map.put("/tepanglogout.do/", new TepangLogoutControl());
-
-
 	}
 
 	@Override
