@@ -26,7 +26,7 @@ public class TepangLoginControl implements Control {
 			session.setAttribute("member_id", id); 
 			
 			
-			resp.sendRedirect("boardList.do");
+			resp.sendRedirect("mainList.do");
 		}else {
 			resp.sendRedirect("tepnagloginForm.do");
 		}

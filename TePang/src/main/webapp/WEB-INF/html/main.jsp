@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,10 +49,10 @@
 						안녕하세요
 					</div>
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="tepanglogin.do" class="flex-c-m trans-04 p-lr-25">
 							Sign In
 						</a>
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="tepangsingup.do" class="flex-c-m trans-04 p-lr-25">
 							Sign Up
 						</a>
 						<a href="#" class="flex-c-m trans-04 p-lr-25">

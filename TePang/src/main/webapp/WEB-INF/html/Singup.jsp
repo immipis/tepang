@@ -47,7 +47,7 @@
 			<!-- Topbar -->
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">TEPANG Login Page</div>
+					<div class="left-top-bar">TEPANG Signup Page</div>
 
 
 				</div>
@@ -57,15 +57,15 @@
 				<nav class="limiter-menu-desktop container">
 
 					<!-- Logo desktop -->
-					<a href="#" class="logo"> <img src="images/icons/logo-01.png"
-						alt="IMG-LOGO">
+					<a href="mainList.do" class="logo"> <img
+						src="images/icons/logo-01.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
 
 
 					<!-- Icon header -->
-					
+
 				</nav>
 			</div>
 		</div>
@@ -108,14 +108,14 @@
 		<!-- Menu Mobile -->
 		<
 		<!-- Modal Search -->
-		
+
 	</header>
 
 
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92"
 		style="background-image: url('images/bg-01.jpg');">
-		<h2 class="ltext-105 cl0 txt-center">TEPANG Login</h2>
+		<h2 class="ltext-105 cl0 txt-center">TEPANG Signup</h2>
 	</section>
 
 
@@ -126,75 +126,51 @@
 				<div
 					class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
 					<form action="tepanglogin.do" method="post">
-						<h4 class="mtext-105 cl2 txt-center p-b-30">Login
-						</h4>
+						<h4 class="mtext-105 cl2 txt-center p-b-30">Signup</h4>
 
-						
-							<table class="table">
-								<tr>
-									<th>ID</th>
-									<td><input type="text" class="form-control" name="id"></td>
-								</tr>
-								<tr>
-									<th>Password</th>
-									<td><input type="password" class="form-control" name="pw"></td>
-								</tr>
-								<tr>
-									<td colspan="2" align="center"></td>
-								</tr>
-							</table>
-						</form>
+					</form>
 
-						<button
-							class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
-							<a href="/mainList.do"></a>
-							Login</button>
-						<button
-							class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
-							<a href=""></a>
-							Sing Up</button>
+					<tr>
+						<th>ID</th>
+						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
+					</tr>
+					<tr>
+						<th>Password</th>
+						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="pw" type="text" ></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
+					</tr>
+					<tr>
+						<th>Phone</th>
+						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
+					</tr>
+					<tr>
+						<th>Address</th>
+						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
+					</tr>
+					<tr>
+						<th>BirthDay</th>
+						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="date" ></td>
+					</tr>
+					<tr>
+						<th>Gender</th>
+						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
+					</tr>
+					<tr>
+						<th>Favorite</th>
+						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><input type="submit" href="tepanglogin.do"
+							class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"  value="singup"> SingUp</td>
+					</tr>
+					
 					</form>
 				</div>
 
-				<div
-					class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
-					<div class="flex-w w-full p-b-42">
-						<span class="fs-18 cl5 txt-center size-211"> <span
-							class="lnr lnr-map-marker"></span>
-						</span>
-
-						<div class="size-212 p-t-2">
-							<span class="mtext-110 cl2"> Address </span>
-
-							<p class="stext-115 cl6 size-213 p-t-18">Tepang Store 403,
-								Jungang-daero, Jung-gu, Daegu, Republic of Korea</p>
-						</div>
-					</div>
-
-					<div class="flex-w w-full p-b-42">
-						<span class="fs-18 cl5 txt-center size-211"> <span
-							class="lnr lnr-phone-handset"></span>
-						</span>
-
-						<div class="size-212 p-t-2">
-							<span class="mtext-110 cl2"> tell </span>
-
-							<p class="stext-115 cl1 size-213 p-t-18">053-421-2460</p>
-						</div>
-					</div>
-
-					<div class="flex-w w-full">
-						<span class="fs-18 cl5 txt-center size-211"> <span
-							class="lnr lnr-envelope"></span>
-						</span>
-
-						<div class="size-212 p-t-2">
-							<span class="mtext-110 cl2"> mail </span>
-
-							<p class="stext-115 cl1 size-213 p-t-18">Tepang@master.com</p>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</section>
@@ -203,8 +179,9 @@
 	<!-- Map -->
 	<div class="map">
 		<div class="size-303" id="google_map" data-map-x="35.86923684765542"
-			data-map-y="128.5927047090995" data-pin="images/icons/pin.png" 
-			data-scrollwhell="0" data-draggable="1" data-zoom="11"></div> <!-- 좌표 -->
+			data-map-y="128.5927047090995" data-pin="images/icons/pin.png"
+			data-scrollwhell="0" data-draggable="1" data-zoom="11"></div>
+		<!-- 좌표 -->
 	</div>
 
 
@@ -212,7 +189,7 @@
 	<!-- Footer -->
 	<footer class="bg3 p-t-75 p-b-32">
 		<div class="container">
-			
+
 
 			<div class="p-t-40">
 				<div class="flex-c-m flex-w p-b-18">
