@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import com.tepang.common.DAO;
 
 
-public class tePangDAO extends DAO {
+public class TePangDAO extends DAO {
 	
 	public String login(String id, String pw) {
 		getConn();

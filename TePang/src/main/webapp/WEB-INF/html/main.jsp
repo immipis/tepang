@@ -85,7 +85,7 @@
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</div>
 
-						<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="9654">
+						<a href="./myPage.do" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="my">
 							<i class="zmdi zmdi-favorite-outline"></i>
 						</a>
 					</div>
@@ -222,7 +222,6 @@
 			</div>
 		</div>
 	</section>
-
 	<!-- Banner -->
 	<div class="sec-banner bg0 p-t-80 p-b-50">
 		<div class="container">
@@ -242,7 +241,6 @@
 									음식
 								</span>
 							</div>
-
 							<div class="block1-txt-child2 p-b-4 trans-05">
 								<div class="block1-link stext-101 cl0 trans-09">
 									Shop Now
@@ -301,8 +299,7 @@
 						</a>
 					</div>
 				</div>
-				
-								<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
 					<!-- Block1 -->
 					<div class="block1 wrap-pic-w">
 						<img src="images/banner-04.jpg" alt="IMG-BANNER">
