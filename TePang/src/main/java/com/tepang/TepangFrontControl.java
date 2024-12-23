@@ -15,6 +15,7 @@ import com.tepang.control.BoardControl;
 import com.tepang.control.BoardListControl;
 import com.tepang.control.CartListControl;
 import com.tepang.control.MainControl;
+import com.tepang.control.MainPvControl;
 import com.tepang.control.MyPageBoardControl;
 import com.tepang.control.ProductDetailControl;
 import com.tepang.control.ProductListControl;
@@ -36,9 +37,10 @@ public class TepangFrontControl extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 
 		map.put("/mainList.do", new MainControl());
+		map.put("/mainFvList.do", new MainPvControl());
 		map.put("/productList.do", new ProductListControl());
 		map.put("/productCategoryList.do", new productCategoryListControl());
-    map.put("/myPage.do", new MyPageBoardControl());
+		map.put("/myPage.do", new MyPageBoardControl());
 		map.put("/product-detail.do", new ProductDetailControl());
 		map.put("/cartList.do", new CartListControl());
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
