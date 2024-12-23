@@ -22,6 +22,7 @@ import com.tepang.control.TepangLogoutControl;
 
 public class TepangFrontControl extends HttpServlet {
 
+
 	Map<String, Control> map;
 
 	public TepangFrontControl() {
@@ -31,29 +32,30 @@ public class TepangFrontControl extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 
+<<<<<<< HEAD
 		map.put("/mainList.do", new MainControl()); // 목록
 		map.put("/productDetail.do", new ProductDetailControl());
+=======
+		map.put("/myPage.do", new MyPageBoardControl());
+		map.put("/mainList.do",new MainControl()); //목록
+		map.put("/product-detail.do", new ProductDetailControl());
+>>>>>>> refs/heads/main
 		map.put("/cartList.do", new CartListControl());
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
 		map.put("/board.do", new BoardControl()); // 게시판목록 > 상세
 		// 로그인 및 로그아웃
-
-		// 마이페이지
-		map.put("/myPage.do", new MyPageBoardControl());
-
 		map.put("/tepnagloginForm.do", new TepangLoginFormControl());
 		map.put("/tepanglogin.do", new TepangLoginControl());
-
 		map.put("/tepanglogout.do", new TepangLogoutControl());
-		map.put("/tepangsingupForm.do", new TepangSingupFormControl());
-		map.put("/tepangsingup.do", new SingupControl());
-
+		map.put("/tepnagsingupForm.do", new TepangSingupFormControl());
+		map.put("/tepnagsingup.do", new SingupControl());
+		
+		
 	}
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// http://localhost:80/BoardWeb/boardList.do
-		System.out.println("12351565");
 		String uri = req.getRequestURI();
 		System.out.println(uri);
 		String context = req.getContextPath();
