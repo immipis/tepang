@@ -1,8 +1,12 @@
-package com.tepang.common;
+package com.tepang.vo;
 
 import java.util.Date;
 
-public class TepangSearchDTO {
+import lombok.Data;
+
+
+@Data
+public class TepangSearchVO{
 	private String memberId,searchName;
 	private int searchCnt;
 	private Date searchDate;

@@ -4,12 +4,27 @@
 
 <style>
 	#mypage{
-		margin:100px
+		margin:100px;
 		
 	}
-
+	.menu{
+	margin:70px;
+	border:1px solid black;
+	
+	}
+	.menu li{
+	margin: 10px;
+	display: inline-block;
+	}
+	.menu ul{
+	display: inline-block;
+	}
+	.default{
+	background-color:skyblue;
+	color:white;
+	}
 </style>
-	<title>Home</title>
+	<title>My Tepang</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -52,7 +67,7 @@
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-						안녕하세요
+						OOO 회원님 환영합니다 
 					</div>
 					<div class="right-top-bar flex-w h-full">
 						<a href="../tepanglogin.do" class="flex-c-m trans-04 p-lr-25">
@@ -67,7 +82,6 @@
 					</div>
 				</div>
 			</div>
-
 			<div class="wrap-menu-desktop">
 				<nav class="limiter-menu-desktop container">
 					
@@ -100,9 +114,19 @@
 		</div>
 	</header>
 <div id = "mypage">
- <h1>마이테팡(myPage.jsp)</h1>
- <table>
- 	
- </table>
+ <h2>마이테팡(myPage.jsp)</h2>
+ 
+ 
+ <div class="menu">
+ <ul> <!-- 세로 정렬되게 (원래 세로인데 왜이럼) -->
+ 	<li class="default">구매목록(디폴트)</li>
+ 	<li>나의등급</li>
+ 	<li>내가 쓴 문의</li>
+ 	<li>찜한목록</li>
+ 	<li>내 정보 수정</li>
+ 	<li>회원탈퇴</li>
+ </ul>
+
+ </div>
 </div> 
  </body>
