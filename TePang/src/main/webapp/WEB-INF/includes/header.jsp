@@ -59,6 +59,7 @@
 					<div class="left-top-bar">안녕하세요</div>
 					<div class="right-top-bar flex-w h-full">
 
+
                     <c:choose>
                     <c:when test="${not empty member_id }">
                       <a class="flex-c-m trans-04 p-lr-25" > ${member_id }</a>
@@ -71,7 +72,7 @@
                     </c:otherwise>
                     </c:choose>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a>
+						<a href="./boardList.do" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a>
 					</div>
 				</div>
 			</div>
