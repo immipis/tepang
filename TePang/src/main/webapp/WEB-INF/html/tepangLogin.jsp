@@ -47,7 +47,7 @@
 			<!-- Topbar -->
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">TEPANG Login Page</div>
+					<div class="left-top-bar">TEPANG Sign In Page</div>
 
 
 				</div>
@@ -115,7 +115,7 @@
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92"
 		style="background-image: url('images/bg-01.jpg');">
-		<h2 class="ltext-105 cl0 txt-center">TEPANG Login</h2>
+		<h2 class="ltext-105 cl0 txt-center">TEPANG Sign In</h2>
 	</section>
 
 
@@ -128,25 +128,25 @@
 					<form action="tepanglogin.do" method="post">
 						<h4 class="mtext-105 cl2 txt-center p-b-30">Login</h4>
 
-					</form>
+					<table class="table">
 
 					<tr>
 						<th>ID</th>
-						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
+						<td><input class=" cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
 					</tr>
 					<tr>
 						<th>Password</th>
-						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="pw" type="text" ></td>
+						<td><input class=" cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="pw" type="password" ></td>
 					</tr>
 					<tr>
-						<td colspan="2" align="center"><input type="submit"
-							class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"  value="Login"></td>
+						<td colspan="2" align="center"><input type="submit" 
+							class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" href="mainList.do" value="Login"></td>
 					</tr>
 					<tr>
-						<td colspan="2" align="center"><input type="submit" href="../tepangsingup.do"
+						<td colspan="2" align="center"><input type="submit" href="/tepangsingup.do"
 							class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"  value="signup"></td>
 					</tr>
-					
+					</table>
 					</form>
 				</div>
 
@@ -196,8 +196,8 @@
 
 	<!-- Map -->
 	<div class="map">
-		<div class="size-303" id="google_map" data-map-x="35.86923684765542"
-			data-map-y="128.5927047090995" data-pin="images/icons/pin.png"
+		<div class="size-303" id="google_map" data-map-x="35.8690730613163"
+			data-map-y="128.593296913547" data-pin="images/icons/pin.png"
 			data-scrollwhell="0" data-draggable="1" data-zoom="11"></div>
 		<!-- 좌표 -->
 	</div>
