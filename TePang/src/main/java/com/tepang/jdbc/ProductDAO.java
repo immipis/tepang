@@ -26,6 +26,7 @@ public class ProductDAO extends DAO {
 				pvo.setProductImg(rs.getString("product_Img"));
 				pvo.setProductDetImg(rs.getString("product_DetImg"));
 				pvo.setProductStock(rs.getInt("product_Stock"));
+				pvo.setProductStock(rs.getInt("product_Sale"));
 
 				return pvo;
 			}
@@ -41,8 +42,8 @@ public class ProductDAO extends DAO {
 	public boolean insertBoard(ProductVO product) {
 		getConn();
 		String sql = "insert into tbl_product"
-				+ "   (product_code, product_detail, product_name, product_price, product_Img, product_detimg, product_stock, category)"
-				+ "   values(product_seq.nextval,?,?,?,?,?,?,? )";
+				+ "   (product_code, product_detail, product_name, product_price, product_Img, product_Sale, product_detimg, product_stock, category)"
+				+ "   values(product_seq.nextval,?,?,?,?,?,?,?,? )";
 
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -51,8 +52,9 @@ public class ProductDAO extends DAO {
 			psmt.setString(3, product.getProductName());
 			psmt.setInt(4, product.getProductPrice());
 			psmt.setString(5, product.getProductImg());
-			psmt.setString(6, product.getProductDetImg());
-			psmt.setInt(7, product.getProductStock());
+			psmt.setInt(6, product.getProductSale());
+			psmt.setString(7, product.getProductDetImg());
+			psmt.setInt(8, product.getProductStock());
 			int r = psmt.executeUpdate();
 			if (r > 0) {
 				return true;

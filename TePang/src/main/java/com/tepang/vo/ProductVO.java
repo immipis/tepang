@@ -10,6 +10,7 @@ public class ProductVO {
  private String productImg;
  private String productDetail;
  private int productStock;
+ private int productSale;
  private String productDetImg;
  private String category;
 
