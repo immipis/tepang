@@ -17,9 +17,12 @@ import com.tepang.control.CartListControl;
 import com.tepang.control.MainControl;
 import com.tepang.control.MyPageBoardControl;
 import com.tepang.control.ProductDetailControl;
+import com.tepang.control.ProductListControl;
 import com.tepang.control.TepangLoginControl;
 import com.tepang.control.TepangLoginFormControl;
 import com.tepang.control.TepangLogoutControl;
+import com.tepang.control.TepangSingupFormControl;
+import com.tepang.control.productCategoryListControl;
 
 public class TepangFrontControl extends HttpServlet {
 
@@ -32,7 +35,10 @@ public class TepangFrontControl extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 
-		map.put("/mainList.do", new MainControl()); // 목록
+		map.put("/mainList.do", new MainControl());
+		map.put("/productList.do", new ProductListControl());
+		map.put("/productCategoryList.do", new productCategoryListControl());
+
 		map.put("/product-detail.do", new ProductDetailControl());
 		map.put("/cartList.do", new CartListControl());
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
@@ -54,7 +60,6 @@ public class TepangFrontControl extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// http://localhost:80/BoardWeb/boardList.do
-		System.out.println("12351565");
 		String uri = req.getRequestURI();
 		System.out.println(uri);
 		String context = req.getContextPath();
