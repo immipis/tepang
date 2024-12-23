@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.tepang.common.Control;
 
-public class myPageBoardControl implements Control {
+public class MyPageBoardControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

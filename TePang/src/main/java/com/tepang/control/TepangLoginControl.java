@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.tepang.common.Control;
-import com.tepang.jdbc.tePangDAO;
+import com.tepang.jdbc.TePangDAO;
 
 
 public class TepangLoginControl implements Control {
@@ -19,7 +19,7 @@ public class TepangLoginControl implements Control {
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
 		
-		tePangDAO tdao = new tePangDAO();
+		TePangDAO tdao = new TePangDAO();
 		
 		if (tdao.login(id, pw) != null) { 
 			HttpSession session = req.getSession();
