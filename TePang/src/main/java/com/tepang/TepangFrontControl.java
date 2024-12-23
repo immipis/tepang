@@ -17,8 +17,6 @@ import com.tepang.control.CartListControl;
 import com.tepang.control.MainControl;
 import com.tepang.control.MyInfoControl;
 import com.tepang.control.MyPageBoardControl;
-import com.tepang.control.MyPageControl;
-import com.tepang.control.MyPerInfoControl;
 import com.tepang.control.ProductDetailControl;
 import com.tepang.control.ProductListControl;
 import com.tepang.control.TepangLoginControl;
@@ -39,7 +37,6 @@ public class TepangFrontControl extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 
 
-		map.put("/myPage.do", new MyPageBoardControl());
 		map.put("/product-detail.do", new ProductDetailControl());//상세목록
 		map.put("/mainList.do", new MainControl());
 		map.put("/productList.do", new ProductListControl());
@@ -51,9 +48,8 @@ public class TepangFrontControl extends HttpServlet {
 		// 로그인 및 로그아웃
 
 		// 마이페이지
-		map.put("/myPageLoad.do", new MyPageControl());
+		map.put("/myPage.do", new MyPageBoardControl());
 		// 마이페이지 - 내 정보 수정
-		map.put("myPerinfo.do", new MyPerInfoControl());
 		map.put("myPageinfo.do", new MyInfoControl());
 		
 		map.put("/tepnagloginForm.do", new TepangLoginFormControl());

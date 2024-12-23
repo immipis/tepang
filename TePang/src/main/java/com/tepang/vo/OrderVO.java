@@ -8,4 +8,5 @@ public class OrderVO {
 	private String memberId;
 	private String orderContent;
 	private int orderSum;
+	private String memberTier;
 }

@@ -9,6 +9,9 @@
 	margin: 0 auto;
 }
 
+.buylist {
+	background-color: skyblue;
+}
 /* 사이드메뉴 */
 .left-side {
 	width: 15%;
@@ -17,7 +20,6 @@
 	margin-top: 100px;
 	margin-left:
 }
-
 .list-group {
 	width: 100%;
 	list-style: none;
@@ -27,7 +29,13 @@
 .list-group>li {
 	height: 50px;
 	font-size: 18px;
+	margin-left: 20px;
 }
+
+.buy>ul {
+	border: 1px solid black;
+}
+
 
 .list-group>li>a {
 	color: black;
@@ -41,13 +49,24 @@
 
 .list-group>li>a:hover {
 	background-color: #ccc;
+	color: #fff;
 }
-.buy{
-	float:left;
+
+.buy {
+	float: left;
 	margin: 100px;
 }
-.td{
-	padding:10px;
+
+.td {
+	padding: 10px;
+}
+.topinfo{
+	width: 800px;
+	height: 100px;
+	border: 1px solid black;
+}
+.topinfo>ul>li{
+	margin:10px;
 }
 </style>
 <title>My Tepang</title>
@@ -97,22 +116,17 @@
 <body>
 	<!-- Header -->
 	<header>
-	<script>
-	let id = `${member_id}`
-	console.log(id);
-	</script>
+		<script>
+			let id = `${member_id}`
+			console.log(id);
+		</script>
 		<!-- Header desktop -->
 		<div class="container-menu-desktop">
 			<!-- Topbar -->
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">${member_id}회원님 환영합니다</div>
-					<div class="right-top-bar flex-w h-full">
-						<a href="../tepanglogin.do" class="flex-c-m trans-04 p-lr-25">
-							Sign In </a> <a href="#" class="flex-c-m trans-04 p-lr-25"> Sign
-							Up </a> <a href="../boardList.do" class="flex-c-m trans-04 p-lr-25">
-							Board </a>
-					</div>
+					<div class="left-top-bar">${member_id}님,환영합니다</div>
+
 				</div>
 			</div>
 			<div class="wrap-menu-desktop">
@@ -120,8 +134,7 @@
 
 					<!-- Logo desktop -->
 					<a href="./mainList.do" class="logo"><img src="images/logo.png"
-						alt="logo.png">
-					</a>
+						alt="logo.png"> </a>
 
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
@@ -151,35 +164,29 @@
 		</div>
 	</header>
 
-		<!-- 왼쪽 사이드 메뉴 -->
-		<section class="left-side">
+	<!-- 왼쪽 사이드 메뉴 -->
+	<section class="left-side">
 
-			<ul class="list-group">
-				<li><a href="#">구매목록(디폴트)</a></li>
-				<li><a href="#">내가 쓴 문의</a></li>
-				<li><a href="#">찜 목록</a></li>
-				<li><a href="#">내 정보 수정</a></li>
-				<li><a href="#">회원탈퇴</a></li>
-			</ul>
-		</section>
+		<ul class="list-group">
+			<li class="buylist"><a href="#">구매목록(디폴트)</a></li>
+			<li><a href="#">내가 쓴 문의</a></li>
+			<li><a href="#">찜 목록</a></li>
+			<li><a href="#">내 정보 수정</a></li>
+			<li><a href="#">회원탈퇴</a></li>
+		</ul>
+	</section>
 	<section class="buy">
+	<div class="topinfo">
+		<ul>
+			<li>${member_id}님의 등급은 ${orv.memberTier}입니다.</li>
+			<li>회원님의 총 구매 금액은 ${orv.orderSum} 입니다.</li>
+		</ul>
+	</div>
 		<table>
 			<tr>
 				<td class="td">나의 구매목록</td>
 			</tr>
-			<tr>
-				<td class="td"> ${member_id} 님의 등급은 Silver입니다.</td>
-				
-			</tr>
-			<tr>
-				<td class="td">회원님의 총 구매 금액은 ${ovo.orderSum} 입니다.</td>
-			</tr>
-			<tr>
-				<td class="big">안녕하세요</td>
-			</tr>
-		</table>
-		<table>
-		
+
 		</table>
 	</section>
 </body>
