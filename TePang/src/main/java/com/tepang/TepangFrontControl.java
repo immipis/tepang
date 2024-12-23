@@ -15,6 +15,7 @@ import com.tepang.control.BoardControl;
 import com.tepang.control.BoardListControl;
 import com.tepang.control.CartListControl;
 import com.tepang.control.MainControl;
+import com.tepang.control.MyPageBoardControl;
 import com.tepang.control.ProductDetailControl;
 import com.tepang.control.TepangLoginControl;
 import com.tepang.control.TepangLoginFormControl;
