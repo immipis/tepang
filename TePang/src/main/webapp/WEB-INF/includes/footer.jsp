@@ -6,7 +6,6 @@
 			<div class="row">
 				<div class="col-sm-6 col-lg-3 p-b-50">
 					<h4 class="stext-301 cl0 p-b-30">팀장 & 부팀장</h4>
-
 					<ul>
 						<li class="p-b-10"><a href="#"
 							class="stext-107 cl7 hov-cl1 trans-04"> 조성민 </a></li>
