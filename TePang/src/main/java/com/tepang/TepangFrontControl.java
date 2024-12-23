@@ -11,16 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.tepang.common.Control;
-
-import com.tepang.control.MainControl;
-
-import com.tepang.control.ProductDetailControl;
-
-import com.tepang.control.CartListControl;
-
 import com.tepang.control.BoardControl;
 import com.tepang.control.BoardListControl;
-
+import com.tepang.control.CartListControl;
+import com.tepang.control.MainControl;
+import com.tepang.control.ProductDetailControl;
 import com.tepang.control.TepangLoginControl;
 import com.tepang.control.TepangLoginFormControl;
 import com.tepang.control.TepangLogoutControl;
@@ -47,7 +42,12 @@ public class TepangFrontControl extends HttpServlet {
 		// 로그인 및 로그아웃
 		map.put("/tepnagloginForm.do", new TepangLoginFormControl());
 		map.put("/tepanglogin.do", new TepangLoginControl());
-		map.put("/tepanglogout.do/", new TepangLogoutControl());
+
+		map.put("/tepanglogout.do", new TepangLogoutControl());
+		map.put( "/tepangsingupForm.do", new TepangSingupFormControl());
+		map.put("/tepangsingup.do", new SingupControl());
+
+
 	}
 
 	@Override

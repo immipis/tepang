@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="../includes/header.jsp"></jsp:include>
@@ -11,6 +12,7 @@
 			<div
 				class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
 				<i class="zmdi zmdi-close"></i>
+
 			</div>
 		</div>
 		<div class="header-cart-content flex-w js-pscroll">
