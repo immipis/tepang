@@ -61,15 +61,16 @@
 
                     <c:choose>
                     <c:when test="${not empty member_id }">
-                      <a class="flex-c-m trans-04 p-lr-25" href="tepanglogout.do">로그아웃 ${member_id }</a>
+                      <a class="flex-c-m trans-04 p-lr-25" > ${member_id }</a>
                       <a class="flex-c-m trans-04 p-lr-25" href="myPage.do">마이 페이지</a>
+                      <a class="flex-c-m trans-04 p-lr-25" href="tepanglogout.do">로그아웃</a>
                     </c:when>
                     <c:otherwise>
                       <a class="flex-c-m trans-04 p-lr-25" href="tepanglogin.do">로그인</a>
+						<a href="#" class="flex-c-m trans-04 p-lr-25"> Sign Up </a> 
                     </c:otherwise>
                     </c:choose>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25"> Sign Up </a> 
 						<a href="#" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a>
 					</div>
 				</div>
@@ -79,7 +80,7 @@
 				<nav class="limiter-menu-desktop container">
 
 					<!-- Logo desktop -->
-					<a href="#" class="logo"> <img src="images/icons/logo-01.png"
+					<a href="#" class="logo"> <img src="images/icons/logo-03.png"
 						alt="IMG-LOGO">
 					</a>
 

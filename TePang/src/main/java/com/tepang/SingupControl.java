@@ -28,7 +28,7 @@ public class SingupControl implements Control {
 		sVO.setMemberGen(req.getParameter("member_gen"));
 		sVO.setMemberFv(req.getParameter("member_fv"));
 	
-//		MemberSingupService memberSingupservice = new MemberSingupService();
-//		singupresult = memberSingupservice.singupMember(sVO);
+		
+		
 	}		
 }

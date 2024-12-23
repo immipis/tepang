@@ -1,4 +1,4 @@
-package com.tepang;
+package com.tepang.control;
 
 import java.io.IOException;
 
