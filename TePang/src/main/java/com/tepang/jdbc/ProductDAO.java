@@ -3,12 +3,12 @@ package com.tepang.jdbc;
 import java.sql.SQLException;
 
 import com.tepang.common.DAO;
-import com.tepang.vo.ProductVO;
+import com.tepang.vo.MainVO;
 
 public class ProductDAO extends DAO {
 
 	// 상품 상세.
-	public ProductVO selectProduct(String productCode) {
+	public MainVO selectProduct(String productCode) {
 		getConn();
 		String sql = "select * from tbl_product where product_code = ?";
 
@@ -17,7 +17,7 @@ public class ProductDAO extends DAO {
 			psmt.setString(1, productCode);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
-				ProductVO pvo = new ProductVO();
+				MainVO pvo = new MainVO();
 				pvo.setCategory(rs.getString("category"));
 				pvo.setProductCode(rs.getString("product_code"));
 				pvo.setProductDetail(rs.getString("product_detail"));
@@ -38,7 +38,7 @@ public class ProductDAO extends DAO {
 	}
 
 //파라미터 등록
-	public boolean insertBoard(ProductVO product) {
+	public boolean insertBoard(MainVO product) {
 		getConn();
 		String sql = "insert into tbl_product"
 				+ "   (product_code, product_detail, product_name, product_price, product_Img, product_detimg, product_stock, category)"
