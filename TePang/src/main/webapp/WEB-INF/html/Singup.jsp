@@ -128,7 +128,7 @@
 					<form action="tepanglogin.do" method="post">
 						<h4 class="mtext-105 cl2 txt-center p-b-30">Signup</h4>
 
-					</form>
+					<table class="table">
 
 					<tr>
 						<th>ID</th>
@@ -140,33 +140,33 @@
 					</tr>
 					<tr>
 						<th>Name</th>
-						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
+						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="name" type="text" ></td>
 					</tr>
 					<tr>
 						<th>Phone</th>
-						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
+						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="phone" type="text" ></td>
 					</tr>
 					<tr>
 						<th>Address</th>
-						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
+						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="adr" type="text" ></td>
 					</tr>
 					<tr>
 						<th>BirthDay</th>
-						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="date" ></td>
+						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="bir" type="date" ></td>
 					</tr>
 					<tr>
 						<th>Gender</th>
-						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
+						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="gen" type="text" ></td>
 					</tr>
 					<tr>
 						<th>Favorite</th>
-						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
+						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="fv" type="text" ></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center"><input type="submit" href="tepanglogin.do"
-							class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"  value="singup"> SingUp</td>
+							class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"  value="signup"></td>
 					</tr>
-					
+					</table>
 					</form>
 				</div>
 
