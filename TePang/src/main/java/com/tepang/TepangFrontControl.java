@@ -33,7 +33,7 @@ public class TepangFrontControl extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 
 		map.put("/mainList.do", new MainControl()); // 목록
-		map.put("/product-detail.do", new ProductDetailControl());
+		map.put("/productDetail.do", new ProductDetailControl());
 		map.put("/cartList.do", new CartListControl());
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
 		map.put("/board.do", new BoardControl()); // 게시판목록 > 상세
