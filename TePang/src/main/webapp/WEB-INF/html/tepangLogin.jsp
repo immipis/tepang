@@ -47,7 +47,7 @@
 			<!-- Topbar -->
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">TEPANG Login Page</div>
+					<div class="left-top-bar">TEPANG Sign In Page</div>
 
 
 				</div>
@@ -115,7 +115,7 @@
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92"
 		style="background-image: url('images/bg-01.jpg');">
-		<h2 class="ltext-105 cl0 txt-center">TEPANG Login</h2>
+		<h2 class="ltext-105 cl0 txt-center">TEPANG Sign In</h2>
 	</section>
 
 
@@ -126,27 +126,27 @@
 				<div
 					class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
 					<form action="tepanglogin.do" method="post">
-						<h4 class="mtext-105 cl2 txt-center p-b-30">Login</h4>
+						<h4 class="mtext-105 cl2 txt-center p-b-30">Sign In</h4>
 
-					</form>
+					<table class="table">
 
 					<tr>
 						<th>ID</th>
-						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
+						<td><input class=" cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
 					</tr>
 					<tr>
 						<th>Password</th>
-						<td><input class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="pw" type="text" ></td>
+						<td><input class=" cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="pw" type="password" ></td>
 					</tr>
 					<tr>
-						<td colspan="2" align="center"><input type="submit"
-							class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"  value="Login"></td>
+						<td colspan="2" align="center"><input type="submit" 
+							class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" href="mainList.do" value="Sign In"></td>
 					</tr>
 					<tr>
-						<td colspan="2" align="center"><input type="submit" href="../tepangsingup.do"
+						<td colspan="2" align="center"><input type="submit" href="/tepangsingup.do"
 							class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"  value="signup"></td>
 					</tr>
-					
+					</table>
 					</form>
 				</div>
 
