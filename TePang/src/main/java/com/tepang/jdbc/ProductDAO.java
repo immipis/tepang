@@ -16,7 +16,7 @@ public class ProductDAO extends DAO {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, productCode);
 			rs = psmt.executeQuery();
-			while (rs.next()) {
+			if (rs.next()) {
 				MainVO pvo = new MainVO();
 				pvo.setCategory(rs.getString("category"));
 				pvo.setProductCode(rs.getString("product_Code"));
