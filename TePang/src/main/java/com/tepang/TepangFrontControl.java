@@ -38,22 +38,17 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/mainList.do", new MainControl());
 		map.put("/productList.do", new ProductListControl());
 		map.put("/productCategoryList.do", new productCategoryListControl());
-
+    map.put("/myPage.do", new MyPageBoardControl());
 		map.put("/product-detail.do", new ProductDetailControl());
 		map.put("/cartList.do", new CartListControl());
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
 		map.put("/board.do", new BoardControl()); // 게시판목록 > 상세
 		// 로그인 및 로그아웃
-
-		// 마이페이지
-		map.put("/myPage.do", new MyPageBoardControl());
-
 		map.put("/tepnagloginForm.do", new TepangLoginFormControl());
 		map.put("/tepanglogin.do", new TepangLoginControl());
-
 		map.put("/tepanglogout.do", new TepangLogoutControl());
-		map.put("/tepangsingupForm.do", new TepangSingupFormControl());
-		map.put("/tepangsingup.do", new SingupControl());
+		map.put("/tepnagsingupForm.do", new TepangSingupFormControl());
+		map.put("/tepnagsingup.do", new SingupControl());
 
 	}
 
