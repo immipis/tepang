@@ -19,6 +19,7 @@ public class ProductListControl implements Control {
 		String title = req.getParameter("title");
 		String boardList = req.getParameter("boardList");
 		System.out.println(title);
+
 //		MainDAO mdao = new MainDAO();
 //		List<MainVO> products2 = mdao.pList(title);
 //		

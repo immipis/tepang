@@ -59,6 +59,7 @@
 					<div class="left-top-bar">안녕하세요</div>
 					<div class="right-top-bar flex-w h-full">
 
+
                     <c:choose>
                     <c:when test="${not empty member_id }">
                       <a class="flex-c-m trans-04 p-lr-25" > ${member_id }</a>
@@ -67,11 +68,11 @@
                     </c:when>
                     <c:otherwise>
                       <a class="flex-c-m trans-04 p-lr-25" href="tepanglogin.do">로그인</a>
-						<a href="#" class="flex-c-m trans-04 p-lr-25"> Sign Up </a> 
+						<a href="tepnagsingup.do" class="flex-c-m trans-04 p-lr-25"> Sign Up </a> 
                     </c:otherwise>
                     </c:choose>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a>
+						<a href="./boardList.do" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a>
 					</div>
 				</div>
 			</div>
@@ -80,7 +81,7 @@
 				<nav class="limiter-menu-desktop container">
 
 					<!-- Logo desktop -->
-					<a href="#" class="logo"> <img src="images/icons/logo-03.png"
+					<a href="mainList.do" class="logo"> <img src="images/icons/logo-03.png"
 						alt="IMG-LOGO">
 					</a>
 

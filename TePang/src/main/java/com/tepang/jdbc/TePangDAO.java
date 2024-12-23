@@ -3,16 +3,14 @@ package com.tepang.jdbc;
 import java.sql.SQLException;
 
 import com.tepang.common.DAO;
-
+import com.tepang.vo.SingupVO;
 
 public class TePangDAO extends DAO {
-	
+
 	public String login(String id, String pw) {
 		getConn();
-		String sql = "select * from tbl_member" 
-		+ "            where member_id = ?"
-		+ "            and   member_pw = ?";
-		
+		String sql = "select * from tbl_member" + "            where member_id = ?" + "            and   member_pw = ?";
+
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
@@ -31,5 +29,29 @@ public class TePangDAO extends DAO {
 		}
 		return null;
 	}
-	
+
+	public boolean insertSignup(SingupVO singup) {
+		getConn();
+		String sql = "insert into tbl_member (member_id,member_pw,member_name,member_phone,member_adr,member_bir,member_gen,member_fv)"
+				+ "values (?, ?, ?, ?, ?, ?, ?, ?)";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, singup.getMemberId());
+			psmt.setString(2, singup.getMemberPw());
+			psmt.setString(3, singup.getMemberName());
+			psmt.setString(4, singup.getMemberPhone());
+			psmt.setString(5, singup.getMemberAdr());
+			psmt.setString(6, singup.getMemberBir());
+			psmt.setString(7, singup.getMemberGen());
+			psmt.setString(8, singup.getMemberFv());
+			int r = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		{
+			return false;
+		}
+	}
+
 }
