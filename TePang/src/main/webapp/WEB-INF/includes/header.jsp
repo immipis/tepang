@@ -58,9 +58,9 @@
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">안녕하세요</div>
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25"> Sign In </a> <a
-							href="#" class="flex-c-m trans-04 p-lr-25"> Sign Up </a> <a
-							href="#" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a>
+						<a href="#" class="flex-c-m trans-04 p-lr-25"> Sign In </a> 
+						<a href="#" class="flex-c-m trans-04 p-lr-25"> Sign Up </a> 
+						<a href="#" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a>
 					</div>
 				</div>
 			</div>
