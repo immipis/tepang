@@ -35,11 +35,13 @@ public class TepangFrontControl extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 
+
+		map.put("/myPage.do", new MyPageBoardControl());
+		map.put("/product-detail.do", new ProductDetailControl());//상세목록
 		map.put("/mainList.do", new MainControl());
 		map.put("/productList.do", new ProductListControl());
 		map.put("/productCategoryList.do", new productCategoryListControl());
-    map.put("/myPage.do", new MyPageBoardControl());
-		map.put("/product-detail.do", new ProductDetailControl());
+
 		map.put("/cartList.do", new CartListControl());
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
 		map.put("/board.do", new BoardControl()); // 게시판목록 > 상세
