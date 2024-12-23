@@ -37,7 +37,7 @@ public class TepangFrontControl extends HttpServlet {
 
 
 		map.put("/myPage.do", new MyPageBoardControl());
-		map.put("/product-detail.do", new ProductDetailControl());//상세목록
+		map.put("/productDetail.do", new ProductDetailControl());//상세목록
 		map.put("/mainList.do", new MainControl());
 		map.put("/productList.do", new ProductListControl());
 		map.put("/productCategoryList.do", new productCategoryListControl());

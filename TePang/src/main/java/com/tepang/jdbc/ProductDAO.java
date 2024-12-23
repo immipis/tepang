@@ -1,8 +1,11 @@
 package com.tepang.jdbc;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.tepang.common.DAO;
+import com.tepang.common.SearchDTO;
 import com.tepang.vo.MainVO;
 
 public class ProductDAO extends DAO {
@@ -66,4 +69,63 @@ public class ProductDAO extends DAO {
 		return false;
 	}
 
+//상품목록
+
+	public List<MainVO> boardList(SearchDTO search) {
+		getConn();
+		String sql = "select b.* " + "   from( select rownum rn, a.*" + "        from (select *"
+				+ "              from tbl_board";
+		// Title 검색조건 => title 컬럼에서 값을 조회.
+		if (search.getSearchCondition() != null && search.getKeyword() != null) {
+			if (search.getSearchCondition().equals("T")) {
+				sql += "             where title like '%'||?||'%' ";
+			} else if (search.getSearchCondition().equals("W")) {
+				sql += "             where writer like '%'||?||'%' ";
+			} else if (search.getSearchCondition().equals("TW")) {
+				sql += "             where title like '%'||?||'%' or writer like '%'||?||'%'";
+			}
+		}
+		sql += "              order by board_no desc) a) b" + "   where b.rn > (? -1) * 5" + "   and b.rn <= ? * 5";
+		// \r\n은 줄바꿈
+		List<MainVO> result = new ArrayList<>(); // 반환값.
+		int cnt = 1;
+		try {
+			psmt = conn.prepareStatement(sql);
+			if (search.getSearchCondition() != null && search.getKeyword() != null) {
+				if (search.getSearchCondition().equals("T")) {
+					psmt.setString(cnt++, search.getKeyword());// 첫번째 파라미터
+				} else if (search.getSearchCondition().equals("W")) {
+					psmt.setString(cnt++, search.getKeyword()); // 첫번째 파라미터
+				} else if (search.getSearchCondition().equals("TW")) {// 첫번째 파라미터, 두번째 파라미터
+					psmt.setString(cnt++, search.getKeyword());
+					psmt.setString(cnt++, search.getKeyword());
+				}
+			}
+			psmt.setInt(cnt++, search.getPage());
+			psmt.setInt(cnt++, search.getPage());
+			System.out.println(sql);
+
+			rs = psmt.executeQuery(); // 조회.
+
+			while (rs.next()) {
+				MainVO brd = new MainVO();
+
+				brd.setProductCode(rs.getString("product_Code"));
+				brd.setCategory(rs.getString("category"));
+				brd.setProductDetail(rs.getString("product_Detail"));
+				brd.setProductName(rs.getString("product_Name"));
+				brd.setProductImg(rs.getString("product_Img"));
+				brd.setProductDetImg(rs.getString("product_DetImg"));
+				brd.setProductSale(rs.getString("product_Sale"));
+
+				result.add(brd); // ArrayList에 추가.
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return result;
+	}
 }
