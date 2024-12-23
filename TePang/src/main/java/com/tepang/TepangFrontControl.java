@@ -22,7 +22,6 @@ import com.tepang.control.TepangLogoutControl;
 
 public class TepangFrontControl extends HttpServlet {
 
-
 	Map<String, Control> map;
 
 	public TepangFrontControl() {
@@ -32,14 +31,9 @@ public class TepangFrontControl extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 
-<<<<<<< HEAD
-		map.put("/mainList.do", new MainControl()); // 목록
-		map.put("/productDetail.do", new ProductDetailControl());
-=======
 		map.put("/myPage.do", new MyPageBoardControl());
-		map.put("/mainList.do",new MainControl()); //목록
+		map.put("/mainList.do", new MainControl()); // 목록
 		map.put("/product-detail.do", new ProductDetailControl());
->>>>>>> refs/heads/main
 		map.put("/cartList.do", new CartListControl());
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
 		map.put("/board.do", new BoardControl()); // 게시판목록 > 상세
@@ -49,8 +43,7 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/tepanglogout.do", new TepangLogoutControl());
 		map.put("/tepnagsingupForm.do", new TepangSingupFormControl());
 		map.put("/tepnagsingup.do", new SingupControl());
-		
-		
+
 	}
 
 	@Override
