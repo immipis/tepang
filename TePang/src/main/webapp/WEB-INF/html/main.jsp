@@ -227,8 +227,9 @@
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 					<!-- Block2 -->
 					<div class="block2">
+					<p>${product.productImg}</p>
 						<div class="block2-pic hov-img0">
-							<img src="images/${product.productImg}01.jpg" alt="IMG-PRODUCT"> //크기는 1200 1486
+							<img src="images/${product.productImg}" alt="IMG-PRODUCT">
 							<a class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1" 
 							  productName=${product.productName} productPrice=${product.productPrice} productDetail=${product.productDetail}>
                                     빠르게 보기
