@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.tepang.common.Control;
+import com.tepang.vo.BoardVO;
 
 public class ProductDetailControl implements Control {
 
