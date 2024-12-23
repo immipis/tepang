@@ -18,7 +18,7 @@ public class TepangLogoutControl implements Control {
 		session.invalidate();
 
 		
-		resp.sendRedirect("tepnagloginForm.do");
+		resp.sendRedirect("mainList.do");
 
 	}
 

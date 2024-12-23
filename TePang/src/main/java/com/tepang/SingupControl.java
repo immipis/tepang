@@ -10,7 +10,7 @@ import com.tepang.common.Control;
 import com.tepang.vo.SingupVO;
 
 
-
+//https://heannim-world.tistory.com/113-- 참고자료
 public class SingupControl implements Control {
 
 	@Override
@@ -28,8 +28,7 @@ public class SingupControl implements Control {
 		sVO.setMemberGen(req.getParameter("member_gen"));
 		sVO.setMemberFv(req.getParameter("member_fv"));
 	
-//		MemberSingupService memberSingupservice = new MemberSingupService();
-//		https://heannim-world.tistory.com/113-- 참고자료
-//		singupresult = memberSingupservice.singupMember(sVO);
+		
+		
 	}		
 }
