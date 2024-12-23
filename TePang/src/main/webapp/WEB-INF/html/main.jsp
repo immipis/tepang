@@ -291,7 +291,8 @@
 <!-- Product -->
 <section class="bg0 p-t-23 p-b-140">
 	<div class="container">
-		<div class="row isotope-grid">
+	
+	<div class="row isotope-grid">
 	<!-- Slider -->
 	<section class="section-slide">
 		<div class="wrap-slick1">
