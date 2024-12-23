@@ -136,13 +136,10 @@
 <!--===============================================================================================-->	
 	<script>
 		let title = `${title}`
-		console.log("title"+title)
 	        fetch('productCategoryList.do?category='+title)
 	      	.then(result => result.json())
 			.then(result => {
-				console.log(result)
 				result.forEach(item => { 
-					console.log(item) //정상출력
 					let html = `
 						<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 						<!-- Block2 -->
