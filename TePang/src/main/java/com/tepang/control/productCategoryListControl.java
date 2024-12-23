@@ -20,7 +20,6 @@ public class productCategoryListControl implements Control {
 		resp.setContentType("text/json;charset=utf-8");
 		
 		String category = req.getParameter("category");
-		System.out.println("category"+category);
 		
 		MainDAO mdao = new MainDAO();
 		List<MainVO> products = null;
@@ -28,7 +27,6 @@ public class productCategoryListControl implements Control {
 			products = mdao.addpList();
 		}
 		else{
-			System.out.println("이게 실행됨");
 			products = mdao.pCategoryList(category);
 		}
 		Gson gson = new GsonBuilder().create();

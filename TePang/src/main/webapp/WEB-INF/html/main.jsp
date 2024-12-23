@@ -2,7 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="../includes/header.jsp"></jsp:include>
+
 <!-- Cart -->
+
 <div class="wrap-header-cart js-panel-cart">
 	<div class="s-full js-hide-cart"></div>
 	<div class="header-cart flex-col-l p-l-65 p-r-25">
@@ -403,13 +405,23 @@
 	</span>
 </div>
 <script>
+let id = `${member_id}`
+    fetch('mainFvList.do?id='+id)
+  	.then(result => result.json())
+	.then(result => {
+		console.log(result)
+	})
+	.catch(err => console.log(err));
+</script>
+<script>
+
 document.querySelectorAll(".js-show-modal1").forEach(element => {
     element.addEventListener('click', e => {
     	document.querySelector(".imgList").innerHTML = ""
     	let productName = e.target.getAttribute('productName');
     	let productPrice = e.target.getAttribute('productPrice');
     	let productDetail = e.target.getAttribute('productDetail');
-    	console.log(productName,productPrice,productDetail)
+
 		document.querySelector(".img1").setAttribute('href', `images/\${productName}01.jpg`);
 		document.querySelector(".product-img1").setAttribute('src', `images/\${productName}01.jpg`);
     	document.querySelector(".imgList").innerHTML += `<img src="images/\${productName}01.jpg" class="thumbnail">`;
