@@ -215,6 +215,7 @@
 							<div class="block1-link stext-101 cl0 trans-09">Shop Now</div>
 						</div>
 					</a>
+
 				</div>
 			</div>
 		</div>
