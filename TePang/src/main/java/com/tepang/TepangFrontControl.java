@@ -17,12 +17,14 @@ import com.tepang.control.CartListControl;
 import com.tepang.control.MainControl;
 import com.tepang.control.MyPageBoardControl;
 import com.tepang.control.ProductDetailControl;
+import com.tepang.control.ProductListControl;
 import com.tepang.control.TepangLoginControl;
 import com.tepang.control.TepangLoginFormControl;
 import com.tepang.control.TepangLogoutControl;
+import com.tepang.control.TepangSingupFormControl;
+import com.tepang.control.productCategoryListControl;
 
 public class TepangFrontControl extends HttpServlet {
-
 
 	Map<String, Control> map;
 
@@ -33,8 +35,10 @@ public class TepangFrontControl extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 
-		map.put("/myPage.do", new MyPageBoardControl());
-		map.put("/mainList.do",new MainControl()); //목록
+		map.put("/mainList.do", new MainControl());
+		map.put("/productList.do", new ProductListControl());
+		map.put("/productCategoryList.do", new productCategoryListControl());
+    map.put("/myPage.do", new MyPageBoardControl());
 		map.put("/product-detail.do", new ProductDetailControl());
 		map.put("/cartList.do", new CartListControl());
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
@@ -45,8 +49,7 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/tepanglogout.do", new TepangLogoutControl());
 		map.put("/tepnagsingupForm.do", new TepangSingupFormControl());
 		map.put("/tepnagsingup.do", new SingupControl());
-		
-		
+
 	}
 
 	@Override
