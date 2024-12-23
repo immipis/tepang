@@ -38,6 +38,7 @@ public class TepangFrontControl extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 
 
+
 		map.put("/product-detail.do", new ProductDetailControl());//상세목록
 		map.put("/mainList.do", new MainControl());
 		map.put("/mainFvList.do", new MainPvControl());
