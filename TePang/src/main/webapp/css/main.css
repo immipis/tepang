@@ -1447,8 +1447,17 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 .next-slick3 {right: 0px;}
 
 /*---------------------------------------------*/
-.wrap-slick3-dots {
-  width: 11.111111%;
+.imgList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+}
+
+.imgList img {
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
 }
 
 .slick3 {
@@ -1465,6 +1474,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 .slick3-dots li img {
   width: 100%;
 }
+
 
 .slick3-dot-overlay {
   position: absolute;
@@ -1576,6 +1586,10 @@ button.mfp-close {
 /* content animate out */
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
   opacity: 0;
+}
+
+.isotope-grid {
+overflow: hidden
 }
 
 
