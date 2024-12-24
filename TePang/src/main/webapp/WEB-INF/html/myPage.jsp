@@ -8,8 +8,13 @@
 	padding-top: 180px;
 }
 
+
+.leftmenu {
+	width: 300px; 
+
 .user {
 	width: 700px;
+
 	height: auto;
 	margin: 50px;
 	border: 1px solid blue;
