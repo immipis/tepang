@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -129,49 +129,72 @@
 					<form action="tepnagsingup.do" method="post">
 						<h4 class="mtext-105 cl2 txt-center p-b-30">Signup</h4>
 
-					<table class="table">
+						<table class="table">
 
-					<tr>
-						<th>ID</th>
-						<td><input class="size-121 bg3 bor1 hov-btn3 p-lr-15 pointer" name="id" type="text" ></td>
-					</tr>
-					<tr>
-						<th>Password</th>
-						<td><input class="size-121 bg3 bor1 hov-btn3 p-lr-15 pointer" name="pw" type="text" ></td>
-					</tr>
-					<tr>
-						<th>Name</th>
-						<td><input class="size-121 bg3 bor1 hov-btn3 p-lr-15 pointer" name="name" type="text" ></td>
-					</tr>
-					<tr>
-						<th>Phone</th>
-						<td><input class="size-121 bg3 bor1 hov-btn3 p-lr-15 pointer" name="phone" type="text" ></td>
-					</tr>
-					<tr>
-						<th>Address</th>
-						<td><input class="size-121 bg3 bor1 hov-btn3 p-lr-15 pointer" name="adr" type="text" ></td>
-					</tr>
-					<tr>
-						<th>BirthDay</th>
-						<td><input class="size-121 bg3 bor1 hov-btn3 p-lr-15 pointer" name="bir" type="date" ></td>
-					</tr>
-					<tr>
-						<th>Gender</th>
-						<td><input class="size-121 bg3 bor1 hov-btn3 p-lr-15 pointer" name="gen" type="text" ></td>
-					</tr>
-					<tr>
-						<th>Favorite</th>
-						<td><input class="size-121 bg3 bor1 hov-btn3 p-lr-15 pointer" name="fv" type="text" ></td>
-					</tr>
-					<tr>
-						<td colspan="2" align="center"><input type="submit" href="tepanglogin.do"
-							class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"  value="signup"></td>
-					</tr>
-					</table>
+							<tr>
+								<th>ID</th>
+								<td><input
+									class="size-121 bg1 bor1 hov-btn3 p-lr-15 pointer" name="id"
+									type="text"></td>
+							</tr>
+							<tr>
+								<th>Password</th>
+								<td><input
+									class="size-121 bg1 bor1 hov-btn3 p-lr-15 pointer" name="pw"
+									type="text"></td>
+							</tr>
+							<tr>
+								<th>Name</th>
+								<td><input
+									class="size-121 bg1 bor1 hov-btn3 p-lr-15 pointer" name="name"
+									type="text"></td>
+							</tr>
+							<tr>
+								<th>Phone</th>
+								<td><input
+									class="size-121 bg1 bor1 hov-btn3 p-lr-15 pointer" name="phone"
+									type="text"></td>
+							</tr>
+							<tr>
+								<th>Address</th>
+								<td><input
+									class="size-121 bg1 bor1 hov-btn3 p-lr-15 pointer" name="adr"
+									type="text"></td>
+							</tr>
+							<tr>
+								<th>BirthDay</th>
+								<td><input
+									class="size-121 bg1 bor1 hov-btn3 p-lr-15 pointer" name="bir"
+									type="date"></td>
+							</tr>
+							<tr>
+								<th class="gender">Gender</th>
+								
+									<td>
+									<input class="form-check-input" type="radio"
+										name="flexRadioDefault" id="flexRadioDefault1"> <label
+										class="form-check-label" for="flexRadioDefault1">
+										남</label> <input class="form-check-input" type="radio"
+										name="flexRadioDefault" id="flexRadioDefault2" checked>
+									<label class="form-check-label" for="flexRadioDefault2">
+										여</label>
+								</td>
+							</tr>
+							<tr>
+								<th>Favorite</th>
+								<td><input name="fv"> <input></td>
+							</tr>
+							<tr>
+								<td colspan="2" align="center"><input type="submit"
+									href="tepanglogin.do"
+									class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"
+									value="signup"></td>
+							</tr>
+						</table>
 					</form>
 				</div>
 
-				
+
 			</div>
 		</div>
 	</section>
@@ -231,8 +254,7 @@
 			class="zmdi zmdi-chevron-up"></i>
 		</span>
 	</div>
-
-	<!--===============================================================================================-->
+	========================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->
 	<script src="vendor/animsition/js/animsition.min.js"></script>

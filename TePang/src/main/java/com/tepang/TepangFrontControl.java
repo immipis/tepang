@@ -18,6 +18,7 @@ import com.tepang.control.MainControl;
 import com.tepang.control.MainPvControl;
 import com.tepang.control.MyInfoControl;
 import com.tepang.control.MyPageBoardControl;
+import com.tepang.control.MyPageListControl;
 import com.tepang.control.ProductDetailControl;
 import com.tepang.control.ProductListControl;
 import com.tepang.control.SingupControl;
@@ -39,8 +40,7 @@ public class TepangFrontControl extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 
 
-
-		map.put("/product-detail.do", new ProductDetailControl());//상세목록
+		map.put("/productDetail.do", new ProductDetailControl());// 상세목록
 		map.put("/mainList.do", new MainControl());
 		map.put("/mainFvList.do", new MainPvControl());
 		map.put("/productList.do", new ProductListControl());
@@ -51,7 +51,9 @@ public class TepangFrontControl extends HttpServlet {
 		// 로그인 및 로그아웃
 
 		// 마이페이지
-		map.put("/myPage.do", new MyPageBoardControl());
+		map.put("/myPage.do", new MyPageBoardControl()); // 마이페이지 상세
+		map.put("/myPageList.do", new MyPageListControl()); // 구매목록 리스트
+		
 		// 마이페이지 - 내 정보 수정
 		map.put("  ", new MyInfoControl());
 		
@@ -60,6 +62,18 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/tepanglogout.do", new TepangLogoutControl());
 		map.put("/tepnagsingupForm.do", new TepangSingupFormControl());
 		map.put("/tepnagsingup.do", new SingupControl());
+
+		// 리뷰
+//		map.put("/replyList.do", new ListControl()); // 목록
+//		map.put("/removeReply.do", new RemoveReplyControl()); // 삭제
+//		map.put("/addReply.do", new AddReplyControl()); // 등록
+//		map.put("/getConut.do", new GetReplyCountControl());
+
+		// 리뷰
+//		map.put("/replyList.do", new replyListControl()); // 목록
+//		map.put("/removeReply.do", new RemoveReplyControl()); // 삭제
+//		map.put("/addReply.do", new AddReplyControl()); // 등록
+//		map.put("/getConut.do", new GetReplyCountControl());
 
 	}
 

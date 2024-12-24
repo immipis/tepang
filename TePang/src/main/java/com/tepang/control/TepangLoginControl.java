@@ -17,16 +17,17 @@ public class TepangLoginControl implements Control {
 
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
-		
-		
-		
+
+		String tier = req.getParameter("tier");
+
 		TePangDAO tdao = new TePangDAO();
 
 		if (tdao.login(id, pw) != null) {
 			HttpSession session = req.getSession();
 			session.setAttribute("member_id", id);
-			
-			
+
+			session.setAttribute("member_tier", tier);
+
 			resp.sendRedirect("mainList.do");
 		} else {
 			resp.sendRedirect("tepnagloginForm.do");
