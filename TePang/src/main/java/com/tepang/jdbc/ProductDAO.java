@@ -71,10 +71,10 @@ public class ProductDAO extends DAO {
 
 //상품목록
 
-	public List<MainVO> boardList(SearchDTO search) {
+	public List<MainVO> productList(SearchDTO search) {
 		getConn();
 		String sql = "select b.* " + "   from( select rownum rn, a.*" + "        from (select *"
-				+ "              from tbl_board";
+				+ "              from tbl_product";
 		// Title 검색조건 => title 컬럼에서 값을 조회.
 		if (search.getSearchCondition() != null && search.getKeyword() != null) {
 			if (search.getSearchCondition().equals("T")) {
@@ -117,6 +117,8 @@ public class ProductDAO extends DAO {
 				brd.setProductImg(rs.getString("product_Img"));
 				brd.setProductDetImg(rs.getString("product_DetImg"));
 				brd.setProductSale(rs.getString("product_Sale"));
+				brd.setProductStock(rs.getInt("product_Stock"));
+				brd.setProductPrice(rs.getInt("product_Price"));
 
 				result.add(brd); // ArrayList에 추가.
 			}

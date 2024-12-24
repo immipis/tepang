@@ -69,7 +69,7 @@
 			</div>
 
 			<div class="p-t-40">
-				<div class="flex-c-m flex-w p-b-18">
+				<div class="flex-c-m flex-w p-b-18"> 
 					<a href="#" class="m-all-1"> <img
 						src="images/icons/icon-pay-01.png" alt="ICON-PAY">
 					</a> <a href="#" class="m-all-1"> <img
@@ -99,3 +99,23 @@
 			</div>
 		</div>
 	</footer>
+
+<!-- Back to top -->
+<div class="btn-back-to-top" id="myBtn">
+	<span class="symbol-btn-back-to-top"> <i
+		class="zmdi zmdi-chevron-up"></i>
+	</span>
+</div>
+
+
+
+<!--===============================================================================================-->
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="js/main.js"></script>
+<!--===============================================================================================-->
