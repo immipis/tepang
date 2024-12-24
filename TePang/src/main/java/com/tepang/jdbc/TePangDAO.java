@@ -12,11 +12,13 @@ public class TePangDAO extends DAO {
 		String sql = "select * from tbl_member" 
 		+ "            where member_id = ?"
 		+ "            and   member_pw = ?";
+
 		
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			psmt.setString(2, pw);
+
 
 			rs = psmt.executeQuery();
 			if (rs.next()) {
