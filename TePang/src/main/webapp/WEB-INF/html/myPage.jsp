@@ -31,6 +31,7 @@
 <jsp:include page="../includes/header.jsp"></jsp:include>
 
 
+
 	<!-- 왼쪽 사이드 메뉴 -->
 	<div id=container>
 		<main>
@@ -76,4 +77,7 @@
 	</div>
 </body>
 
+<!-- Footer -->
 <jsp:include page="../includes/footer.jsp"></jsp:include>
+</body>
+</html>
