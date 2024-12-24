@@ -69,6 +69,41 @@ public class BoardDAO extends DAO {
 		}
 		return list;
 	}
+	
+	
+	// 보드 상세조회.
+	public List<BoardVO> selectBoardDetail(String replyCode) {
+
+		getConn();
+
+		List<BoardVO> dlist = new ArrayList<>();
+		String sql = "select * from tbl_reply where reply_code = ?";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, replyCode);
+			rs = psmt.executeQuery(); // 조회.
+
+			while (rs.next()) {
+				BoardVO brd = new BoardVO();
+				brd.setReplyCode(rs.getString("reply_code"));
+				brd.setReplyContent(rs.getString("reply_content"));
+				brd.setReplyAnswer(rs.getString("reply_answer"));
+				brd.setMemberId(rs.getString("member_id"));
+				brd.setReplyDate(rs.getDate("reply_date"));
+				
+				dlist.add(brd);
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return dlist;
+	}
+	
 
 		// BoardVO 파라미터 => 등록.
 		public boolean insertBoard(BoardVO board) {
