@@ -21,7 +21,7 @@ public class MyPageBoardControl implements Control {
 			OrderVO orv = mpdo.selectOrder(mi);
 			
 			req.setAttribute("member", orv);
-			req.getRequestDispatcher("WEB-INF/html/myPage.jsp").forward(req, resp);
+			req.getRequestDispatcher("WEB-INF/html/index.jsp").forward(req, resp);
 		} 
 
 		
