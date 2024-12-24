@@ -12,6 +12,7 @@ import com.tepang.jdbc.BoardDAO;
 import com.tepang.vo.BoardVO;
 
 
+
 public class BoardListControl implements Control {
 
 	@Override
@@ -24,11 +25,13 @@ public class BoardListControl implements Control {
 		String page = req.getParameter("page");
 		page = page == null ? "1" : page;
 
+
 		BoardDAO bdao = new BoardDAO();
 		List<BoardVO> list = bdao.selectBoard(type);
 		
 		req.setAttribute("list", list);
-		//요청재지정.
+		
+
 		req.getRequestDispatcher("WEB-INF/html/boardList.jsp").forward(req, resp);
 	}
 

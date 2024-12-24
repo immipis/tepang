@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head> 
 </html>
+
 <style>
 #container {
 	width: 1000px;
@@ -25,9 +27,12 @@ h4 {
 	padding-bottom: 30px;
 }
 
+
 p {
 	font-size: 14px;
 }
+
+
 
 
 #list {
@@ -45,6 +50,7 @@ button {
 </style>
 <!-- 헤더 -->
 <head>
+
 <title>Home</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -85,6 +91,7 @@ button {
 <link rel="stylesheet" type="text/css"
 	href="vendor/perfect-scrollbar/perfect-scrollbar.css">
 <!--===============================================================================================-->
+
 <link rel="stylesheet" type="text/css" href="css/util.css?after">
 <link rel="stylesheet" type="text/css" href="css/main.css?after">
 <!--===============================================================================================-->
@@ -110,7 +117,9 @@ button {
 				<nav class="limiter-menu-desktop container">
 
 					<!-- Logo desktop -->
+
 					<a href="#" class="logo"> <img src="images/icons/logo-03.png"
+
 						alt="IMG-LOGO">
 					</a>
 
@@ -141,7 +150,6 @@ button {
 		</div>
 	</header>
 	<!-- 헤더 끝 -->
-	
 
 	<div id="container">
 		<div id="title">
@@ -150,6 +158,7 @@ button {
 				안녕하세요 테팡입니다.<br>상품에 대해 궁금한것이 있으면 문의주세요.
 			</p>
 		</div>
+
 		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">문의하기</button>
 
 
@@ -188,6 +197,7 @@ button {
 		<!--<button id="QABtn" class="col-sm-2 btn btn-primary"><a href="./board.do"> 문의하기</a></button>  --> 
 		
 		<div id="list">
+
 			<table class="table">
 				<thead>
 					<tr>
@@ -198,6 +208,7 @@ button {
 					</tr>
 				</thead>
 				<tbody>
+
 					<c:forEach var="bvo" items="${list}">
 					<tr>
 						<td align="center">
@@ -210,6 +221,7 @@ button {
 					</tr>
 
 					</c:forEach>
+
 				</tbody>
 			</table>
 			<!-- paging -->
@@ -269,10 +281,9 @@ button {
 			</nav>
 		</div>
 	</div>
-	
-	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
 	</script>
 </body>
 <jsp:include page="../includes/footer.jsp"></jsp:include>
+

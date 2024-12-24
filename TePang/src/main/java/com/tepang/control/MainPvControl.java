@@ -13,25 +13,19 @@ import com.tepang.common.Control;
 import com.tepang.jdbc.MainDAO;
 import com.tepang.vo.MainVO;
 
-public class productCategoryListControl implements Control {
+public class MainPvControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json;charset=utf-8");
-		
-		String category = req.getParameter("category");
+		String logId = req.getParameter("id");
 		
 		MainDAO mdao = new MainDAO();
-		List<MainVO> products = null;
-		if (category.equals("null") || category.equals("")) {
-			products = mdao.addpList();
-		}
-		else{
-			products = mdao.pCategoryList(category);
-		}
-		Gson gson = new GsonBuilder().create();
+		List<MainVO> products = mdao.addPvList(logId);
+		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(products);
+		
 		resp.getWriter().write(json);
 	}
-
 }
