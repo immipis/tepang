@@ -66,6 +66,7 @@ public class MainDAO extends DAO{
 		return null;
 	}
 	public List<MainVO> addPvList(String logId) {
+		System.out.println("실햄됨");
 		getConn();
 		String sql = "select a.* from (\r\n"
 				+ "select  p.* ,   case \r\n"
