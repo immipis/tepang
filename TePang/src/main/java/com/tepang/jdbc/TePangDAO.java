@@ -8,6 +8,13 @@ import com.tepang.vo.SingupVO;
 public class TePangDAO extends DAO {
 	
 	public String login(String id, String pw) {
+
+		getConn();
+		String sql = "select * from tbl_member" 
+		+ "            where member_id = ?"
+		+ "            and   member_pw = ?";
+
+
 		
 		getConn();
 		String sql = "select * from tbl_member" + "            where member_id = ?" + "            and   member_pw = ?";
@@ -16,6 +23,7 @@ public class TePangDAO extends DAO {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			psmt.setString(2, pw);
+
 
 			rs = psmt.executeQuery();
 			if (rs.next()) {

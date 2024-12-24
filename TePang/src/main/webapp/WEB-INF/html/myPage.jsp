@@ -1,75 +1,50 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Simple Sidebar - Start Bootstrap Template</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="css/styles.css" rel="stylesheet" />
 <head>
-
 <style>
+
 #container {
-	width: 1000px;
+	width: 1500px;
 	margin: 0 auto;
+	padding-top: 180px;
+
 }
 
-.buylist {
-	background-color: skyblue;
-}
-/* 사이드메뉴 */
-.left-side {
-	width: 15%;
-	border-right: 2px solid #ddd;
-	float: left;
-	margin-top: 100px;
-	margin-left:
-}
-.list-group {
-	width: 100%;
-	list-style: none;
-	padding-right: 20px;
+.leftmenu {
+	width: 300px;
+	height: auto;
+	margin : 50px;
 }
 
-.list-group>li {
-	height: 50px;
-	font-size: 18px;
-	margin-left: 20px;
+.pagination {
+	margin-top: 180px;
 }
 
-.buy>ul {
-	border: 1px solid black;
+.d-flex {
+	margin-left: 100px;
 }
 
-
-.list-group>li>a {
-	color: black;
-	text-decoration: none;
-	display: flex;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
-	border-bottom: 2px solid #ddd;
-}
-
-.list-group>li>a:hover {
-	background-color: #ccc;
-	color: #fff;
-}
-
-.buy {
-	float: left;
-	margin: 100px;
-}
-
-.td {
-	padding: 10px;
-}
-.topinfo{
-	width: 800px;
-	height: 100px;
-	border: 1px solid black;
-}
-.topinfo>ul>li{
-	margin:10px;
-}
 </style>
-<title>My Tepang</title>
+<!--===============================================================================================-->
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+	integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+	integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+	crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -112,6 +87,7 @@
 <link rel="stylesheet" type="text/css" href="css/util.css?after">
 <link rel="stylesheet" type="text/css" href="css/main.css?after">
 <!--===============================================================================================-->
+
 </head>
 <body>
 	<!-- Header -->
@@ -121,11 +97,12 @@
 			console.log(id);
 		</script>
 		<!-- Header desktop -->
+
 		<div class="container-menu-desktop">
 			<!-- Topbar -->
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">${member_id}님,환영합니다</div>
+					<div class="left-top-bar">${member_id}님, 환영합니다</div>
 
 				</div>
 			</div>
@@ -164,29 +141,50 @@
 		</div>
 	</header>
 
+
 	<!-- 왼쪽 사이드 메뉴 -->
-	<section class="left-side">
+	<div id=container>
+		<main>
+			<div class="d-flex" id="wrapper">
+				<!-- Sidebar-->
+				<div class="border-end bg-white" id="sidebar-wrapper">
 
-		<ul class="list-group">
-			<li class="buylist"><a href="#">구매목록(디폴트)</a></li>
-			<li><a href="#">내가 쓴 문의</a></li>
-			<li><a href="#">찜 목록</a></li>
-			<li><a href="#">내 정보 수정</a></li>
-			<li><a href="#">회원탈퇴</a></li>
-		</ul>
-	</section>
-	<section class="buy">
-	<div class="topinfo">
-		<ul>
-			<li>${member_id}님의 등급은 ${orv.memberTier}입니다.</li>
-			<li>회원님의 총 구매 금액은 ${orv.orderSum} 입니다.</li>
-		</ul>
+					<div class="list-group list-group-flush">
+						<a
+							class="list-group-item list-group-item-action list-group-item-light p-3"
+							href="#">구매목록(디폴트)</a> <a
+							class="list-group-item list-group-item-action list-group-item-light p-3"
+							href="#">내가 쓴 문의</a> <a
+							class="list-group-item list-group-item-action list-group-item-light p-3"
+							href="#">찜 목록</a> <a
+							class="list-group-item list-group-item-action list-group-item-light p-3"
+							href="#">내 정보 수정</a> <a
+							class="list-group-item list-group-item-action list-group-item-light p-3"
+							href="#!">Profile</a> <a
+							class="list-group-item list-group-item-action list-group-item-light p-3"
+							href="#!">Status</a>
+					</div>
+				</div>
+				<!-- Page content wrapper-->
+				<!-- <div id="page-content-wrapper"> -->
+					<!-- Top navigation-->
+
+					<section class="leftmenu">
+						<div class="info">
+							<table>
+								<tr>
+									<td>${member_id}님의 등급은${member_tier}입니다.</td>
+								</tr>
+								<tr>
+									<td>회원님의 총 구매 금액은 원 입니다.</td>
+								</tr>
+							</table>
+						</div>					
+					</section>
+					<section>
+					</section>
+		</main>
 	</div>
-		<table>
-			<tr>
-				<td class="td">나의 구매목록</td>
-			</tr>
-
-		</table>
-	</section>
 </body>
+
+<jsp:include page="../includes/footer.jsp"></jsp:include>

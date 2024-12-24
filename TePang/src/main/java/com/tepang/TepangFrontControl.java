@@ -18,6 +18,7 @@ import com.tepang.control.MainControl;
 import com.tepang.control.MainPvControl;
 import com.tepang.control.MyInfoControl;
 import com.tepang.control.MyPageBoardControl;
+import com.tepang.control.MyPageListControl;
 import com.tepang.control.ProductDetailControl;
 import com.tepang.control.ProductListControl;
 import com.tepang.control.SingupControl;
@@ -51,7 +52,9 @@ public class TepangFrontControl extends HttpServlet {
 		// 로그인 및 로그아웃
 
 		// 마이페이지
-		map.put("/myPage.do", new MyPageBoardControl());
+		map.put("/myPage.do", new MyPageBoardControl()); // 마이페이지 상세
+		map.put("/myPageList.do", new MyPageListControl()); // 구매목록 리스트
+		
 		// 마이페이지 - 내 정보 수정
 		map.put("  ", new MyInfoControl());
 		
