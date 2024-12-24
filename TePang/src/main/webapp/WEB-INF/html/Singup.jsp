@@ -1,6 +1,7 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <title>Contact</title>
 <meta charset="UTF-8">
@@ -125,14 +126,14 @@
 			<div class="flex-w flex-tr">
 				<div
 					class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
-					<form action="tepanglogin.do" method="post">
+					<form action="tepnagsingup.do" method="post">
 						<h4 class="mtext-105 cl2 txt-center p-b-30">Signup</h4>
 
 					<table class="table">
 
 					<tr>
 						<th>ID</th>
-						<td><input class="cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 pointer" name="id" type="text" ></td>
+						<td><input class="size-121 bg3 bor1 hov-btn3 p-lr-15 pointer" name="id" type="text" ></td>
 					</tr>
 					<tr>
 						<th>Password</th>
@@ -181,7 +182,7 @@
 		<div class="size-303" id="google_map" data-map-x="35.86923684765542"
 			data-map-y="128.5927047090995" data-pin="images/icons/pin.png"
 			data-scrollwhell="0" data-draggable="1" data-zoom="11"></div>
-		<!-- 좌표 -->
+		<!-- ì¢í -->
 	</div>
 
 
