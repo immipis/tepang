@@ -72,7 +72,7 @@
 
                       <a class="flex-c-m trans-04 p-lr-25" href="tepanglogin.do">로그인</a>
 						<a href="#" class="flex-c-m trans-04 p-lr-25"> Sign Up </a> 
-
+ 
 						<a href="./boardList.do" class="flex-c-m trans-04 p-lr-25"> Board </a>
 
                     </c:otherwise>
