@@ -270,17 +270,16 @@
 <!-- Product -->
 <section class="bg0 p-t-23 p-b-140">
 	<div class="container">
-
-		<div class="row isotope-grid">
+		<div class="row isotope-grid product">
 			<c:forEach var="product" items="${products}">
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
 							<img src="images/${product.productImg}" alt="IMG-PRODUCT"> 
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1"
+							<button class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1"
 							productName = ${product.productName} productPrice = ${product.productPrice} productDetail = ${product.productDetail}>
-								Quick View </a>
+								Quick View </button>
 						</div>
 
 						<div class="block2-txt flex-w flex-t p-t-14">
@@ -407,7 +406,9 @@
 	</span>
 </div>
 <script>
+
 let logId = "${member_id}";
+
 </script>
 
 <script>
@@ -418,7 +419,9 @@ document.querySelectorAll(".js-show-modal1").forEach(element => {
     	let productName = e.target.getAttribute('productName');
     	let productPrice = e.target.getAttribute('productPrice');
     	let productDetail = e.target.getAttribute('productDetail');
-
+		
+    	console.log("123123"+productName,productPrice,productDetail)
+    	
 		document.querySelector(".img1").setAttribute('href', `images/\${productName}01.jpg`);
 		document.querySelector(".product-img1").setAttribute('src', `images/\${productName}01.jpg`);
     	document.querySelector(".imgList").innerHTML += `<img src="images/\${productName}01.jpg" class="thumbnail">`;

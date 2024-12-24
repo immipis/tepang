@@ -2,6 +2,10 @@ package com.tepang.jdbc;
 
 import java.sql.SQLException;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 import com.tepang.common.DAO;
 import com.tepang.vo.BoardVO;
 
@@ -32,60 +36,66 @@ public class BoardDAO extends DAO {
 //			return false;
 //		}
 //
-		// 상세조회. 파라미터(int boardNo) selectBoard 반환값: BoardVO.
-		public BoardVO selectBoard(String replyCode) {
-			getConn();
-			String sql = "select * from tbl_reply where reply_code = ?";
 
-			try {
-				psmt = conn.prepareStatement(sql);
-				psmt.setString(1, replyCode);
-				rs = psmt.executeQuery(); // 조회.
+	// 상세조회. 파라미터(int boardNo) selectBoard 반환값: BoardVO.
+	public List<BoardVO> selectBoard(String replyType) {
 
-				while (rs.next()) {
-					BoardVO brd = new BoardVO();
-					brd.setReplyCode(rs.getString("reply_code"));
-					brd.setReplyContent(rs.getString("reply_content"));
-					brd.setReplyAnswer(rs.getString("reply_answer"));
-					brd.setMemberId(rs.getString("member_id"));					
-					brd.setReplyDate(rs.getDate("reply_date"));
-					
-					return brd;
-				}
+		getConn();
 
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				disConnect();
+		List<BoardVO> list = new ArrayList<>();
+		String sql = "select * from tbl_reply where reply_type = ?";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, replyType);
+			rs = psmt.executeQuery(); // 조회.
+
+			while (rs.next()) {
+				BoardVO brd = new BoardVO();
+				brd.setReplyCode(rs.getString("reply_code"));
+				brd.setReplyContent(rs.getString("reply_content"));
+				brd.setReplyAnswer(rs.getString("reply_answer"));
+				brd.setMemberId(rs.getString("member_id"));
+				brd.setReplyDate(rs.getDate("reply_date"));
+				
+				list.add(brd);
+
 			}
-			return null;
-		}
 
-		// BoardVO 파라미터 => 등록.
-		public boolean insertBoard(BoardVO board) {
-			getConn();
-			String sql = "insert into tbl_reply " //
-					+ "(reply_code, reply_content, member_id, reply_date, reply_answer ) " //
-					+ "values(reply_seq.nextval, ?, ?, ? ) ";
-
-			try {
-				psmt = conn.prepareStatement(sql);
-				psmt.setString(1, board.getReplyCode());
-				psmt.setString(2, board.getReplyContent());
-				psmt.setString(3, board.getMemberId());
-				psmt.setString(4, board.getReplyAnswer());
-				int r = psmt.executeUpdate(); // 쿼리실행.
-				if (r > 0) {
-					return true;
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				disConnect();
-			}
-			return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
 		}
-		
+		return list;
+	}
+
+//		// BoardVO 파라미터 => 등록.
+//		public boolean insertBoard(BoardVO board) {
+//			getConn();
+//			String sql = "insert into tbl_reply " //
+//					+ "(reply_code, reply_content, member_id, reply_date, reply_answer ) " //
+//					+ "values(reply_seq.nextval, ?, ?, ? ) ";
+//
+//			try {
+//				psmt = conn.prepareStatement(sql);
+//				psmt.setString(1, board.getReplyCode());
+//				psmt.setString(2, board.getReplyContent());
+//				psmt.setString(3, board.getMemberId());
+//				psmt.setString(4, board.getReplyAnswer());
+//				int r = psmt.executeUpdate(); // 쿼리실행.
+//				if (r > 0) {
+//					return true;
+//				}
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			} finally {
+//				disConnect();
+//			}
+//			return false;
+//		}
+
+
 //		// 목록.
 //		public List<BoardVO> boardList(BoardVO board) {
 //			getConn();
@@ -123,5 +133,5 @@ public class BoardDAO extends DAO {
 //			return result;
 //		}
 
-		
+
 }

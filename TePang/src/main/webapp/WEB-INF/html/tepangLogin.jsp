@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -199,7 +200,7 @@
 		<div class="size-303" id="google_map" data-map-x="35.8690730613163"
 			data-map-y="128.593296913547" data-pin="images/icons/pin.png"
 			data-scrollwhell="0" data-draggable="1" data-zoom="11"></div>
-		<!-- 좌표 -->
+		<!-- ì¢í -->
 	</div>
 
 
