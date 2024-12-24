@@ -15,9 +15,6 @@ public class TePangDAO extends DAO {
 		+ "            and   member_pw = ?";
 
 
-		
-		getConn();
-		String sql = "select * from tbl_member" + "            where member_id = ?" + "            and   member_pw = ?";
 
 		try {
 			psmt = conn.prepareStatement(sql);

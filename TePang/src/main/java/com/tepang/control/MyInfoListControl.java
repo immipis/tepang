@@ -8,11 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.tepang.common.Control;
 
-public class MyInfoControl implements Control {
-// 개인정보 수정 ?? 
+public class MyInfoListControl implements Control {
+
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("WEB-INF/html/myInfo.jsp").forward(req, resp);
+		// TODO Auto-generated method stub
+
 	}
 
 }

@@ -6,26 +6,32 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Simple Sidebar - Start Bootstrap Template</title>
+
+<title>My Tepang</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
 <head>
 <style>
-
 #container {
 	width: 1500px;
 	margin: 0 auto;
 	padding-top: 180px;
-
 }
 
-.leftmenu {
-	width: 300px;
+.user {
+	width: 700px;
 	height: auto;
-	margin : 50px;
+	margin: 50px;
+	border: 1px solid blue;
 }
+
+.plist {
+	border: 1px solid blue;
+	margin-top: 20px;
+}
+
 
 .pagination {
 	margin-top: 180px;
@@ -34,7 +40,6 @@
 .d-flex {
 	margin-left: 100px;
 }
-
 </style>
 <!--===============================================================================================-->
 <script
@@ -102,7 +107,7 @@
 			<!-- Topbar -->
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">${member_id}님, 환영합니다</div>
+					<div class="left-top-bar">${member_id}님,환영합니다</div>
 
 				</div>
 			</div>
@@ -158,7 +163,7 @@
 							class="list-group-item list-group-item-action list-group-item-light p-3"
 							href="#">찜 목록</a> <a
 							class="list-group-item list-group-item-action list-group-item-light p-3"
-							href="#">내 정보 수정</a> <a
+							href="myInfo.do">내 정보 수정</a> <a
 							class="list-group-item list-group-item-action list-group-item-light p-3"
 							href="#!">Profile</a> <a
 							class="list-group-item list-group-item-action list-group-item-light p-3"
@@ -167,22 +172,29 @@
 				</div>
 				<!-- Page content wrapper-->
 				<!-- <div id="page-content-wrapper"> -->
-					<!-- Top navigation-->
+				<!-- Top navigation-->
 
-					<section class="leftmenu">
-						<div class="info">
-							<table>
-								<tr>
-									<td>${member_id}님의 등급은${member_tier}입니다.</td>
-								</tr>
-								<tr>
-									<td>회원님의 총 구매 금액은 원 입니다.</td>
-								</tr>
-							</table>
-						</div>					
-					</section>
-					<section>
-					</section>
+				<section class="user">
+					<div class="info">
+						<table>
+							<tr>
+								<td>${member_id}님의등급은 ${memId.memberTier}입니다.</td>
+							</tr>
+							<tr>
+								<td>회원님의 총 구매 금액은 원 입니다.</td>
+							</tr>
+						</table>
+					</div>
+					<div class="plist">
+						<h3>구매 목록</h3>
+						<table>
+							<tr>
+								<td></td>
+							</tr>
+						</table>
+					</div>
+				</section>
+				
 		</main>
 	</div>
 </body>
