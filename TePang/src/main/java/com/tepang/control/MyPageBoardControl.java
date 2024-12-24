@@ -23,11 +23,13 @@ public class MyPageBoardControl implements Control {
 			String mi = req.getParameter("member_id");
 			SingupVO svo = mpdo.selectmember(mi);
 			
+
 			req.setAttribute("member_id", svo);
 			req.getRequestDispatcher("WEB-INF/html/myPage.jsp").forward(req, resp);
 		} else if (req.getMethod().equals("POST")) {
 	
 		}
+
 	}
 
 }

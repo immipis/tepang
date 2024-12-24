@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -288,39 +289,40 @@
 									<th class="column-4">수량</th>
 									<th class="column-5">총액</th>
 								</tr>
-
+                                <c:forEach var="cart" items="${carts }">
 								<tr class="table_row">
 									<td class="column-1">
 										<div class="how-itemcart1">
-											<img src="images/item-cart-04.jpg" alt="IMG">
+											<img src="images/${cart.productImg }" alt="IMG">
 										</div>
 									</td>
-									<td class="column-2">Fresh Strawberries</td>
-									<td class="column-3">$ 36.00</td>
+									<td class="column-2"><c:out value="${cart.productName }" /></td>
+									<td class="column-3 cprice"><c:out value="${cart.productPrice }" /></td>
 									<td class="column-4">
 										<div class="wrap-num-product flex-w m-l-auto m-r-0">
 											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
 												<i class="fs-16 zmdi zmdi-minus"></i>
 											</div>
 
-											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="1">
+											<input class="mtext-104 cl3 txt-center num-product cnum" type="number" name="num-product1" value="${cart.productNum }">
 
 											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
 												<i class="fs-16 zmdi zmdi-plus"></i>
 											</div>
 										</div>
 									</td>
-									<td class="column-5">$ 36.00</td>
+									<td class="column-5"><c:out value="${cart.productPrice*cart.productNum }" /></td>
 								</tr>
-
+                                </c:forEach>
 								
 							</table>
 						</div>
 
 					</div>
 				</div>
-
-				<div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
+				
+				
+				<div class="total col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
 					<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
 						<h4 class="mtext-109 cl2 p-b-30">
 							Cart Totals
@@ -335,7 +337,7 @@
 
 							<div class="size-209">
 								<span class="mtext-110 cl2">
-									$79.65
+									<!-- 총액넣는곳 -->
 								</span>
 							</div>
 						</div>
@@ -349,7 +351,7 @@
 
 							<div class="size-209 p-t-1">
 								<span class="mtext-110 cl2">
-									$79.65
+									<c:out value="${cart.productPrice*cart.productNum }" />
 								</span>
 							</div>
 						</div>
@@ -510,6 +512,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			</div>
 		</div>
 	</footer>
+	<!-- footer -->
 
 
 	<!-- Back to top -->
@@ -518,7 +521,18 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<i class="zmdi zmdi-chevron-up"></i>
 		</span>
 	</div>
-
+    <script>
+    let a = 0;
+    document.querySelectorAll(".cprice").forEach(e => {
+    	a += Number(e.innerText);
+    	console.log(a);
+    })
+    let b = 0;
+    document.querySelectorAll(".cnum").forEach(e => {
+    	b += Number(e.innerText);
+    	console.log(b);
+    })
+    </script>
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -555,6 +569,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			})
 		});
 	</script>
+	<script>
+	let logId = "${logId }"; // 작성자.
+    </script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
 
