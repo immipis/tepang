@@ -1,7 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <jsp:include page="../includes/header.jsp"></jsp:include>
+<!-- breadcrumb -->
+<div class="container">
+	<div class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+		<a href="productDetail.do?" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6"> Home
+			<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+		</a> <a href="productDetail.do?" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+			/${category} <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+		</a> <span class="stext-105 cl3"> \${product.productName} </span>
+	</div>
+</div>
 
 <!-- Cart -->
 <div class="wrap-header-cart js-panel-cart">
@@ -10,7 +21,7 @@
 	<div class="header-cart flex-col-l p-l-65 p-r-25">
 
 		<div class="header-cart-title flex-w flex-sb-m p-b-8">
-			<span class="mtext-103 cl2"> Your Cart   </span>
+			<span class="mtext-103 cl2"> Your Cart </span>
 
 			<div
 				class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
@@ -73,16 +84,6 @@
 </div>
 
 
-<!-- breadcrumb -->
-<div class="container">
-	<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-		<a href="index.html" class="stext-109 cl8 hov-cl1 trans-04"> Home
-			<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
-		</a> <a href="product.html" class="stext-109 cl8 hov-cl1 trans-04">
-			Men <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
-		</a> <span class="stext-109 cl4"> Lightweight Jacket </span>
-	</div>
-</div>
 
 
 <!-- Product Detail -->
@@ -141,14 +142,15 @@
 
 			<div class="col-md-6 col-lg-5 p-b-30">
 				<div class="p-r-50 p-t-5 p-lr-0-lg">
-					<h4 class="mtext-105 cl2 js-name-detail p-b-14">Lightweight
-						Jacket</h4>
+					<h4 class="mtext-105 cl2 js-name-detail p-b-14">${item.productName}</h4>
 
-					<span class="mtext-106 cl2"> $58.79 </span>
+					<span class="mtext-106 cl2"> ${item.productPrice} </span>
 
-					<p class="stext-102 cl3 p-t-23">Nulla eget sem vitae eros
-						pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare
-						feugiat.</p>
+					<div class="stext-102 cl3 p-t-23">
+					<p>이름: ${item.productPrice}</p>
+					<p>가격: ${item.productPrice}</p>
+					<p>재고: ${item.productPrice}</p>
+					</div>
 
 					<!--  -->
 					<div class="p-t-33">
@@ -922,7 +924,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 										</div>
 
 										<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-											Add to cart
+											장바구니
+										</button>
+										<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+											바로구매
 										</button>
 									</div>
 								</div>	

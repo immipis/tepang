@@ -1,11 +1,14 @@
 package com.tepang.jdbc;
 
 import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.List;
 
+
 import com.tepang.common.DAO;
 import com.tepang.vo.BoardVO;
+
 
 public class BoardDAO extends DAO {
 
@@ -33,6 +36,7 @@ public class BoardDAO extends DAO {
 //			return false;
 //		}
 //
+
 	// 상세조회. 파라미터(int boardNo) selectBoard 반환값: BoardVO.
 	public List<BoardVO> selectBoard(String replyType) {
 
@@ -91,6 +95,7 @@ public class BoardDAO extends DAO {
 //			return false;
 //		}
 
+
 //		// 목록.
 //		public List<BoardVO> boardList(BoardVO board) {
 //			getConn();
@@ -127,5 +132,6 @@ public class BoardDAO extends DAO {
 //			}
 //			return result;
 //		}
+
 
 }

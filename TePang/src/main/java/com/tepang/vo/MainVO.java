@@ -8,9 +8,9 @@ public class MainVO {
 	private String productName;
 	private int productPrice;  
 	private String productImg;  
-	private String productDetail;  
+	private String productDetail;
 	private int productStock;
-	private String productSale;  
+	private String productSale;
 	private String productDetImg;  
 	private String category;
 }
