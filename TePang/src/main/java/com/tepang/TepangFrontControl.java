@@ -53,7 +53,7 @@ public class TepangFrontControl extends HttpServlet {
 		// 마이페이지
 		map.put("/myPage.do", new MyPageBoardControl());
 		// 마이페이지 - 내 정보 수정
-		map.put("myPageinfo.do", new MyInfoControl());
+		map.put("  ", new MyInfoControl());
 		
 		map.put("/tepnagloginForm.do", new TepangLoginFormControl());
 		map.put("/tepanglogin.do", new TepangLoginControl());
