@@ -156,8 +156,14 @@
 						<td><input class="size-121 bg1 bor1 hov-btn3 p-lr-15 pointer" name="bir" type="date" ></td>
 					</tr>
 					<tr>
-						<th>Gender</th>
-						<td><input class="size-121 bg1 bor1 hov-btn3 p-lr-15 pointer" name="gen" type="text" ></td>
+						<th class="gender">Gender</th>
+						<td>
+						<input class="size-121 bg1 bor1 hov-btn3 p-lr-15 pointer" name="gen" type="text" >
+					
+						
+						
+						
+						</td>
 					</tr>
 					<tr>
 						<th>Favorite</th>
@@ -231,8 +237,7 @@
 			class="zmdi zmdi-chevron-up"></i>
 		</span>
 	</div>
-
-	<!--===============================================================================================-->
+========================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->
 	<script src="vendor/animsition/js/animsition.min.js"></script>
