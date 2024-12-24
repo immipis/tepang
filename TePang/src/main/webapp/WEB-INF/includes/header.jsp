@@ -7,6 +7,8 @@
 <title>Home</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/styles.css" rel="stylesheet" />
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!--===============================================================================================-->
 <link rel="icon" type="image/png" href="images/icons/favicon.png" />
 <!--===============================================================================================-->
@@ -47,6 +49,30 @@
 <link rel="stylesheet" type="text/css" href="css/util.css?after">
 <link rel="stylesheet" type="text/css" href="css/main.css?after">
 <!--===============================================================================================-->
+<style>
+
+#container {
+	width: 1500px;
+	margin: 0 auto;
+	padding-top: 180px;
+
+}
+
+.leftmenu {
+	width: 300px;
+	height: auto;
+	margin : 50px;
+}
+
+.pagination {
+	margin-top: 180px;
+}
+
+.d-flex {
+	margin-left: 100px;
+}
+
+</style>
 </head>
 <body class="animsition">
 	<!-- Header -->
