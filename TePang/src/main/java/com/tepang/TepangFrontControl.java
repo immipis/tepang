@@ -40,10 +40,8 @@ public class TepangFrontControl extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 
 
-
-		map.put("/product-detail.do", new ProductDetailControl());//상세목록
+		map.put("/productDetail.do", new ProductDetailControl());// 상세목록
 		map.put("/mainList.do", new MainControl());
-		map.put("/mainFvList.do", new MainPvControl());
 		map.put("/productList.do", new ProductListControl());
 		map.put("/productCategoryList.do", new productCategoryListControl());
 		map.put("/cartList.do", new CartListControl());
@@ -63,6 +61,18 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/tepanglogout.do", new TepangLogoutControl());
 		map.put("/tepnagsingupForm.do", new TepangSingupFormControl());
 		map.put("/tepnagsingup.do", new SingupControl());
+
+		// 리뷰
+//		map.put("/replyList.do", new ListControl()); // 목록
+//		map.put("/removeReply.do", new RemoveReplyControl()); // 삭제
+//		map.put("/addReply.do", new AddReplyControl()); // 등록
+//		map.put("/getConut.do", new GetReplyCountControl());
+
+		// 리뷰
+//		map.put("/replyList.do", new replyListControl()); // 목록
+//		map.put("/removeReply.do", new RemoveReplyControl()); // 삭제
+//		map.put("/addReply.do", new AddReplyControl()); // 등록
+//		map.put("/getConut.do", new GetReplyCountControl());
 
 	}
 
