@@ -66,30 +66,29 @@ public class BoardDAO extends DAO {
 		return list;
 	}
 
-//		// BoardVO 파라미터 => 등록.
-//		public boolean insertBoard(BoardVO board) {
-//			getConn();
-//			String sql = "insert into tbl_reply " //
-//					+ "(reply_code, reply_content, member_id, reply_date, reply_answer ) " //
-//					+ "values(reply_seq.nextval, ?, ?, ? ) ";
-//
-//			try {
-//				psmt = conn.prepareStatement(sql);
-//				psmt.setString(1, board.getReplyCode());
-//				psmt.setString(2, board.getReplyContent());
-//				psmt.setString(3, board.getMemberId());
-//				psmt.setString(4, board.getReplyAnswer());
-//				int r = psmt.executeUpdate(); // 쿼리실행.
-//				if (r > 0) {
-//					return true;
-//				}
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			} finally {
-//				disConnect();
-//			}
-//			return false;
-//		}
+		// BoardVO 파라미터 => 등록.
+		public boolean insertBoard(BoardVO board) {
+			getConn();
+			String sql = "insert into tbl_reply " //
+					+ "(reply_code, reply_content, member_id ) " //
+					+ "values(reply_seq.nextval, ?, ? ) ";
+
+			try {
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, board.getReplyContent());
+				psmt.setString(2, board.getMemberId());
+				
+				int r = psmt.executeUpdate(); // 쿼리실행.
+				if (r > 0) {
+					return true;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				disConnect();
+			}
+			return false;
+		}
 
 //		// 목록.
 //		public List<BoardVO> boardList(BoardVO board) {
