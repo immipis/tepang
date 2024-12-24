@@ -133,11 +133,11 @@
 
 					<tr>
 						<th>ID</th>
-						<td><input class=" cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
+						<td><input class=" cl0 size-121 bg1 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
 					</tr>
 					<tr>
 						<th>Password</th>
-						<td><input class=" cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="pw" type="password" ></td>
+						<td><input class=" cl0 size-121 bg1 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="pw" type="password" ></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center"><input type="submit" 
