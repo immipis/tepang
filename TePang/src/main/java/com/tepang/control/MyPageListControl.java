@@ -16,7 +16,7 @@ public class MyPageListControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id = req.getParameter("member_id");
-		//id = id == null ? "1" : id;
+		id = id == null ? "1" : id;
 		
 		MyPageDAO mpdo = new MyPageDAO();
 		List<OrderVO> olist = mpdo.orderList(id);

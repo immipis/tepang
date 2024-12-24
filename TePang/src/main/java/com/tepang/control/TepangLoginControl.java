@@ -26,8 +26,6 @@ public class TepangLoginControl implements Control {
 			HttpSession session = req.getSession();
 			session.setAttribute("member_id", id);
 
-			session.setAttribute("member_tier", tier);
-
 			resp.sendRedirect("mainList.do");
 		} else {
 			resp.sendRedirect("tepnagloginForm.do");
