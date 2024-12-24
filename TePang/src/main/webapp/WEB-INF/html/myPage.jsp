@@ -12,7 +12,7 @@
 }
 
 .leftmenu {
-	width: 300px;
+	width: 300px; 
 	height: auto;
 	margin : 50px;
 }
