@@ -1,7 +1,15 @@
+<%@page import="com.tepang.vo.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head> 
+</html>
 <style>
 #container {
 	width: 1000px;
@@ -29,10 +37,14 @@ p {
 button {
 	float: right;
 }
-
+.pagination{
+	margin-top: 40px;
+	margin-bottom: 80px;
+}
 
 </style>
-
+<!-- 헤더 -->
+<head>
 <title>Home</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -98,7 +110,7 @@ button {
 				<nav class="limiter-menu-desktop container">
 
 					<!-- Logo desktop -->
-					<a href="#" class="logo"> <img src="images/icons/logo-01.png"
+					<a href="#" class="logo"> <img src="images/icons/logo-03.png"
 						alt="IMG-LOGO">
 					</a>
 
@@ -129,6 +141,8 @@ button {
 		</div>
 	</header>
 	<!-- 헤더 끝 -->
+	
+
 	<div id="container">
 		<div id="title">
 			<h4>Board(boardList.jsp)</h4>
@@ -136,9 +150,44 @@ button {
 				안녕하세요 테팡입니다.<br>상품에 대해 궁금한것이 있으면 문의주세요.
 			</p>
 		</div>
-		<button id="QABtn" class="col-sm-2 btn btn-primary">문의하기</button>
-		<div id="list">
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">문의하기</button>
 
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog modal-dialog-centered modal-lg" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><b>문의하기</b></h5>
+        <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+      </div>
+      <div class="modal-body" >
+        <form>
+          <div class="mb-3">
+          		<input type="text" readonly name="writer" value="${member_id }">
+          		<select name="searchCondition" class="form-control">
+				<option value="">선택하세요.</option>
+				<option value="N"
+					${!empty searchCondition and searchCondition eq 'N' ? 'selected' : '' }>문의</option>				
+				</select>
+           <!--  <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name"> -->
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label" >Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary">문의하기</button>
+      </div>
+    </div>
+  </div>
+</div>
+		<!--<button id="QABtn" class="col-sm-2 btn btn-primary"><a href="./board.do"> 문의하기</a></button>  --> 
+		
+		<div id="list">
 			<table class="table">
 				<thead>
 					<tr>
@@ -149,19 +198,18 @@ button {
 					</tr>
 				</thead>
 				<tbody>
-
-					<!--<c:forEach var="bvo" items="${list}">-->
+					<c:forEach var="bvo" items="${list}">
 					<tr>
 						<td align="center">
-							<!-- <a href="board.do?page=${paging.currentPage }&keyword=${empty keyword ? '': keyword }&searchCondition=${empty searchCondition ? '' : searchCondition }&reply_code=${bvo.replyCode}">${bvo.replyCode}</a> -->
+						<a href="board.do?page=${paging.currentPage }&keyword=${empty keyword ? '': keyword }&searchCondition=${empty searchCondition ? '' : searchCondition }&reply_code=${bvo.replyCode}">${bvo.replyCode}</a>
 
 						</td>
-						<td><c:out value="${reply_content}" /></td>
-						<td><c:out value="${member_id}" /></td>
-						<td>${reply_date}</td>
+						<td><c:out value="${bvo.replyContent}" /></td>
+						<td><c:out value="${bvo.memberId}" /></td>
+						<td>${bvo.replyDate}</td>
 					</tr>
 
-					<!--</c:forEach>-->
+					</c:forEach>
 				</tbody>
 			</table>
 			<!-- paging -->
@@ -221,4 +269,10 @@ button {
 			</nav>
 		</div>
 	</div>
+	
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+	</script>
 </body>
+<jsp:include page="../includes/footer.jsp"></jsp:include>

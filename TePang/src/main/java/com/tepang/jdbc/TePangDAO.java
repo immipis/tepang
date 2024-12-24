@@ -9,7 +9,9 @@ public class TePangDAO extends DAO {
 	
 	public String login(String id, String pw) {
 		getConn();
-		String sql = "select * from tbl_member" + "            where member_id = ?" + "            and   password = ?";
+		String sql = "select * from tbl_member" 
+		+ "            where member_id = ?"
+		+ "            and   member_pw = ?";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
