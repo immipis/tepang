@@ -6,8 +6,9 @@ import com.tepang.common.DAO;
 import com.tepang.vo.SingupVO;
 
 public class TePangDAO extends DAO {
-
+	
 	public String login(String id, String pw) {
+		
 		getConn();
 		String sql = "select * from tbl_member" + "            where member_id = ?" + "            and   member_pw = ?";
 
@@ -32,9 +33,10 @@ public class TePangDAO extends DAO {
 
 	public boolean insertSignup(SingupVO singup) {
 		getConn();
+		System.out.println(singup);
 		String sql = "insert into tbl_member (member_id,member_pw,member_name,member_phone,member_adr,member_bir,member_gen,member_fv)"
 				+ "values (?, ?, ?, ?, ?, ?, ?, ?)";
-
+		
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, singup.getMemberId());
@@ -45,6 +47,11 @@ public class TePangDAO extends DAO {
 			psmt.setString(6, singup.getMemberBir());
 			psmt.setString(7, singup.getMemberGen());
 			psmt.setString(8, singup.getMemberFv());
+			
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
 		 
 		} catch (SQLException e) {
 			e.printStackTrace();
