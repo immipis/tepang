@@ -69,7 +69,7 @@
 			</div>
 
 			<div class="p-t-40">
-				<div class="flex-c-m flex-w p-b-18">
+				<div class="flex-c-m flex-w p-b-18"> 
 					<a href="#" class="m-all-1"> <img
 						src="images/icons/icon-pay-01.png" alt="ICON-PAY">
 					</a> <a href="#" class="m-all-1"> <img

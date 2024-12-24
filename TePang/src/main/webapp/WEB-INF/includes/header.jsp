@@ -4,10 +4,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Home</title>
+<title>Home</title> 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="css/styles.css" rel="stylesheet" />
+
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+	integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+	integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+	crossorigin="anonymous"></script>
+
+<!-- Core theme CSS (includes Bootstrap)-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!--===============================================================================================-->
 <link rel="icon" type="image/png" href="images/icons/favicon.png" />
@@ -97,6 +107,7 @@
                     <c:otherwise>
 
                       <a class="flex-c-m trans-04 p-lr-25" href="tepanglogin.do">로그인</a>
+
 						<a href="tepnagsingupForm.do" class="flex-c-m trans-04 p-lr-25"> Sign Up </a> 
 
 						<a href="./boardList.do" class="flex-c-m trans-04 p-lr-25"> Board </a>
