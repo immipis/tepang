@@ -15,6 +15,7 @@ public class ProductListControl implements Control {
 		// TODO Auto-generated method stub
 		String title = req.getParameter("title");
 		System.out.println(title);
+
 //		MainDAO mdao = new MainDAO();
 //		List<MainVO> products2 = mdao.pList(title);
 //		

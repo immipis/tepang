@@ -2,7 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="../includes/header.jsp"></jsp:include>
+
 <!-- Cart -->
+
 <div class="wrap-header-cart js-panel-cart">
 	<div class="s-full js-hide-cart"></div>
 	<div class="header-cart flex-col-l p-l-65 p-r-25">
@@ -32,9 +34,9 @@
 				<div class="header-cart-total w-full p-tb-40">토탈 가격</div>
 
 				<div class="header-cart-buttons flex-w w-full">
-					<a href="shoping-cart.html"
+					<a href="cartList.do"
 						class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-						장바구니로 </a> <a href="shoping-cart.html"
+						장바구니로 </a> <a href="cartList.do?"
 						class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
 						구매 </a>
 				</div>
@@ -242,20 +244,22 @@
 
 						<div class="header-cart-item-txt p-t-8">
 							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								이름 </a> <span class="header-cart-item-info"> 가격 </span>
+								${productName} </a> <span class="header-cart-item-info"> 가격 </span>
 						</div>
 					</li>
 				</ul>
 
 				<div class="w-full">
 					<div class="header-cart-total w-full p-tb-40">토탈 가격</div>
-
+					
 					<div class="header-cart-buttons flex-w w-full">
-						<a href="shoping-cart.html"
-							class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							장바구니로 </a> <a href="shoping-cart.html"
+					<form action="cartList.do?id=${logId }">
+						<button 
+						class="cartbtn flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">장바구니로 </button> 
+						<a href="cartList.do"
 							class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
 							구매 </a>
+					</form>
 					</div>
 				</div>
 			</div>
@@ -266,17 +270,16 @@
 <!-- Product -->
 <section class="bg0 p-t-23 p-b-140">
 	<div class="container">
-
-		<div class="row isotope-grid">
+		<div class="row isotope-grid product">
 			<c:forEach var="product" items="${products}">
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
 							<img src="images/${product.productImg}" alt="IMG-PRODUCT"> 
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1"
+							<button class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1"
 							productName = ${product.productName} productPrice = ${product.productPrice} productDetail = ${product.productDetail}>
-								Quick View </a>
+								Quick View </button>
 						</div>
 
 						<div class="block2-txt flex-w flex-t p-t-14">
@@ -403,13 +406,22 @@
 	</span>
 </div>
 <script>
+
+let logId = "${member_id}";
+
+</script>
+
+<script>
+
 document.querySelectorAll(".js-show-modal1").forEach(element => {
     element.addEventListener('click', e => {
     	document.querySelector(".imgList").innerHTML = ""
     	let productName = e.target.getAttribute('productName');
     	let productPrice = e.target.getAttribute('productPrice');
     	let productDetail = e.target.getAttribute('productDetail');
-    	console.log(productName,productPrice,productDetail)
+		
+    	console.log("123123"+productName,productPrice,productDetail)
+    	
 		document.querySelector(".img1").setAttribute('href', `images/\${productName}01.jpg`);
 		document.querySelector(".product-img1").setAttribute('src', `images/\${productName}01.jpg`);
     	document.querySelector(".imgList").innerHTML += `<img src="images/\${productName}01.jpg" class="thumbnail">`;

@@ -15,9 +15,13 @@ import com.tepang.control.BoardControl;
 import com.tepang.control.BoardListControl;
 import com.tepang.control.CartListControl;
 import com.tepang.control.MainControl;
+import com.tepang.control.MainPvControl;
+import com.tepang.control.MyInfoControl;
 import com.tepang.control.MyPageBoardControl;
+import com.tepang.control.MyPageListControl;
 import com.tepang.control.ProductDetailControl;
 import com.tepang.control.ProductListControl;
+import com.tepang.control.SingupControl;
 import com.tepang.control.TepangLoginControl;
 import com.tepang.control.TepangLoginFormControl;
 import com.tepang.control.TepangLogoutControl;
@@ -35,16 +39,24 @@ public class TepangFrontControl extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 
-		map.put("/myPage.do", new MyPageBoardControl());
+
 		map.put("/productDetail.do", new ProductDetailControl());// 상세목록
 		map.put("/mainList.do", new MainControl());
+		map.put("/mainFvList.do", new MainPvControl());
 		map.put("/productList.do", new ProductListControl());
 		map.put("/productCategoryList.do", new productCategoryListControl());
-
 		map.put("/cartList.do", new CartListControl());
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
 		map.put("/board.do", new BoardControl()); // 게시판목록 > 상세
 		// 로그인 및 로그아웃
+
+		// 마이페이지
+		map.put("/myPage.do", new MyPageBoardControl()); // 마이페이지 상세
+		map.put("/myPageList.do", new MyPageListControl()); // 구매목록 리스트
+		
+		// 마이페이지 - 내 정보 수정
+		map.put("  ", new MyInfoControl());
+		
 		map.put("/tepnagloginForm.do", new TepangLoginFormControl());
 		map.put("/tepanglogin.do", new TepangLoginControl());
 		map.put("/tepanglogout.do", new TepangLogoutControl());

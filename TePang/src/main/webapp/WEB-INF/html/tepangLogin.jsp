@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -126,25 +127,25 @@
 				<div
 					class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
 					<form action="tepanglogin.do" method="post">
-						<h4 class="mtext-105 cl2 txt-center p-b-30">Sign In</h4>
+						<h4 class="mtext-105 cl2 txt-center p-b-30">Login</h4>
 
 					<table class="table">
 
 					<tr>
 						<th>ID</th>
-						<td><input class=" cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
+						<td><input class=" cl0 size-121 bg1 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="id" type="text" ></td>
 					</tr>
 					<tr>
 						<th>Password</th>
-						<td><input class=" cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="pw" type="password" ></td>
+						<td><input class=" cl0 size-121 bg1 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="pw" type="password" ></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center"><input type="submit" 
-							class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" href="mainList.do" value="Sign In"></td>
+							class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" href="mainList.do" value="Login"></td>
 					</tr>
 					<tr>
-						<td colspan="2" align="center"><input type="submit" href="/tepangsingup.do"
-							class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"  value="signup"></td>
+						<td colspan="2" align="center"><input type="submit" 
+							class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" href="tepnagsingup.do" value="signup"></td>
 					</tr>
 					</table>
 					</form>
@@ -196,10 +197,10 @@
 
 	<!-- Map -->
 	<div class="map">
-		<div class="size-303" id="google_map" data-map-x="35.86923684765542"
-			data-map-y="128.5927047090995" data-pin="images/icons/pin.png"
+		<div class="size-303" id="google_map" data-map-x="35.8690730613163"
+			data-map-y="128.593296913547" data-pin="images/icons/pin.png"
 			data-scrollwhell="0" data-draggable="1" data-zoom="11"></div>
-		<!-- 좌표 -->
+		<!-- ì¢í -->
 	</div>
 
 

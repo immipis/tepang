@@ -8,12 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.tepang.common.Control;
 
-public class CartFormControl implements Control {
-
+public class MyInfoControl implements Control {
+// 개인정보 수정 ?? 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 등록화면 호출.
-		resp.sendRedirect("cartList.do");
+		req.getRequestDispatcher("WEB-INF/html/myPage.jsp").forward(req, resp);
 	}
 
 }
