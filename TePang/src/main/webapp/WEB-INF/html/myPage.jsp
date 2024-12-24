@@ -1,7 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<style>
+
+#container {
+	width: 1500px;
+	margin: 0 auto;
+	padding-top: 180px;
+
+}
+
+.leftmenu {
+	width: 300px;
+	height: auto;
+	margin : 50px;
+}
+
+.pagination {
+	margin-top: 180px;
+}
+
+.d-flex {
+	margin-left: 100px;
+}
+
+</style>
+
+
 <jsp:include page="../includes/header.jsp"></jsp:include>
+
+
 
 	<!-- 왼쪽 사이드 메뉴 -->
 	<div id=container>
