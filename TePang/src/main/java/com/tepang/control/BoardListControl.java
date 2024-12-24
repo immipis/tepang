@@ -17,11 +17,7 @@ public class BoardListControl implements Control {
 		String page = req.getParameter("page");
 		page = page == null ? "1" : page;
 
-		
 		resp.sendRedirect("boardList.do");
-		
-		//요청재지정.
-		req.getRequestDispatcher("WEB-INF/html/boardList.jsp").forward(req, resp);
 	}
 
 }

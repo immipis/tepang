@@ -33,8 +33,6 @@ public class MainControl implements Control {
 			products = mdao.addPvList(id);
 		}
 
-		System.out.println(products);
-
 		req.setAttribute("products", products);
 		req.getRequestDispatcher("WEB-INF/html/main.jsp").forward(req, resp);
 
