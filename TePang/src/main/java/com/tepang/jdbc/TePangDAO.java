@@ -45,13 +45,12 @@ public class TePangDAO extends DAO {
 			psmt.setString(6, singup.getMemberBir());
 			psmt.setString(7, singup.getMemberGen());
 			psmt.setString(8, singup.getMemberFv());
-			int r = psmt.executeUpdate();
+		 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			disConnect();
 		}
-		{
-			return false;
-		}
+		return false;
 	}
-
 }

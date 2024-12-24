@@ -1,4 +1,4 @@
-package com.tepang;
+package com.tepang.control;
 
 import java.io.IOException;
 
@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.tepang.common.Control;
+import com.tepang.jdbc.TePangDAO;
 import com.tepang.vo.SingupVO;
 
 
@@ -53,7 +54,14 @@ public class SingupControl implements Control {
 		singup.setMemberGen(gen);
 		singup.setMemberFv(fv);
 		
-//		TepangDAO tdao = new TepangDAO();
+		TePangDAO tdao = new TePangDAO();
+		boolean isSingup =tdao.insertSignup(singup);
+		if(isSingup) {
+			resp.sendRedirect(req.getContextPath());
+		}else {
+			req.setAttribute("error", "회원가입 실패");
+			req.getAttribute("WEB-INF/html/singup.jsp");
+		}
 		
 	}		
 }
