@@ -28,7 +28,8 @@ public class BoardListControl implements Control {
 		List<BoardVO> list = bdao.selectBoard(type);
 		
 		req.setAttribute("list", list);
-		//요청재지정.
+		
+		//요청.
 		req.getRequestDispatcher("WEB-INF/html/boardList.jsp").forward(req, resp);
 	}
 
