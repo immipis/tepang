@@ -23,6 +23,7 @@ public class MyPageListControl implements Control {
 		
 		req.setAttribute("list", olist);
 		req.getRequestDispatcher("WEB-INF/html/myPage.jsp");
+		System.out.println("list");
 
 	}
 

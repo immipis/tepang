@@ -150,13 +150,13 @@
 			</div>
 		</header>
 
-		<!-- Cart -->
+		<!-- 장바구니 -->
 		<div class="wrap-header-cart js-panel-cart">
 			<div class="s-full js-hide-cart"></div>
 
 			<div class="header-cart flex-col-l p-l-65 p-r-25">
 				<div class="header-cart-title flex-w flex-sb-m p-b-8">
-					<span class="mtext-103 cl2"> Your Cart </span>
+					<span class="mtext-103 cl2"> 장바구니 목록 </span>
 
 					<div
 						class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
@@ -207,23 +207,24 @@
 					</ul>
 
 					<div class="w-full">
-						<div class="header-cart-total w-full p-tb-40">Total: $75.00
+						<div class="header-cart-total w-full p-tb-40">합계:
 						</div>
 
 						<div class="header-cart-buttons flex-w w-full">
 							<a href="shoping-cart.html"
 								class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-								View Cart </a> <a href="shoping-cart.html"
+								카트보기 </a> <a href="shoping-cart.html"
 								class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-								Check Out </a>
+								체크아웃 </a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<!-- 장바구니 끝-->
 
 
-		<!-- breadcrumb -->
+		<!-- 상태창 -->
 		<div class="container">
 			<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
 				<a href="mainList.do" class="stext-109 cl8 hov-cl1 trans-04">
@@ -235,9 +236,9 @@
 				</span> 
 			</div>
 		</div>
+		<!-- 상태창 끝 -->
 
-
-		<!-- Product Detail -->
+		<!-- 상품상세 -->
 		<section class="sec-product-detail bg0 p-t-65 p-b-60">
 			<div class="container">
 				<div class="row">
@@ -263,7 +264,6 @@
 						<div class="p-r-50 p-t-5 p-lr-0-lg">
 							<h4 class="mtext-105 cl2 js-name-detail p-b-14">
 								상품이름: ${product.productName }
-								<!-- Lightweight Jacket -->
 							</h4>
 
 							<span class="mtext-106 cl2"><h3>상품가격: ${product.productPrice }</h3></span>
@@ -271,42 +271,9 @@
 							<span class="mtext-106 cl2"><h3>상품설명: ${product.productDetail }</h3></span>
 							
 							<span class="mtext-106 cl2"><h3>상품재고: ${product.productStock }</h3></span>
-
-							<!--  -->
+							<!-- 상품상세 끝 -->
+							<!-- 상품수량(plus,minus), 장바구니, 바로결재 -->
 							<div class="p-t-33">
-								<div class="flex-w flex-r-m p-b-10">
-									<div class="size-203 flex-c-m respon6">Size</div>
-
-									<div class="size-204 respon6-next">
-										<div class="rs1-select2 bor8 bg0">
-											<select class="js-select2" name="time">
-												<option>Choose an option</option>
-												<option>Size S</option>
-												<option>Size M</option>
-												<option>Size L</option>
-												<option>Size XL</option>
-											</select>
-											<div class="dropDownSelect2"></div>
-										</div>
-									</div>
-								</div>
-
-								<div class="flex-w flex-r-m p-b-10">
-									<div class="size-203 flex-c-m respon6">Color</div>
-
-									<div class="size-204 respon6-next">
-										<div class="rs1-select2 bor8 bg0">
-											<select class="js-select2" name="time">
-												<option>Choose an option</option>
-												<option>Red</option>
-												<option>Blue</option>
-												<option>White</option>
-												<option>Grey</option>
-											</select>
-											<div class="dropDownSelect2"></div>
-										</div>
-									</div>
-								</div>
 
 								<div class="flex-w flex-r-m p-b-10">
 									<div class="size-204 flex-w flex-m respon6-next">
@@ -335,6 +302,7 @@
 									</div>
 								</div>
 							</div>
+							<!-- 상품수량, 장바구니, 바로결재 끝-->
 
 							<!--  -->
 							<div class="flex-w flex-m p-l-100 p-t-40 respon7">
@@ -361,8 +329,8 @@
 					</div>
 				</div>
 
+					<!-- 상품상세(DetailImg사진 가져오기) 리뷰 창 -->
 				<div class="bor10 m-t-50 p-t-43 p-b-40">
-					<!-- Tab01 -->
 					<div class="tab01">
 						<!-- Nav tabs -->
 						<ul class="nav nav-tabs" role="tablist">
@@ -372,9 +340,7 @@
 								data-toggle="tab" href="#reviews" role="tab">리뷰</a></li>
 						</ul>
 
-						<!-- Tab panes -->
 						<div class="tab-content p-t-43">
-							<!-- - -->
 							<div class="tab-pane fade show active" id="description"
 								role="tabpanel">
 								<div class="how-pos2 p-lr-15-md">
@@ -401,8 +367,7 @@
 								</div>
 							</div>
 
-
-							<!-- 리뷰목록 -->
+							<!--리뷰작성 -->
 							<div class="tab-pane fade" id="reviews" role="tabpanel">
 								<div class="row">
 									<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
@@ -415,7 +380,7 @@
 
 												<div class="size-207">
 													<div class="flex-w flex-sb-m p-b-17">
-														<span class="mtext-107 cl2 p-r-20"> Ariana Grande </span>
+														<span class="mtext-107 cl2 p-r-20"> ${boards.memberId } </span>
 
 														<span class="fs-18 cl11"> <i class="zmdi zmdi-star"></i>
 															<i class="zmdi zmdi-star"></i> <i class="zmdi zmdi-star"></i>
@@ -424,21 +389,17 @@
 														</span>
 													</div>
 
-													<p class="stext-102 cl6">Quod autem in homine
-														praestantissimum atque optimum est, id deseruit. Apud
-														ceteros autem philosophos</p>
+													<p class="stext-102 cl6">${boards.replyContent }</p>
 												</div>
 											</div>
+											<!--리뷰작성 끝 -->
 
-											<!-- Add review -->
+											<!-- 별점 -->
 											<form class="w-full">
-												<h5 class="mtext-108 cl2 p-b-7">Add a review</h5>
-
-												<p class="stext-102 cl6">Your email address will not be
-													published. Required fields are marked *</p>
+												<h5 class="mtext-108 cl2 p-b-7">"${product.productName}의 리뷰를 작성하세요"</h5>
 
 												<div class="flex-w flex-m p-t-50 p-b-23">
-													<span class="stext-102 cl3 m-r-16"> Your Rating </span> <span
+													<span class="stext-102 cl3 m-r-16"> 별점 </span> <span
 														class="wrap-rating fs-18 cl11 pointer"> <i
 														class="item-rating pointer zmdi zmdi-star-outline"></i> <i
 														class="item-rating pointer zmdi zmdi-star-outline"></i> <i
@@ -451,21 +412,20 @@
 
 												<div class="row p-b-25">
 													<div class="col-12 p-b-5">
-														<label class="stext-102 cl3" for="review">Your
-															review</label>
+														<label class="stext-102 cl3" for="review">리뷰작성</label>
 														<textarea
 															class="size-110 bor8 stext-102 cl2 p-lr-20 p-tb-10"
 															id="review" name="review"></textarea>
 													</div>
 
 													<div class="col-sm-6 p-b-5">
-														<label class="stext-102 cl3" for="name">Name</label> <input
+														<label class="stext-102 cl3" for="name">이름</label> <input
 															class="size-111 bor8 stext-102 cl2 p-lr-20" id="name"
 															type="text" name="name">
 													</div>
 
 													<div class="col-sm-6 p-b-5">
-														<label class="stext-102 cl3" for="email">Email</label> <input
+														<label class="stext-102 cl3" for="email">이메일</label> <input
 															class="size-111 bor8 stext-102 cl2 p-lr-20" id="email"
 															type="text" name="email">
 													</div>
@@ -473,7 +433,7 @@
 
 												<button
 													class="flex-c-m stext-101 cl0 size-112 bg7 bor11 hov-btn3 p-lr-15 trans-04 m-b-10">
-													Submit</button>
+													리뷰등록</button>
 											</form>
 										</div>
 									</div>
@@ -482,273 +442,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
-
-			<div class="bg6 flex-c-m flex-w size-302 m-t-73 p-tb-15">
-				<span class="stext-107 cl6 p-lr-25"> SKU: JAK-01 </span> <span
-					class="stext-107 cl6 p-lr-25"> Categories: Jacket, Men </span>
-			</div>
-		</section>
-
-
-		<!-- Related Products -->
-		<section class="sec-relate-product bg0 p-t-45 p-b-105">
-			<div class="container">
-				<div class="p-b-45">
-					<h3 class="ltext-106 cl5 txt-center">Related Products</h3>
-				</div>
-
-				<!-- Slide2 -->
-				<div class="wrap-slick2">
-					<div class="slick2">
-						<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-							<!-- Block2 -->
-							<div class="block2">
-								<div class="block2-pic hov-img0">
-									<img src="images/product-01.jpg" alt="IMG-PRODUCT"> <a
-										href="#"
-										class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-										Quick View </a>
-								</div>
-
-								<div class="block2-txt flex-w flex-t p-t-14">
-									<div class="block2-txt-child1 flex-col-l ">
-										<a href="product-detail.html"
-											class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-											Esprit Ruffle Shirt </a> <span class="stext-105 cl3">
-											$16.64 </span>
-									</div>
-
-									<div class="block2-txt-child2 flex-r p-t-3">
-										<a href="#"
-											class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-											<img class="icon-heart1 dis-block trans-04"
-											src="images/icons/icon-heart-01.png" alt="ICON"> <img
-											class="icon-heart2 dis-block trans-04 ab-t-l"
-											src="images/icons/icon-heart-02.png" alt="ICON">
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-							<!-- Block2 -->
-							<div class="block2">
-								<div class="block2-pic hov-img0">
-									<img src="images/product-02.jpg" alt="IMG-PRODUCT"> <a
-										href="#"
-										class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-										Quick View </a>
-								</div>
-
-								<div class="block2-txt flex-w flex-t p-t-14">
-									<div class="block2-txt-child1 flex-col-l ">
-										<a href="product-detail.html"
-											class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-											Herschel supply </a> <span class="stext-105 cl3"> $35.31 </span>
-									</div>
-
-									<div class="block2-txt-child2 flex-r p-t-3">
-										<a href="#"
-											class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-											<img class="icon-heart1 dis-block trans-04"
-											src="images/icons/icon-heart-01.png" alt="ICON"> <img
-											class="icon-heart2 dis-block trans-04 ab-t-l"
-											src="images/icons/icon-heart-02.png" alt="ICON">
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-							<!-- Block2 -->
-							<div class="block2">
-								<div class="block2-pic hov-img0">
-									<img src="images/product-03.jpg" alt="IMG-PRODUCT"> <a
-										href="#"
-										class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-										Quick View </a>
-								</div>
-
-								<div class="block2-txt flex-w flex-t p-t-14">
-									<div class="block2-txt-child1 flex-col-l ">
-										<a href="product-detail.html"
-											class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-											Only Check Trouser </a> <span class="stext-105 cl3">
-											$25.50 </span>
-									</div>
-
-									<div class="block2-txt-child2 flex-r p-t-3">
-										<a href="#"
-											class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-											<img class="icon-heart1 dis-block trans-04"
-											src="images/icons/icon-heart-01.png" alt="ICON"> <img
-											class="icon-heart2 dis-block trans-04 ab-t-l"
-											src="images/icons/icon-heart-02.png" alt="ICON">
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-							<!-- Block2 -->
-							<div class="block2">
-								<div class="block2-pic hov-img0">
-									<img src="images/product-04.jpg" alt="IMG-PRODUCT"> <a
-										href="#"
-										class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-										Quick View </a>
-								</div>
-
-								<div class="block2-txt flex-w flex-t p-t-14">
-									<div class="block2-txt-child1 flex-col-l ">
-										<a href="product-detail.html"
-											class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-											Classic Trench Coat </a> <span class="stext-105 cl3">
-											$75.00 </span>
-									</div>
-
-									<div class="block2-txt-child2 flex-r p-t-3">
-										<a href="#"
-											class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-											<img class="icon-heart1 dis-block trans-04"
-											src="images/icons/icon-heart-01.png" alt="ICON"> <img
-											class="icon-heart2 dis-block trans-04 ab-t-l"
-											src="images/icons/icon-heart-02.png" alt="ICON">
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-							<!-- Block2 -->
-							<div class="block2">
-								<div class="block2-pic hov-img0">
-									<img src="images/product-05.jpg" alt="IMG-PRODUCT"> <a
-										href="#"
-										class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-										Quick View </a>
-								</div>
-
-								<div class="block2-txt flex-w flex-t p-t-14">
-									<div class="block2-txt-child1 flex-col-l ">
-										<a href="product-detail.html"
-											class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-											Front Pocket Jumper </a> <span class="stext-105 cl3">
-											$34.75 </span>
-									</div>
-
-									<div class="block2-txt-child2 flex-r p-t-3">
-										<a href="#"
-											class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-											<img class="icon-heart1 dis-block trans-04"
-											src="images/icons/icon-heart-01.png" alt="ICON"> <img
-											class="icon-heart2 dis-block trans-04 ab-t-l"
-											src="images/icons/icon-heart-02.png" alt="ICON">
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-							<!-- Block2 -->
-							<div class="block2">
-								<div class="block2-pic hov-img0">
-									<img src="images/product-06.jpg" alt="IMG-PRODUCT"> <a
-										href="#"
-										class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-										Quick View </a>
-								</div>
-
-								<div class="block2-txt flex-w flex-t p-t-14">
-									<div class="block2-txt-child1 flex-col-l ">
-										<a href="product-detail.html"
-											class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-											Vintage Inspired Classic </a> <span class="stext-105 cl3">
-											$93.20 </span>
-									</div>
-
-									<div class="block2-txt-child2 flex-r p-t-3">
-										<a href="#"
-											class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-											<img class="icon-heart1 dis-block trans-04"
-											src="images/icons/icon-heart-01.png" alt="ICON"> <img
-											class="icon-heart2 dis-block trans-04 ab-t-l"
-											src="images/icons/icon-heart-02.png" alt="ICON">
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-							<!-- Block2 -->
-							<div class="block2">
-								<div class="block2-pic hov-img0">
-									<img src="images/product-07.jpg" alt="IMG-PRODUCT"> <a
-										href="#"
-										class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-										Quick View </a>
-								</div>
-
-								<div class="block2-txt flex-w flex-t p-t-14">
-									<div class="block2-txt-child1 flex-col-l ">
-										<a href="product-detail.html"
-											class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-											Shirt in Stretch Cotton </a> <span class="stext-105 cl3">
-											$52.66 </span>
-									</div>
-
-									<div class="block2-txt-child2 flex-r p-t-3">
-										<a href="#"
-											class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-											<img class="icon-heart1 dis-block trans-04"
-											src="images/icons/icon-heart-01.png" alt="ICON"> <img
-											class="icon-heart2 dis-block trans-04 ab-t-l"
-											src="images/icons/icon-heart-02.png" alt="ICON">
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-							<!-- Block2 -->
-							<div class="block2">
-								<div class="block2-pic hov-img0">
-									<img src="images/product-08.jpg" alt="IMG-PRODUCT"> <a
-										href="#"
-										class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-										Quick View </a>
-								</div>
-
-								<div class="block2-txt flex-w flex-t p-t-14">
-									<div class="block2-txt-child1 flex-col-l ">
-										<a href="product-detail.html"
-											class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-											Pieces Metallic Printed </a> <span class="stext-105 cl3">
-											$18.96 </span>
-									</div>
-
-									<div class="block2-txt-child2 flex-r p-t-3">
-										<a href="#"
-											class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-											<img class="icon-heart1 dis-block trans-04"
-											src="images/icons/icon-heart-01.png" alt="ICON"> <img
-											class="icon-heart2 dis-block trans-04 ab-t-l"
-											src="images/icons/icon-heart-02.png" alt="ICON">
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<!-- 상품상세(DetailImg사진 가져오기) 리뷰 창  끝-->
 			</div>
 		</section>
 		<!--===============================================================================================-->

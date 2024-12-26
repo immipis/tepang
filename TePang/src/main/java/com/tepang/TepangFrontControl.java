@@ -23,6 +23,7 @@ import com.tepang.control.MyPageBoardControl;
 import com.tepang.control.MyPageListControl;
 import com.tepang.control.ProductDetailControl;
 import com.tepang.control.ProductListControl;
+import com.tepang.control.ProductReviewControl;
 import com.tepang.control.RemoveReviewControl;
 import com.tepang.control.ReviewControl;
 import com.tepang.control.SingupControl;
@@ -46,6 +47,7 @@ public class TepangFrontControl extends HttpServlet {
 
 
 		map.put("/productDetail.do", new ProductDetailControl());// 상세목록
+		map.put("/productReview.do", new ProductReviewControl());//리뷰
 		
 		//조성민
 		map.put("/mainList.do", new MainControl());
@@ -72,7 +74,7 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("myInfoList.do", new MyInfoListControl());
 				
 
-//		// 리뷰
+//		// 리뷰 이신영
 //		map.put("/review.do", new ReviewControl()); // 목록
 //		map.put("/removeReview.do", new RemoveReviewControl()); // 삭제
 //		map.put("/addReview.do", new AddReviewControl()); // 등록

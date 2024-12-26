@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.tepang.common.DAO;
 import com.tepang.common.SearchDTO;
+import com.tepang.vo.BoardVO;
 import com.tepang.vo.MainVO;
 
 public class ProductDAO extends DAO {
@@ -133,6 +134,134 @@ public class ProductDAO extends DAO {
 			}
 			return result;
 		}
+		// 상세조회. 파라미터(int boardNo) selectBoard 반환값: BoardVO.
+		public List<BoardVO> selectBoard(String productCode) {
 
+			getConn();
+
+			List<BoardVO> list = new ArrayList<>();
+			String sql = "select * from tbl_reply where product_code = ?";
+
+			try {
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, productCode);
+				rs = psmt.executeQuery(); // 조회.
+
+				while (rs.next()) {
+					BoardVO brd = new BoardVO();
+					brd.setReplyCode(rs.getString("reply_code"));
+					brd.setReplyContent(rs.getString("reply_content"));
+					brd.setReplyAnswer(rs.getString("reply_answer"));
+					brd.setMemberId(rs.getString("member_id"));
+					brd.setReplyDate(rs.getDate("reply_date"));
+					brd.setProductCode(rs.getString("product_code"));
+					brd.setReplyType(rs.getString("reply_type"));
+					brd.setReplyStar(rs.getInt("reply_star"));
+					brd.setReplyImg(rs.getString("reply_img"));
+					
+					list.add(brd);
+
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				disConnect();
+			}
+			return list;
+		}
+		
+		//파라미터 등록
+		public boolean insertboard(BoardVO board) {
+			getConn();
+			String sql = "insert into tbl_board"
+					+ "   (reply_Code, reply_Content, reply_Answer, member_Id, reply_Date, reply_Type, reply_Star, reply_Img, product_Code)"
+					+ "   values(board_seq.nextval,?,?,?,?,?,?,?,? )";
+
+			try {
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, board.getReplyCode());
+				psmt.setString(2, board.getReplyContent());
+				psmt.setString(3, board.getReplyAnswer());
+				psmt.setString(4, board.getMemberId());
+				//psmt.setString(5, board.getReplyDate());
+				psmt.setString(6, board.getReplyType());
+				psmt.setInt(7, board.getReplyStar());
+				psmt.setString(8, board.getReplyImg());
+				psmt.setString(9, board.getProductCode());
+				int r = psmt.executeUpdate();
+				if (r > 0) {
+					return true;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				disConnect();
+			}
+			return false;
+		}
+
+		//상품목록
+
+			public List<BoardVO> boardList(SearchDTO search) {
+				getConn();
+				String sql = "select b.*"
+						+ "   from( select rownum rn, a.*"
+						+ "         from (select *"
+						+ "               from tbl_board";
+				// Title 검색조건 => title 컬럼에서 값을 조회.
+				if (search.getSearchCondition() != null && search.getKeyword() != null) {
+					if (search.getSearchCondition().equals("T")) {
+						sql += "             where title like '%'||?||'%' ";
+					} else if (search.getSearchCondition().equals("W")) {
+						sql += "             where writer like '%'||?||'%' ";
+					} else if (search.getSearchCondition().equals("TW")) {
+						sql += "             where title like '%'||?||'%' or writer like '%'||?||'%'";
+					}
+				}
+				sql += "              order by product_code desc) a) b" + "   where b.rn > (? -1) * 5" + "   and b.rn <= ? * 5";
+				// \r\n은 줄바꿈
+				List<BoardVO> result = new ArrayList<>(); // 반환값.
+				int cnt = 1;
+				try {
+					psmt = conn.prepareStatement(sql);
+					if (search.getSearchCondition() != null && search.getKeyword() != null) {
+						if (search.getSearchCondition().equals("T")) {
+							psmt.setString(cnt++, search.getKeyword());// 첫번째 파라미터
+						} else if (search.getSearchCondition().equals("W")) {
+							psmt.setString(cnt++, search.getKeyword()); // 첫번째 파라미터
+						} else if (search.getSearchCondition().equals("TW")) {// 첫번째 파라미터, 두번째 파라미터
+							psmt.setString(cnt++, search.getKeyword());
+							psmt.setString(cnt++, search.getKeyword());
+						}
+					}
+					psmt.setInt(cnt++, search.getPage());
+					psmt.setInt(cnt++, search.getPage());
+					System.out.println(sql);
+
+					rs = psmt.executeQuery(); // 조회.
+
+					while (rs.next()) {
+						BoardVO brd = new BoardVO();
+						brd.setProductCode(rs.getString("product_Code"));
+						brd.setReplyCode(rs.getString("reply_Code"));
+						brd.setReplyContent(rs.getString("reply_Content"));
+						brd.setReplyAnswer(rs.getString("reply_Answer"));
+						brd.setMemberId(rs.getString("member_Id"));
+						brd.setReplyDate(rs.getDate("reply_Date"));
+						brd.setReplyType(rs.getString("reply_Type"));
+						brd.setReplyStar(rs.getInt("reply_Star"));
+						brd.setReplyImg(rs.getString("reply_Img"));
+
+						result.add(brd); // ArrayList에 추가.
+					}
+
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					disConnect();
+				}
+				return result;
+			}
 
 		}

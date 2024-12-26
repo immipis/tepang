@@ -11,5 +11,8 @@ public class BoardVO {
 	private String replyAnswer;
 	private String memberId;
 	private Date replyDate;
-	private String reviewType;
+	private String replyType;
+	private Integer replyStar;
+	private String replyImg;
+	private String productCode;
 }
