@@ -65,8 +65,7 @@
 							<c:choose>
 								<c:when test="${not empty member_id }">
 									<a class="flex-c-m trans-04 p-lr-25"> ${member_id }</a>
-									<a class="flex-c-m trans-04 p-lr-25" href="myPage.do">마이
-										페이지</a>
+									<a class="flex-c-m trans-04 p-lr-25" href="myPage.do">마이페이지</a>
 									<a class="flex-c-m trans-04 p-lr-25" href="tepanglogout.do">로그아웃</a>
 								</c:when>
 								<c:otherwise>
@@ -113,6 +112,7 @@
 					</nav>
 				</div>
 			</div>
+		</header>
 		</header>
 		<header>
 			<!-- Header Mobile -->
@@ -226,13 +226,13 @@
 		<!-- breadcrumb -->
 		<div class="container">
 			<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-				<a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
+				<a href="mainList.do" class="stext-109 cl8 hov-cl1 trans-04">
 					메인메뉴 <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
-				</a> <a href="product.html" class="stext-109 cl8 hov-cl1 trans-04">
-					/${product.category } <i class="fa fa-angle-right m-l-9 m-r-10"
+				</a> <a href="productList.do" class="stext-109 cl8 hov-cl1 trans-04">
+					${product.category } <i class="fa fa-angle-right m-l-9 m-r-10"
 					aria-hidden="true"></i>
-				</a> <span class="stext-109 cl4"> /${product.productName }<!-- Lightweight Jacket -->
-				</span>
+				</a> <span class="stext-109 cl4"> ${product.productName }<!-- Lightweight Jacket -->
+				</span> 
 			</div>
 		</div>
 
@@ -262,13 +262,15 @@
 					<div class="col-md-6 col-lg-5 p-b-30">
 						<div class="p-r-50 p-t-5 p-lr-0-lg">
 							<h4 class="mtext-105 cl2 js-name-detail p-b-14">
-								${product.productName }
+								상품이름: ${product.productName }
 								<!-- Lightweight Jacket -->
 							</h4>
 
-							<span class="mtext-106 cl2"> ${product.productPrice } </span>
-
-							<p class="stext-102 cl3 p-t-23">${product.productDetail }</p>
+							<span class="mtext-106 cl2"><h3>상품가격: ${product.productPrice }</h3></span>
+							
+							<span class="mtext-106 cl2"><h3>상품설명: ${product.productDetail }</h3></span>
+							
+							<span class="mtext-106 cl2"><h3>상품재고: ${product.productStock }</h3></span>
 
 							<!--  -->
 							<div class="p-t-33">
@@ -322,10 +324,14 @@
 												<i class="fs-16 zmdi zmdi-plus"></i>
 											</div>
 										</div>
-
+										<div>
 										<button
 											class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-											Add to cart</button>
+											장바구니</button>
+											<button
+											class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+											바로결재</button>
+											</div>
 									</div>
 								</div>
 							</div>
