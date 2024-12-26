@@ -49,6 +49,7 @@ public class SingupControl implements Control {
 		singup.setMemberGen(gen);
 		singup.setMemberFv(fv);
 
+		
 		TePangDAO tdao = new TePangDAO();
 		boolean isSingup = tdao.insertSignup(singup);
 		if (isSingup) {
