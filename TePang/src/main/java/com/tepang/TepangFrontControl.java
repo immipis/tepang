@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.tepang.common.Control;
+import com.tepang.control.AddReviewControl;
 import com.tepang.control.BoardControl;
 import com.tepang.control.BoardListControl;
 import com.tepang.control.CartListControl;
+import com.tepang.control.GetReviewCountControl;
 import com.tepang.control.MainControl;
 import com.tepang.control.MyHeartListControl;
 import com.tepang.control.MyInfoUpdateControl;
@@ -23,12 +25,15 @@ import com.tepang.control.MyPageBoardControl;
 import com.tepang.control.MyReviewControl;
 import com.tepang.control.ProductDetailControl;
 import com.tepang.control.ProductListControl;
+import com.tepang.control.RemoveReviewControl;
+import com.tepang.control.ReviewControl;
 import com.tepang.control.SingupControl;
 import com.tepang.control.TepangLoginControl;
 import com.tepang.control.TepangLoginFormControl;
 import com.tepang.control.TepangLogoutControl;
 import com.tepang.control.TepangSingupFormControl;
 import com.tepang.control.productCategoryListControl;
+import com.tepang.control.userFvItemControl;
 
 public class TepangFrontControl extends HttpServlet {
 
@@ -43,19 +48,24 @@ public class TepangFrontControl extends HttpServlet {
 
 
 		map.put("/productDetail.do", new ProductDetailControl());// 상세목록
+		
+		//조성민
 		map.put("/mainList.do", new MainControl());
 		map.put("/productList.do", new ProductListControl());
 		map.put("/productCategoryList.do", new productCategoryListControl());
+		map.put("/userFvItem.do", new userFvItemControl());
+
 		map.put("/cartList.do", new CartListControl());
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
 		map.put("/board.do", new BoardControl()); // 게시판목록 > 상세
 
-		// 로그인 및 로그아웃
+		// 로그인 및 로그아웃 도한준
 		map.put("/tepnagloginForm.do", new TepangLoginFormControl());
 		map.put("/tepanglogin.do", new TepangLoginControl());
 		map.put("/tepanglogout.do", new TepangLogoutControl());
 		map.put("/tepnagsingupForm.do", new TepangSingupFormControl());
 		map.put("/tepnagsingup.do", new SingupControl());
+		
 		// 마이페이지
 		map.put("/myPage.do", new MyPageBoardControl()); // 마이페이지 상세
 		map.put("/myinfo.do", new MyInfoControl()); 	// 정보확인
@@ -75,6 +85,11 @@ public class TepangFrontControl extends HttpServlet {
 //		map.put("/removeReply.do", new RemoveReplyControl()); // 삭제
 //		map.put("/addReply.do", new AddReplyControl()); // 등록
 //		map.put("/getConut.do", new GetReplyCountControl());
+
+		map.put("/myPageList.do", new MyPageListControl()); // 구매목록 리스트
+		map.put("myInfo.do", new MyInfoControl());
+		map.put("myInfoList.do", new MyInfoListControl());
+
 
 	}
 

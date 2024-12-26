@@ -26,13 +26,13 @@ public class MainDAO extends DAO{
 				mvo.setProductDetail(rs.getString("product_detail"));
 				pList.add(mvo);
 			}
-			return pList;
+		
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disConnect();
 		}
-		return null;
+		return pList;
 	}
 	
 	public List<MainVO> pCategoryList(String p) {
@@ -66,7 +66,6 @@ public class MainDAO extends DAO{
 		return null;
 	}
 	public List<MainVO> addPvList(String logId) {
-		System.out.println("실햄됨");
 		getConn();
 		String sql = "select a.* from (\r\n"
 				+ "select  p.* ,   case \r\n"
@@ -103,5 +102,26 @@ public class MainDAO extends DAO{
 			disConnect();
 		}
 		return null;
+	}
+	
+	public String ads(String id) {
+		getConn();
+		String sql = "select member_fv from tbl_member where member_id = ? ";
+		String a = null;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				a = rs.getString("member_fv");
+			}
+			return a;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return a;
 	}
 }
