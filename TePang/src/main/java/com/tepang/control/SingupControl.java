@@ -26,7 +26,8 @@ public class SingupControl implements Control {
 		String bir = req.getParameter("bir");
 		String gen = req.getParameter("gen");
 		String fv = req.getParameter("fv");
-
+		
+		System.out.println(gen + fv);
 	
 
 		if (id == null || id.trim().isEmpty() || pw == null || pw.trim().isEmpty() || name == null
@@ -49,10 +50,12 @@ public class SingupControl implements Control {
 		singup.setMemberGen(gen);
 		singup.setMemberFv(fv);
 
+		
 		TePangDAO tdao = new TePangDAO();
 		boolean isSingup = tdao.insertSignup(singup);
 		if (isSingup) {
-			 resp.sendRedirect(req.getContextPath());
+			req.getRequestDispatcher("WEB-INF/html/tepangLogin.jsp").forward(req, resp);
+//			 resp.sendRedirect(req.getContextPath());
 		} else {
 			req.setAttribute("error", "회원가입 실패");
 			req.getRequestDispatcher("WEB-INF/html/Singup.jsp").forward(req, resp);

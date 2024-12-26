@@ -217,8 +217,6 @@
 							<div class="block1-link stext-101 cl0 trans-09">Shop Now</div>
 						</div>
 					</a>
-
-
 				</div>
 			</div>
 		</div>
@@ -267,9 +265,11 @@
 		</div>
 	</div>
 </div>
+<div class="ads bg0 p-t-80 p-b-50">
 
+</div>>
 <!-- Product -->
-<section class="bg0 p-t-23 p-b-140">
+<section class="bg0 p-t-23 ">
 	<div class="container">
 		<div class="row isotope-grid product">
 			<c:forEach var="product" items="${products}">
@@ -309,6 +309,51 @@
 
 </section>
 
+
+<nav aria-label="...">
+	<ul class="pagination" style="margin-top:50px;">
+		<c:choose>
+			<c:when test="${paging.prev }">
+				<li class="page-item">
+				<a class="page-link"
+					href="boardList.do?&page=${paging.startPage -1}">Previous</a>
+				</li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item disabled"><span class="page-link">Previous</span>
+				</li>
+			</c:otherwise>
+		</c:choose>
+
+		<c:forEach var="p" begin="${paging.startPage }" end="${paging.endPage }"
+			step="1">
+			<c:choose>
+				<c:when test="${paging.currentPage == p }">
+					<li class="page-item active" aria-current="page">
+						<a class="page-link" href="boardList.do?keyword=${empty keyword ? '' :keyword }&searchCondition=${empty searchCondition ? '' :searchCondition }&page=${p}">${p}</a>
+					</li>
+				</c:when>
+
+				<c:otherwise>
+					<li class="page-item">
+						<a class="page-link"href="boardList.do?keyword=${empty keyword ? '' :keyword }&searchCondition=${empty searchCondition ? '' :searchCondition }&page=${p}">${p}</a>
+					</li>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+
+		<c:choose>
+			<c:when test="${paging.next }">
+				<li class="page-item"><a class="page-link"
+					href="boardList.do?keyword=${empty keyword ? '' :keyword }&searchCondition=${empty searchCondition ? '' :searchCondition }&page=${paging.endPage +1}">Next</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item disabled"><span class="page-link">Next</span>
+			</c:otherwise>
+		</c:choose>
+
+	</ul>
+</nav>
 <!-- Modal1 -->
 <div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
 	<div class="overlay-modal1 js-hide-modal1"></div>
@@ -429,6 +474,31 @@ function addCart(item){
 			<img src="images/\${item.productImg }" alt="IMG">
 		</div>
 
+console.log(id)
+if (id == null || id == ""){
+	console.log("아이디 없음")
+}
+else{
+    fetch('userFvItem.do?id='+id)
+  	.then(result => result.json())
+	.then(result => {
+		console.log(result)
+		let html = 
+		`
+		<div class="">
+			<!-- Block1 -->
+			<div class="block1 wrap-pic-w">
+				<img src="images/ads\${result}01.jpg" alt="IMG-BANNER"> <a
+					href="productList.do?title=\${result}"
+					class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+				</a>
+			</div>
+		</div>
+		`
+		document.querySelector(".ads").innerHTML = html;
+	})
+	.catch(err => console.log(err));  
+}
 		<div class="header-cart-item-txt p-t-8">
 			<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
 				\${item.productName } </a> <span class="header-cart-item-info"> \${item.productPrice }원 x \${item.productNum } = \${item.productPrice * item.productNum }원</span>
