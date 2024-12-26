@@ -92,7 +92,7 @@
 <link rel="stylesheet" type="text/css" href="css/main.css?after">
 <!--===============================================================================================-->
 </head>
-<body>
+<body class="animsition">
 	<header>
 		<!-- Header desktop -->
 		<div class="container-menu-desktop">
