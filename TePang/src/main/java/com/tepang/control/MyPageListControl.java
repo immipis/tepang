@@ -22,7 +22,7 @@ public class MyPageListControl implements Control {
 		List<OrderVO> olist = mpdo.orderList(id);
 		
 		req.setAttribute("list", olist);
-		req.getRequestDispatcher("WEB-INF/html/myPage.jsp");
+
 
 	}
 

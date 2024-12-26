@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <style>
+
 #container {
 	width: 1500px;
 	margin: 0 auto;
@@ -25,7 +26,6 @@
 	margin-top: 20px;
 }
 
-
 .pagination {
 	margin-top: 180px;
 }
@@ -47,19 +47,11 @@
 				<div class="border-end bg-white" id="sidebar-wrapper">
 
 					<div class="list-group list-group-flush">
-						<a
-							class="list-group-item list-group-item-action list-group-item-light p-3"
-							href="#">구매목록(디폴트)</a> <a
-							class="list-group-item list-group-item-action list-group-item-light p-3"
-							href="#">내가 쓴 문의</a> <a
-							class="list-group-item list-group-item-action list-group-item-light p-3"
-							href="#">찜 목록</a> <a
-							class="list-group-item list-group-item-action list-group-item-light p-3"
-							href="myInfo.do">내 정보 수정</a> <a
-							class="list-group-item list-group-item-action list-group-item-light p-3"
-							href="#!">Profile</a> <a
-							class="list-group-item list-group-item-action list-group-item-light p-3"
-							href="#!">Status</a>
+						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">구매목록(디폴트)</a> 
+						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">내가 쓴 문의(링크)</a> 
+						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">찜 목록(링크)</a> 
+						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myinfoUpdate.do">내 정보 수정</a> 
+						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">보유쿠폰</a> 
 					</div>
 				</div>
 				<!-- Page content wrapper-->
@@ -70,10 +62,10 @@
 					<div class="info">
 						<table>
 							<tr>
-								<td>${member_id}님의등급은 ${memId.memberTier}입니다.</td>
+								<td>${member_id}님, 안녕하세요.</td>
 							</tr>
 							<tr>
-								<td>회원님의 총 구매 금액은 원 입니다.</td>
+								<td>${memId.memberTier} 등급</td>
 							</tr>
 						</table>
 					</div>

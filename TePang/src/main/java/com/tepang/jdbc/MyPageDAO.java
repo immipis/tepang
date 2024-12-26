@@ -45,9 +45,9 @@ public SingupVO selectMember(String memberId) {
 	getConn();
 	
 
-	String ssql = " SELECT * "
-			+ "   FROM tbl_member "
-			+ "  WHERE member_id = ? ";
+	String ssql = " SELECT * "//
+			+ "   FROM tbl_member "//
+			+ "  WHERE member_id = ? ";//
 	try {
 		psmt = conn.prepareStatement(ssql);
 		psmt.setString(1, memberId);
@@ -78,12 +78,16 @@ public SingupVO selectMember(String memberId) {
 	public boolean UpdateInfo(SingupVO info) {
 		getConn();
 		String memInfo = " UPDATE tbl_member "//
-				+ "    SET member_pw = ? "//
-				+ "  WHERE member_id = ? ";//
+				       + "    SET member_pw = ? "
+				       + "        member_adr = ? "
+				       + "        member_fv = ? "//
+				       + "  WHERE member_id = ? ";//
 		try {
 			psmt = conn.prepareStatement(memInfo);
 			psmt.setString(1, info.getMemberPw());
-			psmt.setString(2, info.getMemberId());
+			psmt.setString(2, info.getMemberAdr());
+			psmt.setString(3, info.getMemberFv());
+			psmt.setString(4, info.getMemberId());
 			int r = psmt.executeUpdate();
 			if (r > 0) {
 				return true;
