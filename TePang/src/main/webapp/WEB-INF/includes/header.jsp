@@ -102,7 +102,7 @@
                       <a class="flex-c-m trans-04 p-lr-25" > ${member_id }</a>
                       <a class="flex-c-m trans-04 p-lr-25" href="myPage.do">마이 페이지</a>
                       <a class="flex-c-m trans-04 p-lr-25" href="tepanglogout.do">로그아웃</a>
-                      <a href="./boardList.do" class="flex-c-m trans-04 p-lr-25"> Board </a>
+                      <a href="./boardList.do" class="flex-c-m trans-04 p-lr-25" > Board </a>
                     </c:when>
                     <c:otherwise>
 
@@ -114,8 +114,6 @@
 
                     </c:otherwise>
                     </c:choose>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a>
 
 
 					</div>
