@@ -41,8 +41,10 @@ public List<OrderVO> orderList(String memberId) {
 	}
 
 // 마이페이지 상세 (개인정보)
-public SingupVO selectmember(String memberId) {
+public SingupVO selectMember(String memberId) {
 	getConn();
+	
+
 	String ssql = " SELECT * "
 			+ "   FROM tbl_member "
 			+ "  WHERE member_id = ? ";
@@ -50,7 +52,8 @@ public SingupVO selectmember(String memberId) {
 		psmt = conn.prepareStatement(ssql);
 		psmt.setString(1, memberId);
 		rs = psmt.executeQuery();
-		while (rs.next()) {
+		
+		if (rs.next()) {
 			SingupVO svo = new SingupVO();
 			svo.setMemberId(rs.getString("member_id"));
 			svo.setMemberPw(rs.getString("member_pw"));

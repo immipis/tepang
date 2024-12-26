@@ -2,56 +2,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+		#container {
+			width: 1000px;
+			margin: 0 auto;
+			padding-top: 180px;
+		}
+		#title {
+			float: left;
+		}
+		h4 {
+			padding-bottom: 30px;
+		}
+		
+		p {
+			font-size: 14px;
+		}
+		#list {
+			padding-top: 160px;
+		}
+		button {
+			float: right;
+		}
+		.pagination{
+			margin-top: 40px;
+			margin-bottom: 80px;
+		}
+
+		#writer{
+		margin-bottom: 30px;
+		font-size: 18px;
+		font-weight: bold;
+		}
+	</style>
   </head> 
 </html>
 
-<style>
-#container {
-	width: 1000px;
-	margin: 0 auto;
-	padding-top: 180px;
-}
 
-#title {
-	float: left;
-}
-
-h4 {
-	padding-bottom: 30px;
-}
-
-
-p {
-	font-size: 14px;
-}
-
-
-
-
-#list {
-	padding-top: 160px;
-}
-
-button {
-	float: right;
-}
-.pagination{
-	margin-top: 40px;
-	margin-bottom: 80px;
-}
-
-</style>
 <!-- 헤더 -->
 <head>
 
-<title>Home</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -100,15 +96,32 @@ button {
 	<header>
 		<!-- Header desktop -->
 		<div class="container-menu-desktop">
+		
 			<!-- Topbar -->
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">안녕하세요</div>
 					<div class="right-top-bar flex-w h-full">
-						<a href="../tepanglogin.do" class="flex-c-m trans-04 p-lr-25">
-							Sign In </a> <a href="#" class="flex-c-m trans-04 p-lr-25"> Sign
-							Up </a> <a href="./boardList.do" class="flex-c-m trans-04 p-lr-25">
-							Board </a>
+
+
+                    <c:choose>
+                    <c:when test="${not empty member_id }">
+                      <a class="flex-c-m trans-04 p-lr-25" > ${member_id }</a>
+                      <a class="flex-c-m trans-04 p-lr-25" href="myPage.do">마이 페이지</a>
+                      <a class="flex-c-m trans-04 p-lr-25" href="tepanglogout.do">로그아웃</a>
+                      <a href="./boardList.do" class="flex-c-m trans-04 p-lr-25"> Board </a>
+                    </c:when>
+                    <c:otherwise>
+
+                      <a class="flex-c-m trans-04 p-lr-25" href="tepanglogin.do">로그인</a>
+						<a href="#" class="flex-c-m trans-04 p-lr-25"> Sign Up </a> 
+
+						<a href="./boardList.do" class="flex-c-m trans-04 p-lr-25"> Board </a>
+
+                    </c:otherwise>
+                    </c:choose>
+						<a href="#" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a>
+
 					</div>
 				</div>
 			</div>
@@ -117,9 +130,7 @@ button {
 				<nav class="limiter-menu-desktop container">
 
 					<!-- Logo desktop -->
-
-					<a href="#" class="logo"> <img src="images/icons/logo-03.png"
-
+					<a href="mainList.do" class="logo"> <img src="images/icons/logo-03.png"
 						alt="IMG-LOGO">
 					</a>
 
@@ -163,7 +174,7 @@ button {
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-  <div class="modal-dialog modal-dialog-centered modal-lg" >
+  <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"><b>문의하기</b></h5>
@@ -172,7 +183,7 @@ button {
       <div class="modal-body" >
         <form>
           <div class="mb-3">
-          		<input type="text" readonly name="writer" value="${member_id }">
+          		<input id="writer" type="text" readonly name="writer" value=" ${member_id } 님">
           		<select name="searchCondition" class="form-control">
 				<option value="">선택하세요.</option>
 				<option value="N"
@@ -182,7 +193,7 @@ button {
             <input type="text" class="form-control" id="recipient-name"> -->
           </div>
           <div class="mb-3">
-            <label for="message-text" class="col-form-label" >Message:</label>
+            <label  for="message-text" class="col-form-label"  >Message:</label>
             <textarea class="form-control" id="message-text"></textarea>
           </div>
         </form>
@@ -197,7 +208,7 @@ button {
 		<!--<button id="QABtn" class="col-sm-2 btn btn-primary"><a href="./board.do"> 문의하기</a></button>  --> 
 		
 		<div id="list">
-
+<p>${list}</p>
 			<table class="table">
 				<thead>
 					<tr>
