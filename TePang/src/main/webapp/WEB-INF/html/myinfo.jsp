@@ -68,6 +68,8 @@ select {
 	margin-left: 100px;
 }
 </style>
+<script>
+</script>
 <jsp:include page="../includes/header.jsp"></jsp:include> 
 	<div id=container>
 			<div class="d-flex" id="wrapper">
@@ -75,11 +77,12 @@ select {
 				<div class="border-end bg-white" id="sidebar-wrapper">
 
 					<div class="list-group list-group-flush">
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myPage.do">구매목록(디폴트)</a> 
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">내가 쓴 문의(링크)</a> 
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">찜 목록(링크)</a> 
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">내 정보 수정</a> 
+						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">구매목록(디폴트)</a> 
+						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myreview.do">내가 쓴 문의(링크)</a> 
+						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myheartlist.do">찜 목록(링크)</a> 
+						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myinfo">내 정보 수정</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">보유쿠폰</a> 
+						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myinfoDelete.do">회원탈퇴</a> 
 					</div>
 				</div>
 	<form action="#" method="post">
@@ -91,7 +94,7 @@ select {
 				<td>아이디</td>
 			</tr>
 			<tr>
-				<td><input type="text" class="text" readonly value="user01"></td>
+				<td><input type="text" class="text" readonly value="${mem.memberId}"></td>
 			</tr>
 			<tr>
 				<td>비밀번호</td>
@@ -109,19 +112,19 @@ select {
 				<td>이름</td>
 			</tr>
 			<tr>
-				<td><input type="text" class="text" readonly></td>
+				<td><input type="text" class="text" readonly value="${mem.memberName}"></td>
 			</tr>
 			<tr>
 				<td>주소</td>
 			</tr>
 			<tr>
-				<td><input type="text" class="text"></td>
+				<td><input type="text" class="text" value="${mem.memberAdr}"></td>
 			</tr>
 			<tr>
 				<td>관심사</td>
 			</tr>
 			<tr>
-				<td><input type="text" class="text"></td>
+				<td><input type="text" class="text" value="${mem.memberFv}"></td>
 			</tr>
 			<tr>
 				<td><input type="submit" value="수정하기" class="btn"

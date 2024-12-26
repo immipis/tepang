@@ -43,8 +43,6 @@ public List<OrderVO> orderList(String memberId) {
 // 마이페이지 상세 (개인정보)
 public SingupVO selectMember(String memberId) {
 	getConn();
-	
-
 	String ssql = " SELECT * "//
 			+ "   FROM tbl_member "//
 			+ "  WHERE member_id = ? ";//
@@ -62,7 +60,7 @@ public SingupVO selectMember(String memberId) {
 			svo.setMemberAdr(rs.getString("member_adr"));
 			svo.setMemberBir(rs.getString("member_bir"));
 			svo.setMemberGen(rs.getString("member_gen"));
-			svo.setMemberFv(rs.getString("member_Fv"));
+			svo.setMemberFv(rs.getString("member_fv"));
 			svo.setMemberTier(rs.getString("member_tier"));
 			return svo;
 		}
@@ -75,7 +73,7 @@ public SingupVO selectMember(String memberId) {
 	return null;
 }
 	// 개인정보 수정
-	public boolean UpdateInfo(SingupVO info) {
+	public boolean updateInfo(SingupVO info) {
 		getConn();
 		String memInfo = " UPDATE tbl_member "//
 				       + "    SET member_pw = ? "
@@ -101,4 +99,23 @@ public SingupVO selectMember(String memberId) {
 		return false;
 	}
 	
+	// 회원탈퇴
+	public boolean deleteInfo(SingupVO info) {
+		getConn();
+		String dsql = " DELETE FROM tbl_member "
+				    + "  WHERE tbl_member = ? ";
+		try {
+			psmt = conn.prepareStatement(dsql);
+			psmt.setString(1, info.getMemberId());
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
+	}
 }

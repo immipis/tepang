@@ -15,10 +15,12 @@ import com.tepang.control.BoardControl;
 import com.tepang.control.BoardListControl;
 import com.tepang.control.CartListControl;
 import com.tepang.control.MainControl;
-import com.tepang.control.MyInfoControl;
+import com.tepang.control.MyHeartListControl;
 import com.tepang.control.MyInfoUpdateControl;
+import com.tepang.control.MyInfoControl;
+import com.tepang.control.MyInfoDeleteControl;
 import com.tepang.control.MyPageBoardControl;
-import com.tepang.control.MyPageListControl;
+import com.tepang.control.MyReviewControl;
 import com.tepang.control.ProductDetailControl;
 import com.tepang.control.ProductListControl;
 import com.tepang.control.SingupControl;
@@ -56,12 +58,12 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/tepnagsingup.do", new SingupControl());
 		// 마이페이지
 		map.put("/myPage.do", new MyPageBoardControl()); // 마이페이지 상세
-		map.put("/myPageList.do", new MyPageListControl()); // 마이페이지 ?? 
-		// 마이페이지 - 내 정보 수정
-		map.put("/myinfoUpdate.do", new MyInfoUpdateControl());
-		map.put("/myinfo.do", new MyInfoControl());
-				
-
+		map.put("/myinfo.do", new MyInfoControl()); 	// 정보확인
+		map.put("/myinfoUpdate.do", new MyInfoUpdateControl()); // 정보 수정
+		map.put("/myinfoDelete.do", new MyInfoDeleteControl()); // 회원탈퇴
+		map.put("/myreview.do", new MyReviewControl()); // 나의 문의
+		map.put("/myheartlist.do", new MyHeartListControl()); // 나의 찜목록
+			
 		// 리뷰
 //		map.put("/replyList.do", new ListControl()); // 목록
 //		map.put("/removeReply.do", new RemoveReplyControl()); // 삭제

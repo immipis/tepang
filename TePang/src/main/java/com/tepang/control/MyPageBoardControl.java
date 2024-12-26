@@ -22,8 +22,8 @@ public class MyPageBoardControl implements Control {
 			HttpSession session = req.getSession();
 			String mid = (String) session.getAttribute("member_id");		
 			SingupVO svo = mpdo.selectMember(mid); 
-			req.getRequestDispatcher("WEB-INF/html/myPage.jsp").forward(req, resp);	
 			req.setAttribute("memId", svo);
+			req.getRequestDispatcher("WEB-INF/html/myPage.jsp").forward(req, resp);	
 		
 	}
 
