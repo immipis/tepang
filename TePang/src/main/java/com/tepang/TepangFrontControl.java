@@ -15,6 +15,7 @@ import com.tepang.control.AddReviewControl;
 import com.tepang.control.BoardControl;
 import com.tepang.control.BoardListControl;
 import com.tepang.control.CartListControl;
+import com.tepang.control.MainCartControl;
 import com.tepang.control.GetReviewCountControl;
 import com.tepang.control.MainControl;
 import com.tepang.control.MyHeartListControl;
@@ -56,6 +57,7 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/userFvItem.do", new userFvItemControl());
 
 		map.put("/cartList.do", new CartListControl());
+		map.put("/mainCart.do", new MainCartControl());
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
 		map.put("/board.do", new BoardControl()); // 게시판목록 > 상세
 
