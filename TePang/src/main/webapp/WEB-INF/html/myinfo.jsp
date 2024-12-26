@@ -91,6 +91,7 @@ select {
 				<div class="content">
 	<form action="#" method="post">
 		<table>
+		
 			<tr>
 				<td><h2>정보 수정</h2></td>
 			</tr>
