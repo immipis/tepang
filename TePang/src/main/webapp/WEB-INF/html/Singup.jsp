@@ -180,11 +180,11 @@ label {
 							<tr>
 								<th>Gender</th>
 								<td class="gender col-sm8">
-									<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"> 
+									<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="male"> 
 									<label class="form-check-label" for="flexRadioDefault1">남</label> 
 								</td>
 								<td class="gender col-sm8">
-									<input class="form-check-input" type="radio" name="flexRadioDefault"id="flexRadioDefault2" checked>
+									<input class="form-check-input" type="radio" name="flexRadioDefault"id="flexRadioDefault2" value="female">
 									<label class="form-check-label" for="flexRadioDefault2">여</label>
 								 </td>
 							</tr>
@@ -192,16 +192,16 @@ label {
 							<tr>
 								<th>Favorite</th>
 								<td>
-								 <input class="form-check-input" type="radio">
-								 <label class="form-check-label" for="flexRadioDefault3">펫</label> 
-								 <input class="form-check-input" type="radio" >
-								 <label class="form-check-label" for="flexRadioDefault4">전자기기</label>
-								 <input class="form-check-input" type="radio" >
-								 <label class="form-check-label" for="flexRadioDefault5">의류</label>
-								 <input class="form-check-input" type="radio" >
-								 <label class="form-check-label" for="flexRadioDefault6">음식</label>
-								 <input class="form-check-input" type="radio" >
-								 <label class="form-check-label" for="flexRadioDefault7">문구</label>
+								<!--   <input class="form-check-input" type="checkbox">
+								 <label >펫</label> 
+								 <input class="form-check-input" type="checkbox" >
+								 <label >전자기기</label>
+								 <input class="form-check-input" type="checkbox" >
+								 <label >의류</label>
+								 <input class="form-check-input" type="checkbox" >
+								 <label >음식</label>
+								 <input class="form-check-input" type="checkbox" >
+								 <label >문구</label> -->
 								</td>
 							</tr>
 					
