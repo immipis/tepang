@@ -216,8 +216,6 @@
 							<div class="block1-link stext-101 cl0 trans-09">Shop Now</div>
 						</div>
 					</a>
-
-
 				</div>
 			</div>
 		</div>
@@ -266,7 +264,9 @@
 		</div>
 	</div>
 </div>
+<div class="ads bg0 p-t-80 p-b-50">
 
+</div>>
 <!-- Product -->
 <section class="bg0 p-t-23 p-b-140">
 	<div class="container">
@@ -407,7 +407,33 @@
 </div>
 <script>
 
-let logId = "${member_id}";
+let id = "${member_id}";
+console.log(id)
+if (id == null || id == ""){
+	console.log("아이디 없음")
+}
+else{
+    fetch('userFvItem.do?id='+id)
+  	.then(result => result.json())
+	.then(result => {
+		console.log(result)
+		let html = 
+		`
+		<div class="">
+			<!-- Block1 -->
+			<div class="block1 wrap-pic-w">
+				<img src="images/ads\${result}01.jpg" alt="IMG-BANNER"> <a
+					href="productList.do?title=\${result}"
+					class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+				</a>
+			</div>
+		</div>
+		`
+		document.querySelector(".ads").innerHTML = html;
+	})
+	.catch(err => console.log(err));  
+    
+}
 
 </script>
 
