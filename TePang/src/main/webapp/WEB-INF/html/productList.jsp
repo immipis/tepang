@@ -59,12 +59,12 @@
 						<!-- Block2 -->
 						<div class="block2">
 							<div class="block2-pic hov-img0">
-								<img src="images/\${item.productImg}" alt="\${item.productName}이미지">
-							</div>
+								<img src="images/\${item.productName}.jpg" alt="\${item.productName}이미지">
+							</div> 
 
 							<div class="block2-txt flex-w flex-t p-t-14">
 								<div class="block2-txt-child1 flex-col-l">
-									<a href="productDetail.do? class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									<a href="productDetail.do?pcode=\${item.productCode}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 										\${item.productName}
 									</a>
 
@@ -90,7 +90,8 @@
 			.catch(err => console.log(err));
 		document.querySelectorAll(".category").forEach(element => {
 			if(element.getAttribute("category") == title){		
-				console.log(element.classList.add('how-active1'))
+				element.classList.add('how-active1')
+				
 			}
 		})
 	</script>
@@ -115,7 +116,7 @@
 
 							<div class="block2-txt flex-w flex-t p-t-14">
 								<div class="block2-txt-child1 flex-col-l ">
-									<a href="productDetail?pcode=${item.productCode}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									<a href="productDetail?pcode=\${item.productCode}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 										\${item.productName}
 									</a>
 
