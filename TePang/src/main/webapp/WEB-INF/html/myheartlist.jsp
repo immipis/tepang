@@ -37,6 +37,7 @@
 			</div>
 		</div>
 		<div class="content">
+		
 			<h2>찜 목록</h2>
 		</div>
 	</div>
