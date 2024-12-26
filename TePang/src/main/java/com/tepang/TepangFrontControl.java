@@ -34,6 +34,8 @@ import com.tepang.control.TepangLoginFormControl;
 import com.tepang.control.TepangLogoutControl;
 import com.tepang.control.TepangSingupFormControl;
 import com.tepang.control.productCategoryListControl;
+import com.tepang.control.searchControl;
+import com.tepang.control.searchFormControl;
 import com.tepang.control.userFvItemControl;
 
 public class TepangFrontControl extends HttpServlet {
@@ -67,6 +69,10 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/tepanglogout.do", new TepangLogoutControl());
 		map.put("/tepnagsingupForm.do", new TepangSingupFormControl());
 		map.put("/tepnagsingup.do", new SingupControl());
+		
+		
+		//검색기능
+		map.put("/search.do", new searchControl());
 		
 		// 마이페이지
 		map.put("/myPage.do", new MyPageBoardControl()); // 마이페이지 상세
