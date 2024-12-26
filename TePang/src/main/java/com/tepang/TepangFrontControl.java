@@ -31,6 +31,7 @@ import com.tepang.control.TepangLoginFormControl;
 import com.tepang.control.TepangLogoutControl;
 import com.tepang.control.TepangSingupFormControl;
 import com.tepang.control.productCategoryListControl;
+import com.tepang.control.userFvItemControl;
 
 public class TepangFrontControl extends HttpServlet {
 
@@ -45,19 +46,24 @@ public class TepangFrontControl extends HttpServlet {
 
 
 		map.put("/productDetail.do", new ProductDetailControl());// 상세목록
+		
+		//조성민
 		map.put("/mainList.do", new MainControl());
 		map.put("/productList.do", new ProductListControl());
 		map.put("/productCategoryList.do", new productCategoryListControl());
+		map.put("/userFvItem.do", new userFvItemControl());
+
 		map.put("/cartList.do", new CartListControl());
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
 		map.put("/board.do", new BoardControl()); // 게시판목록 > 상세
 
-		// 로그인 및 로그아웃
+		// 로그인 및 로그아웃 도한준
 		map.put("/tepnagloginForm.do", new TepangLoginFormControl());
 		map.put("/tepanglogin.do", new TepangLoginControl());
 		map.put("/tepanglogout.do", new TepangLogoutControl());
 		map.put("/tepnagsingupForm.do", new TepangSingupFormControl());
 		map.put("/tepnagsingup.do", new SingupControl());
+		
 		// 마이페이지
 		map.put("/myPage.do", new MyPageBoardControl()); // 마이페이지 상세
 		map.put("/myPageList.do", new MyPageListControl()); // 구매목록 리스트
