@@ -77,7 +77,6 @@
 .pagination {
 	margin-top: 180px;
 }
-
 .d-flex {
 	margin-left: 100px;
 }

@@ -86,10 +86,6 @@ public class TepangFrontControl extends HttpServlet {
 //		map.put("/addReply.do", new AddReplyControl()); // 등록
 //		map.put("/getConut.do", new GetReplyCountControl());
 
-		map.put("/myPageList.do", new MyPageListControl()); // 구매목록 리스트
-		map.put("myInfo.do", new MyInfoControl());
-		map.put("myInfoList.do", new MyInfoListControl());
-
 
 	}
 
