@@ -11,17 +11,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.tepang.common.Control;
+import com.tepang.control.AddReviewControl;
 import com.tepang.control.BoardControl;
 import com.tepang.control.BoardListControl;
 import com.tepang.control.CartListControl;
+import com.tepang.control.GetReviewCountControl;
 import com.tepang.control.MainControl;
-import com.tepang.control.MainPvControl;
 import com.tepang.control.MyInfoControl;
 import com.tepang.control.MyInfoListControl;
 import com.tepang.control.MyPageBoardControl;
 import com.tepang.control.MyPageListControl;
 import com.tepang.control.ProductDetailControl;
 import com.tepang.control.ProductListControl;
+import com.tepang.control.RemoveReviewControl;
+import com.tepang.control.ReviewControl;
 import com.tepang.control.SingupControl;
 import com.tepang.control.TepangLoginControl;
 import com.tepang.control.TepangLoginFormControl;
@@ -69,17 +72,11 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("myInfoList.do", new MyInfoListControl());
 				
 
-		// 리뷰
-//		map.put("/replyList.do", new ListControl()); // 목록
-//		map.put("/removeReply.do", new RemoveReplyControl()); // 삭제
-//		map.put("/addReply.do", new AddReplyControl()); // 등록
-//		map.put("/getConut.do", new GetReplyCountControl());
-
-		// 리뷰
-//		map.put("/replyList.do", new replyListControl()); // 목록
-//		map.put("/removeReply.do", new RemoveReplyControl()); // 삭제
-//		map.put("/addReply.do", new AddReplyControl()); // 등록
-//		map.put("/getConut.do", new GetReplyCountControl());
+//		// 리뷰
+//		map.put("/review.do", new ReviewControl()); // 목록
+//		map.put("/removeReview.do", new RemoveReviewControl()); // 삭제
+//		map.put("/addReview.do", new AddReviewControl()); // 등록
+//		map.put("/getConut.do", new GetReviewCountControl()); //갯수
 
 	}
 
