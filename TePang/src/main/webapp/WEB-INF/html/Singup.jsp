@@ -180,11 +180,11 @@ label {
 							<tr>
 								<th>Gender</th>
 								<td class="gender col-sm8">
-									<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="male"> 
+									<input class="form-check-input" type="radio" name="gen" id="flexRadioDefault1" value="male"> 
 									<label class="form-check-label" for="flexRadioDefault1">남</label> 
 								</td>
 								<td class="gender col-sm8">
-									<input class="form-check-input" type="radio" name="flexRadioDefault"id="flexRadioDefault2" value="female">
+									<input class="form-check-input" type="radio" name="gen"id="flexRadioDefault2" value="female">
 									<label class="form-check-label" for="flexRadioDefault2">여</label>
 								 </td>
 							</tr>
@@ -192,22 +192,21 @@ label {
 							<tr>
 								<th>Favorite</th>
 								<td>
-								<!--   <input class="form-check-input" type="checkbox">
+								 <input class="form-check-input" type="checkbox" name="fv" value="펫">
 								 <label >펫</label> 
-								 <input class="form-check-input" type="checkbox" >
+								 <input class="form-check-input" type="checkbox" name="fv" value="전자">
 								 <label >전자기기</label>
-								 <input class="form-check-input" type="checkbox" >
+								 <input class="form-check-input" type="checkbox" name="fv" value="의류">
 								 <label >의류</label>
-								 <input class="form-check-input" type="checkbox" >
+								 <input class="form-check-input" type="checkbox" name="fv" value="음식">
 								 <label >음식</label>
-								 <input class="form-check-input" type="checkbox" >
-								 <label >문구</label> -->
+								 <input class="form-check-input" type="checkbox" name="fv" value="문구">
+								 <label >문구</label> 
 								</td>
 							</tr>
-					
+							
 							<tr>
-								<td colspan="2" align="center"><input type="submit"
-									href="tepanglogin.do"
+								<td colspan="2" align="center"><input type="submit" 
 									class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"
 									value="signup"></td>
 							</tr>

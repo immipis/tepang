@@ -18,7 +18,7 @@ public class TepangLoginControl implements Control {
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
 
-		String tier = req.getParameter("tier");
+//		String tier = req.getParameter("tier");
 
 		TePangDAO tdao = new TePangDAO();
 
