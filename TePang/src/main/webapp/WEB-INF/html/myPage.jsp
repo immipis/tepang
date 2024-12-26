@@ -2,25 +2,22 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <style>
-
 #container {
 	width: 1500px;
 	margin: 0 auto;
 	padding-top: 180px;
+	height: 800px;
 }
 
-
 .leftmenu {
-	width: 300px; 
-
-.user {
-	width: 700px;
-
+	width: 300px; . user { width : 700px;
 	height: auto;
 	margin: 50px;
 	border: 1px solid blue;
 }
-
+.content{
+	margin-left:100px;
+}
 .plist {
 	border: 1px solid blue;
 	margin-top: 20px;
@@ -35,53 +32,48 @@
 }
 </style>
 
-<jsp:include page="../includes/header.jsp"></jsp:include> 
+<jsp:include page="../includes/header.jsp"></jsp:include>
 
 
 
-	<!-- 왼쪽 사이드 메뉴 -->
-	<div id=container>
-		<main>
-			<div class="d-flex" id="wrapper">
-				<!-- Sidebar-->
-				<div class="border-end bg-white" id="sidebar-wrapper">
+<!-- 왼쪽 사이드 메뉴 -->
+<div id=container>
+	<main>
+		<div class="d-flex" id="wrapper">
+			<!-- Sidebar-->
+			<div class="border-end bg-white" id="sidebar-wrapper">
 
-					<div class="list-group list-group-flush">
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">구매목록(디폴트)</a> 
+				<div class="list-group list-group-flush">
+					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myPage.do">구매목록(디폴트)</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myreview.do">내가 쓴 문의(링크)</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myheartlist.do">찜 목록(링크)</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myinfo.do">내 정보 수정</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">보유쿠폰</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myinfoDelete.do">회원탈퇴</a> 
-					</div>
 				</div>
-				<!-- Page content wrapper-->
-				<!-- <div id="page-content-wrapper"> -->
-				<!-- Top navigation-->
+			</div>
+			<!-- Page content wrapper-->
+			<!-- <div id="page-content-wrapper"> -->
+			<!-- Top navigation-->
 
-				<section class="user">
-					<div class="info">
-						<table>
-							<tr>
-								<td>${member_id}님, 안녕하세요.</td>
-							</tr>
-							<tr>
-								<td>${memId.memberTier} 등급</td>
-							</tr>
-						</table>
+			<section class="user">
+				<div class="info">
+					<table>
+						<tr>
+							<td>${member_id}님,안녕하세요.</td>
+						</tr>
+						<tr>
+							<td>${memId.memberTier}등급</td>
+						</tr>
+					</table>
+				</div>
+			
+					<div class="content">
+						<h2>구매목록</h2>
 					</div>
-					<div class="plist">
-						<h3>구매 목록</h3>
-						<table>
-							<tr>
-								<td></td>
-							</tr>
-						</table>
-					</div>
-				</section>
-				
-		</main>
-	</div>
+			</section>
+	</main>
+</div>
 </body>
 
 <!-- Footer -->

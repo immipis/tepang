@@ -7,15 +7,17 @@
 	width: 1500px;
 	margin: 0 auto;
 	padding-top: 180px;
+	height: 800px;
 }
 
 .d-flex {
 	margin-left: 100px;
 }
+.content{
+	margin-left: 70px;	
+}
 </style>
-<script>
-	
-</script>
+
 <jsp:include page="../includes/header.jsp"></jsp:include>
 <div id=container>
 	<div class="d-flex" id="wrapper">
@@ -31,7 +33,9 @@
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myinfoDelete.do">회원탈퇴</a> 
 			</div>
 		</div>
-				<h2>내가 쓴 문의</h2>
+		<div class="content">
+				<h2>내가 쓴 문의</h2>		
+		</div>
 	</div>
 </div>
 </body>

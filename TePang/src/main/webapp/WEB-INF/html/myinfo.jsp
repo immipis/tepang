@@ -7,6 +7,10 @@
 	width: 1500px;
 	margin: 0 auto;
 	padding-top: 180px;
+	height: 800px;
+}
+.content{
+	margin-left: 70px;
 }
 table {
     width: 280px;
@@ -85,6 +89,7 @@ select {
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myinfoDelete.do">회원탈퇴</a> 
 					</div>
 				</div>
+				<div class="content">
 	<form action="#" method="post">
 		<table>
 			<tr>
@@ -132,6 +137,7 @@ select {
 			</tr>
 		</table>
 		</form>
+				</div>
 			</div>
 			</div>
 </body>
