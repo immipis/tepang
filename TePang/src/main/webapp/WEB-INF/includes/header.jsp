@@ -78,8 +78,6 @@
                     </c:otherwise>
                     </c:choose>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a>
-
 
 					</div>
 				</div>

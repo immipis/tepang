@@ -192,7 +192,7 @@ label {
 							<tr>
 								<th>Favorite</th>
 								<td>
-								 <input class="form-check-input" type="radio" >
+								 <input class="form-check-input" type="radio">
 								 <label class="form-check-label" for="flexRadioDefault3">펫</label> 
 								 <input class="form-check-input" type="radio" >
 								 <label class="form-check-label" for="flexRadioDefault4">전자기기</label>
