@@ -229,9 +229,9 @@
 				<a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
 					메인메뉴 <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 				</a> <a href="product.html" class="stext-109 cl8 hov-cl1 trans-04">
-					${product.category } <i class="fa fa-angle-right m-l-9 m-r-10"
+					/${product.category } <i class="fa fa-angle-right m-l-9 m-r-10"
 					aria-hidden="true"></i>
-				</a> <span class="stext-109 cl4"> ${product.productName }<!-- Lightweight Jacket -->
+				</a> <span class="stext-109 cl4"> /${product.productName }<!-- Lightweight Jacket -->
 				</span>
 			</div>
 		</div>
