@@ -75,13 +75,13 @@ public SingupVO selectMember(String memberId) {
 	// 개인정보 수정
 	public boolean updateInfo(SingupVO info) {
 		getConn();
-		String memInfo = " UPDATE tbl_member "//
-				       + "    SET member_pw = ? "
-				       + "        member_adr = ? "
-				       + "        member_fv = ? "//
-				       + "  WHERE member_id = ? ";//
+		String memql = " UPDATE tbl_member "//
+				     + "    SET member_pw = ?, "
+				     + "        member_adr = ?, "
+				     + "        member_fv = ? "//
+				     + "  WHERE member_id = ? ";//
 		try {
-			psmt = conn.prepareStatement(memInfo);
+			psmt = conn.prepareStatement(memql);
 			psmt.setString(1, info.getMemberPw());
 			psmt.setString(2, info.getMemberAdr());
 			psmt.setString(3, info.getMemberFv());
