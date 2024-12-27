@@ -42,5 +42,59 @@ public class CartDAO extends DAO{
 		}
     	return clist;
     }
+    
+    // 등록.
+    public boolean insertCart(CartVO cvo) {
+    	getConn();
+    	String sql = "insert into tbl_cart (cart_num, product_code, member_id, product_num, cart_type)\r\n"
+    			+ "values(?, ?, ?, ?, ?)";
+    	try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, cvo.getCartNum());
+			psmt.setString(2, cvo.getProductCode());
+			psmt.setString(3, cvo.getMemberId());
+			psmt.setInt(4, cvo.getProductNum());
+			psmt.setString(5, cvo.getCartType());
+			
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+    	return false;
+    }
+    
+    // 상품 갯수 수정
+    public boolean updateCart(CartVO ucart) {
+		getConn();
+		String sql = "update tbl_cart "//
+				+ "   set    product_num = ?"//
+				+ "   where member_id = ?"
+				+ "   and product_code = ?";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, ucart.getProductNum());
+			psmt.setString(2, ucart.getMemberId());
+			psmt.setString(3, ucart.getProductCode());
+			
+			int r = psmt.executeUpdate(); // 쿼리 실행.
+			if (r > 0) {
+				return true;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
+	}
+    
 
 }

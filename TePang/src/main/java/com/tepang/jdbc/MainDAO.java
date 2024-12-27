@@ -10,7 +10,7 @@ import com.tepang.vo.MainVO;
 public class MainDAO extends DAO{
 	public List<MainVO> addpList() {
 		getConn();
-		String sql = "select * from tbl_product";
+		String sql = "select * from tbl_product order by product_name";
 		List<MainVO> pList = new ArrayList<>();
 		
 		try {
@@ -77,7 +77,7 @@ public class MainDAO extends DAO{
 				+ "          from tbl_member       \r\n"
 				+ "          where member_id = ? ) m \r\n"
 				+ "on p.category = m.member_fv )a\r\n"
-				+ "order by  a.order_by";
+				+ "order by  a.order_by, product_name";
 		List<MainVO> pList = new ArrayList<>();
 		
 		try {
