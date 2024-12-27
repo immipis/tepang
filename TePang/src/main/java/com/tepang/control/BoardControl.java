@@ -18,9 +18,7 @@ public class BoardControl implements Control {
 		
 		resp.setContentType("text/html;charset=utf-8"); //문자열
 		
-		String rc = req.getParameter("rc");
-		String page = req.getParameter("page");
-		page = page == null ? "1" : page;
+		String rc = req.getParameter("reply_code");
 
 
 		BoardDAO bdao = new BoardDAO();
