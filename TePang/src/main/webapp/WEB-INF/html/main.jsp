@@ -217,8 +217,6 @@
 							<div class="block1-link stext-101 cl0 trans-09">Shop Now</div>
 						</div>
 					</a>
-
-
 				</div>
 			</div>
 		</div>
@@ -267,13 +265,15 @@
 		</div>
 	</div>
 </div>
+<div class="ads bg0 p-t-80 p-b-50">
 
+</div>
 <!-- Product -->
-<section class="bg0 p-t-23 p-b-140">
+<section class="bg0 p-t-23 ">
 	<div class="container">
 		<div class="row isotope-grid product">
 			<c:forEach var="product" items="${products}">
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women productMainImg">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
@@ -304,6 +304,12 @@
 					</div>
 				</div>
 			</c:forEach>
+
+		</div>
+		<div class="flex-c-m flex-w w-full p-t-45">
+			<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04 m-b-12">
+				Load More
+			</a>
 		</div>
 	</div>
 
@@ -407,8 +413,45 @@
 	</span>
 </div>
 <script>
+document.querySelector(".searchBtn").addEventListener('click', e => {
+
+	console.log(e.target.parentElement.parentElement.children[0].value);
+	let searchText = e.target.parentElement.parentElement.children[0].value;
+	location.href='search.do?searchText='+searchText;
+})
+
+</script>
+
+<script>
 
 let id = "${member_id}";
+
+if (id == null || id == ""){
+	console.log("아이디 없음")
+}
+else{
+	console.log("아이디 있음")
+    fetch('userFvItem.do?id='+id)
+  	.then(result => result.json())
+	.then(result => {
+		console.log(result)
+		let html = 
+		`
+		<div class="">
+			<!-- Block1 -->
+			<div class="block1 wrap-pic-w">
+				<img src="images/ads\${result}01.jpg" alt="IMG-BANNER"> <a
+					href="productList.do?title=\${result}"
+					class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+				</a>
+			</div>
+		</div>
+		`
+		document.querySelector(".ads").innerHTML = html;
+	})
+	.catch(err => console.log(err));  
+}
+
 if (id == null || id == ""){
 	
 } else {

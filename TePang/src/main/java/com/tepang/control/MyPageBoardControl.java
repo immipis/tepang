@@ -18,25 +18,13 @@ public class MyPageBoardControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		MyPageDAO mpdo = new MyPageDAO();
-		
-		if(req.getMethod().equals("GET")) {
-			
+			MyPageDAO mpdo = new MyPageDAO();
 			HttpSession session = req.getSession();
 			String mid = (String) session.getAttribute("member_id");		
 			SingupVO svo = mpdo.selectMember(mid); 
-			
 			req.setAttribute("memId", svo);
-			req.getRequestDispatcher("WEB-INF/html/myPage.jsp").forward(req, resp);
-		} else if (req.getMethod().equals("POST")) {
-			String memberTier = req.getParameter("memberTier");
-			String memberAdr = req.getParameter("memberAdr");
-			
-			SingupVO sing = new SingupVO();
-			sing.setMemberTier(memberTier);
-			sing.setMemberAdr(memberAdr);
-		}
-
+			req.getRequestDispatcher("WEB-INF/html/myPage.jsp").forward(req, resp);	
+		
 	}
 
 }

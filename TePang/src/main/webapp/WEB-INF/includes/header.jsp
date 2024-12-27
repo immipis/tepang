@@ -77,7 +77,6 @@
 .pagination {
 	margin-top: 180px;
 }
-
 .d-flex {
 	margin-left: 100px;
 }
@@ -102,7 +101,7 @@
                       <a class="flex-c-m trans-04 p-lr-25" > ${member_id }</a>
                       <a class="flex-c-m trans-04 p-lr-25" href="myPage.do">마이 페이지</a>
                       <a class="flex-c-m trans-04 p-lr-25" href="tepanglogout.do">로그아웃</a>
-                      <a href="./boardList.do" class="flex-c-m trans-04 p-lr-25"> Board </a>
+                      <a href="./boardList.do" class="flex-c-m trans-04 p-lr-25" > Board </a>
                     </c:when>
                     <c:otherwise>
 
@@ -110,12 +109,10 @@
 
 						<a href="tepnagsingupForm.do" class="flex-c-m trans-04 p-lr-25"> Sign Up </a> 
 
-						<a href="./boardList.do" class="flex-c-m trans-04 p-lr-25"> Board </a>
+						<a href="boardList.do" class="flex-c-m trans-04 p-lr-25"> Board </a>
 
                     </c:otherwise>
                     </c:choose>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a>
 
 
 					</div>
@@ -133,9 +130,11 @@
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<input class="mtext-107 cl2 plh2 p-r-15 search-input" type="text"
-							name="search-product"></input>
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
-							<i class="zmdi zmdi-search"></i>
+
+							value="" name="search-product" ></input>
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+
+							<i class="zmdi zmdi-search searchBtn"></i>
 						</div>
 					</div>
 

@@ -92,7 +92,7 @@
 <link rel="stylesheet" type="text/css" href="css/main.css?after">
 <!--===============================================================================================-->
 </head>
-<body>
+<body class="animsition">
 	<header>
 		<!-- Header desktop -->
 		<div class="container-menu-desktop">
@@ -120,8 +120,6 @@
 
                     </c:otherwise>
                     </c:choose>
-						<a href="#" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a>
-
 					</div>
 				</div>
 			</div>
@@ -164,7 +162,7 @@
 
 	<div id="container">
 		<div id="title">
-			<h4>Board(boardList.jsp)</h4>
+			<h4>Board</h4>
 			<p>
 				안녕하세요 테팡입니다.<br>상품에 대해 궁금한것이 있으면 문의주세요.
 			</p>
@@ -208,7 +206,6 @@
 		<!--<button id="QABtn" class="col-sm-2 btn btn-primary"><a href="./board.do"> 문의하기</a></button>  --> 
 		
 		<div id="list">
-<p>${list}</p>
 			<table class="table">
 				<thead>
 					<tr>
@@ -223,7 +220,9 @@
 					<c:forEach var="bvo" items="${list}">
 					<tr>
 						<td align="center">
-						<a href="board.do?page=${paging.currentPage }&keyword=${empty keyword ? '': keyword }&searchCondition=${empty searchCondition ? '' : searchCondition }&reply_code=${bvo.replyCode}">${bvo.replyCode}</a>
+						<a href="board.do?page=${paging.currentPage }
+						  
+						&reply_code=${bvo.replyCode}">${bvo.replyCode}</a>
 
 						</td>
 						<td><c:out value="${bvo.replyContent}" /></td>
