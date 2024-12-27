@@ -1,8 +1,11 @@
 package com.tepang.jdbc;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.tepang.common.DAO;
+import com.tepang.vo.MainVO;
 import com.tepang.vo.SingupVO;
 
 public class TePangDAO extends DAO {
@@ -62,6 +65,38 @@ public class TePangDAO extends DAO {
 			disConnect();
 		}
 		return false;
+	}
+	
+	public List<MainVO> search(String searchText) {
+
+		getConn();
+		String sql = "select * from tbl_product" 
+		+ "            where product_name = '%'||?||'%' ";
+		
+		List<MainVO> pList = new ArrayList<>();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, searchText);
+
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				MainVO mvo = new MainVO();
+				mvo.setProductCode(rs.getString("product_code"));
+				mvo.setProductImg(rs.getString("product_img"));
+				mvo.setProductName(rs.getString("product_name"));
+				mvo.setProductPrice(rs.getInt("product_price"));
+				mvo.setProductDetail(rs.getString("product_detail"));
+				mvo.setCategory(rs.getString("category"));
+				pList.add(mvo);
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return pList;
 	}
 	
 }
