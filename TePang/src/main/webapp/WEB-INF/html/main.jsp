@@ -419,9 +419,11 @@ document.querySelector(".searchBtn").addEventListener('click', e => {
 	let searchText = e.target.parentElement.parentElement.children[0].value;
 	location.href='search.do?searchText='+searchText;
 })
+
 </script>
 
 <script>
+
 let id = "${member_id}";
 
 if (id == null || id == ""){

@@ -14,6 +14,7 @@ public class searchControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		req.setCharacterEncoding("UTF-8");
+
 		
 		String searchText = req.getParameter("searchText");
 		System.out.println(searchText);
@@ -24,6 +25,7 @@ public class searchControl implements Control {
 //		req.setAttribute("title", title);
 ////		req.setAttribute("products2", products2);
 //		req.getRequestDispatcher("WEB-INF/html/productList.jsp").forward(req, resp);
+
 	}
 
 }
