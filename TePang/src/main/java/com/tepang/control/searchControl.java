@@ -14,8 +14,9 @@ public class searchControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		req.setCharacterEncoding("UTF-8");
-		
-//		String pname = 
+	
+		String searchText = req.getParameter("searchText");
+		System.out.println(searchText);
 	}
 
 }
