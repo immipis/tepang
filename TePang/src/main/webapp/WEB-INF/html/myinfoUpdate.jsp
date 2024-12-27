@@ -72,7 +72,8 @@ select {
 	margin-left: 100px;
 }
 </style>
-
+<script>
+</script>
 <jsp:include page="../includes/header.jsp"></jsp:include> 
 	<div id=container>
 			<div class="d-flex" id="wrapper">
@@ -88,14 +89,14 @@ select {
 					</div>
 				</div>
 				<div class="content">
-	<form action="#" method="post">
+	<form>
 		<table>
 		
 			<tr>
-				<td><h2>나의 정보</h2><small>(${mem.memberId} 님)</small></td>
+				<td><h2>정보 수정</h2></td>
 			</tr>
 			<tr>
-				<td>아이디</td>
+				<td>아이디 (수정불가)</td>
 			</tr>
 			<tr>
 				<td><input type="text" class="text" readonly value="${mem.memberId}"></td>
@@ -113,7 +114,7 @@ select {
 				<td><input type="password" class="text"></td>
 			</tr>
 			<tr>
-				<td>이름</td>
+				<td>이름 (수정불가)</td>
 			</tr>
 			<tr>
 				<td><input type="text" class="text" readonly value="${mem.memberName}"></td>
@@ -131,14 +132,33 @@ select {
 				<td><input type="text" class="text" value="${mem.memberFv}"></td>
 			</tr>
 			<tr>
-				<a class="update" href="myinfoUpdate.do">수정하기</a>
+				<td><input type="button" value="저장하기" class="btn"></td>
 			</tr>
 		</table>
 		</form>
 				</div>
 			</div>
 			</div>
-
+</body>
+<script>
+function updateinfo(rno = 1){
+	fetch('myinfoUpdate.do', {
+			method : 'post',
+			body : new URLSearchParams({'member_pw' : 1234 })
+		})
+		.then(result => result.json())
+		.then(result => {
+			console.log(result);
+			if(result.retCode == 'OK'){
+				alert("수정되었습니다.")				
+				document.querySelector()
+			} else {
+				alert("다시 시도해 주세요.")
+			}
+		})
+		.catch(err => console.log(err))
+}
+</script>
 <jsp:include page="../includes/footer.jsp"></jsp:include>
 </body>
 </html>
