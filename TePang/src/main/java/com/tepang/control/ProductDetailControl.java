@@ -15,12 +15,12 @@ public class ProductDetailControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		ProductDAO bdao = new ProductDAO();
-
+		// ?pcode=C2
 		String pno = req.getParameter("pcode");
-
-		List<MainVO> bvo = bdao.selectProduct(pno);
+		
+		ProductDAO bdao = new ProductDAO();
+		MainVO bvo = bdao.selectProduct(pno);
+		
 		req.setAttribute("product", bvo);
 
 		req.getRequestDispatcher("WEB-INF/html/productDetail.jsp").forward(req, resp);

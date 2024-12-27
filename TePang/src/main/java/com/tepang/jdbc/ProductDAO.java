@@ -13,18 +13,17 @@ import com.tepang.vo.MainVO;
 public class ProductDAO extends DAO {
 
 	// 상품 상세.
-	public List<MainVO> selectProduct(String pno) {
+	public MainVO selectProduct(String pno) {
 		getConn();
 		String sql = "select * from tbl_product where product_code = ?";
 
-		List<MainVO> list = new ArrayList<>();
+		MainVO pvo = new MainVO();
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, pno);
 			rs = psmt.executeQuery();
 			
 			if (rs.next()) {
-				MainVO pvo = new MainVO();
 				pvo.setCategory(rs.getString("category"));
 				pvo.setProductCode(rs.getString("product_Code"));
 				pvo.setProductDetail(rs.getString("product_Detail"));
@@ -35,14 +34,14 @@ public class ProductDAO extends DAO {
 				pvo.setProductStock(rs.getInt("product_Stock"));
 				pvo.setProductSale(rs.getString("product_Sale"));
 
-				list.add(pvo);
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disConnect();
 		}
-		return null;
+		return pvo;
 	}
 
 //파라미터 등록
@@ -137,7 +136,7 @@ public class ProductDAO extends DAO {
 			return result;
 		}
 		// 상세조회. 파라미터(int boardNo) selectBoard 반환값: BoardVO.
-		public List<BoardVO> selectBoard(String pno, String page) {
+		public List<BoardVO> selectBoard(String id, String pno ) {
 
 			getConn();
 
@@ -146,8 +145,8 @@ public class ProductDAO extends DAO {
 
 			try {
 				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, id);
 				psmt.setString(1, pno);
-				psmt.setString(2, page);
 				rs = psmt.executeQuery(); // 조회.
 
 				while (rs.next()) {

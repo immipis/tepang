@@ -49,7 +49,6 @@
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
-
 	<!-- Header -->
 	<header class="header-v4">
 		<!-- Header desktop -->
@@ -435,13 +434,15 @@
 													class="flex-c-m stext-101 cl0 size-112 bg7 bor11 hov-btn3 p-lr-15 trans-04 m-b-10">
 													리뷰등록</button>
 											</form>
+											<div class="reviews">123</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+				
 					</div>
-				</div>
+			</div>
 				<!-- 상품상세(DetailImg사진 가져오기) 리뷰 창  끝-->
 			</div>
 		</section>
@@ -557,6 +558,20 @@
 		</script>
 		<!--===============================================================================================-->
 		<script src="js/main.js"></script>
+		<script>
+	  fetch('review.do?pcode=${product.productCode}')
+	  	.then(result => result.json())
+	  	.then(result => {
+	  		for(i=0; i < result.length; i++){	  
+	  		document.querySelector(".reviews").innerHTML+=result[i] + replyContent;
+	  		}
+	  	})
+	  	.catch(err => console.log(err));
+	  
+	  container.insertAdjacentHTML("beforeend",`
+			  <h5 id="result">${result}</h5>
+			  <p id="replyContent">${replyContent}</p>`);
+	  </script>
 
 		<jsp:include page="../includes/footer.jsp"></jsp:include>
 </body>

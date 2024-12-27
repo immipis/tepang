@@ -50,9 +50,8 @@ public class TepangFrontControl extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 
-
+		//이신영
 		map.put("/productDetail.do", new ProductDetailControl());// 상세목록
-		map.put("/productReview.do", new ProductReviewControl());//리뷰
 		
 		//조성민
 		map.put("/mainList.do", new MainControl());
@@ -95,12 +94,15 @@ public class TepangFrontControl extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// http://localhost:80/BoardWeb/boardList.do
+		// http://localhost/TePang/productDetail.do?pcode=C2
 		String uri = req.getRequestURI();
-		System.out.println(uri);
+		//System.out.println(uri);
 		String context = req.getContextPath();
 		String path = uri.substring(context.length());
-		System.out.println(path); // "/boardList.do" 공통부분을 제외한 나머지 부분.
-
+		//System.out.println(path); // "/boardList.do" 공통부분을 제외한 나머지 부분.
+		
+		//  /productDetail.do?pcode=C2
+		
 		// 요청url === 실행할 컨트롤
 		Control control = map.get(path);
 		control.exec(req, resp);
