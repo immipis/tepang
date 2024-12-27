@@ -242,9 +242,10 @@
 									<th class="column-3">가격</th>
 									<th class="column-4">수량</th>
 									<th class="column-5">총액</th>
+									<th class="column-6"></th>
 								</tr>
 								<c:forEach var="cart" items="${carts }">
-									<tr class="table_row">
+									<tr class="table_row" cnum = ${cart.cartNum }>
 										<td class="column-1">
 											<div class="how-itemcart1">
 												<img src="images/${cart.productImg }" alt="IMG">
@@ -261,23 +262,20 @@
 												</div>
 
 												<input class="mtext-104 cl3 txt-center num-product cnum"
-													type="number" name="num-product1"
+													type="number" pnum=${cart.productNum } name="cnum"
 													value="${cart.productNum }">
 
 												<div
 													class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m btns">
-													<i class="fs-16 zmdi zmdi-plus"></i>
+													<i class="fs-16 zmdi zmdi-plus"  pname=${cart.productName }></i>
 												</div>
 											</div>
 										</td>
 										<td class="column-5"><c:out
 												value="${cart.productPrice*cart.productNum }원" /></td>
-									</tr>
+												<td class="column-6"><input type="button" class="btn btn-danger" value="X"></td>
+									   </tr>
 								</c:forEach>
-								<tr>
-									<td colspan="5" align="center"><input type="button"
-										value="변경사항 등록" class="form-control insertbtn"></td>
-								</tr>
 							</table>
 						</div>
 
@@ -293,7 +291,7 @@
 						<div class="flex-w flex-t bor12 p-b-13">
 							<div class="size-208">
 
-								<span class="stext-110 cl2"> 1 </span>
+								<span class="stext-110 cl2"></span>
 
 							</div>
 
@@ -441,30 +439,6 @@
 			class="zmdi zmdi-chevron-up"></i>
 		</span>
 	</div>
-	<!-- <script>
-    let a = 0;
-    document.querySelectorAll(".cprice").forEach(e => {
-    	a += Number(e.innerText);
-    	console.log(a);
-    })
-    let b = 0;
-    document.querySelectorAll(".cnum").forEach(e => {
-    	b += Number(e.innerText);
-    	console.log(b);
-    })
-    </script> -->
-    <script>
-    let sum = 0;
-	document.querySelectorAll('tr.table_row').forEach(item => {
-    	let price = item.children[4].innerText;
-    	console.log(price)
-        price = parseInt(price.replace('원', ''));
-    	sum += price;
-    	console.log(sum);
-    	console.log(document.querySelector('.totalsum').innerText=sum); 
-	    })
-
-    </script>
 	<script>
     document.querySelectorAll('div.btn-num-product-down').forEach(icon => {
     	icon.addEventListener('click', e => {
@@ -476,6 +450,7 @@
     		price = parseInt(price.replace('원', ''));
     		
      		e.target.closest('tr').children[4].innerText = price * (parseInt(currentQty)-1)+"원";				
+     		totalSum();
 			}
     		
     		
@@ -493,26 +468,53 @@
   
      		e.target.closest('tr').children[4].innerText = price * (parseInt(currentQty)+1)+"원";
     		
-
+			totalSum();
+			
+			fetch('updateCart.do?pname='+ pname + '&pnum=' + pnum)
+			.then(result => result.json())
+	    	.then(result => {
+	    		console.log(result)
+	    		if(result.retCode == 'OK'){
+	    		} else {
+	    		}
+	    	})
+	    	.catch(err => console.log(err))
     	})
     })
     </script>
-    	<script>
-    let sum2 = 0;
-    document.querySelectorAll('.btns').forEach(c => {
-	    c.addEventListener('click', e => {
-
-	    	document.querySelectorAll('tr.table_row').forEach(item => {
-		    	let price = item.children[4].innerText;
-	
-		        price = parseInt(price.replace('원', ''));
-		    	sum2 += price;
-		    	document.querySelector('.totalsum').innerText=sum2
-			    })
-		    })
+    <script>
+    document.querySelectorAll('.btn-danger').forEach(item => {
+    	item.addEventListener('click', e => {
+			let cnum = e.target.parentElement.parentElement.getAttribute("cnum");
+			fetch('removeCart.do?cnum='+ cnum)
+	    	.then(result => result.json())
+	    	.then(result => {
+	    		console.log(result)
+	    		if(result.retCode == 'OK'){
+	    			alert("삭제완료.");
+	    			document.querySelector('tr.table_row').remove();
+	    		} else {
+	    			alert("삭제가 안됨.");
+	    		}
+	    	})
+	    	.catch(err => console.log(err))
+    	})
     })
-    
     </script>
+    <script>
+    function totalSum() {
+        let sum = 0;
+        document.querySelectorAll('tr.table_row')
+          .forEach(item => {
+            let price = item.children[4].innerText;
+            price = parseInt(price.replace("원", ""));
+            sum += price;
+          })
+        document.querySelector('.totalsum').innerText = sum + " 원";
+      }
+      totalSum();
+    </script>
+
 	<!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->

@@ -10,7 +10,7 @@ import com.tepang.vo.CartVO;
 public class CartDAO extends DAO{
     public List<CartVO> cartList(String memberId, String cartType) {
     	getConn();
-    	String sql = "select c.product_code,p.product_img, m.member_id, c.cart_type,p.product_name, p.product_price, c.product_num, (p.product_price * c.product_num) "
+    	String sql = "select c.product_code,p.product_img, m.member_id, c.cart_type, c.cart_num,p.product_name, p.product_price, c.product_num, (p.product_price * c.product_num) "
     			+ "from tbl_cart c, tbl_product p, tbl_member m "
     			+ "where c.cart_type = ? "
     			+ "and c.member_id = m.member_id "
@@ -31,6 +31,7 @@ public class CartDAO extends DAO{
 				cvo.setMemberId(rs.getString("member_id"));
 				cvo.setCartType(rs.getString("cart_type"));
 				cvo.setProductNum(rs.getInt("product_num"));
+				cvo.setCartNum(rs.getString("cart_num"));
 				cvo.setProductPrice(rs.getInt("product_price"));
 				
 				clist.add(cvo);
@@ -75,19 +76,38 @@ public class CartDAO extends DAO{
 		String sql = "update tbl_cart "//
 				+ "   set    product_num = ?"//
 				+ "   where member_id = ?"
-				+ "   and product_code = ?";
+				+ "   and product_name = ?";
 
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, ucart.getProductNum());
 			psmt.setString(2, ucart.getMemberId());
-			psmt.setString(3, ucart.getProductCode());
+			psmt.setString(3, ucart.getProductName());
 			
 			int r = psmt.executeUpdate(); // 쿼리 실행.
 			if (r > 0) {
 				return true;
 			}
 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
+	}
+    
+    // 삭제
+    public boolean deleteCart(String cartNum) {
+		getConn();
+		String sql ="delete from tbl_cart where cart_num = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, cartNum);
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
