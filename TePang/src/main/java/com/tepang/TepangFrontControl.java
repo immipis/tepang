@@ -26,6 +26,7 @@ import com.tepang.control.MyPageBoardControl;
 import com.tepang.control.MyReviewControl;
 import com.tepang.control.ProductDetailControl;
 import com.tepang.control.ProductListControl;
+import com.tepang.control.RemoveCartControl;
 import com.tepang.control.RemoveReviewControl;
 import com.tepang.control.ReviewControl;
 import com.tepang.control.SingupControl;
@@ -33,6 +34,7 @@ import com.tepang.control.TepangLoginControl;
 import com.tepang.control.TepangLoginFormControl;
 import com.tepang.control.TepangLogoutControl;
 import com.tepang.control.TepangSingupFormControl;
+import com.tepang.control.UpdateCartControl;
 import com.tepang.control.productCategoryListControl;
 import com.tepang.control.searchControl;
 import com.tepang.control.userFvItemControl;
@@ -58,6 +60,8 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/userFvItem.do", new userFvItemControl());
 
 		map.put("/cartList.do", new CartListControl());
+		map.put("/updateCart.do", new UpdateCartControl());
+		map.put("/removeCart.do", new RemoveCartControl());
 		map.put("/mainCart.do", new MainCartControl());
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
 		map.put("/board.do", new BoardControl()); // 게시판목록 > 상세
