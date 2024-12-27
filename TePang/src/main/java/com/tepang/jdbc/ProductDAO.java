@@ -1,5 +1,6 @@
 package com.tepang.jdbc;
 
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,13 +13,14 @@ import com.tepang.vo.MainVO;
 public class ProductDAO extends DAO {
 
 	// 상품 상세.
-	public MainVO selectProduct(String productCode) {
+	public List<MainVO> selectProduct(String pno) {
 		getConn();
 		String sql = "select * from tbl_product where product_code = ?";
 
+		List<MainVO> list = new ArrayList<>();
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, productCode);
+			psmt.setString(1, pno);
 			rs = psmt.executeQuery();
 			
 			if (rs.next()) {
@@ -33,7 +35,7 @@ public class ProductDAO extends DAO {
 				pvo.setProductStock(rs.getInt("product_Stock"));
 				pvo.setProductSale(rs.getString("product_Sale"));
 
-				return pvo;
+				list.add(pvo);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -135,7 +137,7 @@ public class ProductDAO extends DAO {
 			return result;
 		}
 		// 상세조회. 파라미터(int boardNo) selectBoard 반환값: BoardVO.
-		public List<BoardVO> selectBoard(String productCode) {
+		public List<BoardVO> selectBoard(String pno, String page) {
 
 			getConn();
 
@@ -144,7 +146,8 @@ public class ProductDAO extends DAO {
 
 			try {
 				psmt = conn.prepareStatement(sql);
-				psmt.setString(1, productCode);
+				psmt.setString(1, pno);
+				psmt.setString(2, page);
 				rs = psmt.executeQuery(); // 조회.
 
 				while (rs.next()) {
@@ -184,7 +187,7 @@ public class ProductDAO extends DAO {
 				psmt.setString(2, board.getReplyContent());
 				psmt.setString(3, board.getReplyAnswer());
 				psmt.setString(4, board.getMemberId());
-				//psmt.setString(5, board.getReplyDate());
+//				psmt.setDate(5, board.getReplyDate());
 				psmt.setString(6, board.getReplyType());
 				psmt.setInt(7, board.getReplyStar());
 				psmt.setString(8, board.getReplyImg());
@@ -263,5 +266,77 @@ public class ProductDAO extends DAO {
 				}
 				return result;
 			}
+
+			//댓글삭제
+	public boolean deleteReply(String productCode) {
+		getConn();
+		String sql = "delete from tbl_reply where reply_code = ?";
+		try {
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, productCode);
+			int r = psmt.executeUpdate(); // 쿼리실행.
+			if (r > 0) {
+				System.out.println("삭제성공");
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+
+		}
+		return false;
+	}
+
+	//댓글 등록
+	public boolean insertReply(BoardVO rvo) {
+		getConn();
+		String sql = "insert into tbl_reply *reply_code, member_id, reply_content, reply_date, reply_img, reply_star, reply_type, reply_answer, product_code)"
+				+ "				values(?, ?, ?, ?)";
+		try {
+			psmt = conn.prepareStatement("select reply_seq.nextval from dual");
+			rs = psmt.executeQuery();
+			String rno = ""; // 쿼리실행.
+			if (rs.next()) {
+				rno = rs.getString(1);
+				rvo.setProductCode(rno);
+			}
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, rno);
+			psmt.setString(2, rvo.getReplyContent());
+			psmt.setString(3, rvo.getMemberId());
+			psmt.setString(4, rvo.getReplyCode());
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
+	}
+
+	//댓글건수반환.
+	public String selectReplyconut(String ReplyCode) {
+		getConn();
+		String sql = "select count(1) from tbl_reply where reply_code = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, ReplyCode);
+			rs = psmt.executeQuery();
+			
+			//조회결과가 있으면...
+			if(rs.next()) {
+				return rs.getString(1); //1번째 칼럼.
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			disConnect();
+		}
+		return "";//조회건수X, 쿼리X
+	}
+
 
 		}

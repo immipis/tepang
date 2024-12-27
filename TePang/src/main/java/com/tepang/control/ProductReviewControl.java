@@ -21,13 +21,11 @@ public class ProductReviewControl implements Control {
 		
 		HttpSession session = req.getSession();
 		
-		String id = (String) session.getAttribute("member_id");
-
-		System.out.println(bdao);
-		System.out.println(session);
-		System.out.println(id);
+		String id = (String) session.getAttribute("reply_code");
 		
-		List<BoardVO> boards = bdao.selectBoard(id);
+		String pno = (String) session.getAttribute("pcode");
+		
+		List<BoardVO> boards = bdao.selectBoard(id, pno);
 		req.setAttribute("boards", boards);
 				
 		req.getRequestDispatcher("WEB-INF/html/productDetail.jsp").forward(req, resp);	
