@@ -130,9 +130,11 @@
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<input class="mtext-107 cl2 plh2 p-r-15 search-input" type="text"
-							name="search-product"></input>
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
-							<i class="zmdi zmdi-search"></i>
+
+							value="" name="search-product" ></input>
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+
+							<i class="zmdi zmdi-search searchBtn"></i>
 						</div>
 					</div>
 
