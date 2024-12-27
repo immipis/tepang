@@ -11,20 +11,17 @@ import com.tepang.common.Control;
 import com.tepang.jdbc.MyPageDAO;
 import com.tepang.vo.SingupVO;
 
-
-
-public class MyPageBoardControl implements Control {
+public class MyReviewControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-			MyPageDAO mpdo = new MyPageDAO();
-			HttpSession session = req.getSession();
-			String mid = (String) session.getAttribute("member_id");		
-			SingupVO svo = mpdo.selectMember(mid); 
-			req.setAttribute("memId", svo);
-			req.getRequestDispatcher("WEB-INF/html/myPage.jsp").forward(req, resp);	
-		
+		MyPageDAO mpdo = new MyPageDAO();
+		HttpSession session = req.getSession();
+		String mid = (String) session.getAttribute("member_id");		
+		SingupVO svo = mpdo.selectMember(mid); 
+		req.setAttribute("memId", svo);
+		req.getRequestDispatcher("WEB-INF/html/myreview.jsp").forward(req, resp);	
+
 	}
 
 }

@@ -43,11 +43,9 @@ public List<OrderVO> orderList(String memberId) {
 // 마이페이지 상세 (개인정보)
 public SingupVO selectMember(String memberId) {
 	getConn();
-	
-
-	String ssql = " SELECT * "
-			+ "   FROM tbl_member "
-			+ "  WHERE member_id = ? ";
+	String ssql = " SELECT * "//
+			+ "   FROM tbl_member "//
+			+ "  WHERE member_id = ? ";//
 	try {
 		psmt = conn.prepareStatement(ssql);
 		psmt.setString(1, memberId);
@@ -62,7 +60,7 @@ public SingupVO selectMember(String memberId) {
 			svo.setMemberAdr(rs.getString("member_adr"));
 			svo.setMemberBir(rs.getString("member_bir"));
 			svo.setMemberGen(rs.getString("member_gen"));
-			svo.setMemberFv(rs.getString("member_Fv"));
+			svo.setMemberFv(rs.getString("member_fv"));
 			svo.setMemberTier(rs.getString("member_tier"));
 			return svo;
 		}
@@ -75,15 +73,19 @@ public SingupVO selectMember(String memberId) {
 	return null;
 }
 	// 개인정보 수정
-	public boolean UpdateInfo(SingupVO info) {
+	public boolean updateInfo(SingupVO info) {
 		getConn();
 		String memInfo = " UPDATE tbl_member "//
-				+ "    SET member_pw = ? "//
-				+ "  WHERE member_id = ? ";//
+				       + "    SET member_pw = ? "
+				       + "        member_adr = ? "
+				       + "        member_fv = ? "//
+				       + "  WHERE member_id = ? ";//
 		try {
 			psmt = conn.prepareStatement(memInfo);
 			psmt.setString(1, info.getMemberPw());
-			psmt.setString(2, info.getMemberId());
+			psmt.setString(2, info.getMemberAdr());
+			psmt.setString(3, info.getMemberFv());
+			psmt.setString(4, info.getMemberId());
 			int r = psmt.executeUpdate();
 			if (r > 0) {
 				return true;
@@ -97,4 +99,23 @@ public SingupVO selectMember(String memberId) {
 		return false;
 	}
 	
+	// 회원탈퇴
+	public boolean deleteInfo(SingupVO info) {
+		getConn();
+		String dsql = " DELETE FROM tbl_member "
+				    + "  WHERE tbl_member = ? ";
+		try {
+			psmt = conn.prepareStatement(dsql);
+			psmt.setString(1, info.getMemberId());
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
+	}
 }

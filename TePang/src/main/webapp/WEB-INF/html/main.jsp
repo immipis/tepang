@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="d"%>
 <jsp:include page="../includes/header.jsp"></jsp:include>
 
 <!-- Cart -->
@@ -234,21 +235,21 @@
 				</div>
 			</div>
 			<div class="header-cart-content flex-w js-pscroll">
-				<ul class="header-cart-wrapitem w-full">
-					<li class="header-cart-item flex-w flex-t m-b-12">
+				<ul class="header-cart-wrapitem w-full" id="cartList">
+					<%-- <li class="header-cart-item flex-w flex-t m-b-12">
 						<div class="header-cart-item-img">
-							<img src="images/item-cart-01.jpg" alt="IMG"> 이미지
+							<img src="images/${item.productImg }" alt="IMG"> 이미지
 						</div>
 
 						<div class="header-cart-item-txt p-t-8">
 							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								${productName} </a> <span class="header-cart-item-info"> 가격 </span>
+								${item.productName } </a> <span class="header-cart-item-info"> ${item.productPrice } </span>
 						</div>
-					</li>
+					</li> --%>
 				</ul>
 
 				<div class="w-full">
-					<div class="header-cart-total w-full p-tb-40">토탈 가격</div>
+					<div class="header-cart-total w-full p-tb-40"></div>
 					
 					<div class="header-cart-buttons flex-w w-full">
 					<form action="cartList.do?id=${logId }">
@@ -268,7 +269,7 @@
 
 </div>>
 <!-- Product -->
-<section class="bg0 p-t-23 p-b-140">
+<section class="bg0 p-t-23 ">
 	<div class="container">
 		<div class="row isotope-grid product">
 			<c:forEach var="product" items="${products}">
@@ -308,6 +309,51 @@
 
 </section>
 
+
+<nav aria-label="...">
+	<ul class="pagination" style="margin-top:50px;">
+		<c:choose>
+			<c:when test="${paging.prev }">
+				<li class="page-item">
+				<a class="page-link"
+					href="boardList.do?&page=${paging.startPage -1}">Previous</a>
+				</li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item disabled"><span class="page-link">Previous</span>
+				</li>
+			</c:otherwise>
+		</c:choose>
+
+		<c:forEach var="p" begin="${paging.startPage }" end="${paging.endPage }"
+			step="1">
+			<c:choose>
+				<c:when test="${paging.currentPage == p }">
+					<li class="page-item active" aria-current="page">
+						<a class="page-link" href="boardList.do?keyword=${empty keyword ? '' :keyword }&searchCondition=${empty searchCondition ? '' :searchCondition }&page=${p}">${p}</a>
+					</li>
+				</c:when>
+
+				<c:otherwise>
+					<li class="page-item">
+						<a class="page-link"href="boardList.do?keyword=${empty keyword ? '' :keyword }&searchCondition=${empty searchCondition ? '' :searchCondition }&page=${p}">${p}</a>
+					</li>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+
+		<c:choose>
+			<c:when test="${paging.next }">
+				<li class="page-item"><a class="page-link"
+					href="boardList.do?keyword=${empty keyword ? '' :keyword }&searchCondition=${empty searchCondition ? '' :searchCondition }&page=${paging.endPage +1}">Next</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item disabled"><span class="page-link">Next</span>
+			</c:otherwise>
+		</c:choose>
+
+	</ul>
+</nav>
 <!-- Modal1 -->
 <div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
 	<div class="overlay-modal1 js-hide-modal1"></div>
@@ -408,6 +454,26 @@
 <script>
 
 let id = "${member_id}";
+if (id == null || id == ""){
+	
+} else {
+	fetch('mainCart.do?id='+id)
+	  .then(result => result.json())
+	  .then(result => {
+		  result.forEach(item => {
+			  addCart(item);
+		  })
+	  })
+	  .catch(err => console.log(err))
+}
+
+function addCart(item){
+	let cartInfo = 
+	`<li class="header-cart-item flex-w flex-t m-b-12">
+		<div class="header-cart-item-img">
+			<img src="images/\${item.productImg }" alt="IMG">
+		</div>
+
 console.log(id)
 if (id == null || id == ""){
 	console.log("아이디 없음")
@@ -432,9 +498,16 @@ else{
 		document.querySelector(".ads").innerHTML = html;
 	})
 	.catch(err => console.log(err));  
-    
 }
-
+		<div class="header-cart-item-txt p-t-8">
+			<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+				\${item.productName } </a> <span class="header-cart-item-info"> \${item.productPrice }원 x \${item.productNum } = \${item.productPrice * item.productNum }원</span>
+		</div>
+	</li>`;
+	
+	document.getElementById('cartList')
+			.insertAdjacentHTML('beforeend', cartInfo);
+}
 </script>
 
 <script>

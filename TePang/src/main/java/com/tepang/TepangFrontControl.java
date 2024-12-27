@@ -15,12 +15,15 @@ import com.tepang.control.AddReviewControl;
 import com.tepang.control.BoardControl;
 import com.tepang.control.BoardListControl;
 import com.tepang.control.CartListControl;
+import com.tepang.control.MainCartControl;
 import com.tepang.control.GetReviewCountControl;
 import com.tepang.control.MainControl;
+import com.tepang.control.MyHeartListControl;
+import com.tepang.control.MyInfoUpdateControl;
 import com.tepang.control.MyInfoControl;
-import com.tepang.control.MyInfoListControl;
+import com.tepang.control.MyInfoDeleteControl;
 import com.tepang.control.MyPageBoardControl;
-import com.tepang.control.MyPageListControl;
+import com.tepang.control.MyReviewControl;
 import com.tepang.control.ProductDetailControl;
 import com.tepang.control.ProductListControl;
 import com.tepang.control.ProductReviewControl;
@@ -32,6 +35,8 @@ import com.tepang.control.TepangLoginFormControl;
 import com.tepang.control.TepangLogoutControl;
 import com.tepang.control.TepangSingupFormControl;
 import com.tepang.control.productCategoryListControl;
+import com.tepang.control.searchControl;
+import com.tepang.control.searchFormControl;
 import com.tepang.control.userFvItemControl;
 
 public class TepangFrontControl extends HttpServlet {
@@ -56,6 +61,7 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/userFvItem.do", new userFvItemControl());
 
 		map.put("/cartList.do", new CartListControl());
+		map.put("/mainCart.do", new MainCartControl());
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
 		map.put("/board.do", new BoardControl()); // 게시판목록 > 상세
 
@@ -66,15 +72,19 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/tepnagsingupForm.do", new TepangSingupFormControl());
 		map.put("/tepnagsingup.do", new SingupControl());
 		
+		
+		//검색기능
+		map.put("/search.do", new searchControl());
+		
 		// 마이페이지
 		map.put("/myPage.do", new MyPageBoardControl()); // 마이페이지 상세
-		map.put("/myPageList.do", new MyPageListControl()); // 구매목록 리스트
-		// 마이페이지 - 내 정보 수정
-		map.put("myInfo.do", new MyInfoControl());
-		map.put("myInfoList.do", new MyInfoListControl());
-				
-
-//		// 리뷰 이신영
+		map.put("/myinfo.do", new MyInfoControl()); 	// 정보확인
+		map.put("/myinfoUpdate.do", new MyInfoUpdateControl()); // 정보 수정
+		map.put("/myinfoDelete.do", new MyInfoDeleteControl()); // 회원탈퇴
+		map.put("/myreview.do", new MyReviewControl()); // 나의 문의
+		map.put("/myheartlist.do", new MyHeartListControl()); // 나의 찜목록
+			
+        // 리뷰 이신영
 		map.put("/review.do", new ReviewControl()); // 목록
 		map.put("/removeReview.do", new RemoveReviewControl()); // 삭제
 		map.put("/addReview.do", new AddReviewControl()); // 등록
