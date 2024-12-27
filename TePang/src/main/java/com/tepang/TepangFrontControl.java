@@ -26,7 +26,6 @@ import com.tepang.control.MyPageBoardControl;
 import com.tepang.control.MyReviewControl;
 import com.tepang.control.ProductDetailControl;
 import com.tepang.control.ProductListControl;
-import com.tepang.control.ProductReviewControl;
 import com.tepang.control.RemoveReviewControl;
 import com.tepang.control.ReviewControl;
 import com.tepang.control.SingupControl;

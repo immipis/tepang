@@ -19,11 +19,11 @@ public class ReviewControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			resp.setContentType("text/json;charset=utf-8");
 			String pno = req.getParameter("pcode");
-			String id = req.getParameter("reply_code");
+			//String id = req.getParameter("reply_code");
 //			String page = req.getParameter("page");
 			
 			ProductDAO bdao = new ProductDAO();
-			List<BoardVO> rno = bdao.selectBoard(pno, id);
+			List<BoardVO> rno = bdao.selectBoard(pno);
 			
 			Gson gson = new GsonBuilder().create();
 			String json = gson.toJson(rno);//자바객체 -> json문자열 변환.

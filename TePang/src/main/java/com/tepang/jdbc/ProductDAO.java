@@ -136,7 +136,7 @@ public class ProductDAO extends DAO {
 			return result;
 		}
 		// 상세조회. 파라미터(int boardNo) selectBoard 반환값: BoardVO.
-		public List<BoardVO> selectBoard(String id, String pno ) {
+		public List<BoardVO> selectBoard(String id) {
 
 			getConn();
 
@@ -146,7 +146,6 @@ public class ProductDAO extends DAO {
 			try {
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, id);
-				psmt.setString(1, pno);
 				rs = psmt.executeQuery(); // 조회.
 
 				while (rs.next()) {

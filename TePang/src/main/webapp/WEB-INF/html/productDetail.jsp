@@ -563,14 +563,15 @@
 	  	.then(result => result.json())
 	  	.then(result => {
 	  		for(i=0; i < result.length; i++){	  
-	  		document.querySelector(".reviews").innerHTML+=result[i] + replyContent;
+	  		document.querySelector(".reviews").insertAdjacentHTML("beforeend",
+	  				`<h5 id="result">\${result[i].productCode}</h5>
+			  		<p id="replyContent">\${result[i].replyContent}</p>`);
+	  		//.innerHTML+=result[i] + replyContent;
 	  		}
 	  	})
 	  	.catch(err => console.log(err));
 	  
-	  container.insertAdjacentHTML("beforeend",`
-			  <h5 id="result">${result}</h5>
-			  <p id="replyContent">${replyContent}</p>`);
+
 	  </script>
 
 		<jsp:include page="../includes/footer.jsp"></jsp:include>
