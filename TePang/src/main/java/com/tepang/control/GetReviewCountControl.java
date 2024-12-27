@@ -17,7 +17,7 @@ public class GetReviewCountControl implements Control {
 				String bno = req.getParameter("bno");
 				
 				ProductDAO rdao = new ProductDAO();
-				int rcount = rdao.selectReplyconut(Integer.parseInt(bno)); //댓글건수.
+				String rcount = rdao.selectReplyconut(bno); //댓글건수.
 				//{"replyCount": 35}
 				resp.getWriter().print("{\"replyCount\":" + rcount + "}");
 

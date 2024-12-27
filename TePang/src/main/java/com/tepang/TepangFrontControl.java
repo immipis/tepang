@@ -50,7 +50,7 @@ public class TepangFrontControl extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 
-
+		//이신영
 		map.put("/productDetail.do", new ProductDetailControl());// 상세목록
 		
 		//조성민
@@ -85,30 +85,26 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/myreview.do", new MyReviewControl()); // 나의 문의
 		map.put("/myheartlist.do", new MyHeartListControl()); // 나의 찜목록
 			
-		// 리뷰
-//		map.put("/replyList.do", new ListControl()); // 목록
-//		map.put("/removeReply.do", new RemoveReplyControl()); // 삭제
-//		map.put("/addReply.do", new AddReplyControl()); // 등록
-//		map.put("/getConut.do", new GetReplyCountControl());
-
-		// 리뷰
-//		map.put("/replyList.do", new replyListControl()); // 목록
-//		map.put("/removeReply.do", new RemoveReplyControl()); // 삭제
-//		map.put("/addReply.do", new AddReplyControl()); // 등록
-//		map.put("/getConut.do", new GetReplyCountControl());
-
+        // 리뷰 이신영
+		map.put("/review.do", new ReviewControl()); // 목록
+		map.put("/removeReview.do", new RemoveReviewControl()); // 삭제
+		map.put("/addReview.do", new AddReviewControl()); // 등록
+		map.put("/getConut.do", new GetReviewCountControl()); //갯수
 
 	}
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// http://localhost:80/BoardWeb/boardList.do
+		// http://localhost/TePang/productDetail.do?pcode=C2
 		String uri = req.getRequestURI();
-		System.out.println(uri);
+		//System.out.println(uri);
 		String context = req.getContextPath();
 		String path = uri.substring(context.length());
-		System.out.println(path); // "/boardList.do" 공통부분을 제외한 나머지 부분.
-
+		//System.out.println(path); // "/boardList.do" 공통부분을 제외한 나머지 부분.
+		
+		//  /productDetail.do?pcode=C2
+		
 		// 요청url === 실행할 컨트롤
 		Control control = map.get(path);
 		control.exec(req, resp);

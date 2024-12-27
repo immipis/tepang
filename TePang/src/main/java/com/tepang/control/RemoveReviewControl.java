@@ -16,8 +16,8 @@ public class RemoveReviewControl implements Control {
 		//리뷰 삭제
 		String rno = req.getParameter("rno");
 		
-		ProductDAO rdao = new ProductDAO();
-		if(rdao.deleteReply(Integer.parseInt(rno))) {
+		ProductDAO bdao = new ProductDAO();
+		if(bdao.deleteReply(rno)) {
 			//{"retCode" : "OK"}
 			resp.getWriter().print("{\"retCode\" : \"OK\"}");
 		}else {
