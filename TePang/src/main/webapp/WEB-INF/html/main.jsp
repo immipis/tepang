@@ -406,6 +406,15 @@
 	</span>
 </div>
 <script>
+document.querySelector(".searchBtn").addEventListener('click', e => {
+	console.log(e.target.parentElement.parentElement.children[0].value);
+	let searchText = e.target.parentElement.parentElement.children[0].value;
+	location.href='search.do?searchText='+searchText;
+})
+
+</script>
+
+<script>
 
 let id = "${member_id}";
 console.log(id)
