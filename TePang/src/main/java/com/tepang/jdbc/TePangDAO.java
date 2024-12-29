@@ -63,31 +63,6 @@ public class TePangDAO extends DAO {
 		}
 		return false;
 	}
-	public String search(String searchText) {
-
-		getConn();
-		String sql = "select * from tbl_product"
-				+ "    where product_name = '%'||?||'%'";
-				
-
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, searchText);
-			
-			
-			rs = psmt.executeQuery();
-			if (rs.next()) {
-				MiainVO mvo = new MainVO();
-			}
-
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		} finally {
-			disConnect();
-		}
-		return null;
-	}
 
 	public List<MainVO> search(String searchText) {
 

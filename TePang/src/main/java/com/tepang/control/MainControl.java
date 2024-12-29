@@ -22,17 +22,24 @@ public class MainControl implements Control {
 		// TODO Auto-generated method stub
 		resp.setContentType("text/html;charset=utf-8");
 		MainDAO mdao = new MainDAO();
+		
+		int page = 1;
+		try {
+		    page = Integer.parseInt(req.getParameter("page"));
+		} catch (NumberFormatException e) {
+		    // page 파라미터가 없는 경우 기본값으로 1
+		}
 
 		HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("member_id");
 		
 		List<MainVO> products = null;
 		if (id == null || id == "null" || id.equals(" ") || id.equals("")) {
-			products = mdao.addpList();
+			products = mdao.addpList(page);
 		} else {
-			products = mdao.addPvList(id);
+			products = mdao.addPvList(id,page);
 		}
-
+		req.setAttribute("currentPage", page);
 		req.setAttribute("products", products);
 		req.getRequestDispatcher("WEB-INF/html/main.jsp").forward(req, resp);
 
