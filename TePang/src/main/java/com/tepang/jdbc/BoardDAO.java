@@ -128,6 +128,9 @@ public class BoardDAO extends DAO {
 			}
 			return false;
 		}
+		
+		
+		
 
 
 //		// 목록.

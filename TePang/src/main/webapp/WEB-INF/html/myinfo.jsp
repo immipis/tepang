@@ -72,19 +72,17 @@ select {
 	margin-left: 100px;
 }
 </style>
-<script>
-</script>
+
 <jsp:include page="../includes/header.jsp"></jsp:include> 
 	<div id=container>
 			<div class="d-flex" id="wrapper">
 				<!-- Sidebar-->
 				<div class="border-end bg-white" id="sidebar-wrapper">
-
 					<div class="list-group list-group-flush">
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">구매목록(디폴트)</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myreview.do">내가 쓴 문의(링크)</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myheartlist.do">찜 목록(링크)</a> 
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myinfo">내 정보 수정</a> 
+						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myinfo.do">내 정보 수정</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">보유쿠폰</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myinfoDelete.do">회원탈퇴</a> 
 					</div>
@@ -92,8 +90,9 @@ select {
 				<div class="content">
 	<form action="#" method="post">
 		<table>
+		
 			<tr>
-				<td><h2>정보 수정</h2></td>
+				<td><h2>나의 정보</h2><small>(${mem.memberId} 님)</small></td>
 			</tr>
 			<tr>
 				<td>아이디</td>
@@ -132,15 +131,14 @@ select {
 				<td><input type="text" class="text" value="${mem.memberFv}"></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="수정하기" class="btn"
-					onclick="alert('개인정보가 수정되었습니다.')"></td>
+				<a class="update" href="myinfoUpdate.do">수정하기</a>
 			</tr>
 		</table>
 		</form>
 				</div>
 			</div>
 			</div>
-</body>
+
 <jsp:include page="../includes/footer.jsp"></jsp:include>
 </body>
 </html>

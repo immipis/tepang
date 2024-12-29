@@ -12,7 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.tepang.common.Control;
 import com.tepang.jdbc.ProductDAO;
-import com.tepang.vo.MainVO;
+import com.tepang.vo.BoardVO;
 
 public class AddReviewControl implements Control {
 
@@ -21,15 +21,15 @@ public class AddReviewControl implements Control {
 		// parameter(bno, replyer, reply)
 				resp.setContentType("text/json;charset=utf-8");
 				
-				String a = req.getParameter("bno");
+				String a = req.getParameter("pno");
 				String b = req.getParameter("replyer");
 				String c = req.getParameter("reply");
 				
-				MainVO rv = new MainVO();
+				BoardVO rv = new BoardVO();
 				
-				rv.setBoardNo(Integer.parseInt(a));
-				rv.setReply(c);
-				rv.setReplyer(b);
+				rv.setProductCode(a);
+				rv.setMemberId(b);
+				rv.setReplyContent(c);
 				
 				//json문자열 생성
 				Gson gson = new GsonBuilder().create();
