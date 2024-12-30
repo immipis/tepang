@@ -8,17 +8,14 @@ import com.tepang.common.DAO;
 import com.tepang.vo.MainVO;
 
 public class MainDAO extends DAO{
-	public List<MainVO> addpList(int page) {
-	    int limit = 4;
-	    int end = (page - 1) * limit;
+	public List<MainVO> addpList() {
+		getConn();
 
-	    String sql = "SELECT * FROM tbl_product ORDER BY product_name LIMIT ? OFFSET ?";
+	    String sql = "SELECT * FROM tbl_product ORDER BY product_name";
 	    List<MainVO> pList = new ArrayList<>();
 	    
 	    try {
 	        psmt = conn.prepareStatement(sql);
-	        psmt.setInt(1, limit);
-	        psmt.setInt(2, end);
 	        rs = psmt.executeQuery();
 
 	        while (rs.next()) {
@@ -68,9 +65,8 @@ public class MainDAO extends DAO{
 		}
 		return null;
 	}
-	public List<MainVO> addPvList(String logId, int page) {
-	    int limit = 4;
-	    int end = (page - 1) * limit;
+	public List<MainVO> addPvList(String logId) {
+		getConn();
 
 	    String sql = "SELECT a.* FROM ("
 	            + "SELECT p.*, "
@@ -81,16 +77,13 @@ public class MainDAO extends DAO{
 	            + "FROM tbl_product p "
 	            + "LEFT JOIN (SELECT member_fv FROM tbl_member WHERE member_id = ?) m "
 	            + "ON p.category = m.member_fv) a "
-	            + "ORDER BY a.order_by, product_name "
-	            + "LIMIT ? OFFSET ?";
+	            + "ORDER BY a.order_by, product_name ";
 
 	    List<MainVO> pList = new ArrayList<>();
 
 	    try {
 	        psmt = conn.prepareStatement(sql);
 	        psmt.setString(1, logId);  
-	        psmt.setInt(2, limit);    
-	        psmt.setInt(3, end);  
 	        rs = psmt.executeQuery();
 
 	        while (rs.next()) {

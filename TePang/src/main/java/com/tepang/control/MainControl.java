@@ -23,21 +23,17 @@ public class MainControl implements Control {
 		resp.setContentType("text/html;charset=utf-8");
 		MainDAO mdao = new MainDAO();
 		
+		System.out.println(req.getParameter("page"));
+		
 		int page = 1;
-		try {
-		    page = Integer.parseInt(req.getParameter("page"));
-		} catch (NumberFormatException e) {
-		    // page 파라미터가 없는 경우 기본값으로 1
-		}
-
 		HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("member_id");
 		
 		List<MainVO> products = null;
 		if (id == null || id == "null" || id.equals(" ") || id.equals("")) {
-			products = mdao.addpList(page);
+			products = mdao.addpList();
 		} else {
-			products = mdao.addPvList(id,page);
+			products = mdao.addPvList(id);
 		}
 		req.setAttribute("currentPage", page);
 		req.setAttribute("products", products);
