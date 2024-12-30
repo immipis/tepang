@@ -14,13 +14,10 @@ public class ProductListControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String title = req.getParameter("title");
-		System.out.println(title);
+		String searchText = req.getParameter("searchText");
 
-//		MainDAO mdao = new MainDAO();
-//		List<MainVO> products2 = mdao.pList(title);
-//		
 		req.setAttribute("title", title);
-//		req.setAttribute("products2", products2);
+		req.setAttribute("searchText", searchText);
 		req.getRequestDispatcher("WEB-INF/html/productList.jsp").forward(req, resp);
 
 	}

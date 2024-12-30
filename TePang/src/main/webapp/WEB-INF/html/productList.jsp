@@ -46,6 +46,8 @@
 		class="zmdi zmdi-chevron-up"></i>
 	</span>
 </div>
+
+
 <!--===============================================================================================-->
 <script>
 		let title = `${title}`
@@ -95,21 +97,7 @@
 		})
 	</script>
 <!--===============================================================================================-->
-<script>
-let searchText = "${searchResult}";
-//console.log(searchText);
-document.querySelector('i.searchBtn').addEventListener('click', e => {
-	//console.log(e.target.parentElement.value);
-});
- fetch('search.do?searchText='+searchText)
- .then(result => result.json())
- .then(result => {
-	 console.log(result);
-	
-	    	})
-	    	.catch(err => console.log(err))
- 
- </script>
+
 <!--===============================================================================================-->
 <script>
 	document.querySelectorAll(".category").forEach(element => {
@@ -270,5 +258,55 @@ document.querySelector('i.searchBtn').addEventListener('click', e => {
 	integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
 	crossorigin="anonymous"></script>
 
+<script>
+let searchText = `${searchText}`
+
+if(searchText == null || searchText == "null" || searchText ==" " || searchText ==""){
+	console.log("값없음")
+}
+else{
+
+	fetch('search.do?searchText='+searchText)
+		.then(result => result.json())
+		.then(result => {
+			console.log(result)
+			document.querySelector(".proList").innerHTML = '';
+			result.forEach(item => { 
+				let html = `
+					<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+					<!-- Block2 -->
+					<div class="block2">
+						<div class="block2-pic hov-img0">
+							<img src="images/\${item.productName}.jpg" alt="\${item.productName}이미지">
+						</div> 
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l">
+								<a href="productDetail.do?pcode=\${item.productCode}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									\${item.productName}
+								</a>
+
+								<span class="stext-105 cl3">
+									\${item.productPrice}
+								</span>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				`
+				document.querySelector(".proList").innerHTML += html;
+			})
+			})
+		.catch(err => console.log(err))
+}
+ </script>
+ 
 </body>
 </html>
