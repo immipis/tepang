@@ -3,52 +3,51 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="../includes/header.jsp"></jsp:include>
 
-	<!-- Product -->
-	<div class="bg0 m-t-23 p-b-140">
-		<div class="container">
-			<div class="flex-w flex-sb-m">
-				<div class="flex-w flex-l-m filter-tope-group m-tb-150">
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category" category="null">
-						전부
-					</button>
+<!-- Product -->
+<div class="bg0 m-t-23 p-b-140">
+	<div class="container">
+		<div class="flex-w flex-sb-m">
+			<div class="flex-w flex-l-m filter-tope-group m-tb-150">
+				<button
+					class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category"
+					category="null">전부</button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category" category="음식">
-						식품
-					</button>
+				<button
+					class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category"
+					category="음식">식품</button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category" category="문구">
-						문구류
-					</button>
+				<button
+					class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category"
+					category="문구">문구류</button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category" category="의류">
-						의류
-					</button>
-					
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category" category="전자">
-						전자제품
-					</button>
+				<button
+					class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category"
+					category="의류">의류</button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category" category="펫">
-						애완용품
-					</button>
-				</div>		
-			</div>
-			<div class="row proList">
+				<button
+					class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category"
+					category="전자">전자제품</button>
+
+				<button
+					class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category"
+					category="펫">애완용품</button>
 			</div>
 		</div>
+		<div class="row proList"></div>
 	</div>
-		
+</div>
+
 
 <jsp:include page="../includes/footer.jsp"></jsp:include>
 
-	<!-- Back to top -->
-	<div class="btn-back-to-top" id="myBtn">
-		<span class="symbol-btn-back-to-top">
-			<i class="zmdi zmdi-chevron-up"></i>
-		</span>
-	</div>
-<!--===============================================================================================-->	
-	<script>
+<!-- Back to top -->
+<div class="btn-back-to-top" id="myBtn">
+	<span class="symbol-btn-back-to-top"> <i
+		class="zmdi zmdi-chevron-up"></i>
+	</span>
+</div>
+<!--===============================================================================================-->
+<script>
 		let title = `${title}`
 	        fetch('productCategoryList.do?category='+title)
 	      	.then(result => result.json())
@@ -95,8 +94,24 @@
 			}
 		})
 	</script>
-<!--===============================================================================================-->	
-	<script>
+<!--===============================================================================================-->
+<script>
+let searchText = "${searchResult}";
+//console.log(searchText);
+document.querySelector('i.searchBtn').addEventListener('click', e => {
+	//console.log(e.target.parentElement.value);
+});
+ fetch('search.do?searchText='+searchText)
+ .then(result => result.json())
+ .then(result => {
+	 console.log(result);
+	
+	    	})
+	    	.catch(err => console.log(err))
+ 
+ </script>
+<!--===============================================================================================-->
+<script>
 	document.querySelectorAll(".category").forEach(element => {
 	    element.addEventListener('click', e => {
 	    	document.querySelector(".proList").innerHTML = "";
@@ -145,16 +160,16 @@
 	    })
 	    })
 	</script>
-<!--===============================================================================================-->	
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-	<script>
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/select2/select2.min.js"></script>
+<script>
 		$(".js-select2").each(function(){
 			$(this).select2({
 				minimumResultsForSearch: 20,
@@ -163,19 +178,19 @@
 		})
 	</script>
 <!--===============================================================================================-->
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<script src="vendor/daterangepicker/moment.min.js"></script>
+<script src="vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/slick/slick.min.js"></script>
-	<script src="js/slick-custom.js"></script>
+<script src="vendor/slick/slick.min.js"></script>
+<script src="js/slick-custom.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/parallax100/parallax100.js"></script>
-	<script>
+<script src="vendor/parallax100/parallax100.js"></script>
+<script>
         $('.parallax100').parallax100();
 	</script>
 <!--===============================================================================================-->
-	<script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
-	<script>
+<script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+<script>
 		$('.gallery-lb').each(function() { // the containers for all your galleries
 			$(this).magnificPopup({
 		        delegate: 'a', // the selector for gallery item
@@ -188,10 +203,10 @@
 		});
 	</script>
 <!--===============================================================================================-->
-	<script src="vendor/isotope/isotope.pkgd.min.js"></script>
+<script src="vendor/isotope/isotope.pkgd.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/sweetalert/sweetalert.min.js"></script>
-	<script>
+<script src="vendor/sweetalert/sweetalert.min.js"></script>
+<script>
 		$('.js-addwish-b2, .js-addwish-detail').on('click', function(e){
 			e.preventDefault();
 		});
@@ -228,8 +243,8 @@
 	
 	</script>
 <!--===============================================================================================-->
-	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-	<script>
+<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script>
 		$('.js-pscroll').each(function(){
 			$(this).css('position','relative');
 			$(this).css('overflow','hidden');
@@ -245,12 +260,12 @@
 		});
 	</script>
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
-	<script
+<script src="js/main.js"></script>
+<script
 	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
 	integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
 	crossorigin="anonymous"></script>
-	<script
+<script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
 	integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
 	crossorigin="anonymous"></script>
