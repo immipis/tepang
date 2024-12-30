@@ -105,7 +105,7 @@
                     </c:when>
                     <c:otherwise>
 
-                      <a class="flex-c-m trans-04 p-lr-25" href="tepanglogin.do">로그인</a>
+                      <a class="flex-c-m trans-04 p-lr-25" href="tepnagloginForm.do">로그인</a>
 
 						<a href="tepnagsingupForm.do" class="flex-c-m trans-04 p-lr-25"> Sign Up </a> 
 

@@ -8,31 +8,34 @@ import com.tepang.common.DAO;
 import com.tepang.vo.MainVO;
 
 public class MainDAO extends DAO{
-	public List<MainVO> addpList() {
-		getConn();
-		String sql = "select * from tbl_product order by product_name";
-		List<MainVO> pList = new ArrayList<>();
-		
-		try {
-			psmt = conn.prepareStatement(sql);
-			rs = psmt.executeQuery();
+	public List<MainVO> addpList(int page) {
+	    int limit = 4;
+	    int end = (page - 1) * limit;
 
-			while (rs.next()) {
-				MainVO mvo = new MainVO();
-				mvo.setProductCode(rs.getString("product_code"));
-				mvo.setProductImg(rs.getString("product_img"));
-				mvo.setProductName(rs.getString("product_name"));
-				mvo.setProductPrice(rs.getInt("product_price"));
-				mvo.setProductDetail(rs.getString("product_detail"));
-				pList.add(mvo);
-			}
-		
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			disConnect();
-		}
-		return pList;
+	    String sql = "SELECT * FROM tbl_product ORDER BY product_name LIMIT ? OFFSET ?";
+	    List<MainVO> pList = new ArrayList<>();
+	    
+	    try {
+	        psmt = conn.prepareStatement(sql);
+	        psmt.setInt(1, limit);
+	        psmt.setInt(2, end);
+	        rs = psmt.executeQuery();
+
+	        while (rs.next()) {
+	            MainVO mvo = new MainVO();
+	            mvo.setProductCode(rs.getString("product_code"));
+	            mvo.setProductImg(rs.getString("product_img"));
+	            mvo.setProductName(rs.getString("product_name"));
+	            mvo.setProductPrice(rs.getInt("product_price"));
+	            mvo.setProductDetail(rs.getString("product_detail"));
+	            pList.add(mvo);
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        disConnect();
+	    }
+	    return pList;
 	}
 	
 	public List<MainVO> pCategoryList(String p) {
@@ -65,43 +68,47 @@ public class MainDAO extends DAO{
 		}
 		return null;
 	}
-	public List<MainVO> addPvList(String logId) {
-		getConn();
-		String sql = "select a.* from (\r\n"
-				+ "select  p.* ,   case \r\n"
-				+ "          when p.category = m.member_fv then 1   \r\n"
-				+ "          else 2\r\n"
-				+ "          end order_by  \r\n"
-				+ "from tbl_product p    \r\n"
-				+ " left outer join(select member_fv       \r\n"
-				+ "          from tbl_member       \r\n"
-				+ "          where member_id = ? ) m \r\n"
-				+ "on p.category = m.member_fv )a\r\n"
-				+ "order by  a.order_by, product_name";
-		List<MainVO> pList = new ArrayList<>();
-		
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, logId);
-			rs = psmt.executeQuery();
+	public List<MainVO> addPvList(String logId, int page) {
+	    int limit = 4;
+	    int end = (page - 1) * limit;
 
-			while (rs.next()) {
-				MainVO mvo = new MainVO();
-				mvo.setProductCode(rs.getString("product_code"));
-				mvo.setProductImg(rs.getString("product_img"));
-				mvo.setProductName(rs.getString("product_name"));
-				mvo.setProductPrice(rs.getInt("product_price"));
-				mvo.setProductDetail(rs.getString("product_detail"));
-				mvo.setCategory(rs.getString("category"));
-				pList.add(mvo);
-			}
-			return pList;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			disConnect();
-		}
-		return null;
+	    String sql = "SELECT a.* FROM ("
+	            + "SELECT p.*, "
+	            + "CASE "
+	            + "WHEN p.category = m.member_fv THEN 1 "
+	            + "ELSE 2 "
+	            + "END AS order_by "
+	            + "FROM tbl_product p "
+	            + "LEFT JOIN (SELECT member_fv FROM tbl_member WHERE member_id = ?) m "
+	            + "ON p.category = m.member_fv) a "
+	            + "ORDER BY a.order_by, product_name "
+	            + "LIMIT ? OFFSET ?";
+
+	    List<MainVO> pList = new ArrayList<>();
+
+	    try {
+	        psmt = conn.prepareStatement(sql);
+	        psmt.setString(1, logId);  
+	        psmt.setInt(2, limit);    
+	        psmt.setInt(3, end);  
+	        rs = psmt.executeQuery();
+
+	        while (rs.next()) {
+	            MainVO mvo = new MainVO();
+	            mvo.setProductCode(rs.getString("product_code"));
+	            mvo.setProductImg(rs.getString("product_img"));
+	            mvo.setProductName(rs.getString("product_name"));
+	            mvo.setProductPrice(rs.getInt("product_price"));
+	            mvo.setProductDetail(rs.getString("product_detail"));
+	            mvo.setCategory(rs.getString("category"));
+	            pList.add(mvo);
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        disConnect();
+	    }
+	    return pList;
 	}
 	
 	public String ads(String id) {
