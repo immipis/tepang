@@ -5,7 +5,6 @@
 <jsp:include page="../includes/header.jsp"></jsp:include>
 
 <!-- Cart -->
-
 <div class="wrap-header-cart js-panel-cart">
 	<div class="s-full js-hide-cart"></div>
 	<div class="header-cart flex-col-l p-l-65 p-r-25">

@@ -274,6 +274,7 @@
     		let currentQty = e.target.closest('div.wrap-num-product').children[1].value;
 			if(currentQty > 0){
     		e.target.closest('div.wrap-num-product').children[1].value = currentQty;
+    		e.target.closest('div.wrap-num-product').children[1].value = parseInt(currentQty)-1;
     		
     		let price = e.target.closest('tr').children[2].innerText;
     		price = parseInt(price.replace('원', ''));
@@ -281,7 +282,7 @@
      		e.target.closest('tr').children[4].innerText = price * (parseInt(currentQty)-1)+"원";				
      		totalSum();
 			}
-			let pnum = parseInt(e.target.closest('div.wrap-num-product').children[1].value) - 1;
+			let pnum = parseInt(e.target.closest('div.wrap-num-product').children[1].value);
 			let memid = e.target.closest('div.btns').getAttribute('memid');
 			let pcode = e.target.closest('div.btns').getAttribute('pcode');
 			
@@ -302,6 +303,8 @@
     		
     		e.target.closest('div.wrap-num-product').children[1].value = currentQty;
     		
+    		e.target.closest('div.wrap-num-product').children[1].value = parseInt(currentQty)+1;
+    		
     		let price = e.target.closest('tr').children[2].innerText;
     		price = parseInt(price.replace('원', ''));
   
@@ -310,7 +313,7 @@
 			totalSum();
 			
 			
-			let pnum = parseInt(e.target.closest('div.wrap-num-product').children[1].value) + 1;
+			let pnum = parseInt(e.target.closest('div.wrap-num-product').children[1].value);
 			let memid = e.target.closest('div.btns').getAttribute('memid');
 			let pcode = e.target.closest('div.btns').getAttribute('pcode');
 			
