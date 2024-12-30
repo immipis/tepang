@@ -269,11 +269,13 @@
 
 </div>
 <!-- Product -->
-<section class="bg0 p-t-23 ">
+<section class="bg0 p-t-23">
 	<div class="container">
-		<div class="row isotope-grid product">
-			<c:forEach var="product" items="${products}">
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women productMainImg">
+
+		<div class="row product">
+			<c:forEach var="product" items="${products}" varStatus = "status">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women productMainImg ${status.index >= 8 ? 'hidden' : ''}">
+
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
@@ -422,6 +424,26 @@ document.querySelector(".searchBtn").addEventListener('click', e => {
 
 </script>
 
+<script>
+document.querySelector(".loadmore").addEventListener('click', e => {
+    let hidden = document.querySelectorAll(".hidden");
+    let showCount = 8; 
+    let count = 0;
+    
+    hidden.forEach(item => {
+        if (count < showCount) {
+            item.classList.remove("hidden");
+            let asd = item
+            count++;
+        }
+    });
+	
+    if (document.querySelectorAll(".hidden").length == 0) {
+        document.querySelector(".loadmore").style.display = "none";
+    }
+})
+
+</script>
 <script>
 
 let id = "${member_id}";
