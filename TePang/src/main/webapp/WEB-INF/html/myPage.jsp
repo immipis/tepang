@@ -10,7 +10,7 @@
 }
 
 .leftmenu {
-	width: 300px; 
+	width: 300px;
 	height: auto;
 	margin: 50px;
 	border: 1px solid blue;
@@ -32,6 +32,17 @@
 .d-flex {
 	margin-left: 100px;
 }
+
+p {
+	display: inline;
+}
+
+.list {
+	width: 700px;
+	height: 500px;
+	border: 1px solid black;
+	display: inline;
+}
 </style>
 
 <jsp:include page="../includes/header.jsp"></jsp:include>
@@ -45,23 +56,34 @@
 		<div class="border-end bg-white" id="sidebar-wrapper">
 
 			<div class="list-group list-group-flush">
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">구매목록(디폴트)</a> 
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myreview.do">내가 쓴 문의(링크)</a> 
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myheartlist.do">찜 목록(링크)</a> 
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myinfo.do">내 정보 수정</a> 
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">보유쿠폰</a> 
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myinfoDelete.do">회원탈퇴</a> 
+				<a
+					class="list-group-item list-group-item-action list-group-item-light p-3"
+					href="#">구매목록(디폴트)</a> <a
+					class="list-group-item list-group-item-action list-group-item-light p-3"
+					href="myreview.do">내가 쓴 문의(링크)</a> <a
+					class="list-group-item list-group-item-action list-group-item-light p-3"
+					href="myheartlist.do">찜 목록(링크)</a> <a
+					class="list-group-item list-group-item-action list-group-item-light p-3"
+					href="myinfo.do">내 정보 수정</a> <a
+					class="list-group-item list-group-item-action list-group-item-light p-3"
+					href="#!">보유쿠폰</a> <a
+					class="list-group-item list-group-item-action list-group-item-light p-3"
+					href="myinfoDeletePage.do">회원탈퇴</a>
 			</div>
 		</div>
 		<!-- Page content wrapper-->
 		<!-- <div id="page-content-wrapper"> -->
 		<!-- Top navigation-->
 		<div class="content">
-			<h5>${member_id}님, 안녕하세요.</h5>
-			<h5>현재 ${member_id}님의 등급: ${memId.memberTier}</h5>
-			<h2>구매목록</h2>
-		</div>
+			<p>${member_id}님,안녕하세요.</p>
+			<br>
+			<p>현재 ${member_id}님의 등급: ${memId.memberTier}</p>
+			<br>
+			<p>구매목록</p>
 	</div>
+			<div class="list"></div>
+			
+		</div>
 </div>
 </body>
 
