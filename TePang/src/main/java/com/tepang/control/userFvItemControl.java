@@ -23,6 +23,7 @@ public class userFvItemControl implements Control {
 		MainDAO mdao = new MainDAO();
 
 		String id = req.getParameter("id");
+		
 		String ads = mdao.ads(id);
 		
 		Gson gson = new GsonBuilder().create();
