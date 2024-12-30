@@ -24,7 +24,7 @@ public class MainCartControl implements Control {
 				
 		String id = req.getParameter("id");
 
-		System.out.println(id);
+//		System.out.println(id);
 		
 		List<CartVO> carts = cdao.cartList(id, "장바구니");
 		

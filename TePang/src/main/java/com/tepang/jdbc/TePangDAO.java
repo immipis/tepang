@@ -63,43 +63,23 @@ public class TePangDAO extends DAO {
 		}
 		return false;
 	}
-	public String search(String searchText) {
-
-		getConn();
-		String sql = "select * from tbl_product"
-				+ "    where product_name = '%'||?||'%'";
-				
-
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, searchText);
-			
-			
-			rs = psmt.executeQuery();
-			if (rs.next()) {
-				MiainVO mvo = new MainVO();
-			}
-
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		} finally {
-			disConnect();
-		}
-		return null;
-	}
 
 	public List<MainVO> search(String searchText) {
+		
 
 		getConn();
 		String sql = "select * from tbl_product" 
-		+ "            where product_name = '%'||?||'%' ";
+		+ "            where product_name like '%'||?||'%' "
+		+ "               or category like '%'||?||'%' "
+		+ "				  or product_detail like '%'||?||'%' ";
 		
 		List<MainVO> pList = new ArrayList<>();
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, searchText);
-
+			psmt.setString(2, searchText);
+			psmt.setString(3, searchText);
+			
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				MainVO mvo = new MainVO();
@@ -118,6 +98,7 @@ public class TePangDAO extends DAO {
 		} finally {
 			disConnect();
 		}
+		
 		return pList;
 	}
 	

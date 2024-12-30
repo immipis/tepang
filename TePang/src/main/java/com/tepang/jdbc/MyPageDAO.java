@@ -91,7 +91,85 @@ public SingupVO selectMember(String memberId) {
 				return true;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
+	}
+	
+	// 서치 테이블의 데이터 삭제
+	public boolean deleteSearch(SingupVO info) {
+		getConn();
+		String dsql = " DELETE FROM tbl_search "
+				    + "  WHERE member_id = ? ";
+		try {
+			psmt = conn.prepareStatement(dsql);
+			psmt.setString(1, info.getMemberId());
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
+	}
+	
+	// 리뷰 테이블 데이터 삭제
+	public boolean deleteReply(SingupVO info) {
+		getConn();
+		String dsql = " DELETE FROM tbl_reply "
+				    + "  WHERE member_id = ? ";
+		try {
+			psmt = conn.prepareStatement(dsql);
+			psmt.setString(1, info.getMemberId());
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
+	}
+	
+	// 오더 테이블 데이터 삭제
+	public boolean deleteOrder(SingupVO info) {
+		getConn();
+		String dsql = " DELETE FROM tbl_order "
+				    + "  WHERE member_id = ? ";
+		try {
+			psmt = conn.prepareStatement(dsql);
+			psmt.setString(1, info.getMemberId());
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
+	}
+	// 카트 테이블 데이터 삭제
+	public boolean deleteCart(SingupVO info) {
+		getConn();
+		String dsql = " DELETE FROM tbl_cart "
+				    + "  WHERE member_id = ? ";
+		try {
+			psmt = conn.prepareStatement(dsql);
+			psmt.setString(1, info.getMemberId());
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disConnect();
@@ -100,10 +178,10 @@ public SingupVO selectMember(String memberId) {
 	}
 	
 	// 회원탈퇴
-	public boolean deleteInfo(SingupVO info) {
+	public boolean deleteMember(SingupVO info) {
 		getConn();
 		String dsql = " DELETE FROM tbl_member "
-				    + "  WHERE tbl_member = ? ";
+				    + "  WHERE member_id = ? ";
 		try {
 			psmt = conn.prepareStatement(dsql);
 			psmt.setString(1, info.getMemberId());
