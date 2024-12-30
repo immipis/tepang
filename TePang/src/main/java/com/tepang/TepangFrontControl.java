@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.tepang.common.Control;
 import com.tepang.control.AddReviewControl;
 import com.tepang.control.BoardControl;
+import com.tepang.control.BoardFormControl;
 import com.tepang.control.BoardListControl;
 import com.tepang.control.CartListControl;
 import com.tepang.control.MainCartControl;
@@ -63,8 +64,11 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/updateCart.do", new UpdateCartControl());
 		map.put("/removeCart.do", new RemoveCartControl());
 		map.put("/mainCart.do", new MainCartControl());
+		
+		//문의게시판
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
 		map.put("/board.do", new BoardControl()); // 게시판목록 > 상세
+		map.put("/boardForm.do", new BoardFormControl()); //문의하기 폼
 
 		// 로그인 및 로그아웃 도한준
 		map.put("/tepnagloginForm.do", new TepangLoginFormControl());
