@@ -111,7 +111,7 @@
 <script>
 document.querySelector(".searchBtn").addEventListener('click', e => {
 	let searchText = e.target.parentElement.parentElement.children[0].value;
-	location.href='search.do?searchText='+searchText;
+	location.href='productList.do?searchText='+searchText;
 })
 </script>
 <!--===============================================================================================-->

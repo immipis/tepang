@@ -22,10 +22,7 @@ public class MainControl implements Control {
 		// TODO Auto-generated method stub
 		resp.setContentType("text/html;charset=utf-8");
 		MainDAO mdao = new MainDAO();
-		
-		System.out.println(req.getParameter("page"));
-		
-		int page = 1;
+
 		HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("member_id");
 		
@@ -35,7 +32,7 @@ public class MainControl implements Control {
 		} else {
 			products = mdao.addPvList(id);
 		}
-		req.setAttribute("currentPage", page);
+
 		req.setAttribute("products", products);
 		req.getRequestDispatcher("WEB-INF/html/main.jsp").forward(req, resp);
 
