@@ -85,7 +85,7 @@ select {
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myheartlist.do">찜 목록(링크)</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myinfo.do">내 정보 수정</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">보유쿠폰</a> 
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myinfoDelete.do">회원탈퇴</a> 
+						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myinfoDeletePage.do">회원탈퇴</a> 
 					</div>
 				</div>
 				<div class="content">
@@ -105,13 +105,13 @@ select {
 				<td>비밀번호</td>
 			</tr>
 			<tr>
-				<td><input type="password" class="text"></td>
+				<td><input type="password" id="mempass" class="text"></td>
 			</tr>
 			<tr>
 				<td>비밀번호 확인</td>
 			</tr>
 			<tr>
-				<td><input type="password" class="text"></td>
+				<td><input type="password" id="passcheck" class="text"></td>
 			</tr>
 			<tr>
 				<td>이름 (수정불가)</td>
@@ -123,13 +123,13 @@ select {
 				<td>주소</td>
 			</tr>
 			<tr>
-				<td><input type="text" class="text" value="${mem.memberAdr}"></td>
+				<td><input type="text" class="text" id="memadr" value="${mem.memberAdr}"></td>
 			</tr>
 			<tr>
 				<td>관심사</td>
 			</tr>
 			<tr>
-				<td><input type="text" class="text" value="${mem.memberFv}"></td>
+				<td><input type="text" class="text" id="memfv" value="${mem.memberFv}"></td>
 			</tr>
 			<tr>
 				<td><input type="button" value="저장하기" class="btn"></td>
@@ -141,20 +141,39 @@ select {
 			</div>
 </body>
 <script>
-function updateinfo(rno = 1){
+
+document.querySelector('.btn').addEventListener('click', e => {
+	infoUpdate();
+})
+
+
+function infoUpdate(rno = 1){
+	
+let pw = document.querySelector('#mempass').value;
+let adr = document.querySelector('#memadr').value;
+let fv = document.querySelector('#memfv').value;
+
 	fetch('myinfoUpdate.do', {
 			method : 'post',
-			body : new URLSearchParams({'member_pw' : 1234 })
+			headers : {
+				'content-type' : 'application/x-www-form-urlencoded;charset=utf-8'
+			},
+			body : "member_pw=" + pw +"&member_adr=" + adr + "&member_fv=" + fv // key=value 
 		})
 		.then(result => result.json())
 		.then(result => {
 			console.log(result);
 			if(result.retCode == 'OK'){
-				alert("수정되었습니다.")				
-				document.querySelector()
+				// 수정 후 나올 페이지 
+				alert("수정되었습니다.")	
 			} else {
+				// 수정 실패하면 나올 페이지 
 				alert("다시 시도해 주세요.")
 			}
+			
+			document.querySelector('#mempass').value = ''; // 수정 완료된 후 초기화
+			document.querySelector('#passcheck').value = '';
+			
 		})
 		.catch(err => console.log(err))
 }
