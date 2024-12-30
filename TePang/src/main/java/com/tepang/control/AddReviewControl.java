@@ -17,6 +17,7 @@ public class AddReviewControl implements Control {
 		// parameter(bno, replyer, reply)
 		req.setCharacterEncoding("UTF-8");
 		
+		
 		String mi =req.getParameter("mi");
 		String ri =req.getParameter("ri");
 		//Integer rs =req.getParameter("rs");
