@@ -33,11 +33,7 @@
 	margin-left: 100px;
 }
 </style>
-
 <jsp:include page="../includes/header.jsp"></jsp:include>
-
-
-
 <!-- 왼쪽 사이드 메뉴 -->
 <div id=container>
 	<div class="d-flex" id="wrapper">
