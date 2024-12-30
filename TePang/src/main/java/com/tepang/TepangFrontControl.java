@@ -25,6 +25,7 @@ import com.tepang.control.MyInfoControl;
 import com.tepang.control.MyInfoDeleteControl;
 import com.tepang.control.MyPageBoardControl;
 import com.tepang.control.MyReviewControl;
+import com.tepang.control.PaymentControl;
 import com.tepang.control.ProductDetailControl;
 import com.tepang.control.ProductListControl;
 import com.tepang.control.RemoveCartControl;
@@ -65,6 +66,7 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/removeCart.do", new RemoveCartControl()); // 장바구니 목록 삭제.
 		map.put("/mainCart.do", new MainCartControl());
 		map.put("/insertCart.do", new InsertCartControl()); // 장바구니 등록.
+		map.put("/payment.do", new PaymentControl());
 		
 		
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
