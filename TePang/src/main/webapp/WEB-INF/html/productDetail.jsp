@@ -52,8 +52,6 @@
 	<!-- Header -->
 	<header class="header-v4">
 		<!-- Header desktop -->
-		<header>
-			<!-- Header desktop -->
 			<div class="container-menu-desktop">
 				<!-- Topbar -->
 				<div class="top-bar">
@@ -112,7 +110,6 @@
 				</div>
 			</div>
 		</header>
-		</header>
 		<header>
 			<!-- Header Mobile -->
 			<div class="wrap-header-mobile">
@@ -151,74 +148,6 @@
 
 		<!-- 장바구니 -->
 		<div class="wrap-header-cart js-panel-cart">
-			<div class="s-full js-hide-cart"></div>
-
-			<div class="header-cart flex-col-l p-l-65 p-r-25">
-				<div class="header-cart-title flex-w flex-sb-m p-b-8">
-					<span class="mtext-103 cl2"> 장바구니 목록 </span>
-
-					<div
-						class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-						<i class="zmdi zmdi-close"></i>
-					</div>
-				</div>
-
-				<div class="header-cart-content flex-w js-pscroll">
-					<ul class="header-cart-wrapitem w-full">
-						<li class="header-cart-item flex-w flex-t m-b-12">
-							<div class="header-cart-item-img">
-								<img src="images/item-cart-01.jpg" alt="IMG">
-							</div>
-
-							<div class="header-cart-item-txt p-t-8">
-								<a href="#"
-									class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-									White Shirt Pleat </a> <span class="header-cart-item-info">
-									1 x $19.00 </span>
-							</div>
-						</li>
-
-						<li class="header-cart-item flex-w flex-t m-b-12">
-							<div class="header-cart-item-img">
-								<img src="images/item-cart-02.jpg" alt="IMG">
-							</div>
-
-							<div class="header-cart-item-txt p-t-8">
-								<a href="#"
-									class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-									Converse All Star </a> <span class="header-cart-item-info">
-									1 x $39.00 </span>
-							</div>
-						</li>
-
-						<li class="header-cart-item flex-w flex-t m-b-12">
-							<div class="header-cart-item-img">
-								<img src="images/item-cart-03.jpg" alt="IMG">
-							</div>
-
-							<div class="header-cart-item-txt p-t-8">
-								<a href="#"
-									class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-									Nixon Porter Leather </a> <span class="header-cart-item-info">
-									1 x $17.00 </span>
-							</div>
-						</li>
-					</ul>
-
-					<div class="w-full">
-						<div class="header-cart-total w-full p-tb-40">합계:
-						</div>
-
-						<div class="header-cart-buttons flex-w w-full">
-							<a href="shoping-cart.html"
-								class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-								카트보기 </a> <a href="shoping-cart.html"
-								class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-								체크아웃 </a>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 		<!-- 장바구니 끝-->
 
@@ -258,6 +187,8 @@
 							</div>
 						</div>
 					</div>
+					</div>
+					</div>
 
 					<div class="col-md-6 col-lg-5 p-b-30">
 						<div class="p-r-50 p-t-5 p-lr-0-lg">
@@ -265,41 +196,28 @@
 								상품이름: ${product.productName }
 							</h4>
 
-							<span class="mtext-106 cl2"><h3>상품가격: ${product.productPrice }</h3></span>
+							<h3><span class="mtext-106 cl2">상품가격: ${product.productPrice }</span></h3>
 							
-							<span class="mtext-106 cl2"><h3>상품설명: ${product.productDetail }</h3></span>
-							
-							<span class="mtext-106 cl2"><h3>상품재고: ${product.productStock }</h3></span>
+							<h3><span class="mtext-106 cl2">상품설명: ${product.productDetail }</span></h3>
+
 							<!-- 상품상세 끝 -->
 							<!-- 상품수량(plus,minus), 장바구니, 바로결재 -->
 							<div class="p-t-33">
 
 								<div class="flex-w flex-r-m p-b-10">
 									<div class="size-204 flex-w flex-m respon6-next">
-										<div class="wrap-num-product flex-w m-r-20 m-tb-10">
-											<div
-												class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-minus"></i>
-											</div>
-
-											<input class="mtext-104 cl3 txt-center num-product"
-												type="number" name="num-product" value="1">
-
-											<div
-												class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-plus"></i>
-											</div>
-										</div>
 										<div>
 										<button
 											class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
 											장바구니</button>
 											<button
 											class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-											바로결재</button>
+											바로구매</button>
 											</div>
 									</div>
 								</div>
+							</div>
+							</div>
 							</div>
 							<!-- 상품수량, 장바구니, 바로결재 끝-->
 
@@ -324,9 +242,6 @@
 									data-tooltip="Google Plus"> <i class="fa fa-google-plus"></i>
 								</a>
 							</div>
-						</div>
-					</div>
-				</div>
 
 					<!-- 상품상세(DetailImg사진 가져오기) 리뷰 창 -->
 				<div class="bor10 m-t-50 p-t-43 p-b-40">
@@ -365,51 +280,30 @@
 									</div>
 								</div>
 							</div>
-
-							<!--리뷰작성 -->
-							<div class="tab-pane fade" id="reviews" role="tabpanel">
-								<div class="row">
-									<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
-										<div class="p-b-30 m-lr-15-sm">
-											<!-- Review -->
-											<div class="flex-w flex-t p-b-68">
-												<div class="wrap-pic-s size-109 bor0 of-hidden m-r-18 m-t-6">
-													<img src="images/avatar-01.jpg" alt="AVATAR">
-												</div>
-
-												<div class="size-207">
-													<div class="flex-w flex-sb-m p-b-17">
-														<span class="mtext-107 cl2 p-r-20"> ${boards.memberId } </span>
-
-														<span class="fs-18 cl11"> <i class="zmdi zmdi-star"></i>
-															<i class="zmdi zmdi-star"></i> <i class="zmdi zmdi-star"></i>
-															<i class="zmdi zmdi-star"></i> <i
-															class="zmdi zmdi-star-half"></i>
-														</span>
-													</div>
-
-													<p class="stext-102 cl6">${boards.replyContent }</p>
-												</div>
-											</div>
-											<!--리뷰작성 끝 -->
-
-											<!-- 별점 -->
-											<form class="w-full">
+							<div class="tab-pane fade show" id="reviews"
+								role="tabpanel">
+								<!--리뷰작성 -->
+											<form class="w-full" action="addReview.do?pcode=${product.productCode }" method="post">
 												<h5 class="mtext-108 cl2 p-b-7">"${product.productName}의 리뷰를 작성하세요"</h5>
 
-												<div class="flex-w flex-m p-t-50 p-b-23">
-													<span class="stext-102 cl3 m-r-16"> 별점 </span> <span
-														class="wrap-rating fs-18 cl11 pointer"> <i
-														class="item-rating pointer zmdi zmdi-star-outline"></i> <i
-														class="item-rating pointer zmdi zmdi-star-outline"></i> <i
-														class="item-rating pointer zmdi zmdi-star-outline"></i> <i
-														class="item-rating pointer zmdi zmdi-star-outline"></i> <i
-														class="item-rating pointer zmdi zmdi-star-outline"></i> <input
-														class="dis-none" type="number" name="rating">
-													</span>
+											
+												<div class="flex-w flex-m p-t-50 p-b-23" name=>
+													<span class="stext-102 cl3 m-r-16" name="rs"> 별점 </span>
+													<span class="wrap-rating fs-18 cl11 pointer">
+													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
+													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
+													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
+													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
+													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
+													<input class="dis-none" type="number" name="rating"></span>
 												</div>
 
 												<div class="row p-b-25">
+													<div class="col-sm-6 p-b-5">
+														<label class="stext-102 cl3" for="name">이름</label> <input
+															class="size-111 bor8 stext-102 cl2 p-lr-20" id="name"
+															type="text" name="name">
+													</div>
 													<div class="col-12 p-b-5">
 														<label class="stext-102 cl3" for="review">리뷰작성</label>
 														<textarea
@@ -417,35 +311,19 @@
 															id="review" name="review"></textarea>
 													</div>
 
-													<div class="col-sm-6 p-b-5">
-														<label class="stext-102 cl3" for="name">이름</label> <input
-															class="size-111 bor8 stext-102 cl2 p-lr-20" id="name"
-															type="text" name="name">
-													</div>
-
-													<div class="col-sm-6 p-b-5">
-														<label class="stext-102 cl3" for="email">이메일</label> <input
-															class="size-111 bor8 stext-102 cl2 p-lr-20" id="email"
-															type="text" name="email">
-													</div>
 												</div>
-
 												<button
-													class="flex-c-m stext-101 cl0 size-112 bg7 bor11 hov-btn3 p-lr-15 trans-04 m-b-10">
+													class="flex-c-m stext-101 cl0 size-112 bg7 bor11 hov-btn3 p-lr-15 trans-04 m-b-10 addReviews">
 													리뷰등록</button>
 											</form>
-											<div class="reviews">123</div>
-										</div>
-									</div>
-								</div>
+											<div class="reviews"><!-- 리뷰 내용 --></div>
 							</div>
 						</div>
-				
 					</div>
-			</div>
-				<!-- 상품상세(DetailImg사진 가져오기) 리뷰 창  끝-->
-			</div>
+				</div>
 		</section>
+
+				<!-- 상품상세(DetailImg사진 가져오기) 리뷰 창  끝-->
 		<!--===============================================================================================-->
 		<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 		<!--===============================================================================================-->
@@ -564,8 +442,28 @@
 	  	.then(result => {
 	  		for(i=0; i < result.length; i++){	  
 	  		document.querySelector(".reviews").insertAdjacentHTML("beforeend",
-	  				`<h5 id="result">\${result[i].productCode}</h5>
-			  		<p id="replyContent">\${result[i].replyContent}</p>`);
+	  				`<div class="flex-w flex-t p-b-68">
+						<div class="wrap-pic-s size-109 bor0 of-hidden m-r-18 m-t-6">
+							<img src="images/avatar-01.jpg" alt="AVATAR">
+					    </div>
+
+					<div class="size-207">
+					   <div class="flex-w flex-sb-m p-b-17">
+							<span class="mtext-107 cl2 p-r-20"> \${result[i].memberId } </span>
+								<span class="fs-18 cl11">
+									<i class="zmdi zmdi-star"></i>
+									<i class="zmdi zmdi-star"></i>
+									<i class="zmdi zmdi-star"></i>
+									<i class="zmdi zmdi-star"></i>
+									<i class="zmdi zmdi-star-half"></i>
+								</span>
+						</div>
+							<p class="stext-102 cl6">\${result[i].replyContent }</p>
+					  </div>
+					</div>`);
+	  				
+	//  				<h5 id="result" class="card">\${result[i].memberId}</h5>
+	//		  		<p id="replyContent" class="card">\${result[i].replyContent}</p>
 	  		//.innerHTML+=result[i] + replyContent;
 	  		}
 	  	})

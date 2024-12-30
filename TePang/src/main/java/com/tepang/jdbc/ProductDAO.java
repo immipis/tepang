@@ -4,7 +4,7 @@ package com.tepang.jdbc;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Date;
 import com.tepang.common.DAO;
 import com.tepang.common.SearchDTO;
 import com.tepang.vo.BoardVO;
@@ -286,33 +286,36 @@ public class ProductDAO extends DAO {
 		return false;
 	}
 
-	//댓글 등록
-	public boolean insertReply(BoardVO rvo) {
-		getConn();
-		String sql = "insert into tbl_reply *reply_code, member_id, reply_content, reply_date, reply_img, reply_star, reply_type, reply_answer, product_code)"
-				+ "				values(?, ?, ?, ?)";
-		try {
-			psmt = conn.prepareStatement("select reply_seq.nextval from dual");
-			rs = psmt.executeQuery();
-			String rno = ""; // 쿼리실행.
-			if (rs.next()) {
-				rno = rs.getString(1);
-				rvo.setProductCode(rno);
+	// BoardVO 파라미터 => 등록.
+		public boolean insertReply(BoardVO rvo) {
+			getConn();
+			String sql = "insert into tbl_reply " //
+					+ "(reply_code, member_id, reply_content, reply_date, reply_img, reply_star, reply_type, reply_answer, product_code)" //
+					+ "values(reply_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?) ";
+
+			try {
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, rvo.getMemberId());
+				psmt.setString(2, rvo.getReplyContent());
+				psmt.setDate(3, (java.sql.Date) rvo.getReplyDate());
+				psmt.setString(4, rvo.getReplyImg());
+				psmt.setInt(5, rvo.getReplyStar());
+				psmt.setString(6, rvo.getReplyType());
+				psmt.setString(7, rvo.getReplyAnswer());
+				psmt.setString(8, rvo.getProductCode());
+
+				int r = psmt.executeUpdate(); // 쿼리실행.
+				if (r > 0) {
+					return true;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				disConnect();
 			}
-
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, rno);
-			psmt.setString(2, rvo.getReplyContent());
-			psmt.setString(3, rvo.getMemberId());
-			psmt.setString(4, rvo.getReplyCode());
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			disConnect();
+			return false;
 		}
-		return false;
-	}
+
 
 	//댓글건수반환.
 	public String selectReplyconut(String ReplyCode) {
