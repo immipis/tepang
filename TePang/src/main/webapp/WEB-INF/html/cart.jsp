@@ -74,7 +74,7 @@
 									<th class="column-6"></th>
 								</tr>
 								<c:forEach var="cart" items="${carts }">
-									<tr class="table_row" cnum = ${cart.cartNum }>
+									<tr data-cnum=${cart.cartNum } class="table_row" cnum = ${cart.cartNum }>
 										<td class="column-1">
 											<div class="how-itemcart1">
 												<img src="images/${cart.productImg }" alt="IMG">
@@ -325,6 +325,7 @@
     })
     </script>
     <script>
+    // 삭제
     document.querySelectorAll('.btn-danger').forEach(item => {
     	item.addEventListener('click', e => {
 			let cnum = e.target.parentElement.parentElement.getAttribute("cnum");
@@ -334,7 +335,7 @@
 	    		console.log(result)
 	    		if(result.retCode == 'OK'){
 	    			alert("삭제완료.");
-	    			document.querySelector('tr.table_row').remove();
+	    			document.querySelector('tr[data-cnum="' + cnum + '"]').remove();
 	    		} else {
 	    			alert("삭제가 안됨.");
 	    		}
