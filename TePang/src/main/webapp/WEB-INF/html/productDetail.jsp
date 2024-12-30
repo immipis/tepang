@@ -268,8 +268,6 @@
 							<span class="mtext-106 cl2"><h3>상품가격: ${product.productPrice }</h3></span>
 							
 							<span class="mtext-106 cl2"><h3>상품설명: ${product.productDetail }</h3></span>
-							
-							<span class="mtext-106 cl2"><h3>상품재고: ${product.productStock }</h3></span>
 							<!-- 상품상세 끝 -->
 							<!-- 상품수량(plus,minus), 장바구니, 바로결재 -->
 							<div class="p-t-33">
@@ -278,7 +276,7 @@
 									<div class="size-204 flex-w flex-m respon6-next">
 										<div class="wrap-num-product flex-w m-r-20 m-tb-10">
 											<div
-												class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+												class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m minusbtn">
 												<i class="fs-16 zmdi zmdi-minus minusbtn"></i>
 											</div>
 
@@ -596,9 +594,18 @@
     	    
     		e.target.parentElement.children[1].value = currentQty;			
      		
-    	    console.log(e.target.parentElement.children[1].value);
-     		
-       		
+    		e.target.parentElement.children[1].value = parseInt(currentQty)+1
+    		
+  			})
+  	  document.querySelector('.minusbtn').addEventListener('click', e => {
+    	    
+    	    let currentQty = e.target.parentElement.children[1].value;
+    	    
+    		e.target.parentElement.children[1].value = currentQty;			
+     		if (currentQty > 1){
+    		e.target.parentElement.children[1].value = parseInt(currentQty)-1     			
+     		}
+    		
   			})
       </script>
 		<jsp:include page="../includes/footer.jsp"></jsp:include>
