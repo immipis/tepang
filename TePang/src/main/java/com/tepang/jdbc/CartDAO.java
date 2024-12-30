@@ -73,16 +73,17 @@ public class CartDAO extends DAO{
     // 상품 갯수 수정
     public boolean updateCart(CartVO ucart) {
 		getConn();
+		System.out.println(ucart);
 		String sql = "update tbl_cart "//
 				+ "   set    product_num = ?"//
 				+ "   where member_id = ?"
-				+ "   and product_name = ?";
+				+ "   and product_code = ?";
 
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, ucart.getProductNum());
 			psmt.setString(2, ucart.getMemberId());
-			psmt.setString(3, ucart.getProductName());
+			psmt.setString(3, ucart.getProductCode());
 			
 			int r = psmt.executeUpdate(); // 쿼리 실행.
 			if (r > 0) {

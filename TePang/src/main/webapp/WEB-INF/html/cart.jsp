@@ -257,17 +257,17 @@
 										<td class="column-4">
 											<div class="wrap-num-product flex-w m-l-auto m-r-0">
 												<div
-													class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m btns">
+													class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m btns" memid=${cart.memberId } pnum=${cart.productNum } pcode=${cart.productCode }>
 													<i class="fs-16 zmdi zmdi-minus"></i>
 												</div>
 
 												<input class="mtext-104 cl3 txt-center num-product cnum"
-													type="number" pnum=${cart.productNum } name="cnum"
+													type="number" name="cnum"
 													value="${cart.productNum }">
 
 												<div
-													class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m btns">
-													<i class="fs-16 zmdi zmdi-plus"  pname=${cart.productName }></i>
+													class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m btns" memid=${cart.memberId } pnum=${cart.productNum } pcode=${cart.productCode }>
+													<i class="fs-16 zmdi zmdi-plus"></i>
 												</div>
 											</div>
 										</td>
@@ -452,7 +452,17 @@
      		e.target.closest('tr').children[4].innerText = price * (parseInt(currentQty)-1)+"원";				
      		totalSum();
 			}
-    		
+			let pnum = parseInt(e.target.closest('div.wrap-num-product').children[1].value) - 1;
+			let memid = e.target.closest('div.btns').getAttribute('memid');
+			let pcode = e.target.closest('div.btns').getAttribute('pcode');
+			
+			fetch('updateCart.do?pcode='+ pcode + '&pnum=' + pnum + '&memid=' + memid)
+			.then(result => result.json())
+	    	.then(result => {
+	    		console.log(result)
+
+	    	})
+	    	.catch(err => console.log(err))
     		
     	})
     })
@@ -470,13 +480,16 @@
     		
 			totalSum();
 			
-			fetch('updateCart.do?pname='+ pname + '&pnum=' + pnum)
+			
+			let pnum = parseInt(e.target.closest('div.wrap-num-product').children[1].value) + 1;
+			let memid = e.target.closest('div.btns').getAttribute('memid');
+			let pcode = e.target.closest('div.btns').getAttribute('pcode');
+			
+			fetch('updateCart.do?pcode='+ pcode + '&pnum=' + pnum + '&memid=' + memid)
 			.then(result => result.json())
 	    	.then(result => {
 	    		console.log(result)
-	    		if(result.retCode == 'OK'){
-	    		} else {
-	    		}
+
 	    	})
 	    	.catch(err => console.log(err))
     	})
