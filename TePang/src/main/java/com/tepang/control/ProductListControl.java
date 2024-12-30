@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.tepang.common.Control;
 
@@ -13,6 +14,9 @@ public class ProductListControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = req.getSession();
+		String id = (String) session.getAttribute("member_id");
+		
 		String title = req.getParameter("title");
 		String searchText = req.getParameter("searchText");
 

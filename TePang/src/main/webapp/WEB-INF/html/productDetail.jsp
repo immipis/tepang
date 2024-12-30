@@ -597,6 +597,7 @@
     		e.target.parentElement.children[1].value = parseInt(currentQty)+1
     		
   			})
+  			
   	  document.querySelector('.minusbtn').addEventListener('click', e => {
     	    
     	    let currentQty = e.target.parentElement.children[1].value;
