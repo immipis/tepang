@@ -219,7 +219,7 @@
         if(numProduct > 0) $(this).next().val(numProduct - 1);
     });
 
-    $('.btn-num-product-up').on('click', function(){
+    $('.btn-num-product-up').on('click', function(e){
         var numProduct = Number($(this).prev().val());
         $(this).prev().val(numProduct + 1);
     });
