@@ -4,22 +4,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Home</title>  
+<title>Product Detail</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script
-	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-	integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-	integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-	crossorigin="anonymous"></script>
-
-<!-- Core theme CSS (includes Bootstrap)-->
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Favicon -->
 <link rel="icon" type="image/png" href="images/icons/favicon.png" />
+
+<!-- Stylesheets -->
 <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
@@ -32,8 +24,12 @@
 <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 <link rel="stylesheet" type="text/css" href="vendor/MagnificPopup/magnific-popup.css">
 <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
-<link rel="stylesheet" type="text/css" href="css/util.css?after">
-<link rel="stylesheet" type="text/css" href="css/main.css?after">
+<link rel="stylesheet" type="text/css" href="css/util.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
 <style>
 #container {
@@ -51,6 +47,7 @@
 .pagination {
 	margin-top: 180px;
 }
+
 .d-flex {
 	margin-left: 100px;
 }
@@ -59,7 +56,6 @@
 <body class="animsition">
 	<!-- Header -->
 	<header>
-		<!-- Header desktop -->
 		<div class="container-menu-desktop">
 			<!-- Topbar -->
 			<div class="top-bar">
@@ -112,5 +108,32 @@
 			</div>
 		</div>
 	</header>
-</body>
-</html>
+
+	<div class="wrap-header-cart js-panel-cart">
+		<div class="s-full js-hide-cart"></div>
+		<div class="header-cart flex-col-l p-l-65 p-r-25">
+			<div class="header-cart-title flex-w flex-sb-m p-b-8">
+				<span class="mtext-103 cl2"> 장바구니 </span>
+				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
+					<i class="zmdi zmdi-close"></i>
+				</div>
+			</div>
+
+			<div class="header-cart-content flex-w js-pscroll">
+				<ul class="header-cart-wrapitem w-full" id="cartList">
+					<!-- Cart items dynamically added here -->
+				</ul>
+
+				<div class="w-full">
+					<div class="header-cart-total w-full p-tb-40"></div>
+					<div class="header-cart-buttons flex-w w-full">
+						<form action="cartList.do?id=${logId }">
+							<button class="cartbtn flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">장바구니로 </button>
+							<a href="cartList.do" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">구매</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+

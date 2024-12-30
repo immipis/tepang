@@ -4,46 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="d"%>
 <jsp:include page="../includes/header.jsp"></jsp:include>
 
-<!-- Cart -->
-<div class="wrap-header-cart js-panel-cart">
-	<div class="s-full js-hide-cart"></div>
-	<div class="header-cart flex-col-l p-l-65 p-r-25">
-		<div class="header-cart-title flex-w flex-sb-m p-b-8">
-			<span class="mtext-103 cl2"> 장바구니 </span>
-			<div
-				class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-				<i class="zmdi zmdi-close"></i>
 
-			</div>
-		</div>
-		<div class="header-cart-content flex-w js-pscroll">
-			<ul class="header-cart-wrapitem w-full">
-				<li class="header-cart-item flex-w flex-t m-b-12">
-					<div class="header-cart-item-img">
-						<img src="images/item-cart-01.jpg" alt="IMG"> 이미지
-					</div>
-
-					<div class="header-cart-item-txt p-t-8">
-						<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-							이름 </a> <span class="header-cart-item-info"> 가격 </span>
-					</div>
-				</li>
-			</ul>
-
-			<div class="w-full">
-				<div class="header-cart-total w-full p-tb-40">토탈 가격</div>
-
-				<div class="header-cart-buttons flex-w w-full">
-					<a href="cartList.do"
-						class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-						장바구니로 </a> <a href="cartList.do?"
-						class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-						구매 </a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 
 <!-- Slider -->
 <section class="section-slide">
@@ -216,49 +177,6 @@
 							<div class="block1-link stext-101 cl0 trans-09">Shop Now</div>
 						</div>
 					</a>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-	<!-- Cart -->
-	<div class="wrap-header-cart js-panel-cart">
-		<div class="s-full js-hide-cart"></div>
-		<div class="header-cart flex-col-l p-l-65 p-r-25">
-			<div class="header-cart-title flex-w flex-sb-m p-b-8">
-				<span class="mtext-103 cl2"> 장바구니 </span>
-				<div
-					class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-					<i class="zmdi zmdi-close"></i>
-				</div>
-			</div>
-			<div class="header-cart-content flex-w js-pscroll">
-				<ul class="header-cart-wrapitem w-full" id="cartList">
-					<%-- <li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/${item.productImg }" alt="IMG"> 이미지
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								${item.productName } </a> <span class="header-cart-item-info"> ${item.productPrice } </span>
-						</div>
-					</li> --%>
-				</ul>
-
-				<div class="w-full">
-					<div class="header-cart-total w-full p-tb-40"></div>
-					
-					<div class="header-cart-buttons flex-w w-full">
-					<form action="cartList.do?id=${logId }">
-						<button 
-						class="cartbtn flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">장바구니로 </button> 
-						<a href="cartList.do"
-							class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							구매 </a>
-					</form>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -437,7 +355,7 @@ document.querySelector(".loadmore").addEventListener('click', e => {
 </script>
 <script>
 
-let id = "${member_id}";
+
 
 if (id == null || id == ""){
 	console.log("아이디 없음")
@@ -465,36 +383,8 @@ else{
 	.catch(err => console.log(err));  
 }
 
-if (id == null || id == ""){
-	
-} else {
-	fetch('mainCart.do?id='+id)
-	  .then(result => result.json())
-	  .then(result => {
-		  result.forEach(item => {
-			  addCart(item);
-		  })
-	  })
-	  .catch(err => console.log(err))
-}
-
-function addCart(item){
-	let cartInfo = 
-	`<li class="header-cart-item flex-w flex-t m-b-12">
-		<div class="header-cart-item-img">
-			<img src="images/\${item.productImg }" alt="IMG">
-		</div>
-
-		<div class="header-cart-item-txt p-t-8">
-			<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-				\${item.productName } </a> <span class="header-cart-item-info"> \${item.productPrice }원 x \${item.productNum } = \${item.productPrice * item.productNum }원</span>
-		</div>
-	</li>`;
-	
-	document.getElementById('cartList')
-			.insertAdjacentHTML('beforeend', cartInfo);
-}
 </script>
+
 
 <script>
 

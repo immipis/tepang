@@ -8,6 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <jsp:include page="../includes/header.jsp"></jsp:include>
     <style>
 		#container {
 			width: 1000px;
@@ -92,73 +93,7 @@
 <link rel="stylesheet" type="text/css" href="css/main.css?after">
 <!--===============================================================================================-->
 </head>
-<body class="animsition">
-	<header>
-		<!-- Header desktop -->
-		<div class="container-menu-desktop">
-		
-			<!-- Topbar -->
-			<div class="top-bar">
-				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">안녕하세요</div>
-					<div class="right-top-bar flex-w h-full">
 
-
-                    <c:choose>
-                    <c:when test="${not empty member_id }">
-                      <a class="flex-c-m trans-04 p-lr-25" > ${member_id }</a>
-                      <a class="flex-c-m trans-04 p-lr-25" href="myPage.do">마이 페이지</a>
-                      <a class="flex-c-m trans-04 p-lr-25" href="tepanglogout.do">로그아웃</a>
-                      <a href="./boardList.do" class="flex-c-m trans-04 p-lr-25"> Board </a>
-                    </c:when>
-                    <c:otherwise>
-
-                      <a class="flex-c-m trans-04 p-lr-25" href="tepanglogin.do">로그인</a>
-						<a href="#" class="flex-c-m trans-04 p-lr-25"> Sign Up </a> 
-
-						<a href="./boardList.do" class="flex-c-m trans-04 p-lr-25"> Board </a>
-
-                    </c:otherwise>
-                    </c:choose>
-					</div>
-				</div>
-			</div>
-
-			<div class="wrap-menu-desktop">
-				<nav class="limiter-menu-desktop container">
-
-					<!-- Logo desktop -->
-					<a href="mainList.do" class="logo"> <img src="images/icons/logo-03.png"
-						alt="IMG-LOGO">
-					</a>
-
-					<!-- Menu desktop -->
-					<div class="menu-desktop">
-						<input class="mtext-107 cl2 plh2 p-r-15 search-input" type="text"
-							name="search-product"></input>
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
-							<i class="zmdi zmdi-search"></i>
-						</div>
-					</div>
-
-					<!-- Icon header -->
-					<div class="wrap-icon-header flex-w flex-r-m">
-						<div
-							class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
-							data-notify="4">
-							<i class="zmdi zmdi-shopping-cart"></i>
-						</div>
-
-						<a href="#"
-							class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
-							data-notify="9654"> <i class="zmdi zmdi-favorite-outline"></i>
-						</a>
-					</div>
-				</nav>
-			</div>
-		</div>
-	</header>
-	<!-- 헤더 끝 -->
 
 	<div id="container">
 		<div id="title">
