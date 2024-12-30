@@ -10,22 +10,25 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.tepang.common.Control;
-import com.tepang.jdbc.MainDAO;
+import com.tepang.jdbc.TePangDAO;
 import com.tepang.vo.MainVO;
 
-public class MainPvControl implements Control {
+public class searchControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("text/json;charset=utf-8");
-		String logId = req.getParameter("id");
 		
-		MainDAO mdao = new MainDAO();
-		List<MainVO> products = mdao.addPvList(logId);
+		resp.setContentType("text/html;charset=utf-8");
 		
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String json = gson.toJson(products);
+		TePangDAO tdao = new TePangDAO();
+
+		String sText = req.getParameter("searchText");
+		List<MainVO> lvo = tdao.search(sText);
 		
+		
+		Gson gson = new GsonBuilder().create();
+		String json = gson.toJson(lvo);
 		resp.getWriter().write(json);
 	}
+
 }

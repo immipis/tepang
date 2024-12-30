@@ -24,11 +24,11 @@ public class CartListControl implements Control {
 		
 		String id = (String) session.getAttribute("member_id");
 
-		System.out.println(id);
 		
 		List<CartVO> carts = cdao.cartList(id, "장바구니");
 		req.setAttribute("carts", carts);
 				
 		req.getRequestDispatcher("WEB-INF/html/cart.jsp").forward(req, resp);	
+		
 	}
 }
