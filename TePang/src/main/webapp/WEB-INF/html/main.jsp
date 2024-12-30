@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="d"%>
 <jsp:include page="../includes/header.jsp"></jsp:include>
 
 <!-- Cart -->
@@ -271,8 +272,8 @@
 <section class="bg0 p-t-23 ">
 	<div class="container">
 		<div class="row isotope-grid product">
-			<c:forEach var="product" items="${products}" >
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women productMainImg" index="${status.index}">
+			<c:forEach var="product" items="${products}">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women productMainImg">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
@@ -305,11 +306,11 @@
 			</c:forEach>
 
 		</div>
-		    <div class="flex-c-m flex-w w-full loadmore">
-		        <button class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04 m-b-12">
-		            Load More
-		        </button>
-		    </div>
+		<div class="flex-c-m flex-w w-full p-t-45">
+			<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04 m-b-12">
+				Load More
+			</a>
+		</div>
 	</div>
 
 </section>
@@ -412,6 +413,14 @@
 	</span>
 </div>
 
+<script>
+document.querySelector(".searchBtn").addEventListener('click', e => {
+	console.log(e.target.parentElement.parentElement.children[0].value);
+	let searchText = e.target.parentElement.parentElement.children[0].value;
+	location.href='search.do?searchText='+searchText;
+})
+
+</script>
 
 <script>
 
