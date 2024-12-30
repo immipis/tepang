@@ -10,6 +10,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <jsp:include page="../includes/header.jsp"></jsp:include>
     <style>
+        .modal{
+            display:none;
+        }
+
 		#container {
 			width: 1000px;
 			margin: 0 auto;
@@ -104,53 +108,37 @@
 			</p>
 		</div>
 		
-
-		<c:choose>
-        <c:when test="${not empty member_id }">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">문의하기</button>
-			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-			  <div class="modal-dialog modal-dialog-centered modal-lg">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title" id="exampleModalLabel"><b>문의하기</b></h5>
-			        <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-			      </div>      
-			      <!-- 모달시작 -->
-				      	<div class="modal-body" >
-					        <form action="./boardForm.do" method="post">
-					          <div class="mb-3">
-					          		<input id="writer" type="text" readonly name="member_id" value="${member_id }">
-					          		
-					          		<select name="reply_type" class="form-control">
-									<option value="">선택하세요.</option>
-									<option value="notice">문의</option>				
-									</select>
-					           <!--  <label for="recipient-name" class="col-form-label">Recipient:</label>
-					            <input type="text" class="form-control" id="recipient-name"> -->
-					          </div>
-					          <div class="mb-3">
-					            <label  for="message-text" class="col-form-label"  >무엇이 궁금하신가요?</label>
-					            <textarea class="form-control" id="message-text" name="reply_content"></textarea>
-					          </div>      
-						      <div class="modal-footer">
-						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-						        
-						        <button type="submit" class="btn btn-primary">문의하기</button>
-						      </div>	     
-				      	 </form>
-				       </div>   	
-			             
-			       
-			    </div>
-			  </div>
-			</div>
-			<!-- 모달 끝 -->
-		</c:when>
-		<c:otherwise>
-			<c:out value="<script type='text/javascript'>alert('로그인 시 문의 가능 합니다.');</script>" escapeXml="false" />
-		</c:otherwise>
-		</c:choose>
-		
+		<button type="button" class="btn btn-primary modalBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">문의하기</button>
+	
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered modal-lg">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel"><b>문의하기</b></h5>
+		      </div>
+		      <div class="modal-body">
+		        <form action="./boardForm.do" method="post">
+		          <div class="mb-3">
+		            <input id="writer" type="text" readonly name="member_id" value="">
+		            <select name="reply_type" class="form-control">
+		              <option value="">선택하세요.</option>
+		              <option value="notice">문의</option>
+		            </select>
+		          </div>
+		          <div class="mb-3">
+		            <label for="message-text" class="col-form-label">무엇이 궁금하신가요?</label>
+		            <textarea class="form-control" id="message-text" name="reply_content"></textarea>
+		          </div>
+		          <div class="modal-footer">
+		            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+		            <button type="submit" class="btn btn-primary">문의하기</button>
+		          </div>
+		        </form>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+				
 
 		<!--<button id="QABtn" class="col-sm-2 btn btn-primary"><a href="./board.do"> 문의하기</a></button>  --> 
 		
@@ -239,6 +227,18 @@
 			</nav>
 		</div>
 	</div>
+	<script>
+	let memberId = `${member_id}`; // 서버에서 값이 넘어오는 경우
+	document.querySelector(".modalBtn").addEventListener('click',e=>{
+		if (memberId) {
+		    
+		  } else {
+		    alert('로그인 시 문의 가능합니다.');
+		  }
+	})
+	
+	
+	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
 	
