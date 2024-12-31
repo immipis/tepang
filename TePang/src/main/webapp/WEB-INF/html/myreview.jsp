@@ -35,6 +35,39 @@
 		</div>
 		<div class="content">
 				<h2>내가 쓴 문의</h2>		
+				<div id="title">
+			<p>
+				${member_id} 님이 작성하신 문의 리스트입니다.
+			</p>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>Title</th>
+						<th>Writer</th>
+						<th>Date</th>
+					</tr>
+				</thead>
+				<tbody>
+
+
+					<c:forEach var="bvo" items="${list}">
+					<tr>
+						<td align="center">
+						<a href="board.do?page=${paging.currentPage }
+						  
+						&reply_code=${bvo.replyCode}">${bvo.replyCode}</a>
+
+						</td>
+						<td><c:out value="${bvo.replyContent}" /></td>
+						<td><c:out value="${bvo.memberId}" /></td>
+						<td>${bvo.replyDate}</td>
+					</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+		
 		</div>
 	</div>
 </div>
