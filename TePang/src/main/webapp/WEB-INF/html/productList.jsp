@@ -265,7 +265,8 @@ if(searchText == null || searchText == "null" || searchText ==" " || searchText 
 }
 else{
 
-	fetch('search.do?searchText='+searchText)
+
+	fetch('search.do?searchText='+searchText+'&id='+id)
 		.then(result => result.json())
 		.then(result => {
 			console.log(result)
