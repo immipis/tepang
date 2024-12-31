@@ -198,17 +198,17 @@ public SingupVO selectMember(String memberId) {
 		return false;
 	}
 	// 내가 쓴 문의 리스트 
-	public List<BoardVO> selectMyReply(String replyCode, String memberId){
+	public List<BoardVO> selectMyReply(String replyType, String memberId){
 		getConn();
 		List<BoardVO> mlist = new ArrayList<>();
 		String rql = "SELECT * "
 				   + "  FROM tbl_reply "
-				   + " WHERE reply_code = ? "
+				   + " WHERE reply_type = ? "
 				   + "   AND member_id = ? ";
 
 		try {
 			psmt = conn.prepareStatement(rql);
-			psmt.setString(1, replyCode);
+			psmt.setString(1, replyType);
 			psmt.setString(2, memberId);
 
 			rs = psmt.executeQuery();
@@ -228,4 +228,37 @@ public SingupVO selectMember(String memberId) {
 			disConnect();
 		} return mlist; 
 	} 
+	// 내가 쓴 리뷰 리스트 
+	public List<BoardVO> selectMyReview(String replyType, String memberId){
+		getConn();
+		List<BoardVO> rlist = new ArrayList<>();
+		String vql = " SELECT *"
+				   + "   FROM tbl_reply "
+				   + "  WHERE reply_type = ? "
+				   + "    AND member_id = ? ";
+		
+		try {
+			psmt = conn.prepareStatement(vql);
+			psmt.setString(1, replyType);
+			psmt.setString(2, memberId);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				BoardVO brd = new BoardVO();
+				brd.setReplyCode(rs.getString("reply_code"));
+				brd.setReplyContent(rs.getString("reply_content"));
+				brd.setReplyAnswer(rs.getString("reply_answer"));
+				brd.setMemberId(rs.getString("member_id"));
+				brd.setReplyDate(rs.getDate("reply_date"));
+				
+				rlist.add(brd);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return rlist;
+	}
 }
