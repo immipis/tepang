@@ -26,7 +26,7 @@ public class TepangLoginControl implements Control {
 			
 			resp.sendRedirect("mainList.do");
 		} else {
-			resp.sendRedirect("tepnagsingupForm.do");
+			resp.sendRedirect("tepnagloginForm.do");
 		}
 
 	}

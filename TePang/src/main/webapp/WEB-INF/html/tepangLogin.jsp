@@ -29,8 +29,8 @@
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
-							<input type="submit" 
-							class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" value="signup"></td>
+							<input type="button" 
+							class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" onClick="location.href='tepnagsingupForm.do'" value="signup"></td>
 						</tr>
 						</table>
 					</form>
