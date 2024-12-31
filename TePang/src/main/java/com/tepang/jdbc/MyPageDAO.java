@@ -197,17 +197,19 @@ public SingupVO selectMember(String memberId) {
 		}
 		return false;
 	}
-	// 내가 쓴 문의 
-	public List<BoardVO> selectMyReply(String memberId){
+	// 내가 쓴 문의 리스트 
+	public List<BoardVO> selectMyReply(String replyCode, String memberId){
 		getConn();
 		List<BoardVO> mlist = new ArrayList<>();
 		String rql = "SELECT * "
 				   + "  FROM tbl_reply "
-				   + " WHERE member_id = ? ";
+				   + " WHERE reply_code = ? "
+				   + "   AND member_id = ? ";
 
 		try {
 			psmt = conn.prepareStatement(rql);
-			psmt.setString(1, memberId);
+			psmt.setString(1, replyCode);
+			psmt.setString(2, memberId);
 
 			rs = psmt.executeQuery();
 			while (rs.next()) {

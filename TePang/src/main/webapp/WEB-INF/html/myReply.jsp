@@ -26,19 +26,17 @@
 
 			<div class="list-group list-group-flush">
 				<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myPage.do">구매목록(디폴트)</a> 
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">내가 쓴 문의(링크)</a> 
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myheartlist.do">찜 목록(링크)</a> 
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myinfo.do">내 정보 수정</a> 
+				<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myReply.do">내가 쓴 문의(링크)</a> 
+						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myHeartList.do">찜 목록(링크)</a> 
+						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myInfo.do">내 정보 수정</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">보유쿠폰</a> 
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myinfoDeletePage.do">회원탈퇴</a> 
+						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myInfoDeletePage.do">회원탈퇴</a> 
 			</div>
 		</div>
 		<div class="content">
 				<h2>내가 쓴 문의</h2>		
 				<div id="title">
-			<p>
-				${member_id} 님이 작성하신 문의 리스트입니다.
-			</p>
+			<p>${member_id} 님이 작성하신 문의 리스트입니다.</p>
 			<table class="table">
 				<thead>
 					<tr>
@@ -49,15 +47,10 @@
 					</tr>
 				</thead>
 				<tbody>
-
-
 					<c:forEach var="bvo" items="${list}">
 					<tr>
 						<td align="center">
-						<a href="board.do?page=${paging.currentPage }
-						  
-						&reply_code=${bvo.replyCode}">${bvo.replyCode}</a>
-
+						${bvo.replyCode}
 						</td>
 						<td><c:out value="${bvo.replyContent}" /></td>
 						<td><c:out value="${bvo.memberId}" /></td>
@@ -72,6 +65,9 @@
 	</div>
 </div>
 </body>
+<script>
+string replyType = $('replyType').text();
+</script>
 <jsp:include page="../includes/footer.jsp"></jsp:include>
 </body>
 </html>

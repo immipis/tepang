@@ -33,7 +33,7 @@ public class BoardListControl implements Control {
 		
 		
 		req.setAttribute("list", list);
-
+		System.out.println(list);
 		req.getRequestDispatcher("WEB-INF/html/boardList.jsp").forward(req, resp);
 	}
 
