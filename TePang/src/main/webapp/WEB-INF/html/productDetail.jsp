@@ -359,6 +359,7 @@
     	  let memid = e.target.parentElement.parentElement.children[1].getAttribute('memid');
     	  let pcode = e.target.parentElement.parentElement.children[1].getAttribute('pcode');
     	  
+    	  console.log(pnum,pcode,memid)
     	  
     	  fetch('insertCart.do?pcode='+ pcode +'&memid='+memid+'&pnum='+pnum)
     	  .then(result => result.json())
