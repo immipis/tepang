@@ -20,7 +20,9 @@ public class MyReviewControl implements Control {
 		String mid = (String) session.getAttribute("member_id");		
 		SingupVO svo = mpdo.selectMember(mid); 
 		req.setAttribute("memId", svo);
-		req.getRequestDispatcher("WEB-INF/html/myreview.jsp").forward(req, resp);	
+		req.getRequestDispatcher("WEB-INF/html/myreview.jsp").forward(req, resp);	// 화면 띄우기 
+		
+		
 
 	}
 

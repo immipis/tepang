@@ -102,6 +102,7 @@ label {
 								<a href="boardList.do" class="flex-c-m trans-04 p-lr-25">Board</a>
 							</c:otherwise>
 						</c:choose>
+
 					</div>
 				</div>
 			</div>

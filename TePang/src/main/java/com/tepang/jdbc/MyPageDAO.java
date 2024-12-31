@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.tepang.common.DAO;
+import com.tepang.vo.BoardVO;
 import com.tepang.vo.OrderVO;
 import com.tepang.vo.SingupVO;
 
@@ -196,4 +197,33 @@ public SingupVO selectMember(String memberId) {
 		}
 		return false;
 	}
+	// 내가 쓴 문의 
+	public List<BoardVO> selectMyReply(String memberId){
+		getConn();
+		List<BoardVO> mlist = new ArrayList<>();
+		String rql = "SELECT * "
+				   + "  FROM tbl_reply "
+				   + " WHERE member_id = ? ";
+
+		try {
+			psmt = conn.prepareStatement(rql);
+			psmt.setString(1, memberId);
+
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				BoardVO brd = new BoardVO();
+				brd.setReplyCode(rs.getString("reply_code"));
+				brd.setReplyContent(rs.getString("reply_content"));
+				brd.setReplyAnswer(rs.getString("reply_answer"));
+				brd.setMemberId(rs.getString("member_id"));
+				brd.setReplyDate(rs.getDate("reply_date"));
+				
+				mlist.add(brd);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		} return mlist; 
+	} 
 }
