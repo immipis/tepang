@@ -13,7 +13,7 @@ import com.tepang.jdbc.MyPageDAO;
 import com.tepang.vo.BoardVO;
 import com.tepang.vo.SingupVO;
 
-public class MyReplyControl implements Control {
+public class MyReviewControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,14 +27,14 @@ public class MyReplyControl implements Control {
 		String type = req.getParameter("type");
 		String page = req.getParameter("page");
 		page = (page == null ? "1" : page);
-		type = (type == null ? "notice" : type);
+		type = (type == null ? "review" : type);
 		
 		MyPageDAO mpdao = new MyPageDAO();
 		List<BoardVO> list = mpdao.selectMyReply(type, mid);
 		
 		req.setAttribute("list", list);
 		System.out.println(list);
-		req.getRequestDispatcher("WEB-INF/html/myReply.jsp").forward(req, resp);	// 화면 띄우기 
+		req.getRequestDispatcher("WEB-INF/html/myReview.jsp").forward(req, resp);
 	}
 
 }
