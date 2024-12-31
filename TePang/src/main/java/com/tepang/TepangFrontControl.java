@@ -42,6 +42,7 @@ import com.tepang.control.TepangSingupFormControl;
 import com.tepang.control.UpdateCartControl;
 import com.tepang.control.productCategoryListControl;
 import com.tepang.control.searchControl;
+import com.tepang.control.searchHistoryControl;
 import com.tepang.control.userFvItemControl;
 
 public class TepangFrontControl extends HttpServlet {
@@ -84,7 +85,7 @@ public class TepangFrontControl extends HttpServlet {
 		
 		//검색기능
 		map.put("/search.do", new searchControl());
-		
+		map.put("/searchHistory.do", new searchHistoryControl());
 		// 마이페이지
 		map.put("/myPage.do", new MyPageBoardControl()); // 마이페이지 상세
 		map.put("/myinfo.do", new MyInfoControl()); 	// 정보확인

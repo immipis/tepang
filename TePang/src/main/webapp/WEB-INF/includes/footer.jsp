@@ -146,7 +146,8 @@ function addCart(item){
 <script>
 document.querySelector(".searchBtn").addEventListener('click', e => {
 	let searchText = e.target.parentElement.parentElement.children[0].value;
-	location.href='productList.do?searchText='+searchText;
+	console.log(id);
+	location.href='productList.do?searchText='+searchText+'&id='+id;
 })
 </script>
 <!--===============================================================================================-->

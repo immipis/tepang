@@ -23,6 +23,11 @@ public class searchControl implements Control {
 		TePangDAO tdao = new TePangDAO();
 
 		String sText = req.getParameter("searchText");
+		
+		String id = req.getParameter("id");
+
+		System.out.println(id);
+		boolean abc = tdao.addSearch(id, sText);
 		List<MainVO> lvo = tdao.search(sText);
 		
 		
@@ -31,4 +36,5 @@ public class searchControl implements Control {
 		resp.getWriter().write(json);
 	}
 
+	
 }

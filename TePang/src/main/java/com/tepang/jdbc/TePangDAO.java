@@ -102,5 +102,38 @@ public class TePangDAO extends DAO {
 		return pList;
 	}
 	
+	
+	public boolean addSearch(String id, String sText) {
+		getConn();
+		
+		String sql = "insert into tbl_search(member_id, search_name)"
+				+ "values (?, ?)";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, sText);
+			
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
+
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
+	}
+	
+	public List searchHistory(String id, String searchName) {
+		getConn();
+		Stirng sql = "select member_id, search_name"
+				+ "  from tbl_search"
+				+ " where member_id = 'user01'"
+				+ " order by search_date desc";
+	}
 }
 
