@@ -150,7 +150,7 @@ function addCart(item){
 	document.getElementById('cartList')
 			.insertAdjacentHTML('beforeend', cartInfo);
 }
-</script>
+</script> 
 
 <script>
 document.querySelector(".searchBtn").addEventListener('click', e => {
