@@ -143,4 +143,31 @@ public class CartDAO extends DAO{
 		}
     	return false;
     }
+    
+    public boolean insertOrder(CartVO cvo) {
+    	getConn();
+    	String sql = "insert into tbl_order (cart_num, order_adr, order_name, order_phone, order_request, order_sum, member_id, order_content)\r\n"
+    			+ "values(?, ?, ?, ?, ?, ?, ?,'값')";
+    	try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, cvo.getCartNum());
+			psmt.setString(2, cvo.getOrderAdr());
+			psmt.setString(3, cvo.getOrderName());
+			psmt.setString(4, cvo.getOrderPhone());
+			psmt.setString(5, cvo.getOrderRequest());
+			psmt.setInt(6, cvo.getOrderSum());
+			psmt.setString(7, cvo.getMemberId());
+			
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+    	return false;
+    }
 }
