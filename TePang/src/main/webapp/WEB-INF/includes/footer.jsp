@@ -115,6 +115,15 @@
 if (id == null || id == ""){
 	
 } else {
+	    fetch('searchHistory.do?id='+id)
+	      .then(result => result.json())
+	      .then(result => {
+	          result.forEach(item => {
+	              document.querySelector('.search-result').insertAdjacentHTML('beforeend', item+" ");
+	          })
+	      })
+	      .catch(err => console.log(err))
+	    
 	fetch('mainCart.do?id='+id)
 	  .then(result => result.json())
 	  .then(result => {
@@ -145,9 +154,8 @@ function addCart(item){
 
 <script>
 document.querySelector(".searchBtn").addEventListener('click', e => {
-	let searchText = e.target.parentElement.parentElement.children[0].value;
-	console.log(id);
-	location.href='productList.do?searchText='+searchText+'&id='+id;
+    let searchText = e.target.parentElement.parentElement.children[0].children[0].value;
+    location.href='productList.do?searchText='+searchText+'&id='+id;
 })
 </script>
 <!--===============================================================================================-->

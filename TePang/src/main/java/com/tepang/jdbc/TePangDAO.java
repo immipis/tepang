@@ -7,6 +7,7 @@ import java.util.List;
 import com.tepang.common.DAO;
 import com.tepang.vo.MainVO;
 import com.tepang.vo.SingupVO;
+import com.tepang.vo.TepangSearchVO;
 
 public class TePangDAO extends DAO {
 
@@ -128,12 +129,33 @@ public class TePangDAO extends DAO {
 		return false;
 	}
 	
-	public List searchHistory(String id, String searchName) {
-		getConn();
-		Stirng sql = "select member_id, search_name"
-				+ "  from tbl_search"
-				+ " where member_id = 'user01'"
-				+ " order by search_date desc";
-	}
+	public List<String> searchHistory(String id) {
+        getConn();
+        List<String> searchHistory = new ArrayList<>();
+        String sql = "SELECT search_name " +
+                     "FROM ( " +
+                     "    SELECT search_name " +
+                     "    FROM tbl_search " +
+                     "    WHERE member_id = ? " +
+                     "    ORDER BY search_date DESC " +
+                     ") " +
+                     "WHERE ROWNUM <= 5";
+
+        try {
+            psmt = conn.prepareStatement(sql);
+            psmt.setString(1, id);
+
+            rs = psmt.executeQuery();
+            while (rs.next()) {
+                searchHistory.add(rs.getString("search_name"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            disConnect();
+        }
+
+        return searchHistory;
+    }
 }
 
