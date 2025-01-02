@@ -22,6 +22,8 @@ import com.tepang.control.HeartListAddControl;
 import com.tepang.control.InsertCartControl;
 import com.tepang.control.MainCartControl;
 import com.tepang.control.MainControl;
+import com.tepang.control.ModifyBoardControl;
+import com.tepang.control.ModifyFormControl;
 import com.tepang.control.MyHeartListControl;
 import com.tepang.control.MyInfoControl;
 import com.tepang.control.MyInfoDeletePageControl;
@@ -75,9 +77,14 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/insertCart.do", new InsertCartControl()); // 장바구니 등록.
 		map.put("/payment.do", new PaymentControl());
 		map.put("/cartPayment.do", new CartPaymentControl());
+		
+		
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
 		map.put("/board.do", new BoardControl()); // 게시판목록 > 상세
 		map.put("/boardForm.do", new BoardFormControl()); //문의하기 폼
+		//게시글 수정.
+		map.put("/modifyForm.do", new ModifyFormControl()); //수정하는 Form
+		map.put("/modifyBoard.do", new ModifyBoardControl()); //수정기능받아오기
 
 		// 로그인 및 로그아웃 도한준
 		map.put("/tepnagloginForm.do", new TepangLoginFormControl());
