@@ -151,19 +151,7 @@
 		</div>
 		<!-- 장바구니 끝-->
 
-		<!-- 상태창 -->
-		<div class="container">
-			<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-				<a href="mainList.do" class="stext-109 cl8 hov-cl1 trans-04">
-					메인메뉴 <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
-				</a> <a href="productList.do" class="stext-109 cl8 hov-cl1 trans-04">
-					${product.category } <i class="fa fa-angle-right m-l-9 m-r-10"
-					aria-hidden="true"></i>
-				</a> <span class="stext-109 cl4"> ${product.productName }<!-- Lightweight Jacket -->
-				</span> 
-			</div>
-		</div>
-		<!-- 상태창 끝 -->
+		
 
 		<!-- 상품상세 -->
 		<section class="sec-product-detail bg0 p-t-65 p-b-60">
