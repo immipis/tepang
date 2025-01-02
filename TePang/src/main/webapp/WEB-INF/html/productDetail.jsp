@@ -315,8 +315,8 @@
 												<button
 													class="flex-c-m stext-101 cl0 size-112 bg7 bor11 hov-btn3 p-lr-15 trans-04 m-b-10 addReviews">
 													리뷰등록</button>
-											</form>
 											<div class="reviews"><!-- 리뷰 내용 --></div>
+											</form>
 							</div>
 						</div>
 					</div>

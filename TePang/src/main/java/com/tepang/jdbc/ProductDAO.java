@@ -286,23 +286,19 @@ public class ProductDAO extends DAO {
 		return false;
 	}
 
-	// BoardVO 파라미터 => 등록.
+	// BoardVO 파라미터 => 댓글 등록.
 		public boolean insertReply(BoardVO rvo) {
 			getConn();
 			String sql = "insert into tbl_reply " //
-					+ "(reply_code, member_id, reply_content, reply_date, reply_img, reply_star, reply_type, reply_answer, product_code)" //
-					+ "values(reply_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?) ";
+					+ "(reply_code, member_id, reply_star, reply_content, product_code)" //
+					+ "values(reply_seq.nextval, ?, ?, ?, ?) ";
 
 			try {
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, rvo.getMemberId());
-				psmt.setString(2, rvo.getReplyContent());
-				psmt.setDate(3, (java.sql.Date) rvo.getReplyDate());
-				psmt.setString(4, rvo.getReplyImg());
-				psmt.setInt(5, rvo.getReplyStar());
-				psmt.setString(6, rvo.getReplyType());
-				psmt.setString(7, rvo.getReplyAnswer());
-				psmt.setString(8, rvo.getProductCode());
+				psmt.setInt(2, rvo.getReplyStar());
+				psmt.setString(1, rvo.getReplyContent());
+				psmt.setString(3, rvo.getProductCode());
 
 				int r = psmt.executeUpdate(); // 쿼리실행.
 				if (r > 0) {
