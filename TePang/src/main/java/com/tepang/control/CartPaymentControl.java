@@ -48,10 +48,11 @@ public class CartPaymentControl implements Control {
 		CartDAO cdao = new CartDAO();
 		
 		
-		  if (cdao.insertOrder(cvo)) { orderMap.put("retCode", "OK");
-		  orderMap.put("retVal", cvo);
-		  
-		  json = gson.toJson(orderMap); resp.getWriter().print(json); } 
+		  if (cdao.insertOrder(cvo)) {
+			  cdao.deleteCart2(memid);
+			  orderMap.put("retCode", "OK");
+			  orderMap.put("retVal", cvo);
+			  json = gson.toJson(orderMap); resp.getWriter().print(json); } 
 		  else {
 		  resp.getWriter().print("{\"retCode\": \"Fail\"}"); 
 		  }

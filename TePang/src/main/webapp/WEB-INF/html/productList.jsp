@@ -73,6 +73,7 @@
 										\${item.productPrice}
 									</span>
 								</div>
+
 							</div>
 						</div>
 					</div>

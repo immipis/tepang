@@ -175,13 +175,12 @@ public class CartDAO extends DAO{
 	}
     
     // 결제 (결제 버튼 누르면 장바구니 목록 제거 구매목록에 등록)
-    public boolean deleteCart2(String memberId, String cartType) {
+    public boolean deleteCart2(String memberId) {
     	getConn();
-    	String sql = "delete from tbl_cart where memer_id = ? and cart_type = ?";
+    	String sql = "delete from tbl_cart where member_id = ? and cart_type = '장바구니'";
     	try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, memberId);
-			psmt.setString(2, cartType);
 			int r = psmt.executeUpdate();
 			if (r > 0) {
 				return true;
