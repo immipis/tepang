@@ -355,6 +355,8 @@
     		  console.log(result)
     	  })
     	  .catch(err => console.log(err))
+    	  
+    	  alert('장바구니 담기 성공!');
       })
       </script>
       <script>

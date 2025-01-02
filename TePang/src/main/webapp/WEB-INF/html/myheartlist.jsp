@@ -14,13 +14,10 @@
 	margin-left: 100px;
 }
 .content{
-	margin-left: 70px;
-
+	margin-left: 70px;	
 }
 </style>
-<script>
-	
-</script>
+
 <jsp:include page="../includes/header.jsp"></jsp:include>
 <div id=container>
 	<div class="d-flex" id="wrapper">
@@ -37,12 +34,40 @@
 			</div>
 		</div>
 		<div class="content">
+				<h2>나의 찜목록</h2>		
+				<div id="title">
+			<p>${member_id} 님의 찜목록입니다.</p>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>상품이름</th>
+						<th>상품이미지</th>
+						<th>가격</th>
+						<th>카테고리</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="bvo" items="${list}">
+					<tr>
+						<td align="center">
+						${bvo.productName}
+						</td>
+						<td><c:out value="${bvo.productImg}" /></td>
+						<td><c:out value="${bvo.productPrice}" />원</td>
+						<td>${bvo.category}</td>
+					</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
 		
-			<h2>찜 목록</h2>
 		</div>
 	</div>
 </div>
 </body>
+<script>
+string replyType = $('replyType').text();
+</script>
 <jsp:include page="../includes/footer.jsp"></jsp:include>
 </body>
 </html>

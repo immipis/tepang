@@ -119,7 +119,12 @@ if (id == null || id == ""){
 	      .then(result => result.json())
 	      .then(result => {
 	          result.forEach(item => {
-	              document.querySelector('.searchHresult').insertAdjacentHTML('beforeend', item+" ");
+
+	        	  let html =`
+	        	  <a href='productList.do?searchText='\${item}>\${item}</a>
+	        	  `
+	              document.querySelector('.searchHresult').insertAdjacentHTML('beforeend', html);
+
 	          })
 	      })
 	      .catch(err => console.log(err))

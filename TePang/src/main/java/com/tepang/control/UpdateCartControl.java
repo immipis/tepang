@@ -23,7 +23,6 @@ public class UpdateCartControl implements Control {
 		
 		CartVO cvo = new CartVO();
 		
-		System.out.println(pnum + pcode + memid);
 		
 		
 		cvo.setProductNum(Integer.parseInt(pnum));

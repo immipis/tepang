@@ -16,7 +16,9 @@ import com.tepang.control.BoardControl;
 import com.tepang.control.BoardFormControl;
 import com.tepang.control.BoardListControl;
 import com.tepang.control.CartListControl;
+import com.tepang.control.CartPaymentControl;
 import com.tepang.control.GetReviewCountControl;
+import com.tepang.control.HeartListAddControl;
 import com.tepang.control.InsertCartControl;
 import com.tepang.control.MainCartControl;
 import com.tepang.control.MainControl;
@@ -72,6 +74,7 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/mainCart.do", new MainCartControl());
 		map.put("/insertCart.do", new InsertCartControl()); // 장바구니 등록.
 		map.put("/payment.do", new PaymentControl());
+		map.put("/cartPayment.do", new CartPaymentControl());
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
 		map.put("/board.do", new BoardControl()); // 게시판목록 > 상세
 		map.put("/boardForm.do", new BoardFormControl()); //문의하기 폼
@@ -98,7 +101,8 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/myReview.do", new MyReviewControl()); // 내가 쓴 리뷰 불러오기
 		map.put("/myInfoDeletePage.do", new MyInfoDeletePageControl()); // 회원탈퇴 페이지
 		map.put("/infoDelete.do", new MyInfoDropControl()); // 회원탈퇴 기능
-
+		map.put("/heartAdd.do", new HeartListAddControl()); // 찜추가 
+		
         // 리뷰 이신영
 		map.put("/review.do", new ReviewControl()); // 목록
 		map.put("/removeReview.do", new RemoveReviewControl()); // 삭제
