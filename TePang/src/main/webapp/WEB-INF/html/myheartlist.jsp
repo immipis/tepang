@@ -52,7 +52,7 @@
 						<td align="center">
 						${bvo.productName}
 						</td>
-						<td><c:out value="${bvo.productImg}" /></td>
+						<td><img src = "<c:url value="/images/${bvo.productImg}.jpg"/>"></td>
 						<td><c:out value="${bvo.productPrice}" />원</td>
 						<td>${bvo.category}</td>
 					</tr>
