@@ -16,6 +16,7 @@ import com.tepang.control.BoardControl;
 import com.tepang.control.BoardFormControl;
 import com.tepang.control.BoardListControl;
 import com.tepang.control.CartListControl;
+import com.tepang.control.CartPaymentControl;
 import com.tepang.control.GetReviewCountControl;
 import com.tepang.control.HeartListAddControl;
 import com.tepang.control.InsertCartControl;
@@ -73,6 +74,7 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/mainCart.do", new MainCartControl());
 		map.put("/insertCart.do", new InsertCartControl()); // 장바구니 등록.
 		map.put("/payment.do", new PaymentControl());
+		map.put("/cartPayment.do", new CartPaymentControl());
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
 		map.put("/board.do", new BoardControl()); // 게시판목록 > 상세
 		map.put("/boardForm.do", new BoardFormControl()); //문의하기 폼

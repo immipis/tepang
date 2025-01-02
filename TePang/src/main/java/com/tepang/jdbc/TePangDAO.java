@@ -157,6 +157,5 @@ public class TePangDAO extends DAO {
 
         return searchHistory;
     }
-
 }
 
