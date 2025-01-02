@@ -96,8 +96,7 @@
 									<button
 										class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
 										바로결제</button>
-                  <button
-											class="insertlike"><h2><i class="fa-solid fa-heart"></i></h2>
+                                     <button class="insertlike"><h2><i class="fa-solid fa-heart"></i></h2>
 									</button>
 								</div>
 							</div>
