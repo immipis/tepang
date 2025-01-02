@@ -4,47 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="d"%>
 <jsp:include page="../includes/header.jsp"></jsp:include>
 
-<!-- Cart -->
 
-<div class="wrap-header-cart js-panel-cart">
-	<div class="s-full js-hide-cart"></div>
-	<div class="header-cart flex-col-l p-l-65 p-r-25">
-		<div class="header-cart-title flex-w flex-sb-m p-b-8">
-			<span class="mtext-103 cl2"> 장바구니 </span>
-			<div
-				class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-				<i class="zmdi zmdi-close"></i>
-
-			</div>
-		</div>
-		<div class="header-cart-content flex-w js-pscroll">
-			<ul class="header-cart-wrapitem w-full">
-				<li class="header-cart-item flex-w flex-t m-b-12">
-					<div class="header-cart-item-img">
-						<img src="images/item-cart-01.jpg" alt="IMG"> 이미지
-					</div>
-
-					<div class="header-cart-item-txt p-t-8">
-						<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-							이름 </a> <span class="header-cart-item-info"> 가격 </span>
-					</div>
-				</li>
-			</ul>
-
-			<div class="w-full">
-				<div class="header-cart-total w-full p-tb-40">토탈 가격</div>
-
-				<div class="header-cart-buttons flex-w w-full">
-					<a href="cartList.do"
-						class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-						장바구니로 </a> <a href="cartList.do?"
-						class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-						구매 </a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 
 <!-- Slider -->
 <section class="section-slide">
@@ -221,59 +181,18 @@
 			</div>
 		</div>
 	</div>
-
-
-	<!-- Cart -->
-	<div class="wrap-header-cart js-panel-cart">
-		<div class="s-full js-hide-cart"></div>
-		<div class="header-cart flex-col-l p-l-65 p-r-25">
-			<div class="header-cart-title flex-w flex-sb-m p-b-8">
-				<span class="mtext-103 cl2"> 장바구니 </span>
-				<div
-					class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-					<i class="zmdi zmdi-close"></i>
-				</div>
-			</div>
-			<div class="header-cart-content flex-w js-pscroll">
-				<ul class="header-cart-wrapitem w-full" id="cartList">
-					<%-- <li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/${item.productImg }" alt="IMG"> 이미지
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								${item.productName } </a> <span class="header-cart-item-info"> ${item.productPrice } </span>
-						</div>
-					</li> --%>
-				</ul>
-
-				<div class="w-full">
-					<div class="header-cart-total w-full p-tb-40"></div>
-					
-					<div class="header-cart-buttons flex-w w-full">
-					<form action="cartList.do?id=${logId }">
-						<button 
-						class="cartbtn flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">장바구니로 </button> 
-						<a href="cartList.do"
-							class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							구매 </a>
-					</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </div>
 <div class="ads bg0 p-t-80 p-b-50">
 
-</div>>
+</div>
 <!-- Product -->
-<section class="bg0 p-t-23 ">
+<section class="bg0 p-t-23">
 	<div class="container">
-		<div class="row isotope-grid product">
-			<c:forEach var="product" items="${products}">
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+
+		<div class="row product">
+			<c:forEach var="product" items="${products}" varStatus = "status">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women productMainImg ${status.index >= 8 ? 'hidden' : ''}">
+
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
@@ -304,56 +223,17 @@
 					</div>
 				</div>
 			</c:forEach>
+
+		</div>
+		<div class="flex-c-m flex-w w-full p-t-45">
+			<button class="loadmore flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04 m-b-12">
+				Load More
+			</button>
 		</div>
 	</div>
 
 </section>
 
-
-<nav aria-label="...">
-	<ul class="pagination" style="margin-top:50px;">
-		<c:choose>
-			<c:when test="${paging.prev }">
-				<li class="page-item">
-				<a class="page-link"
-					href="boardList.do?&page=${paging.startPage -1}">Previous</a>
-				</li>
-			</c:when>
-			<c:otherwise>
-				<li class="page-item disabled"><span class="page-link">Previous</span>
-				</li>
-			</c:otherwise>
-		</c:choose>
-
-		<c:forEach var="p" begin="${paging.startPage }" end="${paging.endPage }"
-			step="1">
-			<c:choose>
-				<c:when test="${paging.currentPage == p }">
-					<li class="page-item active" aria-current="page">
-						<a class="page-link" href="boardList.do?keyword=${empty keyword ? '' :keyword }&searchCondition=${empty searchCondition ? '' :searchCondition }&page=${p}">${p}</a>
-					</li>
-				</c:when>
-
-				<c:otherwise>
-					<li class="page-item">
-						<a class="page-link"href="boardList.do?keyword=${empty keyword ? '' :keyword }&searchCondition=${empty searchCondition ? '' :searchCondition }&page=${p}">${p}</a>
-					</li>
-				</c:otherwise>
-			</c:choose>
-		</c:forEach>
-
-		<c:choose>
-			<c:when test="${paging.next }">
-				<li class="page-item"><a class="page-link"
-					href="boardList.do?keyword=${empty keyword ? '' :keyword }&searchCondition=${empty searchCondition ? '' :searchCondition }&page=${paging.endPage +1}">Next</a></li>
-			</c:when>
-			<c:otherwise>
-				<li class="page-item disabled"><span class="page-link">Next</span>
-			</c:otherwise>
-		</c:choose>
-
-	</ul>
-</nav>
 <!-- Modal1 -->
 <div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
 	<div class="overlay-modal1 js-hide-modal1"></div>
@@ -451,34 +331,37 @@
 		class="zmdi zmdi-chevron-up"></i>
 	</span>
 </div>
+
+
+<script>
+document.querySelector(".loadmore").addEventListener('click', e => {
+    let hidden = document.querySelectorAll(".hidden");
+    let showCount = 8; 
+    let count = 0;
+    
+    hidden.forEach(item => {
+        if (count < showCount) {
+            item.classList.remove("hidden");
+            let asd = item
+            count++;
+        }
+    });
+	
+    if (document.querySelectorAll(".hidden").length == 0) {
+        document.querySelector(".loadmore").style.display = "none";
+    }
+})
+
+</script>
 <script>
 
-let id = "${member_id}";
-if (id == null || id == ""){
-	
-} else {
-	fetch('mainCart.do?id='+id)
-	  .then(result => result.json())
-	  .then(result => {
-		  result.forEach(item => {
-			  addCart(item);
-		  })
-	  })
-	  .catch(err => console.log(err))
-}
 
-function addCart(item){
-	let cartInfo = 
-	`<li class="header-cart-item flex-w flex-t m-b-12">
-		<div class="header-cart-item-img">
-			<img src="images/\${item.productImg }" alt="IMG">
-		</div>
 
-console.log(id)
 if (id == null || id == ""){
 	console.log("아이디 없음")
 }
 else{
+	console.log("아이디 있음")
     fetch('userFvItem.do?id='+id)
   	.then(result => result.json())
 	.then(result => {
@@ -499,16 +382,9 @@ else{
 	})
 	.catch(err => console.log(err));  
 }
-		<div class="header-cart-item-txt p-t-8">
-			<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-				\${item.productName } </a> <span class="header-cart-item-info"> \${item.productPrice }원 x \${item.productNum } = \${item.productPrice * item.productNum }원</span>
-		</div>
-	</li>`;
-	
-	document.getElementById('cartList')
-			.insertAdjacentHTML('beforeend', cartInfo);
-}
+
 </script>
+
 
 <script>
 
@@ -547,13 +423,6 @@ document.querySelectorAll(".js-show-modal1").forEach(element => {
 });
 </script>
 
-<!--===============================================================================================-->
-<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/bootstrap/js/popper.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
 <script src="vendor/select2/select2.min.js"></script>
 <script>
@@ -641,8 +510,6 @@ document.querySelectorAll(".js-show-modal1").forEach(element => {
 		
 		
 	</script>
-<!--===============================================================================================-->
-<script src="js/main.js"></script>
 <!--===============================================================================================-->
 
 

@@ -151,20 +151,7 @@
 		</div>
 		<!-- 장바구니 끝-->
 
-
-		<!-- 상태창 -->
-		<div class="container">
-			<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-				<a href="mainList.do" class="stext-109 cl8 hov-cl1 trans-04">
-					메인메뉴 <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
-				</a> <a href="productList.do" class="stext-109 cl8 hov-cl1 trans-04">
-					${product.category } <i class="fa fa-angle-right m-l-9 m-r-10"
-					aria-hidden="true"></i>
-				</a> <span class="stext-109 cl4"> ${product.productName }<!-- Lightweight Jacket -->
-				</span> 
-			</div>
-		</div>
-		<!-- 상태창 끝 -->
+		
 
 		<!-- 상품상세 -->
 		<section class="sec-product-detail bg0 p-t-65 p-b-60">
@@ -198,17 +185,19 @@
 
 							<h3><span class="mtext-106 cl2">상품가격: ${product.productPrice }</span></h3>
 							
+							
 							<h3><span class="mtext-106 cl2">상품설명: ${product.productDetail }</span></h3>
-
+							
 							<!-- 상품상세 끝 -->
 							<!-- 상품수량(plus,minus), 장바구니, 바로결재 -->
 							<div class="p-t-33">
 
 								<div class="flex-w flex-r-m p-b-10">
 									<div class="size-204 flex-w flex-m respon6-next">
+
 										<div>
 										<button
-											class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+											class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail insertcart">
 											장바구니</button>
 											<button
 											class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
@@ -471,7 +460,48 @@
 	  
 
 	  </script>
+      <script>
+      document.querySelector('.insertcart').addEventListener('click', e => {
+    	  console.log(e.target.parentElement.parentElement.children[1].getAttribute('pcode'));
+    	  
+    	  let pnum = e.target.parentElement.parentElement.children[0].children[1].value;
+    	  let memid = e.target.parentElement.parentElement.children[1].getAttribute('memid');
+    	  let pcode = e.target.parentElement.parentElement.children[1].getAttribute('pcode');
+    	  
+    	  console.log(pnum,pcode,memid)
+    	  
+    	  fetch('insertCart.do?pcode='+ pcode +'&memid='+memid+'&pnum='+pnum)
+    	  .then(result => result.json())
+    	  .then(result => {
+    		  console.log(result)
+    	  })
+    	  .catch(err => console.log(err))
+    	  
+    	  alert('장바구니 담기 성공!');
+      })
+      </script>
+      <script>
+      document.querySelector('.plusbtn').addEventListener('click', e => {
+    	    
+    	    let currentQty = e.target.parentElement.children[1].value;
+    	    
+    		e.target.parentElement.children[1].value = currentQty;			
+     		
+    		e.target.parentElement.children[1].value = parseInt(currentQty)+1
+    		
+  			})
+  			
+  	  document.querySelector('.minusbtn').addEventListener('click', e => {
+    	    
+    	    let currentQty = e.target.parentElement.children[1].value;
+    	    
+    		e.target.parentElement.children[1].value = currentQty;			
+     		if (currentQty > 1){
+    		e.target.parentElement.children[1].value = parseInt(currentQty)-1     			
+     		}
+    		
+  			})
+      </script>
 
-		<jsp:include page="../includes/footer.jsp"></jsp:include>
 </body>
 </html>

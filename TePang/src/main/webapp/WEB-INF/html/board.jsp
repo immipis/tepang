@@ -21,6 +21,11 @@
 			background-color: #f1f1f1;
 		
 		}
+		#title{
+			margin-bottom: 40px;
+			font-size: 20px;
+			font-weight: bold;
+		}
 	</style>
     
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -95,9 +100,7 @@
 						<a href="./boardList.do" class="flex-c-m trans-04 p-lr-25"> Board </a>
 
                     </c:otherwise>
-                    </c:choose>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a>
+                    </c:choose>					
 
 
 					</div>
@@ -140,34 +143,40 @@
 	</header>
 <!-- 헤더끝 -->
 <div id = "container">
-<h4>Board (board.jsp)</h4>
+<div id = "title">
+<p>문의 상세 보기<p>
+</div>
 <form action="modifyForm.do">
 	<input type="hidden" name="board_no" value="${reply_code}">
 <!--	<input type="hidden" name="searchCondition" value="${searchCondition}">
 	<input type="hidden" name="keyword" value="${keyword}">
 	<input type="hidden" name="page" value="${page}"> -->
-	<p>${dlist}</p>
+	
+	
 	<table class="table">
+	<c:forEach var="bvo" items="${dlist}">
 		<tr>
 			<th>No</th>
-			<td>${bvo.replyType}</td>
+			<td>${bvo.replyCode}</td>
 			<th>Writer</th>
 			<td>${bvo.memberId}</td>
 			<th>Date</th>
 			<td>${bvo.replyDate}</td>			
 		</tr>
-
+	</c:forEach>
+	<c:forEach var="bvo" items="${dlist}">  	
 		<tr>
 			<th>문의 내용</th>
-			<td><textarea rows="6" readonly class="form-control">${bvo.replyContent}</textarea></td>
-		</tr> 	
+			<td><textarea rows="6" readonly class="form-control">${ bvo.replyContent}</textarea></td>
+		</tr> 
+		</c:forEach>	
 	 	
 	 	<!-- 로그인상태  => 권한에 따라 활성화/비활성화.
-	 	 로그인 상태 아니면 => 권한 없음. --> 	
+	 	 로그인 상태 아니면 => 권한 없음. -->
 	 	<tr>	 	
 		 	<td colspan="4" align="center">
 		 	<c:choose>
-			 	<c:when test="${logId ne null && board.writer == logId}">
+			 	<c:when test="${member_id ne null && board.writer == logId}">
 			 		<input type="submit" class="btn btn-warning" value="수정화면" >
 			 	</c:when>
 			 	<c:otherwise>		 	
@@ -175,7 +184,7 @@
 			 	</c:otherwise>
 	 		</c:choose>
 	 		</td>
-	 	</tr>
+	 	</tr> 	
 	</table>
 </form>
 <!-- board.jsp 원래 있던 부분. -->
@@ -195,20 +204,20 @@
 		<!--<input type="text" id="reply" class="col-sm-7">
 		<button id="addBtn" class="col-sm-2 btn btn-primary"> 댓글등록 </button> -->
 	</div> <!-- 댓글등록 -->
+	<c:forEach var="bvo" items="${dlist}">
 	<div class="content">
-
+				
+				<span> ${bvo.replyAnswer eq null ? '답변을 잠시만 기다려주세요.' :  bvo.replyAnswer }</span>
 		
-				<span class="col-sm-2">writer : Tepang</span>
-
 		<ul class="list"></ul>
 	</div> <!-- 댓글목록 -->
-	<div class="footer">
+	</c:forEach>	
 	
 	<nav aria-label="Page navigation example">
   
 </nav>
 	
-	</div> <!-- 댓글paging -->
+	 <!-- 댓글paging -->
 </div>
 </div>
 <!-- 댓글 끝 -->
