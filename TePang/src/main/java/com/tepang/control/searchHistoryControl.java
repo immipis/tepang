@@ -23,9 +23,7 @@ public class searchHistoryControl implements Control {
         String id = req.getParameter("id");
         List<String> shis = tdao.searchHistory(id);
 
-  
-
-          Gson gson = new GsonBuilder().create();
+        Gson gson = new GsonBuilder().create();
         String json = gson.toJson(shis);
 
         resp.getWriter().write(json);

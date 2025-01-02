@@ -22,7 +22,6 @@ public class ProductListControl implements Control {
 		req.setAttribute("title", title);
 		req.setAttribute("searchText", searchText);
 		req.getRequestDispatcher("WEB-INF/html/productList.jsp").forward(req, resp);
-
 	}
 
 }
