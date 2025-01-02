@@ -52,130 +52,254 @@
 	<!-- Header -->
 	<header class="header-v4">
 		<!-- Header desktop -->
-			<div class="container-menu-desktop">
-				<!-- Topbar -->
-				<div class="top-bar">
-					<div class="content-topbar flex-sb-m h-full container">
-						<div class="left-top-bar">안녕하세요</div>
-						<div class="right-top-bar flex-w h-full">
+		<div class="container-menu-desktop">
+			<!-- Topbar -->
+			<div class="top-bar">
+				<div class="content-topbar flex-sb-m h-full container">
+					<div class="left-top-bar">안녕하세요</div>
+					<div class="right-top-bar flex-w h-full">
 
-							<c:choose>
-								<c:when test="${not empty member_id }">
-									<a class="flex-c-m trans-04 p-lr-25"> ${member_id }</a>
-									<a class="flex-c-m trans-04 p-lr-25" href="myPage.do">마이페이지</a>
-									<a class="flex-c-m trans-04 p-lr-25" href="tepanglogout.do">로그아웃</a>
-								</c:when>
-								<c:otherwise>
-									<a class="flex-c-m trans-04 p-lr-25" href="tepanglogin.do">로그인</a>
-									<a href="#" class="flex-c-m trans-04 p-lr-25"> Sign Up </a>
-								</c:otherwise>
-							</c:choose>
+						<c:choose>
+							<c:when test="${not empty member_id }">
+								<a class="flex-c-m trans-04 p-lr-25"> ${member_id }</a>
+								<a class="flex-c-m trans-04 p-lr-25" href="myPage.do">마이페이지</a>
+								<a class="flex-c-m trans-04 p-lr-25" href="tepanglogout.do">로그아웃</a>
+							</c:when>
+							<c:otherwise>
+								<a class="flex-c-m trans-04 p-lr-25" href="tepanglogin.do">로그인</a>
+								<a href="#" class="flex-c-m trans-04 p-lr-25"> Sign Up </a>
+							</c:otherwise>
+						</c:choose>
 
-							<a href="#" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a>
-						</div>
+						<a href="#" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a>
 					</div>
-				</div>
-
-				<div class="wrap-menu-desktop">
-					<nav class="limiter-menu-desktop container">
-
-						<!-- Logo desktop -->
-						<a href="mainList.do" class="logo"> <img
-							src="images/icons/logo-03.png" alt="IMG-LOGO">
-						</a>
-
-						<!-- Menu desktop -->
-						<div class="menu-desktop">
-							<input class="mtext-107 cl2 plh2 p-r-15 search-input" type="text"
-								name="search-product"></input>
-							<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
-								<i class="zmdi zmdi-search"></i>
-							</div>
-						</div>
-
-						<!-- Icon header -->
-						<div class="wrap-icon-header flex-w flex-r-m">
-							<div
-								class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
-								data-notify="4">
-								<i class="zmdi zmdi-shopping-cart"></i>
-							</div>
-
-							<a href="#"
-								class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
-								data-notify="9654"> <i class="zmdi zmdi-favorite-outline"></i>
-							</a>
-						</div>
-					</nav>
 				</div>
 			</div>
-		</header>
-		<header>
-			<!-- Header Mobile -->
-			<div class="wrap-header-mobile">
-				<!-- Logo moblie -->
-				<div class="logo-mobile">
-					<a href="index.html"><img src="images/icons/logo-01.png"
-						alt="IMG-LOGO"></a>
-				</div>
 
-				<!-- Icon header -->
-				<div class="wrap-icon-header flex-w flex-r-m m-r-15">
-					<div
-						class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
-						<i class="zmdi zmdi-search"></i>
-					</div>
+			<div class="wrap-menu-desktop">
+				<nav class="limiter-menu-desktop container">
 
-					<div
-						class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart"
-						data-notify="2">
-						<i class="zmdi zmdi-shopping-cart"></i>
-					</div>
-
-					<a href="#"
-						class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
-						data-notify="0"> <i class="zmdi zmdi-favorite-outline"></i>
+					<!-- Logo desktop -->
+					<a href="mainList.do" class="logo"> <img
+						src="images/icons/logo-03.png" alt="IMG-LOGO">
 					</a>
+
+					<!-- Menu desktop -->
+					<div class="menu-desktop">
+						<input class="mtext-107 cl2 plh2 p-r-15 search-input" type="text"
+							name="search-product"></input>
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
+							<i class="zmdi zmdi-search"></i>
+						</div>
+					</div>
+
+					<!-- Icon header -->
+					<div class="wrap-icon-header flex-w flex-r-m">
+						<div
+							class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
+							data-notify="4">
+							<i class="zmdi zmdi-shopping-cart"></i>
+						</div>
+
+						<a href="#"
+							class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
+							data-notify="9654"> <i class="zmdi zmdi-favorite-outline"></i>
+						</a>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<header>
+		<!-- Header Mobile -->
+		<div class="wrap-header-mobile">
+			<!-- Logo moblie -->
+			<div class="logo-mobile">
+				<a href="index.html"><img src="images/icons/logo-01.png"
+					alt="IMG-LOGO"></a>
+			</div>
+
+			<!-- Icon header -->
+			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+				<div
+					class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
+					<i class="zmdi zmdi-search"></i>
 				</div>
 
-				<!-- Button show menu -->
-				<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-					<span class="hamburger-box"> <span class="hamburger-inner"></span>
-					</span>
+				<div
+					class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart"
+					data-notify="2">
+					<i class="zmdi zmdi-shopping-cart"></i>
+				</div>
+
+				<a href="#"
+					class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
+					data-notify="0"> <i class="zmdi zmdi-favorite-outline"></i>
+				</a>
+			</div>
+
+			<!-- Button show menu -->
+			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+				<span class="hamburger-box"> <span class="hamburger-inner"></span>
+				</span>
+			</div>
+		</div>
+	</header>
+
+	<!-- 장바구니 -->
+	<div class="wrap-header-cart js-panel-cart"></div>
+	<!-- 장바구니 끝-->
+
+
+
+	<!-- 상품상세 -->
+	<section class="sec-product-detail bg0 p-t-65 p-b-60">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-lg-7 p-b-30">
+					<div class="p-l-25 p-r-30 p-lr-0-lg">
+						<div class="wrap-slick3 flex-sb flex-w">
+							<div class="wrap-slick3-dots"></div>
+							<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+							<div class="wrap-pic-w pos-relative">
+								<img src="images/${product.productImg }" alt="IMG-PRODUCT">
+
+								<a
+									class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
+									href="images/${product.productImg }"> <i
+									class="fa fa-expand"></i>
+								</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-		</header>
-
-		<!-- 장바구니 -->
-		<div class="wrap-header-cart js-panel-cart">
 		</div>
-		<!-- 장바구니 끝-->
 
-		
+		<div class="col-md-6 col-lg-5 p-b-30">
+			<div class="p-r-50 p-t-5 p-lr-0-lg">
+				<h4 class="mtext-105 cl2 js-name-detail p-b-14">상품이름:
+					${product.productName }</h4>
 
-		<!-- 상품상세 -->
-		<section class="sec-product-detail bg0 p-t-65 p-b-60">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-lg-7 p-b-30">
-						<div class="p-l-25 p-r-30 p-lr-0-lg">
-							<div class="wrap-slick3 flex-sb flex-w">
-								<div class="wrap-slick3-dots"></div>
-								<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+				<h3>
+					<span class="mtext-106 cl2">상품가격: ${product.productPrice }</span>
+				</h3>
+
+
+				<h3>
+					<span class="mtext-106 cl2">상품설명: ${product.productDetail }</span>
+				</h3>
+
+				<!-- 상품상세 끝 -->
+				<!-- 상품수량(plus,minus), 장바구니, 바로결재 -->
+				<div class="p-t-33">
+
+					<div class="flex-w flex-r-m p-b-10">
+						<div class="size-204 flex-w flex-m respon6-next">
+
+							<div>
+								<button
+									class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail insertcart">
+									장바구니</button>
+								<button
+									class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+									바로구매</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 상품수량, 장바구니, 바로결재 끝-->
+
+		<!--  -->
+		<div class="flex-w flex-m p-l-100 p-t-40 respon7">
+			<div class="flex-m bor9 p-r-10 m-r-11">
+				<a href="#"
+					class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100"
+					data-tooltip="Add to Wishlist"> <i class="zmdi zmdi-favorite"></i>
+				</a>
+			</div>
+
+			<a href="#"
+				class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
+				data-tooltip="Facebook"> <i class="fa fa-facebook"></i>
+			</a> <a href="#"
+				class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
+				data-tooltip="Twitter"> <i class="fa fa-twitter"></i>
+			</a> <a href="#"
+				class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
+				data-tooltip="Google Plus"> <i class="fa fa-google-plus"></i>
+			</a>
+		</div>
+
+		<!-- 상품상세(DetailImg사진 가져오기) 리뷰 창 -->
+		<div class="bor10 m-t-50 p-t-43 p-b-40">
+			<div class="tab01">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="nav-item p-b-10"><a class="nav-link active"
+						data-toggle="tab" href="#description" role="tab">상품상세</a></li>
+					<li class="nav-item p-b-10"><a class="nav-link"
+						data-toggle="tab" href="#reviews" role="tab">리뷰</a></li>
+				</ul>
+
+				<div class="tab-content p-t-43">
+					<div class="tab-pane fade show active" id="description"
+						role="tabpanel">
+						<div class="how-pos2 p-lr-15-md">
+							<p class="stext-102 cl6">
+							<div class="item-slick3"
+								data-thumb="images/${product.productImg }">
+								<div class="wrap-pic-w pos-relative">
+									<img src="images/${product.productImg }" alt="IMG-PRODUCT">
+								</div>
+							</div>
+
+							<div class="item-slick3"
+								data-thumb="images/${product.productImg }">
 								<div class="wrap-pic-w pos-relative">
 									<img src="images/${product.productImg }" alt="IMG-PRODUCT">
 
 									<a
 										class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-										href="images/${product.productImg }"> <i
+										href="images/product-detail-03.jpg"> <i
 										class="fa fa-expand"></i>
 									</a>
 								</div>
 							</div>
 						</div>
 					</div>
-					</div>
-					</div>
+					<div class="tab-pane fade show" id="reviews" role="tabpanel">
+						<!--리뷰작성 -->
+						<form class="w-full"
+							action="productDetail.do?pcode=${product.productCode }" method="post">
+							<h5 class="mtext-108 cl2 p-b-7">"${product.productName}의 리뷰를
+								작성하세요"</h5>
+
+
+							<div class="flex-w flex-m p-t-50 p-b-23" name=>
+								<span class="stext-102 cl3 m-r-16" name="rs"> 별점 </span> <span
+									class="wrap-rating fs-18 cl11 pointer"> <i
+									class="item-rating pointer zmdi zmdi-star-outline"></i> <i
+									class="item-rating pointer zmdi zmdi-star-outline"></i> <i
+									class="item-rating pointer zmdi zmdi-star-outline"></i> <i
+									class="item-rating pointer zmdi zmdi-star-outline"></i> <i
+									class="item-rating pointer zmdi zmdi-star-outline"></i> <input
+									class="dis-none" type="number" name="rating"></span>
+							</div>
+
+
+							<div class="row p-b-25">
+								<div class="col-sm-6 p-b-5">
+									<label class="stext-102 cl3" for="name">이름</label> <input
+										class="size-111 bor8 stext-102 cl2 p-lr-20" id="name"
+										type="text" name="name">
+								</div>
+								<div class="col-12 p-b-5">
+									<label class="stext-102 cl3" for="review">리뷰작성</label>
+									<textarea class="size-110 bor8 stext-102 cl2 p-lr-20 p-tb-10"
+										id="review" name="review"></textarea>
 
 					<div class="col-md-6 col-lg-5 p-b-30">
 						<div class="p-r-50 p-t-5 p-lr-0-lg">
@@ -228,111 +352,34 @@
 										data-tooltip="Add to Wishlist"> <i
 										class="zmdi zmdi-favorite"></i>
 									</a>
+
 								</div>
 
-								<a href="#"
-									class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-									data-tooltip="Facebook"> <i class="fa fa-facebook"></i>
-								</a> <a href="#"
-									class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-									data-tooltip="Twitter"> <i class="fa fa-twitter"></i>
-								</a> <a href="#"
-									class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-									data-tooltip="Google Plus"> <i class="fa fa-google-plus"></i>
-								</a>
 							</div>
-
-					<!-- 상품상세(DetailImg사진 가져오기) 리뷰 창 -->
-				<div class="bor10 m-t-50 p-t-43 p-b-40">
-					<div class="tab01">
-						<!-- Nav tabs -->
-						<ul class="nav nav-tabs" role="tablist">
-							<li class="nav-item p-b-10"><a class="nav-link active"
-								data-toggle="tab" href="#description" role="tab">상품상세</a></li>
-							<li class="nav-item p-b-10"><a class="nav-link"
-								data-toggle="tab" href="#reviews" role="tab">리뷰</a></li>
-						</ul>
-
-						<div class="tab-content p-t-43">
-							<div class="tab-pane fade show active" id="description"
-								role="tabpanel">
-								<div class="how-pos2 p-lr-15-md">
-									<p class="stext-102 cl6">
-									<div class="item-slick3"
-										data-thumb="images/${product.productImg }">
-										<div class="wrap-pic-w pos-relative">
-											<img src="images/${product.productImg }" alt="IMG-PRODUCT">
-										</div>
-									</div>
-
-									<div class="item-slick3"
-										data-thumb="images/${product.productImg }">
-										<div class="wrap-pic-w pos-relative">
-											<img src="images/${product.productImg }" alt="IMG-PRODUCT">
-
-											<a
-												class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-												href="images/product-detail-03.jpg"> <i
-												class="fa fa-expand"></i>
-											</a>
-										</div>
-									</div>
-								</div>
+							<button type="submit"
+								class="flex-c-m stext-101 cl0 size-112 bg7 bor11 hov-btn3 p-lr-15 trans-04 m-b-10 addReviews">
+								리뷰등록</button>
+							<div class="reviews">
+								<!-- 리뷰 내용 -->
 							</div>
-							<div class="tab-pane fade show" id="reviews"
-								role="tabpanel">
-								<!--리뷰작성 -->
-											<form class="w-full" action="addReview.do?pcode=${product.productCode }" method="post">
-												<h5 class="mtext-108 cl2 p-b-7">"${product.productName}의 리뷰를 작성하세요"</h5>
-
-											
-												<div class="flex-w flex-m p-t-50 p-b-23" name=>
-													<span class="stext-102 cl3 m-r-16" name="rs"> 별점 </span>
-													<span class="wrap-rating fs-18 cl11 pointer">
-													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
-													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
-													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
-													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
-													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
-													<input class="dis-none" type="number" name="rating"></span>
-												</div>
-
-												<div class="row p-b-25">
-													<div class="col-sm-6 p-b-5">
-														<label class="stext-102 cl3" for="name">이름</label> <input
-															class="size-111 bor8 stext-102 cl2 p-lr-20" id="name"
-															type="text" name="name">
-													</div>
-													<div class="col-12 p-b-5">
-														<label class="stext-102 cl3" for="review">리뷰작성</label>
-														<textarea
-															class="size-110 bor8 stext-102 cl2 p-lr-20 p-tb-10"
-															id="review" name="review"></textarea>
-													</div>
-
-												</div>
-												<button
-													class="flex-c-m stext-101 cl0 size-112 bg7 bor11 hov-btn3 p-lr-15 trans-04 m-b-10 addReviews">
-													리뷰등록</button>
-											<div class="reviews"><!-- 리뷰 내용 --></div>
-											</form>
-							</div>
-						</div>
+						</form>
 					</div>
 				</div>
-		</section>
+			</div>
+		</div>
+	</section>
 
-				<!-- 상품상세(DetailImg사진 가져오기) 리뷰 창  끝-->
-		<!--===============================================================================================-->
-		<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-		<!--===============================================================================================-->
-		<script src="vendor/animsition/js/animsition.min.js"></script>
-		<!--===============================================================================================-->
-		<script src="vendor/bootstrap/js/popper.js"></script>
-		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-		<!--===============================================================================================-->
-		<script src="vendor/select2/select2.min.js"></script>
-		<script>
+	<!-- 상품상세(DetailImg사진 가져오기) 리뷰 창  끝-->
+	<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<script>
 			$(".js-select2").each(function() {
 				$(this).select2({
 					minimumResultsForSearch : 20,
@@ -340,20 +387,20 @@
 				});
 			})
 		</script>
-		<!--===============================================================================================-->
-		<script src="vendor/daterangepicker/moment.min.js"></script>
-		<script src="vendor/daterangepicker/daterangepicker.js"></script>
-		<!--===============================================================================================-->
-		<script src="vendor/slick/slick.min.js"></script>
-		<script src="js/slick-custom.js"></script>
-		<!--===============================================================================================-->
-		<script src="vendor/parallax100/parallax100.js"></script>
-		<script>
+	<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/slick/slick.min.js"></script>
+	<script src="js/slick-custom.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/parallax100/parallax100.js"></script>
+	<script>
 			$('.parallax100').parallax100();
 		</script>
-		<!--===============================================================================================-->
-		<script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
-		<script>
+	<!--===============================================================================================-->
+	<script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+	<script>
 			$('.gallery-lb').each(function() { // the containers for all your galleries
 				$(this).magnificPopup({
 					delegate : 'a', // the selector for gallery item
@@ -365,11 +412,11 @@
 				});
 			});
 		</script>
-		<!--===============================================================================================-->
-		<script src="vendor/isotope/isotope.pkgd.min.js"></script>
-		<!--===============================================================================================-->
-		<script src="vendor/sweetalert/sweetalert.min.js"></script>
-		<script>
+	<!--===============================================================================================-->
+	<script src="vendor/isotope/isotope.pkgd.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/sweetalert/sweetalert.min.js"></script>
+	<script>
 			$('.js-addwish-b2, .js-addwish-detail').on('click', function(e) {
 				e.preventDefault();
 			});
@@ -416,9 +463,9 @@
 						});
 					});
 		</script>
-		<!--===============================================================================================-->
-		<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-		<script>
+	<!--===============================================================================================-->
+	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script>
 			$('.js-pscroll').each(function() {
 				$(this).css('position', 'relative');
 				$(this).css('overflow', 'hidden');
@@ -433,9 +480,9 @@
 				})
 			});
 		</script>
-		<!--===============================================================================================-->
-		<script src="js/main.js"></script>
-		<script>
+	<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	<script>
 	  fetch('review.do?pcode=${product.productCode}')
 	  	.then(result => result.json())
 	  	.then(result => {
@@ -449,7 +496,7 @@
 					<div class="size-207">
 					   <div class="flex-w flex-sb-m p-b-17">
 							<span class="mtext-107 cl2 p-r-20"> \${result[i].memberId } </span>
-								<span class="fs-18 cl11">
+								<span class="fs-18 cl11" value="\${result[i].replyStar}">
 									<i class="zmdi zmdi-star"></i>
 									<i class="zmdi zmdi-star"></i>
 									<i class="zmdi zmdi-star"></i>
@@ -459,6 +506,8 @@
 						</div>
 							<p class="stext-102 cl6">\${result[i].replyContent }</p>
 					  </div>
+					  <button id="btn-delete" type="button" class="btn btn-danger">
+							삭제</button>
 					</div>`);
 	  				
 	//  				<h5 id="result" class="card">\${result[i].memberId}</h5>
@@ -470,7 +519,7 @@
 	  
 
 	  </script>
-      <script>
+	<script>
       document.querySelector('.insertcart').addEventListener('click', e => {
     	  console.log(e.target.parentElement.parentElement.children[1].getAttribute('pcode'));
     	  
@@ -490,7 +539,7 @@
     	  alert('장바구니 담기 성공!');
       })
       </script>
-      <script>
+	<script>
       document.querySelector('.plusbtn').addEventListener('click', e => {
     	    
     	    let currentQty = e.target.parentElement.children[1].value;
