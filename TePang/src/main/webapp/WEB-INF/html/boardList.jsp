@@ -167,12 +167,10 @@
 			<p>
 				안녕하세요 테팡입니다.<br>상품에 대해 궁금한것이 있으면 문의주세요.
 			</p>
-		</div>
-		
-
+		</div>		
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">문의하기</button>
 		<c:choose>
         <c:when test="${not empty member_id }">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">문의하기</button>
 			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
 			  <div class="modal-dialog modal-dialog-centered modal-lg">
 			    <div class="modal-content">
@@ -189,9 +187,7 @@
 					          		<select name="reply_type" class="form-control">
 									<option value="">선택하세요.</option>
 									<option value="notice">문의</option>				
-									</select>
-					           <!--  <label for="recipient-name" class="col-form-label">Recipient:</label>
-					            <input type="text" class="form-control" id="recipient-name"> -->
+									</select>					 
 					          </div>
 					          <div class="mb-3">
 					            <label  for="message-text" class="col-form-label"  >무엇이 궁금하신가요?</label>
@@ -203,8 +199,7 @@
 						        <button type="submit" class="btn btn-primary">문의하기</button>
 						      </div>	     
 				      	 </form>
-				       </div>   	
-			             
+				       </div>      
 			       
 			    </div>
 			  </div>
@@ -212,10 +207,19 @@
 			<!-- 모달 끝 -->
 		</c:when>
 		<c:otherwise>
-			<c:out value="<script type='text/javascript'>alert('로그인 시 문의 가능 합니다.');</script>" escapeXml="false" />
+				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			  <div class="modal-dialog modal-dialog-centered modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <p>로그인 시 문의 가능합니다.</p>
+			        <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+			      </div>     
+			       
+			    </div>
+			  </div>
+			</div>
 		</c:otherwise>
-		</c:choose>
-		
+		</c:choose>	
 
 		<!--<button id="QABtn" class="col-sm-2 btn btn-primary"><a href="./board.do"> 문의하기</a></button>  --> 
 		
