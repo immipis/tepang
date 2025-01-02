@@ -15,5 +15,5 @@ public class BoardVO {
 	private Integer replyStar;
 	private String replyImg;
 	private String productCode;
-
+	private String productName;
 }

@@ -26,8 +26,8 @@ public class MyHeartListControl implements Control {
 		String type = req.getParameter("type");
 		type = (type == null ? "찜" : type);
 		
-		MyPageDAO mpdao = new MyPageDAO();
-		List<CartVO> clist = mpdao.selectMyHeart(type, mid);
+		//MyPageDAO mpdao = new MyPageDAO();
+		List<CartVO> clist = mpdo.selectMyHeart(type, mid);
 		
 		req.setAttribute("list", clist);
 		req.getRequestDispatcher("WEB-INF/html/myheartlist.jsp").forward(req, resp);	

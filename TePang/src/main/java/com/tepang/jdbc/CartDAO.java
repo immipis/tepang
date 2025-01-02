@@ -77,6 +77,38 @@ public class CartDAO extends DAO{
     	return false;
     }
     
+    public boolean insertLike(CartVO cvo) {
+    	getConn();
+    	String sql = "insert into tbl_cart (cart_num, product_code, member_id, cart_type)\r\n"
+    			+ "values('CA'||?, ?, ?, '찜')";
+    	try {
+    		
+    		psmt = conn.prepareStatement("select cart.nextval from dual");
+    		rs = psmt.executeQuery();
+    		String cno = "0";
+    		if (rs.next()) {
+    			cno = rs.getString(1);
+    			cvo.setCartNum(cno);
+    		}
+    		
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, cno);
+			psmt.setString(2, cvo.getProductCode());
+			psmt.setString(3, cvo.getMemberId());
+			
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+    	return false;
+    }
+    
     // 상품 갯수 수정
     public boolean updateCart(CartVO ucart) {
 		getConn();
@@ -108,7 +140,25 @@ public class CartDAO extends DAO{
     // 삭제
     public boolean deleteCart(String cartNum) {
 		getConn();
-		String sql ="delete from tbl_cart where cart_num = ?";
+		String sql ="delete from tbl_cart where cart_num = ? and cart_type = '장바구니'";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, cartNum);
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
+	}
+    
+    public boolean removeLike(String cartNum) {
+		getConn();
+		String sql ="delete from tbl_cart where cart_num = ? and cart_type = '찜'";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, cartNum);

@@ -116,7 +116,6 @@ let id = "${member_id}";
     .then(result => result.json())
     .then(result => {
         document.querySelector('.cartnum').setAttribute('data-notify',result);
-        document.querySelector('.likenum').setAttribute('data-notify',result);
         
     })
     .catch(err => console.log(err))
@@ -176,6 +175,9 @@ function addCart(item){
 }
 </script> 
 
+<script>
+let logId = "${logId }";
+</script>
 <script>
 document.querySelector(".searchBtn").addEventListener('click', e => {
     let searchText = e.target.parentElement.parentElement.children[0].children[0].value;

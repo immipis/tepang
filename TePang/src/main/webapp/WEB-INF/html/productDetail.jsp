@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <jsp:include page="../includes/header.jsp"></jsp:include>
 
 <!-- 상품상세 -->
@@ -24,6 +25,34 @@
 					</div>
 				</div>
 			</div>
+      <div class="tab-pane fade show" id="reviews" role="tabpanel">
+						<form class="w-full"
+							action="productDetail.do?pcode=${product.productCode }" method="post">
+							<h5 class="mtext-108 cl2 p-b-7">"${product.productName}의 리뷰를
+								작성하세요"</h5>
+
+
+							<div class="flex-w flex-m p-t-50 p-b-23" name=>
+								<span class="stext-102 cl3 m-r-16" name="rs"> 별점 </span> <span
+									class="wrap-rating fs-18 cl11 pointer"> <i
+									class="item-rating pointer zmdi zmdi-star-outline"></i> <i
+									class="item-rating pointer zmdi zmdi-star-outline"></i> <i
+									class="item-rating pointer zmdi zmdi-star-outline"></i> <i
+									class="item-rating pointer zmdi zmdi-star-outline"></i> <i
+									class="item-rating pointer zmdi zmdi-star-outline"></i> <input
+									class="dis-none" type="number" name="rating"></span>
+							</div>
+  <div class="row p-b-25">
+								<div class="col-sm-6 p-b-5">
+									<label class="stext-102 cl3" for="name">이름</label> <input
+										class="size-111 bor8 stext-102 cl2 p-lr-20" id="name"
+										type="text" name="name">
+								</div>
+								<div class="col-12 p-b-5">
+									<label class="stext-102 cl3" for="review">리뷰작성</label>
+									<textarea class="size-110 bor8 stext-102 cl2 p-lr-20 p-tb-10"
+										id="review" name="review"></textarea>
+
 			<div class="col-md-6 col-lg-5 p-b-30">
 				<div class="p-r-50 p-t-5 p-lr-0-lg">
 					<h1 class="mtext-105 cl2 js-name-detail p-b-14">${product.productName }</h1>
@@ -39,7 +68,10 @@
 
 					<!-- 상품상세 끝 -->
 					<!-- 상품수량(plus,minus), 장바구니, 바로결재 -->
-					<div class="p-t-33">
+					
+          
+          
+          <div class="p-t-33">
 
 						<div class="flex-w flex-r-m p-b-10">
 							<div class="size-204 flex-w flex-m respon6-next">
@@ -64,6 +96,9 @@
 									<button
 										class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
 										바로결제</button>
+                  <button
+											class="insertlike"><h2><i class="fa-solid fa-heart"></i></h2>
+									</button>
 								</div>
 							</div>
 						</div>
@@ -190,6 +225,7 @@
 <!--===============================================================================================-->
 <script src="vendor/select2/select2.min.js"></script>
 <script>
+
 			$(".js-select2").each(function() {
 				$(this).select2({
 					minimumResultsForSearch : 20,
@@ -197,6 +233,7 @@
 				});
 			})
 		</script>
+
 <!--===============================================================================================-->
 <script src="vendor/daterangepicker/moment.min.js"></script>
 <script src="vendor/daterangepicker/daterangepicker.js"></script>
@@ -211,6 +248,7 @@
 <!--===============================================================================================-->
 <script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
 <script>
+
 			$('.gallery-lb').each(function() { // the containers for all your galleries
 				$(this).magnificPopup({
 					delegate : 'a', // the selector for gallery item
@@ -222,11 +260,13 @@
 				});
 			});
 		</script>
+
 <!--===============================================================================================-->
 <script src="vendor/isotope/isotope.pkgd.min.js"></script>
 <!--===============================================================================================-->
 <script src="vendor/sweetalert/sweetalert.min.js"></script>
 <script>
+
 			$('.js-addwish-b2, .js-addwish-detail').on('click', function(e) {
 				e.preventDefault();
 			});
@@ -273,9 +313,11 @@
 						});
 					});
 		</script>
+
 <!--===============================================================================================-->
 <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <script>
+
 			$('.js-pscroll').each(function() {
 				$(this).css('position', 'relative');
 				$(this).css('overflow', 'hidden');
@@ -290,9 +332,11 @@
 				})
 			});
 		</script>
+
 <!--===============================================================================================-->
 <script src="js/main.js"></script>
 <script>
+
 	  fetch('review.do?pcode=${product.productCode}')
 	  	.then(result => result.json())
 	  	.then(result => {
@@ -306,7 +350,7 @@
 					<div class="size-207">
 					   <div class="flex-w flex-sb-m p-b-17">
 							<span class="mtext-107 cl2 p-r-20"> \${result[i].memberId } </span>
-								<span class="fs-18 cl11">
+								<span class="fs-18 cl11" value="\${result[i].replyStar}">
 									<i class="zmdi zmdi-star"></i>
 									<i class="zmdi zmdi-star"></i>
 									<i class="zmdi zmdi-star"></i>
@@ -316,6 +360,8 @@
 						</div>
 							<p class="stext-102 cl6">\${result[i].replyContent }</p>
 					  </div>
+					  <button id="btn-delete" type="button" class="btn btn-danger">
+							삭제</button>
 					</div>`);
 	  				
 	//  				<h5 id="result" class="card">\${result[i].memberId}</h5>
@@ -327,7 +373,9 @@
 	  
 
 	  </script>
+
 <script>
+
       document.querySelector('.insertcart').addEventListener('click', e => {
     	  console.log(e.target.parentElement.parentElement.children[1].getAttribute('pcode'));
     	  
@@ -347,7 +395,32 @@
     	  alert('장바구니 담기 성공!');
       })
       </script>
-<script>
+
+
+      <script>
+      document.querySelector('.insertlike').addEventListener('click', e => {
+    	  console.log(e.target.parentElement.parentElement.getAttribute('pcode'));
+    	  
+    	  let memid = e.target.parentElement.parentElement.parentElement.getAttribute('memid');
+    	  let pcode = e.target.parentElement.parentElement.parentElement.getAttribute('pcode');
+    	  
+    	  
+    	  fetch('insertLike.do?pcode='+ pcode +'&memid='+memid)
+    	  .then(result => result.json())
+    	  .then(result => {
+    		  console.log(result)
+    		  if(result.retCode == 'OK'){
+      			alert("찜 등록 완료!!");
+      		} else {
+      			alert("찜 등록 실패!!");
+      		}
+    	  })
+    	  .catch(err => console.log(err))
+    	  
+      })
+      </script>
+      <script>
+
       document.querySelector('.plusbtn').addEventListener('click', e => {
     	    
     	    let currentQty = e.target.parentElement.children[1].value;

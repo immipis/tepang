@@ -46,8 +46,9 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
 	integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
 	crossorigin="anonymous"></script>
-
+<script src="https://kit.fontawesome.com/a4d9e872af.js" crossorigin="anonymous"></script>
 <style>
+
 #container {
 	width: 1500px;
 	margin: 0 auto;
@@ -135,11 +136,14 @@ label {
 							data-notify="">
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</div>
-
-						<a href="#"
+						<form action="likeList.do?id=${logId }" >
+						<button
 							class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti likenum"
-							data-notify=""> <i class="zmdi zmdi-favorite-outline"></i>
-						</a>
+							data-notify=""> 
+							
+							<i class="zmdi zmdi-favorite-outline"></i>
+						</button>
+						</form>
 					</div>
 				</nav>
 			</div>
