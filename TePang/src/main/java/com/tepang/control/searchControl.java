@@ -27,7 +27,7 @@ public class searchControl implements Control {
 		String id = req.getParameter("id");
 
 		System.out.println(id);
-		boolean abc = tdao.addSearch(id, sText);
+		tdao.addSearch(id, sText);
 		List<MainVO> lvo = tdao.search(sText);
 		
 		

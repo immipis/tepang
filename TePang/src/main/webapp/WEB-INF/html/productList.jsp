@@ -89,8 +89,9 @@
 				fetch('searchHistory.do?id='+id)
 			      .then(result => result.json())
 			      .then(result => {
+			    	  document.querySelector('.searchHresult').innerText = "";
 			          result.forEach(item => {
-			              document.querySelector('.search-result').insertAdjacentHTML('beforeend', item+" ");
+			              document.querySelector('.searchHresult').insertAdjacentHTML('beforeend', item+" ");
 			          })
 			      })
 			      .catch(err => console.log(err))

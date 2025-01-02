@@ -118,6 +118,8 @@ label {
 					  <div class="menu-desktop">
                         <div class="search-result">
                             <input class="mtext-107 cl2 plh2 p-r-15 search-input" type="text" name="search-product" value="">
+                            <div class="searchHresult">
+                            </div>
                         </div>
 
                         <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
