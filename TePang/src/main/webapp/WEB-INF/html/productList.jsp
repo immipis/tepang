@@ -90,10 +90,12 @@
 			      .then(result => {
 			    	  document.querySelector('.searchHresult').innerText = "";
 			          result.forEach(item => {
+
 			        	  let html =`
 			        	  <a href='productList.do?searchText='\${item}>\${item}</a>
 			        	  `
 			              document.querySelector('.searchHresult').insertAdjacentHTML('beforeend', html);
+
 			          })
 			      })
 			      .catch(err => console.log(err))	
