@@ -16,35 +16,49 @@ public class ProductDetailControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
 		// ?pcode=C2
 		String pno = req.getParameter("pcode");
-		String name =req.getParameter("name");
-		String rating =req.getParameter("rating");
-		String review =req.getParameter("review");
 		
-		System.out.println(req.getParameter("name"));
+		ProductDAO bdao = new ProductDAO();
+		MainVO bvo = bdao.selectProduct(pno);
+		
+		req.setAttribute("product", bvo);
+		
+		
+		// ?pcode=C2종료
+
+
+		
+		String rg =req.getParameter("rating");
+		String ne =req.getParameter("name");
+		String rew =req.getParameter("review");
+		
+	if(ne!=null){		
+		System.out.println(ne);
 		
 		ProductDAO pdao = new ProductDAO();
 		
-		MainVO bvo = pdao.selectProduct(pno);
 		BoardVO bv = new BoardVO();
 		
-		bv.setMemberId(name);
-		bv.setReplyStar(Integer.parseInt(rating));
-		bv.setReplyContent(review);
+		bv.setReplyStar(Integer.parseInt(rg));
+		bv.setMemberId(ne);
+		bv.setReplyContent(rew);
+		bv.setProductCode(pno);
 		
-	//	ProductDAO pdao = new ProductDAO();
-		boolean Board = pdao.insertReply(bv);
-		req.setAttribute("product", bvo);
-		req.setAttribute("reply", Board);
+		boolean isSuccessed = pdao.insertReply(bv);
 		
-		if(Board) {
-			req.getRequestDispatcher("WEB-INF/html/tepangLogin.jsp").forward(req, resp);
-			
-		}else {
-			req.setAttribute("error","등록실패");
-			req.getRequestDispatcher("WEB-INF/html/productDetail.jsp").forward(req, resp);
-		}
+		req.setAttribute("result", isSuccessed);
+	}
+		
+		req.getRequestDispatcher("WEB-INF/html/productDetail.jsp").forward(req, resp);
+//		if(Board) {
+//			req.getRequestDispatcher("WEB-INF/html/productDetail.jsp").forward(req, resp);
+//			
+//		}else {
+//			req.setAttribute("error","등록실패");
+//			req.getRequestDispatcher("WEB-INF/html/productDetail.jsp").forward(req, resp);
+//		}
 
 
 	}

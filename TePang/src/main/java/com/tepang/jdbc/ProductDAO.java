@@ -4,7 +4,7 @@ package com.tepang.jdbc;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Date;
+
 import com.tepang.common.DAO;
 import com.tepang.common.SearchDTO;
 import com.tepang.vo.BoardVO;
@@ -286,32 +286,39 @@ public class ProductDAO extends DAO {
 		return false;
 	}
 
-	// BoardVO 파라미터 => 댓글 등록.
-		public boolean insertReply(BoardVO rvo) {
-			getConn();
-			String sql = "insert into tbl_reply " //
-					+ "(reply_code, member_id, reply_star, reply_content, product_code)" //
-					+ "values(reply_seq.nextval, ?, ?, ?, ?) ";
-
-			try {
-				psmt = conn.prepareStatement(sql);
-				psmt.setString(1, rvo.getMemberId());
-				psmt.setInt(2, rvo.getReplyStar());
-				psmt.setString(3, rvo.getReplyContent());
-				psmt.setString(4, rvo.getProductCode());
-
-				int r = psmt.executeUpdate(); // 쿼리실행.
-				if (r > 0) {
-					return true;
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				disConnect();
+	//댓글 등록
+	public boolean insertReply(BoardVO rvo) {
+		getConn();
+		String sql = "insert into tbl_reply (reply_code, member_id, reply_content, reply_star, product_code, reply_type)"
+				+ "				values(?, ?, ?, ?, ?, 'review')";
+		try {
+			psmt = conn.prepareStatement("select reply_seq.nextval from dual");
+			rs = psmt.executeQuery();// 쿼리실행.
+			String rno = ""; 
+			if (rs.next()) {
+				rno = rs.getString(1);
+				rvo.setReplyCode(rno);
 			}
-			return false;
-		}
+			/////////////////////////////////////////////////////////
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, rvo.getReplyCode());
+			psmt.setString(2, rvo.getMemberId());
+			psmt.setString(3, rvo.getReplyContent());
+			psmt.setInt(4, rvo.getReplyStar());
+			psmt.setString(5, rvo.getProductCode());
 
+			int r = psmt.executeUpdate(); // 쿼리실행.
+			if (r > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
+	}
 
 	//댓글건수반환.
 	public String selectReplyconut(String ReplyCode) {
