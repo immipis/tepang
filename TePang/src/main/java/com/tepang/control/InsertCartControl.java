@@ -25,6 +25,7 @@ public class InsertCartControl implements Control {
 		String pnum = req.getParameter("pnum");
 		
 		CartVO cvo = new CartVO();
+		
 		cvo.setProductCode(pcode);
 		cvo.setMemberId(memid);
 		cvo.setProductNum(Integer.parseInt(pnum));

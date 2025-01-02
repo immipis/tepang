@@ -166,8 +166,11 @@ label {
 							<button
 								class="cartbtn flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">장바구니로
 							</button>
-							<a href="cartList.do"
-								class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">구매</a>
+						</form>
+						<form action="payment.do?id=${logId }">
+							<button
+								class="cartbtn flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">구매하러가기
+							</button>						
 						</form>
 					</div>
 				</div>

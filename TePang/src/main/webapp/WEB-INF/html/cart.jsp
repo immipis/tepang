@@ -4,7 +4,7 @@
 <jsp:include page="../includes/header.jsp"></jsp:include>
 
 	<!-- Shoping Cart -->
-	<form action="cartList.do" class="bg0 p-t-75 p-b-85">
+	<form action="payment.do?id=${logId }" class="bg0 p-t-75 p-b-85">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
@@ -86,10 +86,9 @@
 								<span class="mtext-110 cl2"> </span>
 							</div>
 						</div>
-
-						<button
-							class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-							결제</button>
+							<button
+								class="cartbtn flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">구매하러가기
+							</button>						
 					</div>
 				</div>
 			</div>

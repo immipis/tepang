@@ -13,4 +13,9 @@ public class CartVO{
 		private int productNum;
 		private int productPrice;
         private int orderSum;
+        private String orderAdr;
+        private String orderName;
+        private String orderPhone;
+        private String orderRequest;
+        
 }
