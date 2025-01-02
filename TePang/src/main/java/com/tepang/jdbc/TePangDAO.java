@@ -159,13 +159,7 @@ public class TePangDAO extends DAO {
         return searchHistory;
     }
 
-	public List searchHistory(String id, String searchName) {
-		getConn();
-		String sql = "select member_id, search_name"
-				+ "  from tbl_search"
-				+ " where member_id = 'user01'"
-				+ " order by search_date desc";
-	}
+
 
 }
 
