@@ -109,7 +109,6 @@ public class TePangDAO extends DAO {
 		
 		String sql = "insert into tbl_search(member_id, search_name)"
 				+ "values (?, ?)";
-		
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
@@ -158,8 +157,5 @@ public class TePangDAO extends DAO {
 
         return searchHistory;
     }
-
-
-
 }
 

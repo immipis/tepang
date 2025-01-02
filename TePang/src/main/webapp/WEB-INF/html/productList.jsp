@@ -89,12 +89,17 @@
 				fetch('searchHistory.do?id='+id)
 			      .then(result => result.json())
 			      .then(result => {
+			    	  document.querySelector('.searchHresult').innerText = "";
 			          result.forEach(item => {
-			              document.querySelector('.search-result').insertAdjacentHTML('beforeend', item+" ");
+
+			        	  let html =`
+				        	  <a href='productList.do?searchText=\${item}'>\${item}</a>
+				        	  `
+			              document.querySelector('.searchHresult').insertAdjacentHTML('beforeend', html);
+
 			          })
 			      })
-			      .catch(err => console.log(err))
-				
+			      .catch(err => console.log(err))	
 			})
 			.catch(err => console.log(err));
 		document.querySelectorAll(".category").forEach(element => {
@@ -278,7 +283,6 @@ else{
 	fetch('search.do?searchText='+searchText+'&id='+id)
 		.then(result => result.json())
 		.then(result => {
-			console.log(result)
 			document.querySelector(".proList").innerHTML = '';
 			result.forEach(item => { 
 				let html = `

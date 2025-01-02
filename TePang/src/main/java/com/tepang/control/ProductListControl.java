@@ -18,11 +18,12 @@ public class ProductListControl implements Control {
 		
 		String title = req.getParameter("title");
 		String searchText = req.getParameter("searchText");
-
+		
+		System.out.println("searchTextsearchText"+searchText);
+		
 		req.setAttribute("title", title);
 		req.setAttribute("searchText", searchText);
 		req.getRequestDispatcher("WEB-INF/html/productList.jsp").forward(req, resp);
-
 	}
 
 }
