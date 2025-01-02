@@ -13,35 +13,35 @@ import com.tepang.vo.SingupVO;
 public class MyPageDAO extends DAO {
 	
 	// 기본 페이지 : 회원별 누적 구매 리스트
-public List<OrderVO> orderList(String memberId) {
+
+	public List<OrderVO> selectMyPriceList(String memberId){
 		getConn();
 		List<OrderVO> olist = new ArrayList<>();
-		String osql = " SELECT * "//
-				    + "   FROM tbl_order "//
-				    + "  WHERE member_id = ? ";//
-		try {
-			psmt = conn.prepareStatement(osql);
-			psmt.setString(1, memberId);
-			
-			rs = psmt.executeQuery();
+		String sql = "SELECT * "
+				   + "  FROM tbl_order "
+				   + " WHERE member_id = ? ";
 
-			while (rs.next()) {
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, memberId);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
 				OrderVO ovo = new OrderVO();
-				ovo.setCartNum(rs.getString("cart_num"));
-				ovo.setMemberId(rs.getString("member_id"));
-				ovo.setOrderContent(rs.getString("order_content"));
+				
+				ovo.setOrderNo(rs.getString("order_no"));
+				ovo.setOrderName(rs.getString("order_name"));
 				ovo.setOrderSum(rs.getInt("order_sum"));
+				ovo.setOrderDay(rs.getString("order_day"));
+				
 				olist.add(ovo);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disConnect();
-		}
-		return olist;
-		
+		} return olist;
 	}
-
+	
 // 마이페이지 상세 (개인정보)
 public SingupVO selectMember(String memberId) {
 	getConn();
@@ -233,9 +233,13 @@ public SingupVO selectMember(String memberId) {
 	public List<BoardVO> selectMyReview(String replyType, String memberId){
 		getConn();
 		List<BoardVO> rlist = new ArrayList<>();
-		String vql = " SELECT *"
-				   + "   FROM tbl_reply "
-				   + "  WHERE reply_type = ? "
+		String vql = " SELECT p.product_name, "
+				   + "        r.reply_code, "
+				   + "        r.reply_content, "
+				   + "        r.reply_date "
+				   + "   FROM tbl_reply r, tbl_product p "
+				   + "  WHERE r.product_code = p.product_code "
+				   + "    AND reply_type = ? "
 				   + "    AND member_id = ? ";
 		
 		try {
@@ -246,12 +250,10 @@ public SingupVO selectMember(String memberId) {
 			
 			while(rs.next()) {
 				BoardVO brd = new BoardVO();
+				brd.setProductName(rs.getString("product_name"));
 				brd.setReplyCode(rs.getString("reply_code"));
 				brd.setReplyContent(rs.getString("reply_content"));
-				brd.setReplyAnswer(rs.getString("reply_answer"));
-				brd.setMemberId(rs.getString("member_id"));
 				brd.setReplyDate(rs.getDate("reply_date"));
-				
 				rlist.add(brd);
 			}
 			
@@ -295,6 +297,10 @@ public SingupVO selectMember(String memberId) {
 			disConnect();
 		} return clist;
 	}
+	
+	
+	
+	// 찜 추가 
 	public boolean addHeart(CartVO cart) {
 		getConn();
 		String sql = " INSERT INTO tbl_cart(cart_num, product_code, member_id, cart_type) "// 
