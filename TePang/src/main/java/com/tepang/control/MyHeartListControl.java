@@ -30,7 +30,6 @@ public class MyHeartListControl implements Control {
 		List<CartVO> clist = mpdao.selectMyHeart(type, mid);
 		
 		req.setAttribute("list", clist);
-		System.out.println(clist);
 		req.getRequestDispatcher("WEB-INF/html/myheartlist.jsp").forward(req, resp);	
 
 	}
