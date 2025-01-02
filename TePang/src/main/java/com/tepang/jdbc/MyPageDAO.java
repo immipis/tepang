@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.tepang.common.DAO;
 import com.tepang.vo.BoardVO;
+import com.tepang.vo.CartVO;
 import com.tepang.vo.OrderVO;
 import com.tepang.vo.SingupVO;
 
@@ -260,5 +261,59 @@ public SingupVO selectMember(String memberId) {
 			disConnect();
 		}
 		return rlist;
+	}
+	// 내가 한 찜 목록 불러오기
+	public List<CartVO> selectMyHeart(String type, String mid){
+		getConn();
+		List<CartVO> clist = new ArrayList<>();
+		
+		String hql = "SELECT p.product_name, " //
+				   + "       p.product_price, " // 
+				   + "       p.product_img,  "// 
+				   + "       p.category "// 
+				   + "  FROM tbl_cart c, tbl_product p " // 
+				   + " WHERE c.product_code = p.product_code "//
+				   + "   AND cart_type = ? " // 
+				   + "   AND member_id = ? "; // 
+		try {
+			psmt = conn.prepareStatement(hql);
+			psmt.setString(1, type);
+			psmt.setString(2, mid);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				CartVO crt = new CartVO();
+				crt.setProductName(rs.getString("product_name"));
+				crt.setProductPrice(rs.getInt("product_price"));
+				crt.setProductImg(rs.getString("product_img"));
+				crt.setCategory(rs.getString("category"));
+				
+				clist.add(crt);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		} return clist;
+	}
+	public boolean addHeart(CartVO cart) {
+		getConn();
+		String sql = " INSERT INTO tbl_cart(cart_num, product_code, member_id, cart_type) "// 
+				   + " VALUES (?, ?, ?, ?)";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, cart.getCartNum());
+			psmt.setString(2, cart.getProductCode());
+			psmt.setString(3, cart.getMemberId());
+			psmt.setString(4, cart.getCartType());
+			int r = psmt.executeUpdate();
+			if(r > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
 	}
 }
