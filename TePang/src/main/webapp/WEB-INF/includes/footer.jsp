@@ -109,7 +109,7 @@
 </body>
 </html>
 <script>
-	let id = "${member_id}";
+let id = "${member_id}";
 </script>
 <script>
 if (id == null || id == ""){
@@ -128,8 +128,6 @@ if (id == null || id == ""){
 	          })
 	      })
 	      .catch(err => console.log(err))
-	    
-	    `<a href="productList.do?searchText="+searchText>`
 	    
 	fetch('mainCart.do?id='+id)
 	  .then(result => result.json())
