@@ -210,14 +210,8 @@
 									${product.productPrice}원</span>
 							</div>
 
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#"
-									class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04"
-									src="images/icons/icon-heart-01.png" alt="ICON"> <img
-									class="icon-heart2 dis-block trans-04 ab-t-l"
-									src="images/icons/icon-heart-02.png" alt="ICON">
-								</a>
+							<div>	
+							  <button class="insertlike" pcode=${product.productCode }><i class="fa-solid fa-heart"></i></button>
 							</div>
 						</div>
 					</div>
@@ -422,7 +416,34 @@ document.querySelectorAll(".js-show-modal1").forEach(element => {
     });
 });
 </script>
+<script>
+document.querySelectorAll('.insertlike').forEach(item => {
+	item.addEventListener('click', e => {
+		console.log(e.target.parentElement.getAttribute('pcode'));
+		console.log(id);
+	  let memid = id;
+	  let pcode = e.target.parentElement.getAttribute('pcode');
+		
+	  fetch('insertLike.do?pcode='+ pcode +'&memid='+memid)
+	  .then(result => result.json())
+	  .then(result => {
+		  console.log(result)
+		  if(result.retCode == 'OK'){
+			alert("찜 등록 완료!!");
+		} else {
+			alert("찜 등록 실패!!");
+		}
+	  })
+	  .catch(err => console.log(err))
+				
+	})
+})
+	  
+	  
+	  
+	  
 
+</script>
 <!--===============================================================================================-->
 <script src="vendor/select2/select2.min.js"></script>
 <script>
