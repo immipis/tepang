@@ -121,8 +121,8 @@ if (id == null || id == ""){
 	          result.forEach(item => {
 
 	        	  let html =`
-	        	  <a href='productList.do?searchText='\${item}>\${item}</a>
-	        	  `
+		        	  <a href='productList.do?searchText=\${item}'>\${item}</a>
+		        	  `
 	              document.querySelector('.searchHresult').insertAdjacentHTML('beforeend', html);
 
 	          })

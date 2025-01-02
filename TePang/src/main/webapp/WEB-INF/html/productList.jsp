@@ -85,6 +85,7 @@
 					`
 					document.querySelector(".proList").innerHTML += html;
 				})//
+				
 				fetch('searchHistory.do?id='+id)
 			      .then(result => result.json())
 			      .then(result => {
@@ -92,8 +93,8 @@
 			          result.forEach(item => {
 
 			        	  let html =`
-			        	  <a href='productList.do?searchText='\${item}>\${item}</a>
-			        	  `
+				        	  <a href='productList.do?searchText=\${item}'>\${item}</a>
+				        	  `
 			              document.querySelector('.searchHresult').insertAdjacentHTML('beforeend', html);
 
 			          })
