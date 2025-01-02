@@ -19,6 +19,7 @@ public class CartVO{
         private String orderName;
         private String orderPhone;
         private String orderRequest;
+        private String orderNo;
         
 
 }
