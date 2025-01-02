@@ -144,6 +144,58 @@ public class CartDAO extends DAO{
     	return false;
     }
     
+    public int Count(String memberId) {
+    	getConn();
+    	int a = 0;
+    	String sql = "select COUNT(*) as cnt\r\n"
+    			+ "FROM tbl_cart\r\n"
+    			+ "where member_id = ?"
+    			+ "and cart_type = '장바구니'";
+    	try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, memberId);
+			
+			rs = psmt.executeQuery();
+			
+		
+			while (rs.next()) {
+				a = rs.getInt("cnt");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+    	return a;
+    } 
+    
+    public int likeCount(String memberId) {
+    	getConn();
+    	int a = 0;
+    	String sql = "select COUNT(*) as cnt\r\n"
+    			+ "FROM tbl_cart\r\n"
+    			+ "where member_id = ?"
+    			+ "and cart_type = '찜'";
+    	try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, memberId);
+			
+			rs = psmt.executeQuery();
+			
+		
+			while (rs.next()) {
+				a = rs.getInt("cnt");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+    	return a;
+    } 
+    
     public boolean insertOrder(CartVO cvo) {
     	getConn();
     	String sql = "insert into tbl_order (cart_num, order_adr, order_name, order_phone, order_request, order_sum, member_id, order_no)\r\n"
