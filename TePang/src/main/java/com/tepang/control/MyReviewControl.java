@@ -30,10 +30,9 @@ public class MyReviewControl implements Control {
 		type = (type == null ? "review" : type);
 		
 		MyPageDAO mpdao = new MyPageDAO();
-		List<BoardVO> list = mpdao.selectMyReply(type, mid);
+		List<BoardVO> list = mpdao.selectMyReview(type, mid);
 		
 		req.setAttribute("list", list);
-		System.out.println(list);
 		req.getRequestDispatcher("WEB-INF/html/myReview.jsp").forward(req, resp);
 	}
 

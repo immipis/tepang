@@ -19,7 +19,7 @@ public class MyPageListControl implements Control {
 		id = id == null ? "1" : id;
 		
 		MyPageDAO mpdo = new MyPageDAO();
-		List<OrderVO> olist = mpdo.orderList(id);
+		List<OrderVO> olist = mpdo.selectMyPriceList(id);
 		
 		req.setAttribute("list", olist);
 		req.getRequestDispatcher("WEB-INF/html/myPage.jsp");

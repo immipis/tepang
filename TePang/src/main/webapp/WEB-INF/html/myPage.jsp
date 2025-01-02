@@ -43,6 +43,10 @@
 .notice>ul>li {
 	margin: 10px;
 }
+.pimg{
+	width: 50px;
+	height: 50px;
+}
 </style>
 <jsp:include page="../includes/header.jsp"></jsp:include>
 <!-- 왼쪽 사이드 메뉴 -->
@@ -55,7 +59,7 @@
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myPage.do">구매목록</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myReply.do">내가 쓴 문의</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myReview.do">내가 쓴 리뷰</a> 
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myHeartList.do">찜 목록(미완)</a> 
+						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myHeartList.do">찜 목록</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myInfo.do">내 정보 수정</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myInfoDeletePage.do">회원탈퇴</a> 
 			</div>
@@ -63,26 +67,35 @@
 		<!-- Page content wrapper-->
 		<!-- <div id="page-content-wrapper"> -->
 		<!-- Top navigation-->
-		<div class="content">
-			<h2>구매목록</h2>
-			<br>
-			<p>
-				<strong>${member_id} 님의 구매 리스트</strong><br>
-			</p>
-
-			<br>
-			<div class="notice">
-				<ul>
-					<li><h4>회원탈퇴 전, 유의사항을 확인해 주시기 바랍니다.</h4></li>
-					<li>1) 회원탈퇴 시 회원전용 웹 서비스 이용이 불가합니다.</li>
-					<li>2) 이미 결제가 완료된 건은 탈퇴로 취소되지 않습니다.</li>
-					<li>3) 고객 정보 및 서비스 이용 기록은 개인정보 보호 처리 방침 기준에 따라 삭제됩니다.</li>
-					<li>4) 회원 탈퇴 시 보유하고 계신 적립금은 회원 정보에 등록된 계좌로 3 ~ 7 영업일 이내에 자동
-						이체됩니다.</li>
-				</ul>
-			</div>
-
-	</div>
+				<div class="content">
+				<h2>구매목록</h2>		
+				<div id="title">
+			<p>${member_id} 님이 구매하신 상품 리스트입니다.</p>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>주문번호</th>
+						<th>받는 사람 이름</th>
+						<th>상품 가격</th>
+						<th>구매 날짜</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="bvo" items="${list}">
+					<tr>
+						<td><c:out value="${bvo.orderNo}" /></td>
+						<td align="center">
+						${bvo.orderName}
+						</td>
+						<td>${bvo.orderSum} 원</td>
+						<td>${bvo.orderDay}</td>
+					</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+		
+		</div>
 			
 		</div>
 </div>

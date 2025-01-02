@@ -33,7 +33,6 @@ public class MyReplyControl implements Control {
 		List<BoardVO> list = mpdao.selectMyReply(type, mid);
 		
 		req.setAttribute("list", list);
-		System.out.println(list);
 		req.getRequestDispatcher("WEB-INF/html/myReply.jsp").forward(req, resp);	// 화면 띄우기 
 	}
 

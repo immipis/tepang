@@ -144,12 +144,11 @@
 <!-- 헤더끝 -->
 <div id = "container">
 <div id = "title">
-<p>문의 상세 보기<p>
+<p>문의 수정<p>
 </div>
-<form action="modifyForm.do">
-	<c:forEach var="bvo" items="${dlist}">
-	<input type="hidden" name="replyCode" value="${bvo.replyCode }">
-	</c:forEach>
+
+<form action="modifyBoard.do" method="POST">
+	<input type="hidden" name="reply_code" value="${reply_code}">
 <!--	<input type="hidden" name="searchCondition" value="${searchCondition}">
 	<input type="hidden" name="keyword" value="${keyword}">
 	<input type="hidden" name="page" value="${page}"> -->
@@ -169,7 +168,7 @@
 	<c:forEach var="bvo" items="${dlist}">  	
 		<tr>
 			<th>문의 내용</th>
-			<td><textarea rows="6" readonly class="form-control">${ bvo.replyContent}</textarea></td>
+			<td><textarea rows="6" class="form-control" name="reply_content">${ bvo.replyContent}</textarea></td>
 		</tr> 
 		</c:forEach>	
 	 	
@@ -177,21 +176,16 @@
 	 	 로그인 상태 아니면 => 권한 없음. -->
 	 	<tr>	 	
 		 	<td colspan="4" align="center">
-		 	<c:choose>
-			 	<c:when test="${member_id ne null && board.writer == member_id}">
-			 		<input type="submit" class="btn btn-warning" value="수정화면" >
-			 	</c:when>
-			 	<c:otherwise>		 	
-			 		<input type="submit" class="btn btn-warning" value="수정화면">
-			 	</c:otherwise>
-	 		</c:choose>
+		
+			 		<input type="submit" class="btn btn-dark" value="저장" >
+
+		
 	 		</td>
 	 	</tr> 	
 	</table>
 </form>
-<!-- board.jsp 원래 있던 부분. -->
 
-<!-- 댓글 시작 -->
+
 <style>
 	div.reply .content ul {
 		list-style-type: none;
@@ -200,33 +194,9 @@
 		display: inline-block;
 }
 </style>
-<div class="reply">
-	<div class="header">
-		<b> re.답변 : </b>
-		<!--<input type="text" id="reply" class="col-sm-7">
-		<button id="addBtn" class="col-sm-2 btn btn-primary"> 댓글등록 </button> -->
-	</div> <!-- 댓글등록 -->
-	<c:forEach var="bvo" items="${dlist}">
-	<div class="content">
-				
-				<span> ${bvo.replyAnswer eq null ? '답변을 잠시만 기다려주세요.' :  bvo.replyAnswer }</span>
-		
-		<ul class="list"></ul>
-	</div> <!-- 댓글목록 -->
-	</c:forEach>	
-	
-	<nav aria-label="Page navigation example">
-  
-</nav>
-	
-	 <!-- 댓글paging -->
 </div>
-</div>
-<!-- 댓글 끝 -->
-<script>
- let bno = "${board.boardNo}";
- let logId = "${logId}";
-</script>
+
+
 <script src="js/board.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
