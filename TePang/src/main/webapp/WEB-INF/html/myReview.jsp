@@ -34,27 +34,27 @@
 			</div>
 		</div>
 		<div class="content">
-				<h2>나의 찜목록</h2>		
+				<h2>내가 쓴 리뷰</h2>		
 				<div id="title">
-			<p>${member_id} 님의 찜목록입니다.</p>
+			<p>${member_id} 님이 작성하신 리뷰 리스트입니다.</p>
 			<table class="table">
 				<thead>
 					<tr>
-						<th>상품이름</th>
-						<th>상품이미지</th>
-						<th>가격</th>
-						<th>카테고리</th>
+						<th>No</th>
+						<th>Title</th>
+						<th>Writer</th>
+						<th>Date</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach var="bvo" items="${list}">
 					<tr>
 						<td align="center">
-						${bvo.productName}
+						${bvo.replyCode}
 						</td>
-						<td><c:out value="${bvo.productImg}" /></td>
-						<td><c:out value="${bvo.productPrice}" />원</td>
-						<td>${bvo.category}</td>
+						<td><c:out value="${bvo.replyContent}" /></td>
+						<td><c:out value="${bvo.memberId}" /></td>
+						<td>${bvo.replyDate}</td>
 					</tr>
 					</c:forEach>
 				</tbody>

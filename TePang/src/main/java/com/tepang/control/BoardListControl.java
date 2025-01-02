@@ -22,8 +22,10 @@ public class BoardListControl implements Control {
 		
 		resp.setContentType("text/html;charset=utf-8"); //문자열
 		
-		String type = req.getParameter("type");
+		String type = req.getParameter("type");		
 		String page = req.getParameter("page");
+		
+		
 		page = (page == null ? "1" : page);
 		type = (type == null ? "notice" : type);
 
@@ -33,7 +35,8 @@ public class BoardListControl implements Control {
 		
 		
 		req.setAttribute("list", list);
-
+		
+		System.out.println(list);
 		req.getRequestDispatcher("WEB-INF/html/boardList.jsp").forward(req, resp);
 	}
 
