@@ -297,8 +297,8 @@ public class ProductDAO extends DAO {
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, rvo.getMemberId());
 				psmt.setInt(2, rvo.getReplyStar());
-				psmt.setString(1, rvo.getReplyContent());
-				psmt.setString(3, rvo.getProductCode());
+				psmt.setString(3, rvo.getReplyContent());
+				psmt.setString(4, rvo.getProductCode());
 
 				int r = psmt.executeUpdate(); // 쿼리실행.
 				if (r > 0) {

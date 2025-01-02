@@ -272,7 +272,7 @@
 							<div class="tab-pane fade show" id="reviews"
 								role="tabpanel">
 								<!--리뷰작성 -->
-											<form class="w-full" action="addReview.do?pcode=${product.productCode }" method="post">
+											<form class="w-full" action="productDetail.do?pcode=${product.productCode }" method="post">
 												<h5 class="mtext-108 cl2 p-b-7">"${product.productName}의 리뷰를 작성하세요"</h5>
 
 											
@@ -304,7 +304,9 @@
 												<button
 													class="flex-c-m stext-101 cl0 size-112 bg7 bor11 hov-btn3 p-lr-15 trans-04 m-b-10 addReviews">
 													리뷰등록</button>
-											<div class="reviews"><!-- 리뷰 내용 --></div>
+											<div class="reviews"><!-- 리뷰 내용 -->
+											
+											</div>
 											</form>
 							</div>
 						</div>
