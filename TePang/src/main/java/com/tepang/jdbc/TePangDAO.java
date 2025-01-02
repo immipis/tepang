@@ -109,7 +109,6 @@ public class TePangDAO extends DAO {
 		
 		String sql = "insert into tbl_search(member_id, search_name)"
 				+ "values (?, ?)";
-		
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
@@ -158,14 +157,6 @@ public class TePangDAO extends DAO {
 
         return searchHistory;
     }
-
-	public List searchHistory(String id, String searchName) {
-		getConn();
-		String sql = "select member_id, search_name"
-				+ "  from tbl_search"
-				+ " where member_id = 'user01'"
-				+ " order by search_date desc";
-	}
 
 }
 
