@@ -28,7 +28,7 @@
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myPage.do">구매목록</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myReply.do">내가 쓴 문의</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myReview.do">내가 쓴 리뷰</a> 
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myHeartList.do">찜 목록(미완)</a> 
+						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myHeartList.do">찜 목록</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myInfo.do">내 정보 수정</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myInfoDeletePage.do">회원탈퇴</a> 
 			</div>
@@ -40,20 +40,20 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th>No</th>
-						<th>Title</th>
-						<th>Writer</th>
-						<th>Date</th>
+						<th>상품이름</th>
+						<th>리뷰번호</th>
+						<th>리뷰내용</th>
+						<th>리뷰날짜</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach var="bvo" items="${list}">
 					<tr>
 						<td align="center">
-						${bvo.replyCode}
+						${bvo.productName}
 						</td>
+						<td><c:out value="${bvo.replyCode}" /></td>
 						<td><c:out value="${bvo.replyContent}" /></td>
-						<td><c:out value="${bvo.memberId}" /></td>
 						<td>${bvo.replyDate}</td>
 					</tr>
 					</c:forEach>

@@ -16,6 +16,17 @@
 .content{
 	margin-left: 70px;	
 }
+.pimg{
+	width: 300px;
+	height: 300px;
+	margin-bottom: 20px;
+}
+.product{
+	display: inline-block;
+}
+.product2{
+	display: inline-block;
+}
 </style>
 
 <jsp:include page="../includes/header.jsp"></jsp:include>
@@ -28,7 +39,7 @@
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myPage.do">구매목록</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myReply.do">내가 쓴 문의</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myReview.do">내가 쓴 리뷰</a> 
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myHeartList.do">찜 목록(미완)</a> 
+						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myHeartList.do">찜 목록</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myInfo.do">내 정보 수정</a> 
 						<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myInfoDeletePage.do">회원탈퇴</a> 
 			</div>
@@ -37,30 +48,22 @@
 				<h2>나의 찜목록</h2>		
 				<div id="title">
 			<p>${member_id} 님의 찜목록입니다.</p>
-			<table class="table">
-				<thead>
-					<tr>
-						<th>상품이름</th>
-						<th>상품이미지</th>
-						<th>가격</th>
-						<th>카테고리</th>
-					</tr>
-				</thead>
-				<tbody>
+				<div class="product">
+				<c:forEach var="bvo" items="${list}">
+						<img src = "<c:url value="/images/${bvo.productImg}"/>" class = "pimg">
+						</c:forEach>
+				</div>
+				<div class="product2">
 					<c:forEach var="bvo" items="${list}">
-					<tr>
-						<td align="center">
-						${bvo.productName}
-						</td>
-						<td><c:out value="${bvo.productImg}" /></td>
-						<td><c:out value="${bvo.productPrice}" />원</td>
-						<td>${bvo.category}</td>
-					</tr>
+					<ul>
+							<li>상품이름 : ${bvo.productName}</li>
+							<li>가격 : <c:out value="${bvo.productPrice}" />원</li>
+							<li>카테고리 : ${bvo.category}</li>
+					</ul>
+
 					</c:forEach>
-				</tbody>
-			</table>
+				</div>
 		</div>
-		
 		</div>
 	</div>
 </div>

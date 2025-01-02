@@ -289,23 +289,29 @@ public class ProductDAO extends DAO {
 	//댓글 등록
 	public boolean insertReply(BoardVO rvo) {
 		getConn();
-		String sql = "insert into tbl_reply *reply_code, member_id, reply_content, reply_date, reply_img, reply_star, reply_type, reply_answer, product_code)"
-				+ "				values(?, ?, ?, ?)";
+		String sql = "insert into tbl_reply (reply_code, member_id, reply_content, reply_star, product_code, reply_type)"
+				+ "				values(?, ?, ?, ?, ?, 'review')";
 		try {
 			psmt = conn.prepareStatement("select reply_seq.nextval from dual");
-			rs = psmt.executeQuery();
-			String rno = ""; // 쿼리실행.
+			rs = psmt.executeQuery();// 쿼리실행.
+			String rno = ""; 
 			if (rs.next()) {
 				rno = rs.getString(1);
-				rvo.setProductCode(rno);
+				rvo.setReplyCode(rno);
 			}
-
+			/////////////////////////////////////////////////////////
+			
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, rno);
-			psmt.setString(2, rvo.getReplyContent());
-			psmt.setString(3, rvo.getMemberId());
-			psmt.setString(4, rvo.getReplyCode());
+			psmt.setString(1, rvo.getReplyCode());
+			psmt.setString(2, rvo.getMemberId());
+			psmt.setString(3, rvo.getReplyContent());
+			psmt.setInt(4, rvo.getReplyStar());
+			psmt.setString(5, rvo.getProductCode());
 
+			int r = psmt.executeUpdate(); // 쿼리실행.
+			if (r > 0) {
+				return true;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

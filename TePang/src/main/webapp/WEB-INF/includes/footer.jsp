@@ -109,7 +109,9 @@
 </body>
 </html>
 <script>
-	let id = "${member_id}";
+
+let id = "${member_id}";
+
     fetch('cartCount.do?id='+id)
     .then(result => result.json())
     .then(result => {
@@ -145,7 +147,6 @@ if (id == null || id == ""){
 	          })
 	      })
 	      .catch(err => console.log(err))
-	    	    
 	fetch('mainCart.do?id='+id)
 	  .then(result => result.json())
 	  .then(result => {
