@@ -1,227 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Product Detail</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-<link rel="icon" type="image/png" href="images/icons/favicon.png" />
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css"
-	href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css"
-	href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css"
-	href="fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css"
-	href="fonts/linearicons-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css"
-	href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css"
-	href="vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css"
-	href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css"
-	href="vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css"
-	href="vendor/MagnificPopup/magnific-popup.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css"
-	href="vendor/perfect-scrollbar/perfect-scrollbar.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="css/util.css">
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
-</head>
-<body class="animsition">
-	<!-- Header -->
-	<header class="header-v4">
-		<!-- Header desktop -->
-		<header>
-			<!-- Header desktop -->
-			<div class="container-menu-desktop">
-				<!-- Topbar -->
-				<div class="top-bar">
-					<div class="content-topbar flex-sb-m h-full container">
-						<div class="left-top-bar">안녕하세요</div>
-						<div class="right-top-bar flex-w h-full">
-
-							<c:choose>
-								<c:when test="${not empty member_id }">
-									<a class="flex-c-m trans-04 p-lr-25"> ${member_id }</a>
-									<a class="flex-c-m trans-04 p-lr-25" href="myPage.do">마이페이지</a>
-									<a class="flex-c-m trans-04 p-lr-25" href="tepanglogout.do">로그아웃</a>
-								</c:when>
-								<c:otherwise>
-									<a class="flex-c-m trans-04 p-lr-25" href="tepanglogin.do">로그인</a>
-									<a href="#" class="flex-c-m trans-04 p-lr-25"> Sign Up </a>
-								</c:otherwise>
-							</c:choose>
-
-							<a href="#" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a>
-						</div>
-					</div>
-				</div>
-
-				<div class="wrap-menu-desktop">
-					<nav class="limiter-menu-desktop container">
-
-						<!-- Logo desktop -->
-						<a href="mainList.do" class="logo"> <img
-							src="images/icons/logo-03.png" alt="IMG-LOGO">
-						</a>
-
-						<!-- Menu desktop -->
-						<div class="menu-desktop">
-							<input class="mtext-107 cl2 plh2 p-r-15 search-input" type="text"
-								name="search-product"></input>
-							<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
-								<i class="zmdi zmdi-search"></i>
-							</div>
-						</div>
-
-						<!-- Icon header -->
-						<div class="wrap-icon-header flex-w flex-r-m">
-							<div
-								class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
-								data-notify="4">
-								<i class="zmdi zmdi-shopping-cart"></i>
-							</div>
-
-							<a href="#"
-								class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
-								data-notify="9654"> <i class="zmdi zmdi-favorite-outline"></i>
-							</a>
-						</div>
-					</nav>
-				</div>
-			</div>
-		</header>
-		</header>
-		<header>
-			<!-- Header Mobile -->
-			<div class="wrap-header-mobile">
-				<!-- Logo moblie -->
-				<div class="logo-mobile">
-					<a href="index.html"><img src="images/icons/logo-01.png"
-						alt="IMG-LOGO"></a>
-				</div>
-
-				<!-- Icon header -->
-				<div class="wrap-icon-header flex-w flex-r-m m-r-15">
-					<div
-						class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
-						<i class="zmdi zmdi-search"></i>
-					</div>
-
-					<div
-						class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart"
-						data-notify="2">
-						<i class="zmdi zmdi-shopping-cart"></i>
-					</div>
-
-					<a href="#"
-						class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
-						data-notify="0"> <i class="zmdi zmdi-favorite-outline"></i>
-					</a>
-				</div>
-
-				<!-- Button show menu -->
-				<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-					<span class="hamburger-box"> <span class="hamburger-inner"></span>
-					</span>
-				</div>
-			</div>
-		</header>
-
-		<!-- 장바구니 -->
-		<div class="wrap-header-cart js-panel-cart">
-			<div class="s-full js-hide-cart"></div>
-
-			<div class="header-cart flex-col-l p-l-65 p-r-25">
-				<div class="header-cart-title flex-w flex-sb-m p-b-8">
-					<span class="mtext-103 cl2"> 장바구니 목록 </span>
-
-					<div
-						class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-						<i class="zmdi zmdi-close"></i>
-					</div>
-				</div>
-
-				<div class="header-cart-content flex-w js-pscroll">
-					<ul class="header-cart-wrapitem w-full">
-						<li class="header-cart-item flex-w flex-t m-b-12">
-							<div class="header-cart-item-img">
-								<img src="images/item-cart-01.jpg" alt="IMG">
-							</div>
-
-							<div class="header-cart-item-txt p-t-8">
-								<a href="#"
-									class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-									White Shirt Pleat </a> <span class="header-cart-item-info">
-									1 x $19.00 </span>
-							</div>
-						</li>
-
-						<li class="header-cart-item flex-w flex-t m-b-12">
-							<div class="header-cart-item-img">
-								<img src="images/item-cart-02.jpg" alt="IMG">
-							</div>
-
-							<div class="header-cart-item-txt p-t-8">
-								<a href="#"
-									class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-									Converse All Star </a> <span class="header-cart-item-info">
-									1 x $39.00 </span>
-							</div>
-						</li>
-
-						<li class="header-cart-item flex-w flex-t m-b-12">
-							<div class="header-cart-item-img">
-								<img src="images/item-cart-03.jpg" alt="IMG">
-							</div>
-
-							<div class="header-cart-item-txt p-t-8">
-								<a href="#"
-									class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-									Nixon Porter Leather </a> <span class="header-cart-item-info">
-									1 x $17.00 </span>
-							</div>
-						</li>
-					</ul>
-
-					<div class="w-full">
-						<div class="header-cart-total w-full p-tb-40">합계:
-						</div>
-
-						<div class="header-cart-buttons flex-w w-full">
-							<a href="shoping-cart.html"
-								class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-								카트보기 </a> <a href="shoping-cart.html"
-								class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-								체크아웃 </a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- 장바구니 끝-->
-
+<jsp:include page="../includes/header.jsp"></jsp:include>
 
 		<!-- 상태창 -->
 		<div class="container">
@@ -268,8 +48,6 @@
 							<span class="mtext-106 cl2"><h3>상품가격: ${product.productPrice }</h3></span>
 							
 							<span class="mtext-106 cl2"><h3>상품설명: ${product.productDetail }</h3></span>
-							
-							<span class="mtext-106 cl2"><h3>상품재고: ${product.productStock }</h3></span>
 							<!-- 상품상세 끝 -->
 							<!-- 상품수량(plus,minus), 장바구니, 바로결재 -->
 							<div class="p-t-33">
@@ -278,25 +56,24 @@
 									<div class="size-204 flex-w flex-m respon6-next">
 										<div class="wrap-num-product flex-w m-r-20 m-tb-10">
 											<div
-												class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-minus"></i>
+												class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m minusbtn">
+												<i class="fs-16 zmdi zmdi-minus minusbtn"></i>
 											</div>
 
 											<input class="mtext-104 cl3 txt-center num-product"
 												type="number" name="num-product" value="1">
 
-											<div
-												class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-plus"></i>
+											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m plusbtn">
+												<i class="fs-16 zmdi zmdi-plus plusbtn"></i>
 											</div>
 										</div>
-										<div>
+										<div pcode=${product.productCode } memid=${member_id  }>
 										<button
-											class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+											class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail insertcart">
 											장바구니</button>
 											<button
 											class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-											바로결재</button>
+											바로결제</button>
 											</div>
 									</div>
 								</div>
@@ -446,6 +223,7 @@
 				<!-- 상품상세(DetailImg사진 가져오기) 리뷰 창  끝-->
 			</div>
 		</section>
+		<jsp:include page="../includes/footer.jsp"></jsp:include>
 		<!--===============================================================================================-->
 		<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 		<!--===============================================================================================-->
@@ -573,7 +351,46 @@
 	  
 
 	  </script>
+      <script>
+      document.querySelector('.insertcart').addEventListener('click', e => {
+    	  console.log(e.target.parentElement.parentElement.children[1].getAttribute('pcode'));
+    	  
+    	  let pnum = e.target.parentElement.parentElement.children[0].children[1].value;
+    	  let memid = e.target.parentElement.parentElement.children[1].getAttribute('memid');
+    	  let pcode = e.target.parentElement.parentElement.children[1].getAttribute('pcode');
+    	  
+    	  console.log(pnum,pcode,memid)
+    	  
+    	  fetch('insertCart.do?pcode='+ pcode +'&memid='+memid+'&pnum='+pnum)
+    	  .then(result => result.json())
+    	  .then(result => {
+    		  console.log(result)
+    	  })
+    	  .catch(err => console.log(err))
+      })
+      </script>
+      <script>
+      document.querySelector('.plusbtn').addEventListener('click', e => {
+    	    
+    	    let currentQty = e.target.parentElement.children[1].value;
+    	    
+    		e.target.parentElement.children[1].value = currentQty;			
+     		
+    		e.target.parentElement.children[1].value = parseInt(currentQty)+1
+    		
+  			})
+  			
+  	  document.querySelector('.minusbtn').addEventListener('click', e => {
+    	    
+    	    let currentQty = e.target.parentElement.children[1].value;
+    	    
+    		e.target.parentElement.children[1].value = currentQty;			
+     		if (currentQty > 1){
+    		e.target.parentElement.children[1].value = parseInt(currentQty)-1     			
+     		}
+    		
+  			})
+      </script>
 
-		<jsp:include page="../includes/footer.jsp"></jsp:include>
 </body>
 </html>

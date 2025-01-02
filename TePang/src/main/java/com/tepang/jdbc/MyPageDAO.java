@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.tepang.common.DAO;
+import com.tepang.vo.BoardVO;
 import com.tepang.vo.OrderVO;
 import com.tepang.vo.SingupVO;
 
@@ -91,7 +92,6 @@ public SingupVO selectMember(String memberId) {
 				return true;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			disConnect();
@@ -99,11 +99,11 @@ public SingupVO selectMember(String memberId) {
 		return false;
 	}
 	
-	// 회원탈퇴
-	public boolean deleteInfo(SingupVO info) {
+	// 서치 테이블의 데이터 삭제
+	public boolean deleteSearch(SingupVO info) {
 		getConn();
-		String dsql = " DELETE FROM tbl_member "
-				    + "  WHERE tbl_member = ? ";
+		String dsql = " DELETE FROM tbl_search "
+				    + "  WHERE member_id = ? ";
 		try {
 			psmt = conn.prepareStatement(dsql);
 			psmt.setString(1, info.getMemberId());
@@ -117,5 +117,148 @@ public SingupVO selectMember(String memberId) {
 			disConnect();
 		}
 		return false;
+	}
+	
+	// 리뷰 테이블 데이터 삭제
+	public boolean deleteReply(SingupVO info) {
+		getConn();
+		String dsql = " DELETE FROM tbl_reply "
+				    + "  WHERE member_id = ? ";
+		try {
+			psmt = conn.prepareStatement(dsql);
+			psmt.setString(1, info.getMemberId());
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
+	}
+	
+	// 오더 테이블 데이터 삭제
+	public boolean deleteOrder(SingupVO info) {
+		getConn();
+		String dsql = " DELETE FROM tbl_order "
+				    + "  WHERE member_id = ? ";
+		try {
+			psmt = conn.prepareStatement(dsql);
+			psmt.setString(1, info.getMemberId());
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
+	}
+	// 카트 테이블 데이터 삭제
+	public boolean deleteCart(SingupVO info) {
+		getConn();
+		String dsql = " DELETE FROM tbl_cart "
+				    + "  WHERE member_id = ? ";
+		try {
+			psmt = conn.prepareStatement(dsql);
+			psmt.setString(1, info.getMemberId());
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
+	}
+	
+	// 회원탈퇴
+	public boolean deleteMember(SingupVO info) {
+		getConn();
+		String dsql = " DELETE FROM tbl_member "
+				    + "  WHERE member_id = ? ";
+		try {
+			psmt = conn.prepareStatement(dsql);
+			psmt.setString(1, info.getMemberId());
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
+	}
+	// 내가 쓴 문의 리스트 
+	public List<BoardVO> selectMyReply(String replyType, String memberId){
+		getConn();
+		List<BoardVO> mlist = new ArrayList<>();
+		String rql = "SELECT * "
+				   + "  FROM tbl_reply "
+				   + " WHERE reply_type = ? "
+				   + "   AND member_id = ? ";
+
+		try {
+			psmt = conn.prepareStatement(rql);
+			psmt.setString(1, replyType);
+			psmt.setString(2, memberId);
+
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				BoardVO brd = new BoardVO();
+				brd.setReplyCode(rs.getString("reply_code"));
+				brd.setReplyContent(rs.getString("reply_content"));
+				brd.setReplyAnswer(rs.getString("reply_answer"));
+				brd.setMemberId(rs.getString("member_id"));
+				brd.setReplyDate(rs.getDate("reply_date"));
+				
+				mlist.add(brd);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		} return mlist; 
+	} 
+	// 내가 쓴 리뷰 리스트 
+	public List<BoardVO> selectMyReview(String replyType, String memberId){
+		getConn();
+		List<BoardVO> rlist = new ArrayList<>();
+		String vql = " SELECT *"
+				   + "   FROM tbl_reply "
+				   + "  WHERE reply_type = ? "
+				   + "    AND member_id = ? ";
+		
+		try {
+			psmt = conn.prepareStatement(vql);
+			psmt.setString(1, replyType);
+			psmt.setString(2, memberId);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				BoardVO brd = new BoardVO();
+				brd.setReplyCode(rs.getString("reply_code"));
+				brd.setReplyContent(rs.getString("reply_content"));
+				brd.setReplyAnswer(rs.getString("reply_answer"));
+				brd.setMemberId(rs.getString("member_id"));
+				brd.setReplyDate(rs.getDate("reply_date"));
+				
+				rlist.add(brd);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return rlist;
 	}
 }

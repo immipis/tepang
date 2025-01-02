@@ -172,11 +172,11 @@
 		</c:forEach>	
 	 	
 	 	<!-- 로그인상태  => 권한에 따라 활성화/비활성화.
-	 	 로그인 상태 아니면 => 권한 없음. --> 	
+	 	 로그인 상태 아니면 => 권한 없음. -->
 	 	<tr>	 	
 		 	<td colspan="4" align="center">
 		 	<c:choose>
-			 	<c:when test="${logId ne null && board.writer == logId}">
+			 	<c:when test="${member_id ne null && board.writer == logId}">
 			 		<input type="submit" class="btn btn-warning" value="수정화면" >
 			 	</c:when>
 			 	<c:otherwise>		 	
@@ -184,7 +184,7 @@
 			 	</c:otherwise>
 	 		</c:choose>
 	 		</td>
-	 	</tr>
+	 	</tr> 	
 	</table>
 </form>
 <!-- board.jsp 원래 있던 부분. -->

@@ -8,11 +8,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <jsp:include page="../includes/header.jsp"></jsp:include>
     <style>
+        .modal{
+            display:none;
+        }
+
 		#container {
 			width: 1000px;
 			margin: 0 auto;
 			padding-top: 180px;
+		}
+		#list{
+			width: 1000px;
+			margin: 0 auto;		
 		}
 		#title {
 			float: left;
@@ -43,7 +52,6 @@
 	</style>
   </head> 
 </html>
-
 
 <!-- 헤더 -->
 <head>
@@ -92,83 +100,16 @@
 <link rel="stylesheet" type="text/css" href="css/main.css?after">
 <!--===============================================================================================-->
 </head>
-<body class="animsition">
-	<header>
-		<!-- Header desktop -->
-		<div class="container-menu-desktop">
-		
-			<!-- Topbar -->
-			<div class="top-bar">
-				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">안녕하세요</div>
-					<div class="right-top-bar flex-w h-full">
 
-
-                    <c:choose>
-                    <c:when test="${not empty member_id }">
-                      <a class="flex-c-m trans-04 p-lr-25" > ${member_id }</a>
-                      <a class="flex-c-m trans-04 p-lr-25" href="myPage.do">마이 페이지</a>
-                      <a class="flex-c-m trans-04 p-lr-25" href="tepanglogout.do">로그아웃</a>
-                      <a href="./boardList.do" class="flex-c-m trans-04 p-lr-25"> Board </a>
-                    </c:when>
-                    <c:otherwise>
-
-                      <a class="flex-c-m trans-04 p-lr-25" href="tepanglogin.do">로그인</a>
-						<a href="#" class="flex-c-m trans-04 p-lr-25"> Sign Up </a> 
-
-						<a href="./boardList.do" class="flex-c-m trans-04 p-lr-25"> Board </a>
-
-                    </c:otherwise>
-                    </c:choose>
-					</div>
-				</div>
-			</div>
-
-			<div class="wrap-menu-desktop">
-				<nav class="limiter-menu-desktop container">
-
-					<!-- Logo desktop -->
-					<a href="mainList.do" class="logo"> <img src="images/icons/logo-03.png"
-						alt="IMG-LOGO">
-					</a>
-
-					<!-- Menu desktop -->
-					<div class="menu-desktop">
-						<input class="mtext-107 cl2 plh2 p-r-15 search-input" type="text"
-							name="search-product"></input>
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
-							<i class="zmdi zmdi-search"></i>
-						</div>
-					</div>
-
-					<!-- Icon header -->
-					<div class="wrap-icon-header flex-w flex-r-m">
-						<div
-							class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
-							data-notify="4">
-							<i class="zmdi zmdi-shopping-cart"></i>
-						</div>
-
-						<a href="#"
-							class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
-							data-notify="9654"> <i class="zmdi zmdi-favorite-outline"></i>
-						</a>
-					</div>
-				</nav>
-			</div>
-		</div>
-	</header>
-	<!-- 헤더 끝 -->
 
 	<div id="container">
-
 		<div id="title">
 			<h4>Board</h4>
 			<p>
 				안녕하세요 테팡입니다.<br>상품에 대해 궁금한것이 있으면 문의주세요.
 			</p>
 		</div>		
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">문의하기</button>
+        <button type="button" class="btn btn-primary modalBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">문의하기</button>
 		<c:choose>
         <c:when test="${not empty member_id }">
 			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
@@ -211,7 +152,26 @@
 			  <div class="modal-dialog modal-dialog-centered modal-lg">
 			    <div class="modal-content">
 			      <div class="modal-header">
-			        <p>로그인 시 문의 가능합니다.</p>
+			       <div class="modal-body" >
+					        <form action="./boardForm.do" method="post">
+					          <div class="mb-3">
+					          		<input id="writer" type="text" readonly name="member_id" value="${member_id }">
+					          		
+					          		<select name="reply_type" class="form-control">
+									<option value="">선택하세요.</option>
+									<option value="notice">문의</option>				
+									</select>					 
+					          </div>
+					          <div class="mb-3">
+					            <label  for="message-text" class="col-form-label"  >무엇이 궁금하신가요?</label>
+					            <textarea class="form-control" id="message-text" name="reply_content" placeholder="로그인을 해주세요" readonly></textarea>
+					          </div>      
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>						        
+						      </div>	     
+				      	 </form>
+				       </div>      
+			       
 			        <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
 			      </div>     
 			       
@@ -220,6 +180,10 @@
 			</div>
 		</c:otherwise>
 		</c:choose>	
+		</div>
+		
+				
+
 
 		<!--<button id="QABtn" class="col-sm-2 btn btn-primary"><a href="./board.do"> 문의하기</a></button>  --> 
 		
@@ -272,8 +236,6 @@
 						</c:otherwise>
 					</c:choose>
 
-
-
 					<!--startPage 와 endPage의 값에 해당하는 링크를 반복적으로 생성  -->
 
 					<c:forEach var="p" begin="${paging.startPage }"
@@ -308,10 +270,20 @@
 			</nav>
 		</div>
 	</div>
+	
+	<script>
+	let memberId = `${member_id}`; // 서버에서 값이 넘어오는 경우
+	document.querySelector(".modalBtn").addEventListener('click',e=>{
+		if (memberId) {
+		    
+		  } else {
+		    alert('로그인 시 문의 가능합니다.');
+		  }
+	})	
+	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
 	
-	string replyType = $('replyType').text();
 	
 	</script>
 </body>

@@ -14,13 +14,10 @@
 	margin-left: 100px;
 }
 .content{
-	margin-left: 70px;
-
+	margin-left: 70px;	
 }
 </style>
-<script>
-	
-</script>
+
 <jsp:include page="../includes/header.jsp"></jsp:include>
 <div id=container>
 	<div class="d-flex" id="wrapper">
@@ -37,12 +34,40 @@
 			</div>
 		</div>
 		<div class="content">
+				<h2>내가 쓴 리뷰</h2>		
+				<div id="title">
+			<p>${member_id} 님이 작성하신 리뷰 리스트입니다.</p>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>Title</th>
+						<th>Writer</th>
+						<th>Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="bvo" items="${list}">
+					<tr>
+						<td align="center">
+						${bvo.replyCode}
+						</td>
+						<td><c:out value="${bvo.replyContent}" /></td>
+						<td><c:out value="${bvo.memberId}" /></td>
+						<td>${bvo.replyDate}</td>
+					</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
 		
-			<h2>찜 목록</h2>
 		</div>
 	</div>
 </div>
 </body>
+<script>
+string replyType = $('replyType').text();
+</script>
 <jsp:include page="../includes/footer.jsp"></jsp:include>
 </body>
 </html>

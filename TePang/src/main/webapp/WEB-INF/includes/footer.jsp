@@ -106,9 +106,58 @@
 		class="zmdi zmdi-chevron-up"></i>
 	</span>
 </div>
+</body>
+</html>
+<script>
+	let id = "${member_id}";
+</script>
+<script>
+if (id == null || id == ""){
+	
+} else {
+	    fetch('searchHistory.do?id='+id)
+	      .then(result => result.json())
+	      .then(result => {
+	          result.forEach(item => {
+	              document.querySelector('.search-result').insertAdjacentHTML('beforeend', item+" ");
+	          })
+	      })
+	      .catch(err => console.log(err))
+	    
+	fetch('mainCart.do?id='+id)
+	  .then(result => result.json())
+	  .then(result => {
+		  result.forEach(item => {
+			  addCart(item);
+		  })
+	  })
+	  .catch(err => console.log(err))
+}
 
+function addCart(item){
+	let cartInfo = 
+	`<li class="header-cart-item flex-w flex-t m-b-12">
+		<div class="header-cart-item-img">
+			<img src="images/\${item.productImg }" alt="IMG">
+		</div>
 
+		<div class="header-cart-item-txt p-t-8">
+			<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+				\${item.productName } </a> <span class="header-cart-item-info"> \${item.productPrice }원 x \${item.productNum } = \${item.productPrice * item.productNum }원</span>
+		</div>
+	</li>`;
+	
+	document.getElementById('cartList')
+			.insertAdjacentHTML('beforeend', cartInfo);
+}
+</script> 
 
+<script>
+document.querySelector(".searchBtn").addEventListener('click', e => {
+    let searchText = e.target.parentElement.parentElement.children[0].children[0].value;
+    location.href='productList.do?searchText='+searchText+'&id='+id;
+})
+</script> 
 <!--===============================================================================================-->
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

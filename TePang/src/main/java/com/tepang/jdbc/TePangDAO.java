@@ -7,6 +7,7 @@ import java.util.List;
 import com.tepang.common.DAO;
 import com.tepang.vo.MainVO;
 import com.tepang.vo.SingupVO;
+import com.tepang.vo.TepangSearchVO;
 
 public class TePangDAO extends DAO {
 
@@ -63,43 +64,23 @@ public class TePangDAO extends DAO {
 		}
 		return false;
 	}
-	public String search(String searchText) {
-
-		getConn();
-		String sql = "select * from tbl_product"
-				+ "    where product_name = '%'||?||'%'";
-				
-
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, searchText);
-			
-			
-			rs = psmt.executeQuery();
-			if (rs.next()) {
-				MiainVO mvo = new MainVO();
-			}
-
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		} finally {
-			disConnect();
-		}
-		return null;
-	}
 
 	public List<MainVO> search(String searchText) {
+		
 
 		getConn();
 		String sql = "select * from tbl_product" 
-		+ "            where product_name = '%'||?||'%' ";
+		+ "            where product_name like '%'||?||'%' "
+		+ "               or category like '%'||?||'%' "
+		+ "				  or product_detail like '%'||?||'%' ";
 		
 		List<MainVO> pList = new ArrayList<>();
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, searchText);
-
+			psmt.setString(2, searchText);
+			psmt.setString(3, searchText);
+			
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				MainVO mvo = new MainVO();
@@ -118,8 +99,73 @@ public class TePangDAO extends DAO {
 		} finally {
 			disConnect();
 		}
+		
 		return pList;
 	}
 	
+	
+	public boolean addSearch(String id, String sText) {
+		getConn();
+		
+		String sql = "insert into tbl_search(member_id, search_name)"
+				+ "values (?, ?)";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, sText);
+			
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
+
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
+	}
+	
+
+	public List<String> searchHistory(String id) {
+        getConn();
+        List<String> searchHistory = new ArrayList<>();
+        String sql = "SELECT search_name " +
+                     "FROM ( " +
+                     "    SELECT search_name " +
+                     "    FROM tbl_search " +
+                     "    WHERE member_id = ? " +
+                     "    ORDER BY search_date DESC " +
+                     ") " +
+                     "WHERE ROWNUM <= 5";
+
+        try {
+            psmt = conn.prepareStatement(sql);
+            psmt.setString(1, id);
+
+            rs = psmt.executeQuery();
+            while (rs.next()) {
+                searchHistory.add(rs.getString("search_name"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            disConnect();
+        }
+
+        return searchHistory;
+    }
+
+	public List searchHistory(String id, String searchName) {
+		getConn();
+		String sql = "select member_id, search_name"
+				+ "  from tbl_search"
+				+ " where member_id = 'user01'"
+				+ " order by search_date desc";
+	}
+
 }
 
