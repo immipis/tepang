@@ -84,7 +84,16 @@
 					</div>
 					`
 					document.querySelector(".proList").innerHTML += html;
-				})
+				})//
+				
+				fetch('searchHistory.do?id='+id)
+			      .then(result => result.json())
+			      .then(result => {
+			          result.forEach(item => {
+			              document.querySelector('.search-result').insertAdjacentHTML('beforeend', item+" ");
+			          })
+			      })
+			      .catch(err => console.log(err))
 				
 			})
 			.catch(err => console.log(err));
