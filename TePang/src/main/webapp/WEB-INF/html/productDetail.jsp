@@ -7,9 +7,7 @@
 <!-- 상품상세 -->
 <section class="sec-product-detail bg0 p-t-100 p-b-60">
 <div class="container">
-  <!-- 상품 이미지와 기본 정보 -->
   <div class="row">
-    <!-- 이미지 영역 -->
     <div class="col-md-6 col-lg-7 p-b-30">
       <div class="wrap-pic-w pos-relative">
         <img src="images/${product.productImg}" alt="IMG-PRODUCT">
@@ -20,14 +18,12 @@
       </div>
     </div>
 
-    <!-- 상품 기본 정보 -->
     <div class="col-md-6 col-lg-5 p-b-30">
       <div class="p-r-50 p-t-5">
         <h1 class="mtext-105 cl2 js-name-detail p-b-14">${product.productName}</h1>
         <h3 class="mtext-106 cl2">상품 가격: ${product.productPrice}</h3>
         <h3 class="mtext-106 cl2">상품 설명: ${product.productDetail}</h3>
 
-        <!-- 수량 및 장바구니 버튼 -->
         <div class="p-t-33">
           <div class="wrap-num-product flex-w m-r-20 m-tb-10">
             <button class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m minusbtn">
@@ -53,7 +49,6 @@
     </div>
   </div>
 
-  <!-- 상세 정보 및 리뷰 -->
   <div class="bor10 m-t-50 p-t-43 p-b-40">
     <div class="tab01">
       <!-- 탭 메뉴 -->
@@ -66,7 +61,6 @@
         </li>
       </ul>
 
-      <!-- 탭 내용 -->
       <div class="tab-content p-t-43">
         <!-- 상품 상세 -->
         <div class="tab-pane fade show active" id="description" role="tabpanel">
@@ -75,7 +69,6 @@
           </div>
         </div>
 
-        <!-- 리뷰 작성 및 목록 -->
         <div class="tab-pane fade" id="reviews" role="tabpanel">
           <form class="w-full" action="addReview.do?pcode=${product.productCode}" method="post">
             <h5 class="mtext-108 cl2 p-b-7">"${product.productName}의 리뷰를 작성하세요"</h5>
@@ -108,13 +101,13 @@
           </form>
 
           <div class="reviews">
-            <!-- 리뷰 목록 표시 영역 -->
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 
 </section>
