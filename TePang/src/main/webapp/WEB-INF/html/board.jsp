@@ -147,7 +147,9 @@
 <p>문의 상세 보기<p>
 </div>
 <form action="modifyForm.do">
-	<input type="hidden" name="board_no" value="${reply_code}">
+	<c:forEach var="bvo" items="${dlist}">
+	<input type="hidden" name="replyCode" value="${bvo.replyCode }">
+	</c:forEach>
 <!--	<input type="hidden" name="searchCondition" value="${searchCondition}">
 	<input type="hidden" name="keyword" value="${keyword}">
 	<input type="hidden" name="page" value="${page}"> -->
@@ -176,11 +178,11 @@
 	 	<tr>	 	
 		 	<td colspan="4" align="center">
 		 	<c:choose>
-			 	<c:when test="${member_id ne null && board.writer == logId}">
+			 	<c:when test="${member_id ne null && board.writer == member_id}">
 			 		<input type="submit" class="btn btn-warning" value="수정화면" >
 			 	</c:when>
 			 	<c:otherwise>		 	
-			 		<input type="submit" class="btn btn-warning" value="수정화면" disabled>
+			 		<input type="submit" class="btn btn-warning" value="수정화면">
 			 	</c:otherwise>
 	 		</c:choose>
 	 		</td>

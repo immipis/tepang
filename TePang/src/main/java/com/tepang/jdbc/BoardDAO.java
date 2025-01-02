@@ -12,30 +12,29 @@ import com.tepang.vo.BoardVO;
 
 public class BoardDAO extends DAO {
 
-//	// 수정(내용,제목)
-//		public boolean updateBoard(BoardVO board) {
-//			getConn();
-//			String sql = "UPDATE tbl_reply " //
-//					+ "   SET    reply_content = ? " //
-//					+ "          , reply_answer = ? " + "   WHERE  reply_code = ? "; //
-//
-//			try {
-//				psmt = conn.prepareStatement(sql);
-//				psmt.setString(1, board.getReplyContent());
-//				psmt.setString(2, board.getReplyContent());
-//				psmt.setString(3, board.getReplyCode());
-//				int r = psmt.executeUpdate(); // 쿼리실행.
-//				if (r > 0) {
-//					return true;
-//				}
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			} finally {
-//				disConnect();
-//			}
-//			return false;
-//		}
-//
+	// 수정(내용,제목)
+		public boolean updateBoard(BoardVO board) {
+			getConn();
+			String sql = "UPDATE tbl_reply " //
+					+ "   SET    reply_content = ? " //
+					+ "   WHERE  reply_code = ? "; //
+
+			try {
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, board.getReplyContent());
+				psmt.setString(2, board.getReplyCode());
+				int r = psmt.executeUpdate(); // 쿼리실행.
+				if (r > 0) {
+					return true;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				disConnect();
+			}
+			return false;
+		}
+
 
 	// 상세조회. 파라미터(int boardNo) selectBoard 반환값: BoardVO.
 	public List<BoardVO> selectBoard(String replyType) {
