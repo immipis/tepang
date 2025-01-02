@@ -68,7 +68,7 @@ td.ordertext {
 
 												</tr>
 												<c:forEach var="cart" items="${carts }">
-													<tr data-cnum=${cart.cartNum } class="table_row"
+													<tr data-cnum=${cart.cartNum } class="table_row number"
 														cnum=${cart.cartNum }  memid=${cart.memberId }>
 														<td class="column-1">
 															<div class="how-itemcart1">
@@ -127,21 +127,22 @@ document.querySelector('.insertorder').addEventListener('click', e => {
     let adr = document.querySelector('input[name="adr"]').value;
     let phone = document.querySelector('input[name="phone"]').value;
     let request = document.querySelector('input[name="request"]:checked')?.value;
-    let cnum = e.target.parentElement.parentElement.children[4].children[0].children[1].getAttribute('cnum');
     let memid = e.target.parentElement.parentElement.children[4].children[0].children[1].getAttribute('memid');
 	let osum = sum;
+    let cnum = e.target.parentElement.parentElement.children[4].children[0].children[1].getAttribute('cnum');
+		fetch('cartPayment.do?osum='+osum+'&name='+name+'&adr='+adr+'&phone='+phone+'&request='+request+'&cnum='+cnum+'&memid='+memid)
+		.then(result => result.json())
+		.then(result => {
+			console.log(result);
+		})
+		.catch(err => {
+			console.log(err);
+	    })
+  	        alert('결제 완료!');
+    });
+
 	
-	console.log(cnum);
-	
-	fetch('cartPayment.do?osum='+osum+'&name='+name+'&adr='+adr+'&phone='+phone+'&request='+request+'&cnum='+cnum+'&memid='+memid)
-	.then(result => result.json())
-	.then(result => {
-		console.log(result);
-	})
-	.catch(err => {
-		console.log(err);
-	})
-})
+
 </script>
 <script>
 	let logId = "${logId }";

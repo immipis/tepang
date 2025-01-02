@@ -28,6 +28,7 @@ public class CartPaymentControl implements Control {
 		String osum = req.getParameter("osum");
 		String memid = req.getParameter("memid");
 		
+		System.out.println(cnum);
 		CartVO cvo = new CartVO();
 		
 		cvo.setOrderName(name);
@@ -38,6 +39,7 @@ public class CartPaymentControl implements Control {
 		cvo.setOrderSum(Integer.parseInt(osum));
 		cvo.setMemberId(memid);
 		
+		//List<CartVO>
 		Gson gson = new GsonBuilder().create();
 		String json = "";
 		
@@ -45,15 +47,15 @@ public class CartPaymentControl implements Control {
 		
 		CartDAO cdao = new CartDAO();
 		
-		if (cdao.insertOrder(cvo)) {
-			orderMap.put("retCode", "OK");
-			orderMap.put("retVal", cvo);
-			
-			json = gson.toJson(orderMap);
-			resp.getWriter().print(json);
-		} else {
-			resp.getWriter().print("{\"retCode\": \"Fail\"}");
-		}
+		
+		  if (cdao.insertOrder(cvo)) { orderMap.put("retCode", "OK");
+		  orderMap.put("retVal", cvo);
+		  
+		  json = gson.toJson(orderMap); resp.getWriter().print(json); } 
+		  else {
+		  resp.getWriter().print("{\"retCode\": \"Fail\"}"); 
+		  }
+		 
 		
 		
 				

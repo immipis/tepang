@@ -146,9 +146,17 @@ public class CartDAO extends DAO{
     
     public boolean insertOrder(CartVO cvo) {
     	getConn();
-    	String sql = "insert into tbl_order (cart_num, order_adr, order_name, order_phone, order_request, order_sum, member_id, order_content)\r\n"
-    			+ "values(?, ?, ?, ?, ?, ?, ?,'값')";
+    	String sql = "insert into tbl_order (cart_num, order_adr, order_name, order_phone, order_request, order_sum, member_id, order_no)\r\n"
+    			+ "values(?, ?, ?, ?, ?, ?, ?, 'O'||?)";
     	try {
+    		psmt = conn.prepareStatement("select onum.nextval from dual");
+    		rs = psmt.executeQuery();
+    		String ono = "0";
+    		if (rs.next()) {
+    			ono = rs.getString(1);
+    			cvo.setOrderNo(ono);
+    		}
+    		
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, cvo.getCartNum());
 			psmt.setString(2, cvo.getOrderAdr());
@@ -157,6 +165,7 @@ public class CartDAO extends DAO{
 			psmt.setString(5, cvo.getOrderRequest());
 			psmt.setInt(6, cvo.getOrderSum());
 			psmt.setString(7, cvo.getMemberId());
+			psmt.setString(8, ono);
 			
 			int r = psmt.executeUpdate();
 			if (r > 0) {
