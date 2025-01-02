@@ -110,7 +110,25 @@
 </html>
 <script>
 	let id = "${member_id}";
+    fetch('cartCount.do?id='+id)
+    .then(result => result.json())
+    .then(result => {
+        document.querySelector('.cartnum').setAttribute('data-notify',result);
+        document.querySelector('.likenum').setAttribute('data-notify',result);
+        
+    })
+    .catch(err => console.log(err))
 </script>
+<script>
+    fetch('likeCount.do?id='+id)
+    .then(result => result.json())
+    .then(result => {
+        document.querySelector('.likenum').setAttribute('data-notify',result);
+        
+    })
+    .catch(err => console.log(err))
+</script>
+
 <script>
 if (id == null || id == ""){
 	
@@ -128,9 +146,7 @@ if (id == null || id == ""){
 	          })
 	      })
 	      .catch(err => console.log(err))
-	    
-	    `<a href="productList.do?searchText="+searchText>`
-	    
+	    	    
 	fetch('mainCart.do?id='+id)
 	  .then(result => result.json())
 	  .then(result => {
