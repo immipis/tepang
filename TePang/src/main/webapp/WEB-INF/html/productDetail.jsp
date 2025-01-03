@@ -472,7 +472,7 @@
 				var ps = new PerfectScrollbar(this, {
 					wheelSpeed : 1,
 					scrollingThreshold : 1000,
-					wheelPropagation : false,
+					wheelPropagation : false, 
 				});
 
 				$(window).on('resize', function() {
