@@ -124,7 +124,7 @@ public class TepangFrontControl extends HttpServlet {
         // 리뷰 이신영
 		map.put("/review.do", new ReviewControl()); // 목록
 		map.put("/removeReview.do", new RemoveReviewControl()); // 삭제
-//		map.put("/addReview.do", new AddReviewControl()); // 등록
+		map.put("/addReview.do", new AddReviewControl()); // 등록
 		map.put("/getConut.do", new GetReviewCountControl()); //갯수
 
 

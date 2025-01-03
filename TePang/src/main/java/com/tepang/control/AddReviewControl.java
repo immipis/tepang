@@ -1,5 +1,6 @@
 package com.tepang.control;
 
+import java.io.Console;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +32,7 @@ public class AddReviewControl implements Control {
 //		req.getRequestDispatcher("WEB-INF/html/productDetail.jsp").forward(req, resp);
 //		
 //		}
-		
+		System.out.println(mi+rs+pc);
 		BoardVO bv = new BoardVO();
 		
 		bv.setMemberId(mi);
