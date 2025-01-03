@@ -231,9 +231,11 @@ section.notice {
                 <tbody>
             <c:forEach var="bvo" items="${list}">
 					<tr>
-						<td align="center"><a href="">${bvo.replyCode}</a>
+						<td><c:out value="${bvo.replyCode}" /></td>
+						<td align="center"><a href="board.do?page=${paging.currentPage }
+						  
+						&reply_code=${bvo.replyCode}">${bvo.replyContent}</a>
 						</td>
-						<td><c:out value="${bvo.replyContent}" /></td>
 						<td><c:out value="${bvo.memberId}" /></td>
 						<td>${bvo.replyDate}</td>
 					</tr>

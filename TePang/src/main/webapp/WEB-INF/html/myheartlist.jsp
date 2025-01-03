@@ -42,8 +42,8 @@
 
 
 .pimg{
-	width: 100px;
-	height: 100px;
+	width: 200px;
+	height: 200px;
 }
 
 
@@ -222,9 +222,9 @@ section.notice {
             <table class="board-table">
                 <thead>
                 <tr>
-                    <th scope="col" class="th-num">순번</th>
-                    <th scope="col" class="th-title">상품이름</th>
-                    <th scope="col" class="th-date">상품가격</th>
+                    <th scope="col" class="th-num">이미지</th>
+                    <th scope="col" class="th-date">상품이름</th>
+                    <th scope="col" class="th-title">상품가격</th>
                     <th scope="col" class="th-date">카테고리</th>
                 </tr>
                 </thead>
