@@ -72,7 +72,7 @@
 
 					<div class="tab-pane fade" id="reviews" role="tabpanel">
 						<form class="w-full"
-							action="addReview.do?pcode=${product.productCode}" method="post">
+							action="productDetail.do?pcode=${product.productCode}" method="post">
 							<h5 class="mtext-108 cl2 p-b-7">"${product.productName}의 리뷰를
 								작성하세요"</h5>
 							<div class="flex-w flex-m p-t-50 p-b-23">
@@ -288,7 +288,8 @@
 			  postDiv.remove();
 		  	  savePosts();
 		  })
-	 </script>
+</script>
+
 <script>
 
       document.querySelector('.insertcart').addEventListener('click', e => {
@@ -313,10 +314,10 @@
 
 <script>
       document.querySelector('.insertlike').addEventListener('click', e => {
-    	  console.log(e.target);
+    	  let a = e.target.parentElement.parentElement.children[1];
     	  
-    	  let memid = e.target.parentElement.parentElement.parentElement.getAttribute('memid');
-    	  let pcode = e.target.parentElement.parentElement.parentElement.getAttribute('pcode');
+    	  let memid = a.getAttribute('memid');
+    	  let pcode = a.getAttribute('pcode');
     	  
     	  
     	  fetch('insertLike.do?pcode='+ pcode +'&memid='+memid)
