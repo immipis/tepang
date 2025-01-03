@@ -16,7 +16,7 @@ public class ModifyBoardControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		resp.setContentType("text/html;charset=utf-8"); //문자열
+		req.setCharacterEncoding("utf-8"); //문자열
 		
 		BoardDAO bdao = new BoardDAO();
 		
