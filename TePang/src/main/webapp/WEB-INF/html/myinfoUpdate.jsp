@@ -71,6 +71,9 @@ select {
 .d-flex {
 	margin-left: 100px;
 }
+.red {
+	color: red;
+}
 </style>
 <script>
 </script>
@@ -96,37 +99,37 @@ select {
 				<td><h2>정보 수정</h2></td>
 			</tr>
 			<tr>
-				<td>아이디 (수정불가)</td>
+				<td>아이디</td>
 			</tr>
 			<tr>
 				<td><input type="text" class="text" readonly value="${mem.memberId}"></td>
 			</tr>
 			<tr>
-				<td>비밀번호</td>
+				<td>비밀번호 <span class="red">*</span></td>
 			</tr>
 			<tr>
 				<td><input type="password" id="mempass" class="text"></td>
 			</tr>
 			<tr>
-				<td>비밀번호 확인</td>
+				<td>비밀번호 확인 <span class="red">*</span></td>
 			</tr>
 			<tr>
 				<td><input type="password" id="passcheck" class="text"></td>
 			</tr>
 			<tr>
-				<td>이름 (수정불가)</td>
+				<td>이름</td>
 			</tr>
 			<tr>
 				<td><input type="text" class="text" readonly value="${mem.memberName}"></td>
 			</tr>
 			<tr>
-				<td>주소</td>
+				<td>주소 <span class="red">*</span></td>
 			</tr>
 			<tr>
 				<td><input type="text" class="text" id="memadr" value="${mem.memberAdr}"></td>
 			</tr>
 			<tr>
-				<td>관심사</td>
+				<td>관심사 <span class="red">*</span></td>
 			</tr>
 			<tr>
 				<td><input type="text" class="text" id="memfv" value="${mem.memberFv}"></td>
@@ -135,6 +138,7 @@ select {
 				<td><input type="button" value="저장하기" class="btn"></td>
 			</tr>
 		</table>
+		<p><span class="red">*</span> 는 수정 가능</p>
 		</form>
 				</div>
 			</div>

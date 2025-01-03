@@ -36,6 +36,7 @@ import com.tepang.control.MyInfoUpdateControl;
 import com.tepang.control.MyInfoUpdatePageControl;
 import com.tepang.control.MyPageBoardControl;
 import com.tepang.control.MyReplyControl;
+import com.tepang.control.MyReplyDeleteControl;
 import com.tepang.control.MyReviewControl;
 import com.tepang.control.PaymentControl;
 import com.tepang.control.ProductDetailControl;
@@ -111,6 +112,7 @@ public class TepangFrontControl extends HttpServlet {
 		// 마이페이지 박혜원 
 		map.put("/myPage.do", new MyPageBoardControl()); // 마이페이지 상세 (구매목록 리스트)
 		map.put("/myReply.do", new MyReplyControl()); // 나의 문의 불러오기
+		map.put("/myReplyDelete.do", new MyReplyDeleteControl());// 내가 쓴 문의 삭제
 		map.put("/myHeartList.do", new MyHeartListControl()); // 나의 찜목록 불러오기
 		map.put("/myInfo.do", new MyInfoControl()); 	// 내 정보확인
 		map.put("/myInfoUpdatePage.do", new MyInfoUpdatePageControl()); // 정보 수정 페이지 
@@ -118,7 +120,6 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/myReview.do", new MyReviewControl()); // 내가 쓴 리뷰 불러오기
 		map.put("/myInfoDeletePage.do", new MyInfoDeletePageControl()); // 회원탈퇴 페이지
 		map.put("/infoDelete.do", new MyInfoDropControl()); // 회원탈퇴 기능
-		
         // 리뷰 이신영
 		map.put("/review.do", new ReviewControl()); // 목록
 		map.put("/removeReview.do", new RemoveReviewControl()); // 삭제

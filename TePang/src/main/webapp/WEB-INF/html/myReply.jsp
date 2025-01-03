@@ -250,7 +250,9 @@ section.notice {
 
 </div>
 </body>
+<script>
 
+</script>
 <!-- Footer -->
 <jsp:include page="../includes/footer.jsp"></jsp:include>
 </body>
