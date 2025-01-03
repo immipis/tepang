@@ -16,7 +16,7 @@ public class ProductDetailControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
+		req.setCharacterEncoding("UTF-8");
 		// ?pcode=C2
 		String pno = req.getParameter("pcode");
 		
