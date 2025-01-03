@@ -100,8 +100,7 @@ select {
 				<table>
 
 					<tr>
-						<td><h2>나의 정보</h2>
-							<small>(${mem.memberId} 님)</small></td>
+						<td><h2>나의 정보</h2></td>
 					</tr>
 					<tr>
 						<td>아이디</td>
