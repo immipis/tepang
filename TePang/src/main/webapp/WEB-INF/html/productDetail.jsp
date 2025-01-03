@@ -40,9 +40,11 @@
 							class="insertcart flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail"
 							pcode="${product.productCode}" memid="${member_id}">
 							장바구니</button>
-						<button
-							class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-							바로결제</button>
+						<form action="payment.do?id=${logId }">
+							<button
+								class="cartbtn flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">구매하러가기
+							</button>						
+						</form>
 						<button class="insertlike">
 							<i class="fa-solid fa-heart"></i>
 						</button>
@@ -298,6 +300,10 @@
     	  let pnum = e.target.parentElement.children[0].children[1].value;
     	  let memid = e.target.getAttribute('memid');
     	  let pcode = e.target.getAttribute('pcode');
+    	  
+    	  let ab = document.querySelector('.cartnum').getAttribute('data-notify');
+    	  let abc = ab+1;
+    	  document.querySelector('.cartnum').setAttribute('data-notify',abc);
     	  
     	  console.log(pnum,pcode,memid)
     	  
