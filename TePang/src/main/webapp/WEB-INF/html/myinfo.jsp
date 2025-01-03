@@ -3,6 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <style>
+.list-group > a.backcolor{
+	background-color: sky-blue;
+}
 #container {
 	width: 1500px;
 	margin: 0 auto;
@@ -87,7 +90,7 @@ select {
 		<!-- Sidebar-->
 		<div class="border-end bg-white" id="sidebar-wrapper">
 			<div class="list-group list-group-flush">
-				<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myPage.do">구매목록</a> 
+				<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myPage.do" >구매목록</a> 
 				<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myReply.do">내가 쓴 문의</a> 
 				<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myReview.do">내가 쓴 리뷰</a> 
 				<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myHeartList.do">찜 목록</a> 

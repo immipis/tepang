@@ -302,6 +302,25 @@ public SingupVO selectMember(String memberId) {
 			disConnect();
 		} return clist;
 	}
-	
-
+	// 내 문의 삭제 
+	public boolean deleteMyReply(String memberId, String replyType) {
+		getConn();
+		String dsql = " DELETE FROM tbl_reply "
+					+ "  WHERE member_id = ? "
+					+ "    AND reply_type = ? " ;   
+		try {
+			psmt = conn.prepareStatement(dsql);
+			psmt.setString(1, memberId);
+			psmt.setString(2, replyType);
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return false;
+	}
 }
