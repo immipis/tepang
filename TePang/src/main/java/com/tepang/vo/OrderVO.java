@@ -5,8 +5,14 @@ import lombok.Data;
 @Data
 public class OrderVO {
 	private String cartNum;
-	private String memberId;
-	private String orderContent;
 	private int orderSum;
-	private String memberTier;
+	private String memberId;
+	private String orderDay;
+	private String orderNo;
+	private String orderAdr;
+	private String orderName;
+	private String orderPhone;
+	private String orderRequest;
+	private String productName;
+	private String productImg;
 }

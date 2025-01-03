@@ -90,7 +90,7 @@ select {
 				<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myPage.do">구매목록</a> 
 				<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myReply.do">내가 쓴 문의</a> 
 				<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myReview.do">내가 쓴 리뷰</a> 
-				<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myHeartList.do">찜 목록(미완)</a> 
+				<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myHeartList.do">찜 목록</a> 
 				<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myInfo.do">내 정보 수정</a> 
 				<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myInfoDeletePage.do">회원탈퇴</a> 
 			</div>
@@ -145,7 +145,7 @@ select {
 
 				</table>
 			</form>
-			<a class="update" href="myinfoupdatepage.do">수정하기</a>
+			<a class="update" href="myInfoUpdatePage.do">수정하기</a>
 		</div>
 	</div>
 </div>

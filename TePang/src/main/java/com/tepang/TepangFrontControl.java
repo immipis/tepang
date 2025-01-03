@@ -15,13 +15,17 @@ import com.tepang.control.AddReviewControl;
 import com.tepang.control.BoardControl;
 import com.tepang.control.BoardFormControl;
 import com.tepang.control.BoardListControl;
+import com.tepang.control.CartCountControl;
 import com.tepang.control.CartListControl;
 import com.tepang.control.CartPaymentControl;
 import com.tepang.control.GetReviewCountControl;
 import com.tepang.control.HeartListAddControl;
 import com.tepang.control.InsertCartControl;
+import com.tepang.control.LikeCountControl;
 import com.tepang.control.MainCartControl;
 import com.tepang.control.MainControl;
+import com.tepang.control.ModifyBoardControl;
+import com.tepang.control.ModifyFormControl;
 import com.tepang.control.MyHeartListControl;
 import com.tepang.control.MyInfoControl;
 import com.tepang.control.MyInfoDeletePageControl;
@@ -69,15 +73,22 @@ public class TepangFrontControl extends HttpServlet {
 		map.put("/userFvItem.do", new userFvItemControl());
 
 		map.put("/cartList.do", new CartListControl()); // 장바구니 목록 출력.
+		map.put("/cartCount.do", new CartCountControl());
+		map.put("/likeCount.do", new LikeCountControl());
 		map.put("/updateCart.do", new UpdateCartControl()); // 장바구니 수량 변경.
 		map.put("/removeCart.do", new RemoveCartControl()); // 장바구니 목록 삭제.
 		map.put("/mainCart.do", new MainCartControl());
 		map.put("/insertCart.do", new InsertCartControl()); // 장바구니 등록.
 		map.put("/payment.do", new PaymentControl());
 		map.put("/cartPayment.do", new CartPaymentControl());
+		
+		
 		map.put("/boardList.do", new BoardListControl()); // 게시판목록
 		map.put("/board.do", new BoardControl()); // 게시판목록 > 상세
 		map.put("/boardForm.do", new BoardFormControl()); //문의하기 폼
+		//게시글 수정.
+		map.put("/modifyForm.do", new ModifyFormControl()); //수정하는 화면
+		map.put("/modifyBoard.do", new ModifyBoardControl()); //수정기능
 
 		// 로그인 및 로그아웃 도한준
 		map.put("/tepnagloginForm.do", new TepangLoginFormControl());
