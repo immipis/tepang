@@ -26,6 +26,10 @@
 			font-size: 20px;
 			font-weight: bold;
 		}
+		
+		#btnList{
+			text-decoration: none;
+		}
 	</style>
     
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -176,7 +180,7 @@
 	 	<!-- 로그인상태  => 권한에 따라 활성화/비활성화.
 	 	 로그인 상태 아니면 => 권한 없음. -->
 	 	<tr>	 	
-		 	<td colspan="4" align="center">
+		 	<td colspan="5" align="center">
 		 	<c:choose>
 			 	<c:when test="${member_id ne null && board.writer == member_id}">
 			 		<input type="submit" class="btn btn-warning" value="수정화면" >
@@ -184,8 +188,10 @@
 			 	<c:otherwise>		 	
 			 		<input type="submit" class="btn btn-warning" value="수정화면">
 			 	</c:otherwise>
-	 		</c:choose>
+	 		</c:choose>	 
+	 		<button class="btn btn-dark"><a href = "boardList.do">목록</a></button>	
 	 		</td>
+	 		
 	 	</tr> 	
 	</table>
 </form>
