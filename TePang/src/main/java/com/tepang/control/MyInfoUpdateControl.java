@@ -23,7 +23,7 @@ public class MyInfoUpdateControl implements Control {
 		String pw = req.getParameter("member_pw");
 		String adr = req.getParameter("member_adr");
 		String fv = req.getParameter("member_fv");
-
+		
 		System.out.println(mid);
 
 		SingupVO sing = new SingupVO();
