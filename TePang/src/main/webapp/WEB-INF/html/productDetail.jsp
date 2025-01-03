@@ -275,6 +275,7 @@
 	  	.catch(err => console.log(err)); 
 	  
 	  </script>
+
 <script>
 		  const deleteButton = document.getElementById("deleteButton");
 		  const postDiv = document.getElementById("postDiv");
@@ -291,11 +292,11 @@
 <script>
 
       document.querySelector('.insertcart').addEventListener('click', e => {
-    	  console.log(e.target.parentElement.parentElement.children[1].getAttribute('pcode'));
+
     	  
-    	  let pnum = e.target.parentElement.parentElement.children[0].children[1].value;
-    	  let memid = e.target.parentElement.parentElement.children[1].getAttribute('memid');
-    	  let pcode = e.target.parentElement.parentElement.children[1].getAttribute('pcode');
+    	  let pnum = e.target.parentElement.children[0].children[1].value;
+    	  let memid = e.target.getAttribute('memid');
+    	  let pcode = e.target.getAttribute('pcode');
     	  
     	  console.log(pnum,pcode,memid)
     	  
@@ -306,14 +307,13 @@
     	  })
     	  .catch(err => console.log(err))
     	  
-    	  alert('장바구니 담기 성공!');
       })
       </script>
 
 
 <script>
       document.querySelector('.insertlike').addEventListener('click', e => {
-    	  console.log(e.target.parentElement.parentElement.getAttribute('pcode'));
+    	  console.log(e.target);
     	  
     	  let memid = e.target.parentElement.parentElement.parentElement.getAttribute('memid');
     	  let pcode = e.target.parentElement.parentElement.parentElement.getAttribute('pcode');
