@@ -462,7 +462,7 @@
 	  		//.innerHTML+=result[i] + replyContent;
 	  		}
 	  	})
-	  	.catch(err => console.log(err));
+	  	.catch(err => console.log(err)); 
 	  
 	  </script>
 		<script>
