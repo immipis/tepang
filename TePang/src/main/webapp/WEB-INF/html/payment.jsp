@@ -134,10 +134,12 @@ document.querySelector('.insertorder').addEventListener('click', e => {
 		.then(result => result.json())
 		.then(result => {
 			console.log(result);
-			if(result.reCode == "OK") {
-  	        alert('결제 완료!');				
+
+			if(result.retCode =="OK") {
+  	        	alert('결제 완료!');				
+
 			} else {				
-  	        alert('결제 실패!');				
+  	        	alert('결제 실패!');				
 			}
 		})
 		.catch(err => {
@@ -147,7 +149,4 @@ document.querySelector('.insertorder').addEventListener('click', e => {
 
 	
 
-</script>
-<script>
-	let logId = "${logId }";
 </script>
