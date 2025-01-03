@@ -293,6 +293,7 @@ public SingupVO selectMember(String memberId) {
 				crt.setCategory(rs.getString("category"));
 				crt.setProductCode(rs.getString("product_code"));
 				
+				
 				clist.add(crt);
 			}
 		} catch (SQLException e) {
