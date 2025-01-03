@@ -451,9 +451,10 @@
 								</span>
 						</div>
 							<p class="stext-102 cl6">\${result[i].replyContent }</p>
-					  </div>
-					  <button id="btn-delete" type="button" class="btn btn-danger">
+					  </div id="postDiv">
+					  <button id="deleteButton" type="button" class="btn btn-danger">
 							삭제</button>
+							</div>
 					</div>`);
 	  				
 	//  				<h5 id="result" class="card">\${result[i].memberId}</h5>
@@ -463,8 +464,20 @@
 	  	})
 	  	.catch(err => console.log(err));
 	  
-
 	  </script>
+		<script>
+		  const deleteButton = document.getElementById("deleteButton");
+		  const postDiv = document.getElementById("postDiv");
+		  
+		  function savePosts(){
+			  localStorage.setltem("posts", JSON.stringify([]));
+		  }
+		  
+		  deleteButton.addEventListener("click", function(){
+			  postDiv.remove();
+		  	  savePosts();
+		  })
+	 </script>
 	<script>
       document.querySelector('.insertcart').addEventListener('click', e => {
     	  console.log(e.target.parentElement.parentElement.children[1].getAttribute('pcode'));
